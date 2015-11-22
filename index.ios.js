@@ -7,24 +7,24 @@
 /* ==============================
   Initialise App
   =============================== */
-  /* Generic Plugins */
+  // React
   var React = require('react-native');
-  var S = require('./ReactApp/styles.ios');
-  var Icons = require('./ReactApp/components/icons.ios');
-
-  /* React Plugins */
   var EventEmitter = require('EventEmitter');
   var Subscribable = require('Subscribable');
 
-  /* Plugins */
+  // 3rd Party Components
   var NavigationBar = require('react-native-navbar');
   var SideMenu = require('react-native-side-menu');
 
-  /* Screens / Pages */
-  var Index = require('./ReactApp/screens/tabbar.ios');
+  // App Globals
+  var AppStyles = require('./ReactApp/styles.ios');
 
-  /* Components */
+  // Components
+  var Icons = require('./ReactApp/components/icons.ios');
   var Menu = require('./ReactApp/components/menu.ios');
+
+  // Screens / Pages
+  var Index = require('./ReactApp/screens/tabbar.ios');
 
   var {
     AppRegistry,
@@ -45,16 +45,20 @@
   class CustomTitle extends React.Component {
     render() {
       return (
-        <Text style={[S.baseText, S.fontWeight_bold, S.navbar_title]}>{this.props.title}</Text>
+        <Text style={[AppStyles.baseText, AppStyles.strong, AppStyles.navbar_title]}>{this.props.title}</Text>
       );
     }
   }
 
-  /* Main View w/ Sidebar */
+  /**
+   *  Main View w/ Sidebar
+   */
   var Application = React.createClass({
     mixins: [Subscribable.Mixin],
 
-    /* Before Load */
+    /**
+      * Before Load
+      */
     getInitialState: function() {
       return {
         touchToClose: true,
@@ -62,22 +66,30 @@
       };
     },
 
-    /* On Load */
+    /**
+      * On Load
+      */
     componentWillMount: function() {
       this.eventEmitter = new EventEmitter();
     },
 
-    /* When Back Button from NavBar is Clicked */
+    /**
+      * When Back Button from NavBar is Clicked
+      */
     onLeftBackButtonPress: function(navigator) {
       this.refs.rootNavigator.pop();
     },
 
-    /* When Hamburger from NavBar is Clicked */
+    /**
+      * When Hamburger from NavBar is Clicked
+      */
     onLeftButtonPress: function() {
       this.eventEmitter.emit('toggleMenu');
     },
 
-    /* Navigates to page from menu */
+    /**
+      * Navigates to page from menu
+      */
     navigate: function(title, link) {
       this.refs.rootSidebarMenu.closeMenu();
 
@@ -87,16 +99,18 @@
       });
     },
 
-    /* Generate Custom Navbar */
+    /**
+      * Generate Custom Navbar
+      */
     renderScene: function(route, navigator) {
       var Component = route.component;
       var navBar = route.navigationBar;
 
-      /* Icons */
+      // Icons
       var MenuIcon = Icons.MenuIcon;
       var BackIcon = Icons.BackIcon;
 
-      /* Navbar Setup */
+      // Navbar Setup
       if (navBar) {
         navBar = React.addons.cloneWithProps(navBar, {
           navigator: navigator,
@@ -104,24 +118,24 @@
         });
       }
       
-      /* Default Navbar Title */
+      // Default Navbar Title
       var title = 'Starter App';
       if(route.title != undefined) {
         title = route.title;
       }
 
-      /* Determine which Icon component - hamburger or back? */
+      // Determine which Icon component - hamburger or back?
       var customPrev = <MenuIcon leftButtonPress={this.onLeftButtonPress} />;
       if (route.index > 0){
         var customPrev = <BackIcon leftButtonPress={this.onLeftBackButtonPress} />;
       }
 
-      /* Done */
+      // Done
       return (
-        <View style={S.container}>
+        <View style={AppStyles.container}>
           <NavigationBar
             title={title}
-            style={S.navbar}
+            style={AppStyles.navbar}
             customPrev={customPrev}
             customTitle={<CustomTitle title={title} />} />
 
@@ -130,7 +144,9 @@
       );
     },
 
-    /* RENDER */
+    /**
+      * RENDER
+      */
     render: function() {
       return (
         <SideMenu
@@ -141,7 +157,7 @@
 
           <Navigator
             ref="rootNavigator"
-            style={[S.container, S.appContainer]}
+            style={[AppStyles.container, AppStyles.appContainer]}
             renderScene={this.renderScene}
             initialRoute={{
               component: Index,

@@ -9,10 +9,12 @@
 /* ==============================
   Initialise Component
   =============================== */
-  /* Generic Plugins */
+  // React
   var React = require('react-native');
-  var S = require('../styles.ios');
-  var C = require('../config.ios');
+
+  // App Globals
+  var AppStyles = require('../styles.ios');
+  var AppConfig = require('../config.ios');
 
   /* Screens / Pages */
   // var AnotherPage = require('./tabbar.ios');
@@ -29,7 +31,9 @@
   =============================== */
   var ComingSoon = React.createClass({
 
-    /* Navigates to page from menu */
+    /**
+      * Navigates to page from menu
+      */
     navigate: function() {
       this.props.navigator.push({
         title: "Shopping Cart", 
@@ -38,13 +42,15 @@
       });
     },
 
-    /* RENDER */
+    /**
+      * RENDER
+      */
     render() {
       var placeholderText = this.props.placeholder;
       if(placeholderText == undefined) { placeholderText = 'Coming soon...'; }
       return (
-        <View style={[S.container, S.containerCentered]}>
-          <Text style={[S.baseText, S.p]}>
+        <View style={[AppStyles.container, AppStyles.containerCentered]}>
+          <Text style={[AppStyles.baseText, AppStyles.p]}>
             {placeholderText}
           </Text>
           <Text onPress={this.navigate}>

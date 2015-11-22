@@ -9,12 +9,14 @@
 /* ==============================
   Initialise Component
   =============================== */
-  /* Plugins */
+  // React
   var React = require('react-native');
-  var S = require('../styles.ios');
-  var C = require('../config.ios');
 
-  /* Screens / Pages */
+  // App Globals
+  var AppStyles = require('../styles.ios');
+  var AppConfig = require('../config.ios');
+
+  // Screens / Pages
   var ComingSoon = require('./soon.ios');
 
   var {
@@ -28,7 +30,9 @@
   =============================== */
   class Tabbar extends Component {
 
-    /* Setup Default State Values */
+    /**
+      * Setup Default State Values
+      */
     constructor(props) {
       super(props);
       this.state = {
@@ -36,7 +40,9 @@
       }
     }
 
-    /* RENDER */
+    /**
+      * RENDER
+      */
     render() {
       return (
         <TabBarIOS selectedTab={this.state.selectedTab}>

@@ -9,25 +9,26 @@
 /* ==============================
   Initialise Component
   =============================== */
-  /* Generic Plugins */
+  // React
   var React = require('react-native');
-  var S = require('../styles.ios');
-  var C = require('../config.ios');
-
-  /* React Plugins */
   var EventEmitter = require('EventEmitter');
   var Subscribable = require('Subscribable');
 
-  /* Screens / Pages - All the links in the menu */
+  // App Globals
+  var AppStyles = require('../styles.ios');
+  var AppConfig = require('../config.ios');
+
+  // Screens / Pages
   var Index = require('../screens/tabbar.ios');
   var ComingSoon = require('../screens/soon.ios');
+  var FormExample = require('../modules/example/screens/forms.ios');
 
   var {
     StyleSheet,
     View,
     Text,
     Component,
-    TouchableHighlight
+    TouchableOpacity
   } = React;
 
 /* ==============================
@@ -36,45 +37,58 @@
 var Menu = React.createClass({
   mixins: [Subscribable.Mixin],
 
-  /* Allow this component to see sidebar menu functions */
+  /**
+    * Allow this component to see sidebar menu functions
+    */
   contextTypes : {
     menuActions: React.PropTypes.object.isRequired
   },
 
-  /* On Load */
+  /**
+    * On Load
+    */
   componentDidMount: function() {
     this.addListenerOn(this.props.events, 'toggleMenu', this.onLeftButtonPress);
   },
 
-  /* When Navbar Left Button Tapped */
+  /**
+    * When Navbar Left Button Tapped
+    */
   onLeftButtonPress: function() {
     this.context.menuActions.toggle();
   },
 
-  /* Go To Screen */
+  /**
+    * Go To Screen
+    */
   goToScreen: function(title, link) {
     this.props.navigate(title, link);
   },
 
+  /**
+    * RENDER
+    */
   render: function() {
-    /* Programatically Generate the Links */
+    // Programatically Generate the Links
     var linksJsx = [];
 
-    /* ['**TITLE**', '**MODULE_NAME**'] */
+    // ['**TITLE**', '**MODULE_NAME**']
     var links = [
       ['Tab Bar', Index],
-      ['New Arrivals', ComingSoon],
+      ['Forms', FormExample],
       ['Shop', ComingSoon],
     ];
 
-    /* Build the actual Menu Items */
+    // Build the actual Menu Items
     for (var i=0; i < links.length; i++) {
       linksJsx.push(
-        <TouchableHighlight underlayColor="#3B3B3B" style={styles.menuItemWrapper} onPress={this.goToScreen.bind(this, links[i][0], links[i][1])}>
+        <TouchableOpacity 
+          style={[]} 
+          onPress={this.goToScreen.bind(this, links[i][0], links[i][1])}>
           <View style={styles.menuItem}>
-            <Text style={[S.baseText, styles.menuItemText]}>{links[i][0]}</Text>
+            <Text style={[AppStyles.baseText, styles.menuItemText]}>{links[i][0]}</Text>
           </View>
-        </TouchableHighlight>
+        </TouchableOpacity>
       );
     }
 
@@ -92,14 +106,11 @@ var Menu = React.createClass({
   var styles = StyleSheet.create({
     menu: {
       flex: 1,
-      width: C.windowWidth - 60,
-      height: C.windowHeight,
+      width: AppConfig.windowWidth * 0.68,
+      height: AppConfig.windowHeight,
       backgroundColor: '#3B3B3B',
       padding: 20,
-      paddingTop: 20,
-    },
-    menuItemWrapper: {
-      paddingRight: 20,
+      paddingTop: AppConfig.statusBarHeight,
     },
     menuItem: {
       borderBottomWidth: 1,
@@ -109,7 +120,7 @@ var Menu = React.createClass({
     menuItemText: {
       fontSize: 17,
       fontWeight: '800',
-      paddingTop: 15,
+      paddingTop: 10,
       flex: 1,
       color: "#ccc"
     },

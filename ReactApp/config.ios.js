@@ -9,10 +9,8 @@
 /* ==============================
   Initialise Component
   =============================== */
-  /* Plugins */
+  // React
   var React = require('react-native');
-
-  /* React Plugins */
   var Dimensions = require('Dimensions');
 
   var {
@@ -27,9 +25,15 @@
 /* ===============================
   Default Style Variables 
   =============================== */
+  // Window Dimensions
   var window = Dimensions.get('window');
   exports.windowHeight = window.height;
   exports.windowWidth = window.width;
+
+  // General Element Dimensions
+  var navbarHeight = 63;
+  exports.navbarHeight = navbarHeight;
+  exports.statusBarHeight = 22;
 
   // Grid
   exports.grid_half = window.width * 0.5;
@@ -38,6 +42,12 @@
   exports.grid_quarter = window.width * 0.25;
   exports.grid_threeQuarters = window.width * 0.75;
 
-  // Navbar
-  exports.navbarHeight = 63;
+  // Fonts
+  exports.baseFont = 'Avenir';
+
+  // Colors
+  exports.primaryColor = "#4099FF";
+  exports.textMain = "#555";
+  exports.textSecondary = "#888";
+  exports.subtleGreyBorder = "#E7E7E7";
 

@@ -14,13 +14,13 @@
 
   // App Globals
   var AppStyles = require('../../../styles.ios');
-  var AppConfig = require('../../../config.ios');
+  // var AppConfig = require('../../../config.ios');
   var AppUtil = require('../../../util.ios');
   var AppDB = require('../../../db.ios');
 
   // Module Globals
-  var ModuleConfig = require('../config.ios');
-  var ModuleStyles = require('../styles.ios');
+  // var ModuleConfig = require('../config.ios');
+  // var ModuleStyles = require('../styles.ios');
 
   // 3rd Party Components
   var FormValidation = require('tcomb-form-native');

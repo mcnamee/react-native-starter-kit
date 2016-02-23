@@ -13,8 +13,8 @@
   var React = require('react-native');
 
   // App Globals
-  var AppStyles = require('../styles.ios');
-  var AppConfig = require('../config.ios');
+  // var AppStyles = require('../styles.ios');
+  // var AppConfig = require('../config.ios');
 
   // Screens / Pages
   var ComingSoon = require('./soon.ios');
@@ -93,8 +93,8 @@
 /* ==============================
   Styles
   =============================== */
-  var styles = StyleSheet.create({
-  });
+  // var styles = StyleSheet.create({
+  // });
 
 /* ==============================
   Done!

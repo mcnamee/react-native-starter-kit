@@ -15,7 +15,7 @@
 
   // App Globals
   var AppStyles = require('../styles.ios');
-  var AppConfig = require('../config.ios');
+  // var AppConfig = require('../config.ios');
 
   var {
     View,
@@ -32,9 +32,8 @@
       return (
         <TouchableOpacity onPress={this.props.leftButtonPress}>
           <Image
-            source={require('image!hamburger')}
-            style={AppStyles.navbar_button}
-          />
+            source={require('../images/icons/hamburger.png')}
+            style={AppStyles.navbar_button} />
         </TouchableOpacity>
       );
     }
@@ -49,9 +48,8 @@
       return (
         <TouchableOpacity onPress={this.props.leftButtonPress}>
           <Image
-            source={require('image!back_button')}
-            style={AppStyles.navbar_button}
-          />
+            source={require('../images/icons/back_button.png')}
+            style={AppStyles.navbar_button} />
         </TouchableOpacity>
       );
     }

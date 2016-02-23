@@ -7,10 +7,7 @@
 'use strict';
 
 // React Plugins
-var React = require('react-native');
-
-var {
-} = React;
+// var React = require('react-native');
 
 var UTIL = {
 	/**

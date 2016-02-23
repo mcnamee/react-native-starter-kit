@@ -84,6 +84,7 @@ var Menu = React.createClass({
       linksJsx.push(
         <TouchableOpacity 
           style={[]} 
+          key={i}
           onPress={this.goToScreen.bind(this, links[i][0], links[i][1])}>
           <View style={styles.menuItem}>
             <Text style={[AppStyles.baseText, styles.menuItemText]}>{links[i][0]}</Text>

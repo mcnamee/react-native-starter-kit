@@ -50,4 +50,3 @@
   exports.textMain = "#555";
   exports.textSecondary = "#888";
   exports.subtleGreyBorder = "#E7E7E7";
-

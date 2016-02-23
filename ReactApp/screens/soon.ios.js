@@ -14,7 +14,7 @@
 
   // App Globals
   var AppStyles = require('../styles.ios');
-  var AppConfig = require('../config.ios');
+  // var AppConfig = require('../config.ios');
 
   /* Screens / Pages */
   // var AnotherPage = require('./tabbar.ios');

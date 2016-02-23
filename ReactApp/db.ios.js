@@ -10,23 +10,20 @@
   Initialise App
   =============================== */
   // React Plugins
-  var React = require('react-native');
+  // var React = require('react-native');
 
   // 3rd Party Components
   var RNDBModel = require('react-native-db-models');
 
   // App Globals
-  var AppConfig = require('./config.ios');
-  var AppUtil = require('./util.ios');
-
-  var {
-  } = React;
+  // var AppConfig = require('./config.ios');
+  // var AppUtil = require('./util.ios');
 
 /* ==============================
   Module Variables
   =============================== */
-  var cacheExpiresIn = 300 * 1000; // 300 = 5mins, 3600 = 1hr, 6hrs = 21600
-  var debug = false;
+  // var cacheExpiresIn = 300 * 1000; // 300 = 5mins, 3600 = 1hr, 6hrs = 21600
+  // var debug = false;
 
 /* ==============================
   Functions

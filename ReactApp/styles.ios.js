@@ -24,6 +24,7 @@
   =============================== */
   module.exports = StyleSheet.create({
   	appContainer: {
+      backgroundColor: "#000",
   	},
 
   	/* Default */
@@ -155,6 +156,10 @@
     spacer_20: {
       left: 0, right: 0, height: 1,
       marginTop: 20,
+    },
+    spacer_25: {
+      left: 0, right: 0, height: 1,
+      marginTop: 25,
     },
     spacer_30: {
       left: 0, right: 0, height: 1,

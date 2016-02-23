@@ -7,9 +7,9 @@
   },
   "dependencies": {
     "react-native": "^0.20.0",
-    "react-native-db-models": "^0.1.2",
-    "react-native-navbar": "^0.8.2",
-    "react-native-side-menu": "^0.14.2",
-    "tcomb-form-native": "^0.3.0"
+    "react-native-db-models": "^0.1.3",
+    "react-native-navbar": "^1.2.1",
+    "react-native-side-menu": "^0.18.0",
+    "tcomb-form-native": "^0.3.3"
   }
 }

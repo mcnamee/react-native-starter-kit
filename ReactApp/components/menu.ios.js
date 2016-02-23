@@ -94,8 +94,10 @@ var Menu = React.createClass({
     }
 
     return (
-      <View style={styles.menu}>
-        {linksJsx}
+      <View style={styles.menuContainer}>
+        <View style={styles.menu}>
+          {linksJsx}
+        </View>
       </View>
     );
   },
@@ -105,11 +107,16 @@ var Menu = React.createClass({
   Styles
   =============================== */
   var styles = StyleSheet.create({
+    menuContainer: {
+      flex: 1,
+      width: AppConfig.windowWidth,
+      backgroundColor: "#3B3B3B",
+    },
     menu: {
       flex: 1,
       width: AppConfig.windowWidth * 0.68,
       height: AppConfig.windowHeight,
-      backgroundColor: '#3B3B3B',
+      backgroundColor: "#3B3B3B",
       padding: 20,
       paddingTop: AppConfig.statusBarHeight,
     },

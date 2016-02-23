@@ -104,35 +104,23 @@
       */
     renderScene: function(route, navigator) {
       var Component = route.component;
-      var navBar = route.navigationBar;
 
       // Icons
       var MenuIcon = Icons.MenuIcon;
       var BackIcon = Icons.BackIcon;
-
-      // Navbar Setup
-      if (navBar) {
-        navBar = React.addons.cloneWithProps(navBar, {
-          navigator: navigator,
-          route: route
-        });
-      }
       
       // Default Navbar Title
       var title = 'Starter App';
-      if(route.title != undefined) {
-        title = route.title;
-      }
+      if(route.title) title = route.title;
 
       // Determine which Icon component - hamburger or back?
       var customPrev = <MenuIcon leftButtonPress={this.onLeftButtonPress} />;
-      if (route.index > 0){
-        var customPrev = <BackIcon leftButtonPress={this.onLeftBackButtonPress} />;
-      }
+      if (route.index > 0)
+        customPrev = <BackIcon leftButtonPress={this.onLeftBackButtonPress} />;
 
       // Done
       return (
-        <View style={AppStyles.container}>
+        <View style={[AppStyles.appContainer, AppStyles.container]}>
           <NavigationBar
             title={title}
             style={AppStyles.navbar}

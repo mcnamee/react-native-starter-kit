@@ -23,6 +23,7 @@
     StyleSheet,
     View,
     Text,
+    TouchableOpacity,
     Component
   } = React;
 
@@ -34,9 +35,9 @@
     /**
       * Navigates to page from menu
       */
-    navigate: function() {
+    navigate: function(navbar_title) {
       this.props.navigator.push({
-        title: "Shopping Cart", 
+        title: navbar_title, 
         component: ComingSoon, 
         index: 2
       });
@@ -47,15 +48,24 @@
       */
     render() {
       var placeholderText = this.props.placeholder;
-      if(placeholderText == undefined) { placeholderText = 'Coming soon...'; }
+      if(!placeholderText) { placeholderText = 'Coming soon...'; }
+
+      // Done
       return (
         <View style={[AppStyles.container, AppStyles.containerCentered]}>
           <Text style={[AppStyles.baseText, AppStyles.p]}>
             {placeholderText}
           </Text>
-          <Text onPress={this.navigate}>
-            This will replace a screen to test the back button
-          </Text>
+
+          <View style={[AppStyles.spacer_10]} />
+
+          <TouchableOpacity activeOpacity={0.8} 
+            style={[AppStyles.formButton]} 
+            onPress={()=>this.navigate(placeholderText)}>
+            <Text style={[AppStyles.formButton_text]}>
+              Tap to test the back button
+            </Text>
+          </TouchableOpacity>
         </View>
       );
     }

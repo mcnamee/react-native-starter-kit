@@ -14,7 +14,7 @@
 
   // App Globals
   // var AppStyles = require('../styles.ios');
-  // var AppConfig = require('../config.ios');
+  var AppConfig = require('../config.ios');
 
   // Screens / Pages
   var ComingSoon = require('./soon.ios');
@@ -45,7 +45,10 @@
       */
     render() {
       return (
-        <TabBarIOS selectedTab={this.state.selectedTab}>
+        <TabBarIOS 
+          selectedTab={this.state.selectedTab}
+          tintColor={AppConfig.primaryColor}
+          translucent={true}>
           <TabBarIOS.Item
             selected={this.state.selectedTab === 'favourites'}
             title="Favourites"

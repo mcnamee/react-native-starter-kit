@@ -11,8 +11,6 @@
   =============================== */
   // React
   var React = require('react-native');
-  var EventEmitter = require('EventEmitter');
-  var Subscribable = require('Subscribable');
 
   // App Globals
   var AppStyles = require('../styles.ios');
@@ -22,6 +20,8 @@
   var Index = require('../screens/tabbar.ios');
   var ComingSoon = require('../screens/soon.ios');
   var FormExample = require('../modules/example/screens/forms.ios');
+  var ListViewExample = require('../screens/listview.ios');
+  var ListViewExample2 = require('../screens/listview2.ios');
 
   var {
     StyleSheet,
@@ -35,29 +35,6 @@
   Menu Component
   =============================== */
 var Menu = React.createClass({
-  mixins: [Subscribable.Mixin],
-
-  /**
-    * Allow this component to see sidebar menu functions
-    */
-  contextTypes : {
-    menuActions: React.PropTypes.object.isRequired
-  },
-
-  /**
-    * On Load
-    */
-  componentDidMount: function() {
-    this.addListenerOn(this.props.events, 'toggleMenu', this.onLeftButtonPress);
-  },
-
-  /**
-    * When Navbar Left Button Tapped
-    */
-  onLeftButtonPress: function() {
-    this.context.menuActions.toggle();
-  },
-
   /**
     * Go To Screen
     */
@@ -76,7 +53,8 @@ var Menu = React.createClass({
     var links = [
       ['Tab Bar', Index],
       ['Forms', FormExample],
-      ['Shop', ComingSoon],
+      ['List Example', ListViewExample],
+      ['List Example 2', ListViewExample2],
     ];
 
     // Build the actual Menu Items
@@ -110,27 +88,27 @@ var Menu = React.createClass({
     menuContainer: {
       flex: 1,
       width: AppConfig.windowWidth,
-      backgroundColor: "#3B3B3B",
+      backgroundColor: "#111111",
     },
     menu: {
       flex: 1,
       width: AppConfig.windowWidth * 0.68,
       height: AppConfig.windowHeight,
-      backgroundColor: "#3B3B3B",
+      backgroundColor: "#111111",
       padding: 20,
       paddingTop: AppConfig.statusBarHeight,
     },
     menuItem: {
       borderBottomWidth: 1,
-      borderBottomColor: "#555555",
+      borderBottomColor: "#333",
       paddingBottom: 10,
     },
     menuItemText: {
       fontSize: 17,
-      fontWeight: '800',
+      fontWeight: '500',
       paddingTop: 10,
       flex: 1,
-      color: "#ccc"
+      color: "#EEE"
     },
   });
 

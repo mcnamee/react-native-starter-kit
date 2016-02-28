@@ -10,7 +10,7 @@
   Initialise App
   =============================== */
   // React Plugins
-  var React = require('react-native');
+  // var React = require('react-native');
 
   // App Globals
   // var AppConfig = require('../../config.ios');
@@ -18,12 +18,12 @@
   // Module Globals
   // var ModuleConfig = require('./config.ios');
 
-  var {
+  /*var {
     StyleSheet,
-  } = React;
+  } = React;*/
 
 /* ==============================
   Styles
   =============================== */
-  module.exports = StyleSheet.create({
-  });
+  /*module.exports = StyleSheet.create({
+  });*/

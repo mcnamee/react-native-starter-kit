@@ -47,6 +47,5 @@
 
   // Colors
   exports.primaryColor = "#4099FF";
-  exports.textMain = "#555";
-  exports.textSecondary = "#888";
-  exports.subtleGreyBorder = "#E7E7E7";
+  exports.textColor = "#555";
+  exports.borderColor = "#E7E7E7";

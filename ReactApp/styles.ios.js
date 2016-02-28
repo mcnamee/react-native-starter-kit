@@ -47,14 +47,14 @@
 
 	  /* Text Styles */
     baseText: {
-      color: AppConfig.textSecondary,
+      color: AppConfig.textColor,
       fontFamily: AppConfig.baseFont,
     },
     h1: {
       fontFamily: AppConfig.baseFont,
       fontSize: 28,
       lineHeight: 32,
-      color: AppConfig.textMain,
+      color: AppConfig.primaryColor,
       margin: 0,
       marginTop: 4,
       marginBottom: 4,
@@ -63,6 +63,7 @@
     },
     h2: {
       fontFamily: AppConfig.baseFont,
+      color: AppConfig.primaryColor,
       fontSize: 24,
       margin: 0,
       marginTop: 4,
@@ -73,7 +74,7 @@
     h3: {
       fontFamily: AppConfig.baseFont,
       fontWeight: '500',
-      color: AppConfig.textSecondary,
+      color: AppConfig.primaryColor,
       fontSize: 18,
       margin: 0,
       marginTop: 4,
@@ -84,7 +85,7 @@
     h4: {
       fontFamily: AppConfig.baseFont,
       fontWeight: '500',
-      color: AppConfig.textSecondary,
+      color: AppConfig.primaryColor,
       fontSize: 16,
       margin: 0,
       marginTop: 4,
@@ -96,7 +97,7 @@
       fontFamily: AppConfig.baseFont,
       margin: 0,
       fontWeight: '500',
-      color: AppConfig.textSecondary,
+      color: AppConfig.textColor,
     },
     strong: {
       fontWeight: '900',
@@ -135,7 +136,7 @@
       left: 0,
       right: 0,
       borderBottomWidth: 1,
-      borderBottomColor: AppConfig.subtleGreyBorder,
+      borderBottomColor: AppConfig.borderColor,
       height: 1,
       backgroundColor: 'transparent',
       marginTop: 20,
@@ -228,47 +229,19 @@
       fontWeight: "800"
     },
 
-    /* Buttons */
-    formButton: {
-      backgroundColor: AppConfig.primaryColor,
-      height: 50,
-      justifyContent: 'center',
-      borderRadius: 3,
-      marginBottom: 10,
-      paddingHorizontal: 10,
-    },
-    formButton_text: {
-      color: "#FFF",
-      textAlign: 'center',
-      fontSize: 15,
-      fontFamily: AppConfig.baseFont,
-      fontWeight: '800',
-    },
-    formButtonOutline: {
-      backgroundColor: "#fff",
-      borderWidth: 1,
-      borderColor: AppConfig.primaryColor,
-    },
-    formButtonOutline_text: {
-      color: AppConfig.primaryColor,
-    },
-
 	  /* Nav Bar */
 	  navbar: {
-	    backgroundColor: AppConfig.primaryColor,
-	    borderBottomWidth: 1,
-	    borderBottomColor: AppConfig.subtleGreyBorder,
 	  },
-    navbar_button: {
+    navbarButton: {
       width: 26,
       height: 26,
       left: 20,
-      top: 30,
+      top: -4,
       tintColor: '#FFFFFF'
     },
-    navbar_title: {
+    navbarTitle: {
       color: '#FFFFFF',
-      bottom: 10,
+      top: 0,
       fontSize: 13,
     },
   });

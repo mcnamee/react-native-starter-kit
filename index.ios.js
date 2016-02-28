@@ -9,8 +9,6 @@
   =============================== */
   // React
   var React = require('react-native');
-  var EventEmitter = require('EventEmitter');
-  var Subscribable = require('Subscribable');
 
   // 3rd Party Components
   var NavigationBar = require('react-native-navbar');
@@ -18,9 +16,9 @@
 
   // App Globals
   var AppStyles = require('./ReactApp/styles.ios');
+  var AppConfig = require('./ReactApp/config.ios');
 
   // Components
-  var Icons = require('./ReactApp/components/icons.ios');
   var Menu = require('./ReactApp/components/menu.ios');
 
   // Screens / Pages
@@ -33,6 +31,8 @@
     Navigator,
     Text,
     View,
+    TouchableOpacity,
+    Image,
   } = React;
 
 /* ==============================
@@ -40,62 +40,70 @@
   =============================== */
 
   /**
-   * Custom `Title` component
+   * Custom Navbar Title component
    */
-  class CustomTitle extends React.Component {
-    render() {
+  var NavbarTitle = React.createClass({
+    render: function() {
       return (
-        <Text style={[AppStyles.baseText, AppStyles.strong, AppStyles.navbar_title]}>{this.props.title}</Text>
+        <Text style={[AppStyles.baseText, AppStyles.strong, AppStyles.navbarTitle]}>{this.props.title}</Text>
       );
     }
-  }
+  });
+
+  /**
+    * Custom Navbar Button component
+    */
+  var NavbarButton = React.createClass({
+    /**
+      * On Icon Press
+      */
+    onPress: function() { if(this.props.onPress) this.props.onPress(); },
+
+    render: function() {
+      return (
+        <TouchableOpacity onPress={this.onPress} activeOpacity={0.6}>
+          <Image
+            source={this.props.image}
+            style={AppStyles.navbarButton} />
+        </TouchableOpacity>
+      );
+    }
+  });
 
   /**
    *  Main View w/ Sidebar
    */
   var Application = React.createClass({
-    mixins: [Subscribable.Mixin],
-
+    
     /**
-      * Before Load
+      * Initial State
       */
     getInitialState: function() {
       return {
-        touchToClose: true,
-        disableGestures: false,
+        menuIsOpen: false,
       };
     },
 
     /**
       * On Load
       */
-    componentWillMount: function() {
-      this.eventEmitter = new EventEmitter();
-    },
-
-    /**
-      * When Back Button from NavBar is Clicked
-      */
-    onLeftBackButtonPress: function(navigator) {
-      this.refs.rootNavigator.pop();
-    },
-
-    /**
-      * When Hamburger from NavBar is Clicked
-      */
-    onLeftButtonPress: function() {
-      this.eventEmitter.emit('toggleMenu');
-    },
+    /*componentWillMount: function() {
+    },*/
 
     /**
       * Navigates to page from menu
       */
     navigate: function(title, link) {
-      this.refs.rootSidebarMenu.closeMenu();
+      // Toggle Menu
+      this.setState({
+        menuIsOpen: !this.state.menuIsOpen,
+      });
 
+      // Navigate to Screen
       this.refs.rootNavigator.replace({
         title: title,
         component: link,
+        navigator: this.refs.rootNavigator,
       });
     },
 
@@ -103,29 +111,38 @@
       * Generate Custom Navbar
       */
     renderScene: function(route, navigator) {
-      var Component = route.component;
+      var self = this;
 
-      // Icons
-      var MenuIcon = Icons.MenuIcon;
-      var BackIcon = Icons.BackIcon;
+      var Component = route.component;
       
       // Default Navbar Title
       var title = 'Starter App';
       if(route.title) title = route.title;
 
       // Determine which Icon component - hamburger or back?
-      var customPrev = <MenuIcon leftButtonPress={this.onLeftButtonPress} />;
-      if (route.index > 0)
-        customPrev = <BackIcon leftButtonPress={this.onLeftBackButtonPress} />;
+      var leftButton = (
+        <NavbarButton 
+          image={require('./ReactApp/images/icons/hamburger.png')} 
+          onPress={()=>self.setState({menuIsOpen:true})} />
+      );
+
+      if (route.index > 0) {
+        leftButton = (
+          <NavbarButton 
+            image={require('./ReactApp/images/icons/back_button.png')} 
+            onPress={self.refs.rootNavigator.pop} />
+        );
+      }
 
       // Done
       return (
         <View style={[AppStyles.appContainer, AppStyles.container]}>
           <NavigationBar
-            title={title}
+            title={<NavbarTitle title={title} />}
+            statusBar={{style: 'light-content', hidden: false}}
             style={AppStyles.navbar}
-            customPrev={customPrev}
-            customTitle={<CustomTitle title={title} />} />
+            tintColor={AppConfig.primaryColor}
+            leftButton={leftButton} />
 
           <Component navigator={navigator} route={route} />
         </View>
@@ -138,10 +155,8 @@
     render: function() {
       return (
         <SideMenu
-          ref="rootSidebarMenu"
-          menu={<Menu events={this.eventEmitter} navigate={this.navigate} />}
-          touchToClose={this.state.touchToClose}
-          disableGestures={this.state.disableGestures}>
+          menu={<Menu navigate={this.navigate} />}
+          isOpen={this.state.menuIsOpen}>
 
           <Navigator
             ref="rootNavigator"
@@ -150,6 +165,7 @@
             initialRoute={{
               component: Index,
               index: 0,
+              navigator: this.refs.rootNavigator,
             }} />
 
         </SideMenu>

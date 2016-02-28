@@ -25,6 +25,9 @@
   // 3rd Party Components
   var FormValidation = require('tcomb-form-native');
 
+  // Components
+  var Button = require('../../../components/button.ios');
+
   var {
     StyleSheet,
     View,
@@ -228,29 +231,23 @@
             </View>
 
             <View style={[AppStyles.grid_third, AppStyles.paddingRight]}>
-              <TouchableOpacity style={[AppStyles.formButton]}
-                onPress={()=>{this.signUp()}}>
-                <Text style={[AppStyles.baseText, AppStyles.formButton_text]}>
-                  {this.state.form_values.First_name == '' ? "Sign Up" : "Save"}
-                </Text>
-              </TouchableOpacity>
+              <Button
+                text={"Save"}
+                onPress={this.signUp} />
             </View>
           </View>
 
           <View style={AppStyles.hr} />
 
           <View style={[AppStyles.paddingHorizontal]}>
-            <TouchableOpacity 
-              style={[AppStyles.formButton]}
-              onPress={()=>{alert('Just for looks');}}>
-              <Text style={[AppStyles.baseText, AppStyles.formButton_text]}>Sign In</Text>
-            </TouchableOpacity>
+            <Button
+              text={'Sign In'}
+              onPress={()=>alert('Just for looks')} />
 
-            <TouchableOpacity
-              style={[AppStyles.formButton, AppStyles.formButtonOutline]}
-              onPress={()=>{alert('Just for looks');}}>
-              <Text style={[AppStyles.baseText, AppStyles.formButton_text, AppStyles.formButtonOutline_text]}>Guest Checkout</Text>
-            </TouchableOpacity>
+            <Button
+              text={'Guest Checkout'}
+              style={'outlined'}
+              onPress={()=>alert('Just for looks')} />
           </View>
 
         </ScrollView>

@@ -33,7 +33,7 @@ var UTIL = {
 	  */
 	firstIndexInObj: function(obj) {
 	  for (var a in obj) return a;
-	}
+	},
 };
 
 /* ==============================

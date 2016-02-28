@@ -16,8 +16,11 @@
   var AppStyles = require('../styles.ios');
   // var AppConfig = require('../config.ios');
 
-  /* Screens / Pages */
+  // Screens / Pages
   // var AnotherPage = require('./tabbar.ios');
+
+  // Components
+  var Button = require('../components/button.ios');
 
   var {
     StyleSheet,
@@ -59,13 +62,10 @@
 
           <View style={[AppStyles.spacer_10]} />
 
-          <TouchableOpacity activeOpacity={0.8} 
-            style={[AppStyles.formButton]} 
-            onPress={()=>this.navigate(placeholderText)}>
-            <Text style={[AppStyles.formButton_text]}>
-              Tap to test the back button
-            </Text>
-          </TouchableOpacity>
+          <Button
+            text={'Tap to test the back button'}
+            style={'outlined'}
+            onPress={()=>this.navigate(placeholderText)} />
         </View>
       );
     }
@@ -75,8 +75,8 @@
 /* ==============================
   Styles
   =============================== */
-  var styles = StyleSheet.create({
-  });
+  /*var styles = StyleSheet.create({
+  });*/
 
 /* ==============================
   Done!

@@ -236,12 +236,12 @@
       width: 26,
       height: 26,
       left: 20,
-      top: -4,
+      top: 9,
       tintColor: '#FFFFFF'
     },
     navbarTitle: {
       color: '#FFFFFF',
-      top: 0,
+      bottom: 6,
       fontSize: 13,
     },
   });

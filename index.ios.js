@@ -144,7 +144,7 @@
             tintColor={AppConfig.primaryColor}
             leftButton={leftButton} />
 
-          <Component navigator={navigator} route={route} />
+          <Component navigator={navigator} route={route} {...route.passProps} />
         </View>
       );
     },

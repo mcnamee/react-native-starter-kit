@@ -10,25 +10,23 @@
   Initialise Component
   =============================== */
   // React
-  var React = require('react-native');
-
-  // App Globals
-  var AppStyles = require('../styles.ios');
-  // var AppConfig = require('../config.ios');
-
-  // Screens / Pages
-  // var AnotherPage = require('./tabbar.ios');
-
-  // Components
-  var Button = require('../components/button.ios');
-
-  var {
+  import React, { Component } from 'react';
+  import {
     StyleSheet,
     View,
     Text,
     TouchableOpacity,
-    Component
-  } = React;
+  } from 'react-native';
+
+  // App Globals
+  import AppStyles from '../styles.ios';
+  // import AppConfig from '../config.ios';
+
+  // Screens / Pages
+  // import AnotherPage from './tabbar.ios';
+
+  // Components
+  import Button from '../components/button.ios';
 
 /* ==============================
   View
@@ -38,7 +36,7 @@
     /**
       * Navigates to page from menu
       */
-    navigate: function(navbar_title) {
+    _navigate: function(navbar_title) {
       this.props.navigator.push({
         title: navbar_title, 
         component: ComingSoon, 
@@ -65,7 +63,7 @@
           <Button
             text={'Tap to test the back button'}
             style={'outlined'}
-            onPress={()=>this.navigate(placeholderText)} />
+            onPress={()=>this._navigate(placeholderText)} />
         </View>
       );
     }

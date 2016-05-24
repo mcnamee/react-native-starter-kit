@@ -15,19 +15,18 @@
   Initialise App
   =============================== */
   // React Plugins
-  var React = require('react-native');
-
-  // App Globals
-  var AppStyles = require('../styles.ios');
-  var AppConfig = require('../config.ios');
-
-  var {
+  import React, { Component } from 'react';
+  import {
     StyleSheet,
     View,
     Text,
     Image,
     TouchableOpacity,
-  } = React;
+  } from 'react-native';
+
+  // App Globals
+  import AppStyles from '../styles.ios';
+  import AppConfig from '../config.ios';
 
 /* ==============================
   View
@@ -36,7 +35,7 @@
     /**
       * When user clicks Row
       */
-    onPress: function() {
+    _onPress: function() {
       if(this.props.onPress) this.props.onPress();
     },
 
@@ -47,7 +46,7 @@
       return (
         <TouchableOpacity 
           style={[styles.formButton, this.props.style == 'outlined' ? styles.formButtonOutline : null]}
-          onPress={this.onPress}
+          onPress={this._onPress}
           activeOpacity={0.7}>
           <Text style={[AppStyles.baseText, styles.formButton_text, this.props.style == 'outlined' ? styles.formButtonOutline_text : null]}>
             {this.props.text ? this.props.text : 'Click Here'}

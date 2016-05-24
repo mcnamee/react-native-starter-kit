@@ -8,32 +8,30 @@
   Initialise App
   =============================== */
   // React
-  var React = require('react-native');
-
-  // 3rd Party Components
-  var NavigationBar = require('react-native-navbar');
-  var SideMenu = require('react-native-side-menu');
-
-  // App Globals
-  var AppStyles = require('./ReactApp/styles.ios');
-  var AppConfig = require('./ReactApp/config.ios');
-
-  // Components
-  var Menu = require('./ReactApp/components/menu.ios');
-
-  // Screens / Pages
-  var Index = require('./ReactApp/screens/tabbar.ios');
-
-  var {
+  import React, { Component } from 'react';
+  import {
     AppRegistry,
-    Component,
     StyleSheet,
     Navigator,
     Text,
     View,
     TouchableOpacity,
     Image,
-  } = React;
+  } from 'react-native';
+
+  // 3rd Party Components
+  import NavigationBar from 'react-native-navbar';
+  import SideMenu from 'react-native-side-menu';
+
+  // App Globals
+  import AppStyles from './ReactApp/styles.ios';
+  import AppConfig from './ReactApp/config.ios';
+
+  // Components
+  import Menu from './ReactApp/components/menu.ios';
+
+  // Screens / Pages
+  import Index from './ReactApp/screens/tabbar.ios';
 
 /* ==============================
   Main Navigator with Sidemenu
@@ -57,11 +55,11 @@
     /**
       * On Icon Press
       */
-    onPress: function() { if(this.props.onPress) this.props.onPress(); },
+    _onPress: function() { if(this.props.onPress) this.props.onPress(); },
 
     render: function() {
       return (
-        <TouchableOpacity onPress={this.onPress} activeOpacity={0.6}>
+        <TouchableOpacity onPress={this._onPress} activeOpacity={0.6}>
           <Image
             source={this.props.image}
             style={AppStyles.navbarButton} />
@@ -93,7 +91,7 @@
     /**
       * Navigates to page from menu
       */
-    navigate: function(title, link) {
+    _navigate: function(title, link) {
       // Toggle Menu
       this.setState({
         menuIsOpen: !this.state.menuIsOpen,
@@ -110,7 +108,7 @@
     /**
       * Generate Custom Navbar
       */
-    renderScene: function(route, navigator) {
+    _renderScene: function(route, navigator) {
       var self = this;
 
       var Component = route.component;
@@ -155,17 +153,27 @@
     render: function() {
       return (
         <SideMenu
-          menu={<Menu navigate={this.navigate} />}
+          menu={<Menu navigate={this._navigate} />}
           isOpen={this.state.menuIsOpen}>
 
           <Navigator
             ref="rootNavigator"
             style={[AppStyles.container, AppStyles.appContainer]}
-            renderScene={this.renderScene}
+            renderScene={this._renderScene}
+            configureScene={function(route, routeStack) {
+              if(route.transition == 'FloatFromBottom') 
+                return Navigator.SceneConfigs.FloatFromBottom;
+              else
+                // return Navigator.SceneConfigs.PushFromRight;
+                return Navigator.SceneConfigs.FloatFromRight;
+            }}
             initialRoute={{
               component: Index,
               index: 0,
               navigator: this.refs.rootNavigator,
+              passProps: {
+                showSplashScreen: true,
+              }
             }} />
 
         </SideMenu>
@@ -176,8 +184,8 @@
 /* ==============================
   Styles
   =============================== */
-  var styles = StyleSheet.create({
-  });
+  /*var styles = StyleSheet.create({
+  });*/
 
 /* ==============================
   Done!

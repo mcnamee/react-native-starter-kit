@@ -10,14 +10,13 @@
   Initialise App
   =============================== */
   // React
-  var React = require('react-native');
+  import React, { Component } from 'react';
+  import {
+    StyleSheet,
+  } from 'react-native';
 
   // App Globals
-  var AppConfig = require('./config.ios');
-
-  var {
-    StyleSheet,
-  } = React;
+  import AppConfig from './config.ios';
 
 /* ==============================
   Styles
@@ -32,8 +31,6 @@
       position: 'relative',
       flex: 1,
       backgroundColor: '#FFFFFF',
-      height: AppConfig.windowHeight,
-      width: AppConfig.windowWidth,
     },
     containerCentered: {
       justifyContent: 'center',
@@ -130,6 +127,24 @@
     paddingBottom: {
       paddingBottom: 20,
     },
+    paddingHorizontalSml: {
+      paddingHorizontal: 10,
+    },
+    paddingLeftSml: {
+      paddingLeft: 10,
+    },
+    paddingRightSml: {
+      paddingRight: 10,
+    },
+    paddingVerticalSml: {
+      paddingVertical: 10,
+    },
+    paddingTopSml: {
+      paddingTop: 10,
+    },
+    paddingBottomSml: {
+      paddingBottom: 10,
+    },
 
     /* General Spacing */
     hr: {
@@ -178,22 +193,22 @@
       flexDirection: 'row',
     },
     grid_full: {
-      width: AppConfig.windowWidth,
+      flex: 1,
     },
     grid_half: {
-      width: AppConfig.grid_half,
+      flex: 1,
     },
     grid_third: {
-      width: AppConfig.grid_third,
+      flex: 1,
     },
     grid_twoThirds: {
-      width: AppConfig.grid_twoThirds,
+      flex: 2,
     },
     grid_quarter: {
-      width: AppConfig.grid_quarter,
+      flex: 1,
     },
     grid_threeQuarters: {
-      width: AppConfig.grid_threeQuarters,
+      flex: 3,
     },
 
     /* Forms */
@@ -212,7 +227,7 @@
       backgroundColor: "#fff",
     },
 
-    /* Messages / alerts */
+    /* Messages / Alerts */
     msg: {
       right: 0,
       left: 0,

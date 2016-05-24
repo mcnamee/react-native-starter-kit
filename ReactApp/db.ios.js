@@ -9,15 +9,15 @@
 /* ==============================
   Initialise App
   =============================== */
-  // React Plugins
-  // var React = require('react-native');
+  // React
+  // import React, { Component } from 'react';
 
   // 3rd Party Components
-  var RNDBModel = require('react-native-db-models');
+  import RNDBModel from 'react-native-db-models';
 
   // App Globals
-  // var AppConfig = require('./config.ios');
-  // var AppUtil = require('./util.ios');
+  // import AppConfig from './config.ios';
+  // import AppUtil from './util.ios';
 
 /* ==============================
   Module Variables

@@ -10,13 +10,13 @@
   Initialise App
   =============================== */
   // React Plugins
-  // var React = require('react-native');
+  // import React, { Component } from 'react';
 
   // App Globals
-  // var AppConfig = require('../../config.ios');
+  // import AppConfig from '../../config.ios';
 
   // Module Globals
-  // var ModuleConfig = require('./config.ios');
+  // import ModuleConfig from './config.ios';
 
   /*var {
     StyleSheet,

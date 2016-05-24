@@ -7,13 +7,13 @@
 'use strict';
 
 // React Plugins
-// var React = require('react-native');
+// import React, { Component } from 'react';
 
 var UTIL = {
 	/**
 	  * Test if Obj is empty
 	  */
-	isObjEmpty: function(obj) {
+	objIsEmpty: function(obj) {
 	  for(var prop in obj) {
 	    if(obj.hasOwnProperty(prop))
 	      return false;

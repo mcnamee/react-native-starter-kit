@@ -14,20 +14,19 @@
 /* ==============================
   Initialise App
   =============================== */
-  // React Plugins
-  var React = require('react-native');
-
-  // App Globals
-  var AppStyles = require('../styles.ios');
-  var AppConfig = require('../config.ios');
-
-  var {
+  // React
+  import React, { Component } from 'react';
+  import {
     StyleSheet,
     View,
     Text,
     Image,
     TouchableOpacity,
-  } = React;
+  } from 'react-native';
+
+  // App Globals
+  import AppStyles from '../styles.ios';
+  import AppConfig from '../config.ios';
 
 /* ==============================
   View
@@ -36,7 +35,7 @@
     /**
       * When user clicks Row
       */
-    onPress: function() {
+    _onPress: function() {
       if(this.props.onPress) this.props.onPress(this.props.index);
     },
 
@@ -50,7 +49,7 @@
         return (
           <TouchableOpacity 
             style={[styles.listRow, self.props.image ? styles.imageBackground : null]} 
-            onPress={self.onPress} activeOpacity={0.7}>
+            onPress={self._onPress} activeOpacity={0.7}>
             <Image source={{uri: self.props.image}} style={[styles.imageBackground_image]}>
               <Text style={[AppStyles.baseText, styles.listRow_text, styles.listRowImage_text]}>{self.props.title.toUpperCase()}</Text>
             </Image>
@@ -98,7 +97,6 @@
     },
     imageBackground_image: {
       height: AppConfig.windowHeight / 4,
-      width: AppConfig.windowWidth,
       flexDirection: 'row',
       flexWrap: 'nowrap',
       justifyContent: 'center',

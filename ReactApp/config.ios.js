@@ -10,12 +10,8 @@
   Initialise Component
   =============================== */
   // React
-  var React = require('react-native');
-  var Dimensions = require('Dimensions');
-
-  var {
-    Component,
-  } = React;
+  import React, { Component } from 'react';
+  import Dimensions from 'Dimensions';
 
 /* ==============================
   Export App Options
@@ -31,7 +27,7 @@
   exports.windowWidth = window.width;
 
   // General Element Dimensions
-  var navbarHeight = 63;
+  var navbarHeight = 64;
   exports.navbarHeight = navbarHeight;
   exports.statusBarHeight = 22;
 

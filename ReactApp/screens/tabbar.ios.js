@@ -10,20 +10,19 @@
   Initialise Component
   =============================== */
   // React
-  var React = require('react-native');
-
-  // App Globals
-  // var AppStyles = require('../styles.ios');
-  var AppConfig = require('../config.ios');
-
-  // Screens / Pages
-  var ComingSoon = require('./soon.ios');
-
-  var {
+  import React, { Component } from 'react';
+  import {
     StyleSheet,
     TabBarIOS,
-    Component,
-  } = React;
+  } from 'react-native';
+
+  // App Globals
+  // import AppStyles from '../styles.ios';
+  import AppConfig from '../config.ios';
+
+  // Screens / Pages
+  import ComingSoon from './soon.ios';
+  import FirstLoad from './first.load.ios';
 
 /* ==============================
   View
@@ -35,8 +34,25 @@
       */
     constructor(props) {
       super(props);
+
       this.state = {
         selectedTab: 'favourites'
+      }
+    }
+
+    /**
+      * On Mount
+      */
+    componentWillMount() {
+      // Show Splash Screen (on first load)
+      if(this.props.showSplashScreen) {
+        this.props.navigator.push({
+          title: 'Sign Up',
+          component: FirstLoad,
+          index: 2,
+          navigator: this.props.navigator,
+          transition: 'FloatFromBottom',
+        });
       }
     }
 

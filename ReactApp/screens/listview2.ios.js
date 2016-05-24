@@ -9,26 +9,25 @@
 /* ==============================
   Initialise App
   =============================== */
-  // React Plugins
-  var React = require('react-native');
-
-  // App Globals
-  var AppStyles = require('../styles.ios');
-  var AppConfig = require('../config.ios');
-  var AppUtil = require('../util.ios');
-
-  // App Components
-  var ListRow = require('../components/list.row.ios');
-
-  // Pages / Screens
-  var Screen = require('./soon.ios');  
-
-  var {
+  // React
+  import React, { Component } from 'react';
+  import {
     StyleSheet,
     View,
     ListView,
     RefreshControl,
-  } = React;
+  } from 'react-native';
+
+  // App Globals
+  import AppStyles from '../styles.ios';
+  import AppConfig from '../config.ios';
+  import AppUtil from '../util.ios';
+
+  // App Components
+  import ListRow from '../components/list.row.ios';
+
+  // Pages / Screens
+  import Screen from './soon.ios'; 
 
 /* ==============================
   Listing
@@ -90,13 +89,13 @@
       */
   	componentDidMount: function() {
   	  // Fetch Data
-      this.fetchData();
+      this._fetchData();
   	},
 
     /**
       * Executes after all modules have been loaded
       */
-    fetchData: function() {
+    _fetchData: function() {
       var self = this;
 
       self.setState({ isRefreshing: true });
@@ -111,7 +110,7 @@
     /**
       * Each Row Item
       */
-    renderRow: function(data) {
+    _renderRow: function(data) {
       return (
         <ListRow title={data.title.toString()}
           onPress={()=>{
@@ -135,12 +134,12 @@
             initialListSize={8}
             automaticallyAdjustContentInsets={false}
             dataSource={this.state.dataSource}
-            renderRow={this.renderRow}
+            renderRow={this._renderRow}
             contentContainerStyle={styles.container} 
             refreshControl={
               <RefreshControl
                 refreshing={this.state.isRefreshing}
-                onRefresh={this.fetchData}
+                onRefresh={this._fetchData}
                 tintColor={AppConfig.primaryColor} />
             } />
         </View>

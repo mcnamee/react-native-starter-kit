@@ -9,26 +9,9 @@
 /* ==============================
   Initialise App
   =============================== */
-  // React Plugins
-  var React = require('react-native');
-
-  // App Globals
-  var AppStyles = require('../../../styles.ios');
-  // var AppConfig = require('../../../config.ios');
-  var AppUtil = require('../../../util.ios');
-  var AppDB = require('../../../db.ios');
-
-  // Module Globals
-  // var ModuleConfig = require('../config.ios');
-  // var ModuleStyles = require('../styles.ios');
-
-  // 3rd Party Components
-  var FormValidation = require('tcomb-form-native');
-
-  // Components
-  var Button = require('../../../components/button.ios');
-
-  var {
+  // React
+  import React, { Component } from 'react';
+  import {
     StyleSheet,
     View,
     Text,
@@ -36,7 +19,23 @@
     TextInput,
     ScrollView,
     TouchableOpacity,
-  } = React;
+  } from 'react-native';
+
+  // App Globals
+  import AppStyles from '../../../styles.ios';
+  // import AppConfig from '../../../config.ios';
+  import AppUtil from '../../../util.ios';
+  import AppDB from '../../../db.ios';
+
+  // Module Globals
+  // import ModuleConfig from '../config.ios';
+  // import ModuleStyles from '../styles.ios';
+
+  // 3rd Party Components
+  import FormValidation from 'tcomb-form-native';
+
+  // Components
+  import Button from '../../../components/button.ios';
 
 /* ==============================
   Form
@@ -86,11 +85,11 @@
             Email: { error: 'Please enter a valid email' },
             Password: {
               error: 'Your new password must be more than 6 characters', 
-              password: true,
+              type: 'password',
             },
             Confirm_password: { 
               error: 'Please repeat your new password',
-              password: true,
+              type: 'password',
             },
           }
         },
@@ -115,7 +114,7 @@
     /**
       * Save Form Data to App
       */
-    saveData: function(callback) {
+    _saveData: function(callback) {
       var values = this.state.form_values;
 
       // Check if data exists so we know if to add or update
@@ -138,7 +137,7 @@
     /**
       * Delete Data
       */
-    deleteData: function(callback) {
+    _deleteData: function(callback) {
       var self = this;
 
       // Erase the DB
@@ -151,7 +150,7 @@
     /**
       * Sign Up
       */
-    signUp: function() {
+    _signUp: function() {
       var self = this;
 
       // Get new values and update
@@ -175,7 +174,7 @@
       // Form is valid
       if(value) {
         self.setState({form_values: value}, function(){
-          self.saveData(function(result){
+          self._saveData(function(result){
             // Show save message
             self.setState({show_save_msg: true});
           });
@@ -225,7 +224,7 @@
           <View style={[AppStyles.grid_row]}>
             <View style={[AppStyles.grid_twoThirds, AppStyles.paddingLeft]}>
               <View style={AppStyles.spacer_15} />
-              <TouchableOpacity onPress={()=>{this.deleteData()}}>
+              <TouchableOpacity onPress={()=>{this._deleteData()}}>
                 <Text style={[AppStyles.baseText, AppStyles.p, AppStyles.link]}>Clear My Info</Text>
               </TouchableOpacity>
             </View>
@@ -233,7 +232,7 @@
             <View style={[AppStyles.grid_third, AppStyles.paddingRight]}>
               <Button
                 text={"Save"}
-                onPress={this.signUp} />
+                onPress={this._signUp} />
             </View>
           </View>
 

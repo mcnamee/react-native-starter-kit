@@ -10,7 +10,7 @@
   Initialise App
   =============================== */
   // React Plugins
-  // var React = require('react-native');
+  // import React, { Component } from 'react';
 
 /* ==============================
   Export Variables

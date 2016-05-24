@@ -10,26 +10,24 @@
   Initialise Component
   =============================== */
   // React
-  var React = require('react-native');
-
-  // App Globals
-  var AppStyles = require('../styles.ios');
-  var AppConfig = require('../config.ios');
-
-  // Screens / Pages
-  var Index = require('../screens/tabbar.ios');
-  var ComingSoon = require('../screens/soon.ios');
-  var FormExample = require('../modules/example/screens/forms.ios');
-  var ListViewExample = require('../screens/listview.ios');
-  var ListViewExample2 = require('../screens/listview2.ios');
-
-  var {
+  import React, { Component } from 'react';
+  import {
     StyleSheet,
     View,
     Text,
-    Component,
     TouchableOpacity
-  } = React;
+  } from 'react-native';
+
+  // App Globals
+  import AppStyles from '../styles.ios';
+  import AppConfig from '../config.ios';
+
+  // Screens / Pages
+  import Index from '../screens/tabbar.ios';
+  import ComingSoon from '../screens/soon.ios';
+  import FormExample from '../modules/example/screens/forms.ios';
+  import ListViewExample from '../screens/listview.ios';
+  import ListViewExample2 from '../screens/listview2.ios';
 
 /* ==============================
   Menu Component
@@ -38,7 +36,7 @@ var Menu = React.createClass({
   /**
     * Go To Screen
     */
-  goToScreen: function(title, link) {
+  _goToScreen: function(title, link) {
     this.props.navigate(title, link);
   },
 
@@ -63,7 +61,7 @@ var Menu = React.createClass({
         <TouchableOpacity 
           style={[]} 
           key={i}
-          onPress={this.goToScreen.bind(this, links[i][0], links[i][1])}>
+          onPress={this._goToScreen.bind(this, links[i][0], links[i][1])}>
           <View style={styles.menuItem}>
             <Text style={[AppStyles.baseText, styles.menuItemText]}>{links[i][0]}</Text>
           </View>
@@ -87,18 +85,21 @@ var Menu = React.createClass({
   var styles = StyleSheet.create({
     menuContainer: {
       flex: 1,
-      width: AppConfig.windowWidth,
+      left: 0,
+      right: 0,
       backgroundColor: "#111111",
     },
     menu: {
       flex: 1,
-      width: AppConfig.windowWidth * 0.68,
+      left: 0,
+      right: 0,
       height: AppConfig.windowHeight,
       backgroundColor: "#111111",
       padding: 20,
       paddingTop: AppConfig.statusBarHeight,
     },
     menuItem: {
+      flex: 1,
       borderBottomWidth: 1,
       borderBottomColor: "#333",
       paddingBottom: 10,

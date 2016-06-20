@@ -6,15 +6,12 @@
  */
 'use strict';
 
-// React Plugins
-// import React, { Component } from 'react';
-
-var UTIL = {
+const UTIL = {
 	/**
 	  * Test if Obj is empty
 	  */
 	objIsEmpty: function(obj) {
-	  for(var prop in obj) {
+	  for(let prop in obj) {
 	    if(obj.hasOwnProperty(prop))
 	      return false;
 	  }
@@ -32,14 +29,12 @@ var UTIL = {
 	  * Get First Item in Object
 	  */
 	firstIndexInObj: function(obj) {
-	  for (var a in obj) return a;
+	  for (let a in obj) return a;
 	},
 };
 
-/* ==============================
-  Done!
-  =============================== */
-  module.exports = UTIL;
-  module.exports.details = {
-    title: 'UTIL'
-  };
+/* Export ==================================================================== */
+module.exports = UTIL;
+module.exports.details = {
+  title: 'UTIL'
+};

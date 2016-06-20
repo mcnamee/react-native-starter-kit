@@ -6,61 +6,53 @@
  */
 'use strict';
 
-/* ==============================
-  Initialise Component
-  =============================== */
-  // React
-  import React, { Component } from 'react';
-  import {
-    StyleSheet,
-    TabBarIOS,
-  } from 'react-native';
+/* Setup ==================================================================== */
+import React, { Component } from 'react'
+import {
+  View,
+  StyleSheet,
+  TabBarIOS,
+  Modal,
+} from 'react-native'
 
-  // App Globals
-  // import AppStyles from '../styles.ios';
-  import AppConfig from '../config.ios';
+// App Globals
+import AppStyles from '../styles.ios'
+import AppConfig from '../config.ios'
 
-  // Screens / Pages
-  import ComingSoon from './soon.ios';
-  import FirstLoad from './first.load.ios';
+// Screens
+import ComingSoon from './soon.ios'
+import FirstLoad from './first.load.ios'
 
-/* ==============================
-  View
-  =============================== */
-  class Tabbar extends Component {
+/* Component ==================================================================== */
+class Tabbar extends Component {
+  constructor(props) {
+    super(props);
 
-    /**
-      * Setup Default State Values
-      */
-    constructor(props) {
-      super(props);
-
-      this.state = {
-        selectedTab: 'favourites'
-      }
+    // Initial state
+    this.state = {
+      selectedTab: 'favourites',
+      splashScreenVisible: this.props.showSplashScreen || false,
     }
+  }
 
-    /**
-      * On Mount
-      */
-    componentWillMount() {
-      // Show Splash Screen (on first load)
-      if(this.props.showSplashScreen) {
-        this.props.navigator.push({
-          title: 'Sign Up',
-          component: FirstLoad,
-          index: 2,
-          navigator: this.props.navigator,
-          transition: 'FloatFromBottom',
-        });
-      }
-    }
+  static propTypes = {
+    navigator: React.PropTypes.object.isRequired,
+    showSplashScreen: React.PropTypes.bool,
+  }
 
-    /**
-      * RENDER
-      */
-    render() {
-      return (
+  /**
+    * Splash Screen - Skip
+    */
+  onSplashSkip = () => {
+    this.setState({ splashScreenVisible: false })
+  }
+
+  /**
+    * RENDER
+    */
+  render = () => {
+    return (
+      <View style={[AppStyles.container]}>
         <TabBarIOS 
           selectedTab={this.state.selectedTab}
           tintColor={AppConfig.primaryColor}
@@ -93,8 +85,6 @@
           <TabBarIOS.Item
             selected={this.state.selectedTab === 'more'}
             title="More"
-            // icon={{uri:'contacts'}}
-            // icon={require('image!settings')}
             systemIcon='more'
             onPress={() => {
               this.setState({
@@ -103,19 +93,19 @@
             }}>
             <ComingSoon navigator={this.props.navigator} placeholder={"This could be a settings screen..."} />
           </TabBarIOS.Item>
-
         </TabBarIOS>
-      )
-    }
+
+        <Modal animationType={'fade'} transparent={false} visible={this.state.splashScreenVisible}>
+          <FirstLoad navigator={this.props.navigator}
+            close={this.onSplashSkip} />
+        </Modal>
+      </View>
+    )
   }
+}
 
-/* ==============================
-  Styles
-  =============================== */
-  // var styles = StyleSheet.create({
-  // });
-
-/* ==============================
-  Done!
-  =============================== */
-  module.exports = Tabbar;
+/* Export Component ==================================================================== */
+module.exports = Tabbar;
+module.exports.details = {
+  title: 'Tabbar'
+};

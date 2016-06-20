@@ -6,108 +6,90 @@
  */
 'use strict';
  
-/* ==============================
-  Initialise Component
-  =============================== */
-  // React
-  import React, { Component } from 'react';
-  import {
-    StyleSheet,
-    View,
-    Text,
-    TouchableOpacity,
-    StatusBar,
-  } from 'react-native';
+/* Setup ==================================================================== */
+import React, { Component } from 'react'
+import {
+  StyleSheet,
+  View,
+  Text,
+  TouchableOpacity,
+  StatusBar,
+} from 'react-native'
 
-  // App Globals
-  import AppStyles from '../styles.ios';
-  import AppConfig from '../config.ios';
+// App Globals
+import AppStyles from '../styles.ios'
+import AppConfig from '../config.ios'
 
-  // Screens / Pages
-  import ComingSoon from './soon.ios';
+// Components
+import Button from '../components/button.ios'
 
-  // Components
-  import Button from '../components/button.ios';
+// Screens
+import ComingSoon from './soon.ios'
 
-/* ==============================
-  View
-  =============================== */
-  var FirstLoad = React.createClass({
+/* Component ==================================================================== */
+class FirstLoad extends Component {
+  static propTypes = {
+    navigator: React.PropTypes.object.isRequired,
+    close: React.PropTypes.func.isRequired,
+  }
 
-    /**
-      * On Load
-      */
-    componentWillMount: function() {
-      StatusBar.setHidden(true, 'slide');
-    },
+	/**
+	  * Navigates to Sign Up
+	  */
+	_navigate = () => {
+    this.props.close();
 
-    /**
-      * When it unmounts
-      */
-    componentWillUnmount: function() {
-      StatusBar.setHidden(false, 'slide');
-    },
+	  this.props.navigator.push({
+	    title: 'Sign Up', 
+	    component: ComingSoon, 
+	    index: 2
+	  });
+	}
 
-  	/**
-  	  * Navigates to Sign Up
-  	  */
-  	_navigate: function() {
-  	  this.props.navigator.push({
-  	    title: 'Sign Up', 
-  	    component: ComingSoon, 
-  	    index: 2
-  	  });
-  	},
+  /**
+    * RENDER
+    */
+  render = () => {
+    return (
+      <View style={[AppStyles.container, styles.containerCover]}>
+      	<View style={[AppStyles.paddingHorizontal]}>
+          <Text style={[AppStyles.baseText, AppStyles.p, AppStyles.centered]}>
+            Sign Up Now!
+          </Text>
 
-    /**
-      * RENDER
-      */
-    render() {
-      return (
-        <View style={[AppStyles.container, styles.containerCover]}>
-        	<View style={[AppStyles.paddingHorizontal]}>
-	          <Text style={[AppStyles.baseText, AppStyles.p, AppStyles.centered]}>
-	            Sign Up Now!
-	          </Text>
+          <View style={[AppStyles.spacer_10]} />
 
-	          <View style={[AppStyles.spacer_10]} />
+          <View style={[AppStyles.row]}>
+          	<View style={[AppStyles.flex1, AppStyles.paddingRightSml]}>
+		          <Button
+		            text={'Sign In/Up Now'}
+		            onPress={()=>this._navigate()} />
+            </View>
 
-	          <View style={[AppStyles.grid_row]}>
-	          	<View style={[AppStyles.grid_half, AppStyles.paddingRightSml]}>
-			          <Button
-			            text={'Sign In/Up Now'}
-			            onPress={()=>this._navigate()} />
-	            </View>
-
-	            <View style={[AppStyles.grid_half, AppStyles.paddingLeftSml]}>
-			          <Button
-			            text={'Skip'}
-			            style={'outlined'}
-			            onPress={()=>this.props.navigator.pop()} />
-	        		</View>
+            <View style={[AppStyles.flex1, AppStyles.paddingLeftSml]}>
+		          <Button
+		            text={'Skip'}
+		            type={'outlined'}
+		            onPress={this.props.close} />
         		</View>
-        	</View>
-        </View>
-      );
-    }
+      		</View>
+      	</View>
+      </View>
+    );
+  }
+}
 
-  });
+/* Styles ==================================================================== */
+const styles = StyleSheet.create({
+	containerCover: {
+		marginTop: -AppConfig.navbarHeight,
+		backgroundColor: "#FFF",
+		justifyContent: 'center',
+	},
+});
 
-/* ==============================
-  Styles
-  =============================== */
-  var styles = StyleSheet.create({
-  	containerCover: {
-  		marginTop: -AppConfig.navbarHeight,
-  		backgroundColor: "#FFF",
-  		justifyContent: 'center',
-  	},
-  });
-
-/* ==============================
-  Done!
-  =============================== */
-  module.exports = FirstLoad;
-  module.exports.details = {
-    title: 'FirstLoad'
-  };
+/* Export Component ==================================================================== */
+module.exports = FirstLoad;
+module.exports.details = {
+  title: 'FirstLoad'
+};

@@ -4,190 +4,122 @@
  */
 'use strict';
 
-/* ==============================
-  Initialise App
-  =============================== */
-  // React
-  import React, { Component } from 'react';
-  import {
-    AppRegistry,
-    StyleSheet,
-    Navigator,
-    Text,
-    View,
-    TouchableOpacity,
-    Image,
-  } from 'react-native';
+/* Setup ==================================================================== */
+import React, { Component } from 'react';
+import {
+  AppRegistry,
+  StyleSheet,
+  Navigator,
+  Text,
+  View,
+  TouchableOpacity,
+  Image,
+} from 'react-native';
+import NavigationBar from 'react-native-navbar';
+import SideMenu from 'react-native-side-menu';
 
-  // 3rd Party Components
-  import NavigationBar from 'react-native-navbar';
-  import SideMenu from 'react-native-side-menu';
+// App Globals
+import AppStyles from './ReactApp/styles.ios';
+import AppConfig from './ReactApp/config.ios';
 
-  // App Globals
-  import AppStyles from './ReactApp/styles.ios';
-  import AppConfig from './ReactApp/config.ios';
+// Components
+import Menu from './ReactApp/components/menu.ios';
+import NavbarElements from './ReactApp/components/navbar.elements.ios';
 
-  // Components
-  import Menu from './ReactApp/components/menu.ios';
+// Screens
+import Index from './ReactApp/screens/tabbar.ios';
 
-  // Screens / Pages
-  import Index from './ReactApp/screens/tabbar.ios';
 
-/* ==============================
-  Main Navigator with Sidemenu
-  =============================== */
+/* Component ==================================================================== */
+class Application extends Component {
+  constructor() {
+    super();
 
-  /**
-   * Custom Navbar Title component
-   */
-  var NavbarTitle = React.createClass({
-    render: function() {
-      return (
-        <Text style={[AppStyles.baseText, AppStyles.strong, AppStyles.navbarTitle]}>{this.props.title}</Text>
-      );
-    }
-  });
+    // Initial state
+    this.state = {
+      menuIsOpen: false,
+    };
+  }
 
   /**
-    * Custom Navbar Button component
+    * Used by Sidebar Menu to navigate to a Screen
     */
-  var NavbarButton = React.createClass({
-    /**
-      * On Icon Press
-      */
-    _onPress: function() { if(this.props.onPress) this.props.onPress(); },
+  navigate = (title, component, props) => {
+    // Toggle Menu
+    this.setState({
+      menuIsOpen: !this.state.menuIsOpen,
+    });
 
-    render: function() {
-      return (
-        <TouchableOpacity onPress={this._onPress} activeOpacity={0.6}>
-          <Image
-            source={this.props.image}
-            style={AppStyles.navbarButton} />
-        </TouchableOpacity>
-      );
-    }
-  });
+    if (!component) return false;
+
+    // Navigate to Screen
+    this.refs.rootNavigator.replace({
+      title: title || null,
+      component: component,
+      navigator: this.refs.rootNavigator,
+      passProps: props || {}
+    });
+  }
 
   /**
-   *  Main View w/ Sidebar
-   */
-  var Application = React.createClass({
-    
-    /**
-      * Initial State
-      */
-    getInitialState: function() {
-      return {
-        menuIsOpen: false,
-      };
-    },
+    * Render Component with a Navbar
+    */
+  _renderScene = (route, navigator) => {
+    // Show Hamburger Icon when index is 0, and Back Arrow Icon when index is > 0
+    let leftButton = {
+      onPress: (route.index > 0)
+        ? this.refs.rootNavigator.pop 
+        : ()=>this.setState({menuIsOpen: true}),
+      image: (route.index > 0)
+        ? require('./ReactApp/images/icons/back_button.png')
+        : require('./ReactApp/images/icons/hamburger.png')
+    };
 
-    /**
-      * On Load
-      */
-    /*componentWillMount: function() {
-    },*/
+    return (
+      <View style={[AppStyles.appContainer, AppStyles.container]}>
+        <NavigationBar
+          title={<NavbarElements.Title title={route.title || null} />}
+          statusBar={{style: 'light-content', hidden: false}}
+          style={AppStyles.navbar}
+          tintColor={AppConfig.primaryColor}
+          leftButton={<NavbarElements.LeftButton onPress={leftButton.onPress} image={leftButton.image} />} />
 
-    /**
-      * Navigates to page from menu
-      */
-    _navigate: function(title, link) {
-      // Toggle Menu
-      this.setState({
-        menuIsOpen: !this.state.menuIsOpen,
-      });
+        <route.component navigator={navigator} route={route} {...route.passProps} />
+      </View>
+    );
+  }
 
-      // Navigate to Screen
-      this.refs.rootNavigator.replace({
-        title: title,
-        component: link,
-        navigator: this.refs.rootNavigator,
-      });
-    },
+  /**
+    * RENDER
+    */
+  render = () => {
+    return (
+      <SideMenu isOpen={this.state.menuIsOpen}
+        menu={<Menu navigate={this.navigate} />}>
 
-    /**
-      * Generate Custom Navbar
-      */
-    _renderScene: function(route, navigator) {
-      var self = this;
+        <Navigator ref="rootNavigator"
+          style={[AppStyles.container, AppStyles.appContainer]}
+          renderScene={this._renderScene}
+          configureScene={function(route, routeStack) {
+            if(route.transition == 'FloatFromBottom') 
+              return Navigator.SceneConfigs.FloatFromBottom;
+            else
+              return Navigator.SceneConfigs.FloatFromRight;
+          }}
+          initialRoute={{
+            component: Index,
+            index: 0,
+            navigator: this.refs.rootNavigator,
+            passProps: {
+              showSplashScreen: true,
+            }
+          }} />
 
-      var Component = route.component;
-      
-      // Default Navbar Title
-      var title = 'Starter App';
-      if(route.title) title = route.title;
+      </SideMenu>
+    );
+  }
+}
 
-      // Determine which Icon component - hamburger or back?
-      var leftButton = (
-        <NavbarButton 
-          image={require('./ReactApp/images/icons/hamburger.png')} 
-          onPress={()=>self.setState({menuIsOpen:true})} />
-      );
 
-      if (route.index > 0) {
-        leftButton = (
-          <NavbarButton 
-            image={require('./ReactApp/images/icons/back_button.png')} 
-            onPress={self.refs.rootNavigator.pop} />
-        );
-      }
-
-      // Done
-      return (
-        <View style={[AppStyles.appContainer, AppStyles.container]}>
-          <NavigationBar
-            title={<NavbarTitle title={title} />}
-            statusBar={{style: 'light-content', hidden: false}}
-            style={AppStyles.navbar}
-            tintColor={AppConfig.primaryColor}
-            leftButton={leftButton} />
-
-          <Component navigator={navigator} route={route} {...route.passProps} />
-        </View>
-      );
-    },
-
-    /**
-      * RENDER
-      */
-    render: function() {
-      return (
-        <SideMenu
-          menu={<Menu navigate={this._navigate} />}
-          isOpen={this.state.menuIsOpen}>
-
-          <Navigator
-            ref="rootNavigator"
-            style={[AppStyles.container, AppStyles.appContainer]}
-            renderScene={this._renderScene}
-            configureScene={function(route, routeStack) {
-              if(route.transition == 'FloatFromBottom') 
-                return Navigator.SceneConfigs.FloatFromBottom;
-              else
-                // return Navigator.SceneConfigs.PushFromRight;
-                return Navigator.SceneConfigs.FloatFromRight;
-            }}
-            initialRoute={{
-              component: Index,
-              index: 0,
-              navigator: this.refs.rootNavigator,
-              passProps: {
-                showSplashScreen: true,
-              }
-            }} />
-
-        </SideMenu>
-      );
-    }
-  });
-
-/* ==============================
-  Styles
-  =============================== */
-  /*var styles = StyleSheet.create({
-  });*/
-
-/* ==============================
-  Done!
-  =============================== */
-  AppRegistry.registerComponent('StarterKit', () => Application);
+/* Register App ==================================================================== */
+AppRegistry.registerComponent('StarterKit', () => Application);

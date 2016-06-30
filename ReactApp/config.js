@@ -31,6 +31,7 @@ exports.statusBarHeight = 22;
 
 // Fonts
 exports.baseFont = 'Avenir';
+exports.baseFontSize = 14;
 
 // Colors
 exports.primaryColor = "#4099FF";

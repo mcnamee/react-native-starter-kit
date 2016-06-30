@@ -12,7 +12,7 @@ import {
 } from 'react-native';
 
 // App Globals
-import AppConfig from './config.ios';
+import AppConfig from './config';
 
 /* Styles ==================================================================== */
 module.exports = StyleSheet.create({
@@ -38,14 +38,18 @@ module.exports = StyleSheet.create({
 
   /* Text Styles */
   baseText: {
-    color: AppConfig.textColor,
     fontFamily: AppConfig.baseFont,
+    fontWeight: '500',
+    color: AppConfig.textColor,
+    fontSize: AppConfig.baseFontSize,
+    lineHeight: AppConfig.baseFontSize + (AppConfig.baseFontSize * 0.4),
   },
   h1: {
     fontFamily: AppConfig.baseFont,
-    fontSize: 28,
-    lineHeight: 32,
+    fontSize: AppConfig.baseFontSize * 2,
+    lineHeight: (AppConfig.baseFontSize * 2) + (AppConfig.baseFontSize * 0.4),
     color: AppConfig.primaryColor,
+    fontWeight: '800',
     margin: 0,
     marginTop: 4,
     marginBottom: 4,
@@ -55,7 +59,8 @@ module.exports = StyleSheet.create({
   h2: {
     fontFamily: AppConfig.baseFont,
     color: AppConfig.primaryColor,
-    fontSize: 24,
+    fontSize: AppConfig.baseFontSize * 1.5,
+    lineHeight: (AppConfig.baseFontSize * 1.5) + (AppConfig.baseFontSize * 0.4),
     margin: 0,
     marginTop: 4,
     marginBottom: 4,
@@ -66,29 +71,33 @@ module.exports = StyleSheet.create({
     fontFamily: AppConfig.baseFont,
     fontWeight: '500',
     color: AppConfig.primaryColor,
-    fontSize: 18,
+    fontSize: AppConfig.baseFontSize * 1.25,
+    lineHeight: (AppConfig.baseFontSize * 1.25) + (AppConfig.baseFontSize * 0.4),
     margin: 0,
     marginTop: 4,
-    marginBottom: 8,
+    marginBottom: 4,
     left: 0,
     right: 0,
   },
   h4: {
     fontFamily: AppConfig.baseFont,
-    fontWeight: '500',
+    fontWeight: '800',
     color: AppConfig.primaryColor,
-    fontSize: 16,
+    fontSize: AppConfig.baseFontSize * 1.1,
+    lineHeight: (AppConfig.baseFontSize * 1.1) + (AppConfig.baseFontSize * 0.4),
     margin: 0,
     marginTop: 4,
-    marginBottom: 8,
+    marginBottom: 4,
     left: 0,
     right: 0,
   },
   p: {
     fontFamily: AppConfig.baseFont,
-    margin: 0,
+    marginBottom: 8,
     fontWeight: '500',
     color: AppConfig.textColor,
+    fontSize: AppConfig.baseFontSize,
+    lineHeight: AppConfig.baseFontSize + (AppConfig.baseFontSize * 0.4),
   },
   strong: {
     fontWeight: '900',
@@ -219,22 +228,5 @@ module.exports = StyleSheet.create({
     paddingHorizontal: 10,
     marginBottom: 10,
     backgroundColor: "#fff",
-  },
-
-  /* Messages / Alerts */
-  msg: {
-    right: 0,
-    left: 0,
-    paddingVertical: 10,
-    paddingHorizontal: 10,
-    borderWidth: 1,
-    borderColor: "#B0BFA8",
-    backgroundColor: "#DEF0D8",
-    borderRadius: 4,
-  },
-  msg_text: {
-    textAlign: "center",
-    color: "#5F8951",
-    fontWeight: "800"
   },
 });

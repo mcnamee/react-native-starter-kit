@@ -22,12 +22,11 @@ import {
 } from 'react-native'
 
 // App Globals
-import AppStyles from '../styles.ios'
-import AppConfig from '../config.ios'
-
+import AppStyles from '../styles'
+import AppConfig from '../config'
 
 /* Component ==================================================================== */
-class listRow extends Component {
+class ListRow extends Component {
   static propTypes = {
     onPress: React.PropTypes.func.isRequired,
     title: React.PropTypes.string.isRequired,
@@ -103,7 +102,4 @@ const styles = StyleSheet.create({
 });
 
 /* Export Component ==================================================================== */
-  module.exports = listRow;
-  module.exports.details = {
-    title: 'listRow'
-  };
+export default ListRow

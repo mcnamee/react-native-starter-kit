@@ -16,14 +16,15 @@ import {
 } from 'react-native'
 
 // App Globals
-import AppStyles from '../styles.ios'
-import AppConfig from '../config.ios'
+import AppStyles from '../styles'
+import AppConfig from '../config'
 
 // Screens
-import Index from '../screens/tabbar.ios'
-import ComingSoon from '../screens/soon.ios'
-import FormExample from '../screens/forms.ios'
-import ListViewExample from '../screens/listview.ios'
+import Index from '../screens/tabbar'
+import StyleGuide from '../screens/style.guide'
+import ComingSoon from '../screens/soon'
+import FormExample from '../screens/forms'
+import ListViewExample from '../screens/listview'
 
 
 /* Component ==================================================================== */
@@ -35,6 +36,7 @@ class Menu extends Component {
     this.state = {
       menu: [
         {title: 'Tab Bar', component: Index},
+        {title: 'Style Guide', component: StyleGuide},
         {title: 'Forms', component: FormExample},
         {title: 'List Example', component: ListViewExample, props: {noImages: true}},
         {title: 'List Example 2', component: ListViewExample},
@@ -101,7 +103,8 @@ const styles = StyleSheet.create({
     paddingBottom: 10,
   },
   menuItem_text: {
-    fontSize: 17,
+    fontSize: 18,
+    lineHeight: 18 + (18 * 0.4),
     fontWeight: '500',
     paddingTop: 10,
     flex: 1,
@@ -110,7 +113,4 @@ const styles = StyleSheet.create({
 });
 
 /* Export Component ==================================================================== */
-module.exports = Menu;
-module.exports.details = {
-  title: 'Menu'
-};
+export default Menu

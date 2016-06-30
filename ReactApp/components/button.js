@@ -4,6 +4,8 @@
     <Button 
       text={text}
       type={'outlined'}
+      size={'medium'}
+      disabled={false}
       onPress={()=>{alert('Go To Entry View')}} />
  *
  * React Native Starter App
@@ -22,8 +24,8 @@ import {
 } from 'react-native'
 
 // App Globals
-import AppStyles from '../styles.ios'
-import AppConfig from '../config.ios'
+import AppStyles from '../styles'
+import AppConfig from '../config'
 
 
 /* Component ==================================================================== */
@@ -32,22 +34,28 @@ class Button extends Component {
     onPress: React.PropTypes.func.isRequired,
     type: React.PropTypes.oneOf(['', 'outlined']),
     text: React.PropTypes.string.isRequired,
+    size: React.PropTypes.oneOf(['', 'small', 'medium', 'large']),
+    disabled: React.PropTypes.bool,
   }
 
   static defaultProps = {
+    onPress: () => {}, // Do nothing
+    type: '',
     text: 'Click Here',
+    size: 'medium',
+    disabled: false,
   }
 
   /**
     * RENDER
     */
   render = ()=> {
-    let { text, type, onPress } = this.props;
+    let { text, type, onPress, size, disabled } = this.props;
 
     return (
-      <TouchableOpacity onPress={onPress} activeOpacity={0.7}
-        style={[styles.button, type == 'outlined' && styles.buttonOutline]}>
-        <Text style={[AppStyles.baseText, styles.button_text, type == 'outlined' && styles.buttonOutline_text]}>
+      <TouchableOpacity onPress={onPress} activeOpacity={0.7} disabled={disabled}
+        style={[styles.button, type == 'outlined' && styles.buttonOutline, size == 'small' && styles.buttonSml, size == 'large' && styles.buttonLrg, disabled && styles.disabled]}>
+        <Text style={[AppStyles.baseText, styles.button_text, type == 'outlined' && styles.buttonOutline_text, size == 'small' && styles.buttonSml_text, size == 'large' && styles.buttonLrg_text]}>
           {text}
         </Text>
       </TouchableOpacity>
@@ -84,11 +92,29 @@ const styles = StyleSheet.create({
   buttonOutline_text: {
     color: AppConfig.primaryColor,
   },
+
+  // Large
+  buttonLrg: {
+    height: 65,
+  },
+  buttonLrg_text: {
+    fontSize: 18,
+  },
+
+  // Small
+  buttonSml: {
+    height: 35,
+  },
+  buttonSml_text: {
+    fontSize: 12,
+  },
+
+  // Disabled
+  disabled: {
+    opacity: 25,
+  },
 });
 
 
 /* Export Component ==================================================================== */
-module.exports = Button;
-module.exports.details = {
-  title: 'Button'
-};
+export default Button

@@ -16,12 +16,12 @@ import {
 } from 'react-native'
 
 // App Globals
-import AppStyles from '../styles.ios'
-import AppConfig from '../config.ios'
+import AppStyles from '../styles'
+import AppConfig from '../config'
 
 // Screens
-import ComingSoon from './soon.ios'
-import FirstLoad from './first.load.ios'
+import ComingSoon from './soon'
+import FirstLoad from './first.load'
 
 /* Component ==================================================================== */
 class Tabbar extends Component {

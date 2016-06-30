@@ -17,14 +17,14 @@ import {
 } from 'react-native'
 
 // App Globals
-import AppStyles from '../styles.ios'
-import AppConfig from '../config.ios'
+import AppStyles from '../styles'
+import AppConfig from '../config'
 
 // Components
-import Button from '../components/button.ios'
+import Button from '../components/button'
 
 // Screens
-import ComingSoon from './soon.ios'
+import ComingSoon from './soon'
 
 /* Component ==================================================================== */
 class FirstLoad extends Component {

@@ -7,15 +7,17 @@ React Native Starter Kit
 
 Contains the following items all setup and ready to go:
 
-1. Sidebar/Hamburger Menu via https://github.com/Kureev/react-native-side-menu
-2. Navigator via https://facebook.github.io/react-native/docs/navigator.html
-3. Custom Navbar via https://github.com/Kureev/react-native-navbar
-4. TabBarIOS via https://facebook.github.io/react-native/docs/tabbarios.html#content
-5. Form Validation via https://github.com/gcanti/tcomb-form-native
-6. Data persistence via https://github.com/darkrishabh/react-native-db-models
-7. ListView via https://facebook.github.io/react-native/docs/listview.html
-8. Pull to Refresh via https://facebook.github.io/react-native/docs/refreshcontrol.html
-9. An example directory/file structure I've found useful for scaling apps
+1. Redux - https://github.com/reactjs/react-redux
+2. Sidebar/Hamburger Menu via https://github.com/Kureev/react-native-side-menu
+3. Navigator via https://facebook.github.io/react-native/docs/navigator.html
+4. Custom Navbar via https://github.com/Kureev/react-native-navbar
+5. Icons via https://github.com/oblador/react-native-vector-icons
+6. Form Validation via https://github.com/gcanti/tcomb-form-native
+7. Data persistence via https://github.com/darkrishabh/react-native-db-models
+8. ListView via https://facebook.github.io/react-native/docs/listview.html
+9. Pull to Refresh via https://facebook.github.io/react-native/docs/refreshcontrol.html
+10. TabBarIOS via https://facebook.github.io/react-native/docs/tabbarios.html#content
+11. An example directory/file structure I've found useful for scaling apps
 
 ### Getting Started
 

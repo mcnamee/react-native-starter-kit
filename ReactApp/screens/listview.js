@@ -16,15 +16,15 @@ import {
 } from 'react-native'
 
 // App Globals
-import AppStyles from '../styles.ios'
-import AppConfig from '../config.ios'
-import AppUtil from '../util.ios'
+import AppStyles from '../styles'
+import AppConfig from '../config'
+import AppUtil from '../util'
 
 // Components
-import ListRow from '../components/list.row.ios'
+import ListRow from '../components/list.row'
 
 // Screens
-import Screen from './soon.ios'
+import Screen from './soon'
 
 // Demo data
 const defaultData = [
@@ -112,12 +112,13 @@ class ListViewExample extends Component {
 
     return (
       <ListRow title={title.toString()}
-        image={!this.props.noImages ? image : null}
+        image={!this.props.route.noImages ? image : null}
         onPress={()=>{
           this.props.navigator.push({
             title: title,
             component: Screen,
-            index: 2
+            index: 2,
+            transition: 'FloatFromBottom',
           });
         }} />
     );

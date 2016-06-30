@@ -16,10 +16,10 @@ import {
 } from 'react-native'
 
 // App Globals
-import AppStyles from '../styles.ios'
+import AppStyles from '../styles'
 
 // Components
-import Button from '../components/button.ios'
+import Button from '../components/button'
 
 /* Component ==================================================================== */
 class ComingSoon extends Component {

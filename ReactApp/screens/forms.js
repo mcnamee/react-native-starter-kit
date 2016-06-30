@@ -20,12 +20,13 @@ import {
 import FormValidation from 'tcomb-form-native'
 
 // App Globals
-import AppStyles from '../styles.ios'
-import AppUtil from '../util.ios'
-import AppDB from '../db.ios'
+import AppStyles from '../styles'
+import AppUtil from '../util'
+import AppDB from '../db'
 
 // Components
-import Button from '../components/button.ios'
+import Button from '../components/button'
+import Alerts from '../components/alerts'
 
 /* Component ==================================================================== */
 class Form extends Component {
@@ -50,7 +51,11 @@ class Form extends Component {
 
     // Initial state
     this.state = {
-      show_save_msg: false,
+      resultMsg: {
+        status: '',
+        success: '',
+        error: '',
+      },
       form_fields: FormValidation.struct({
         First_name: FormValidation.String,
         Last_name: FormValidation.String,
@@ -73,11 +78,11 @@ class Form extends Component {
           Email: { error: 'Please enter a valid email' },
           Password: {
             error: 'Your new password must be more than 6 characters', 
-            type: 'password',
+            secureTextEntry: true,
           },
           Confirm_password: { 
             error: 'Please repeat your new password',
-            type: 'password',
+            secureTextEntry: true,
           },
         }
       },
@@ -160,8 +165,14 @@ class Form extends Component {
     if(values) {
       this.setState({form_values: values}, () => {
         this._saveData((result) => {
+          this.refs.scrollView.scrollTo({ y: 0 });
+
           // Show save message
-          this.setState({show_save_msg: true});
+          this.setState({
+            resultMsg: {
+              success: 'Awesome, that saved!',
+            }
+          });
         });
       });
     }
@@ -175,19 +186,15 @@ class Form extends Component {
 
     return (
       <ScrollView automaticallyAdjustContentInsets={false} 
+        ref={'scrollView'}
         style={[AppStyles.container]}
         contentContainerStyle={[AppStyles.containerCentered, styles.container]}>
         <View style={[AppStyles.paddingHorizontal]}>
 
-          {this.state.show_save_msg && this.state.form_values.First_name != '' ?
-            <View>
-              <View style={[AppStyles.msg]}>
-                <Text style={[AppStyles.baseText, AppStyles.msg_text]}>Saved</Text>
-              </View>
-
-              <View style={AppStyles.spacer_20} />
-            </View>
-          : null}
+          <Alerts
+            status={this.state.resultMsg.status}
+            success={this.state.resultMsg.success}
+            error={this.state.resultMsg.error} />
 
           <Text style={[AppStyles.baseText, AppStyles.h3, AppStyles.centered]}>
             {this.state.form_values.First_name == '' ? "Sign Up" : "Update Profile"}

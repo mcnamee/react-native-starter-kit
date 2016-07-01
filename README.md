@@ -3,7 +3,7 @@ React Native Starter Kit
 
 | | | | |
 |---|---|---|---|
-| ![alt text](https://dl.dropboxusercontent.com/u/46690444/GITHUB/react-native.png "React Native") | ![alt text](https://dl.dropboxusercontent.com/u/46690444/GITHUB/redux-logo.png "Redux") | | ![alt text](https://dl.dropboxusercontent.com/u/46690444/GITHUB/apple-logo.jpg "iOS Ready") | ![alt text](https://dl.dropboxusercontent.com/u/46690444/GITHUB/android-logo.jpg "Android Ready") |
+| ![alt text](https://dl.dropboxusercontent.com/u/46690444/GITHUB/react-native.png "React Native") | ![alt text](https://dl.dropboxusercontent.com/u/46690444/GITHUB/redux-logo.png "Redux") | ![alt text](https://dl.dropboxusercontent.com/u/46690444/GITHUB/apple-logo.jpg "iOS Ready") | ![alt text](https://dl.dropboxusercontent.com/u/46690444/GITHUB/android-logo.jpg "Android Ready") |
 | | | | |
 
 ### Features

@@ -20,7 +20,6 @@ import AppStyles from '../styles'
 import AppConfig from '../config'
 
 // Screens
-import Index from '../screens/tabbar'
 import StyleGuide from '../screens/style.guide'
 import ComingSoon from '../screens/soon'
 import FormExample from '../screens/forms'
@@ -35,7 +34,7 @@ class Menu extends Component {
     // Initial state
     this.state = {
       menu: [
-        {title: 'Tab Bar', component: Index},
+        {title: 'Home', component: ComingSoon, props: {passProps: {placeholder: 'Hey there, you passProps bro?'}}},
         {title: 'Style Guide', component: StyleGuide},
         {title: 'Forms', component: FormExample},
         {title: 'List Example', component: ListViewExample, props: {noImages: true}},
@@ -104,9 +103,9 @@ const styles = StyleSheet.create({
   },
   menuItem_text: {
     fontSize: 18,
-    lineHeight: 18 + (18 * 0.4),
+    lineHeight: parseInt(18 + (18 * 0.5)),
     fontWeight: '500',
-    paddingTop: 10,
+    marginTop: 10,
     flex: 1,
     color: "#EEE"
   },

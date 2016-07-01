@@ -79,6 +79,7 @@ const styles = StyleSheet.create({
     color: "#FFF",
     textAlign: 'center',
     fontSize: 15,
+    lineHeight: parseInt(15 + (15 * 0.5)),
     fontFamily: AppConfig.baseFont,
     fontWeight: '800',
   },
@@ -99,6 +100,7 @@ const styles = StyleSheet.create({
   },
   buttonLrg_text: {
     fontSize: 18,
+    lineHeight: parseInt(18 + (18 * 0.5)),
   },
 
   // Small
@@ -107,6 +109,7 @@ const styles = StyleSheet.create({
   },
   buttonSml_text: {
     fontSize: 12,
+    lineHeight: parseInt(12 + (12 * 0.5)),
   },
 
   // Disabled

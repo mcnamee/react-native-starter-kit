@@ -135,7 +135,7 @@ class ListViewExample extends Component {
           automaticallyAdjustContentInsets={false}
           dataSource={this.state.dataSource}
           renderRow={this._renderRow}
-          contentContainerStyle={styles.container} 
+          contentContainerStyle={AppStyles.paddingBottom} 
           refreshControl={
             <RefreshControl
               refreshing={this.state.isRefreshing}
@@ -149,9 +149,6 @@ class ListViewExample extends Component {
 
 /* Styles ==================================================================== */
 const styles = StyleSheet.create({
-  container: {
-    paddingBottom: AppConfig.tabBarHeight,
-  },
 });
 
 /* Export Component ==================================================================== */

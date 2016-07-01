@@ -33,7 +33,7 @@ import Menu from '../components/menu';
 import NavbarElements from '../components/navbar.elements';
 
 // Screens
-import Index from '../screens/tabbar';
+import Index from '../screens/soon.js';
 
 /* Component ==================================================================== */
 class AppContainer extends Component {
@@ -41,7 +41,7 @@ class AppContainer extends Component {
     * On first load
     */
   componentDidMount = () => {
-    StatusBar.setHidden('slide');
+    StatusBar.setHidden(false, 'slide');
   }
 
   /**

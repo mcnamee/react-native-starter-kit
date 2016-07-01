@@ -6,14 +6,6 @@ React Native Starter Kit
 | ![alt text](https://dl.dropboxusercontent.com/u/46690444/GITHUB/react-native.png "React Native") | ![alt text](https://dl.dropboxusercontent.com/u/46690444/GITHUB/apple-logo.jpg "iOS Ready") | ![alt text](https://dl.dropboxusercontent.com/u/46690444/GITHUB/android-logo.jpg "Android Ready") |
 | | | |
 
-### Screenshots
-
-| | | |
-|---|---|
-| ![alt text](https://dl.dropboxusercontent.com/u/46690444/GITHUB/react-native-starter-app.png "Default Screen w/ tabs") | ![alt text](https://dl.dropboxusercontent.com/u/46690444/GITHUB/react-native-starter-app-open-menu.png "Sidebar Menu open") | ![alt text](https://dl.dropboxusercontent.com/u/46690444/GITHUB/react-native-starter-app-forms.png "Data validation and persistence") | 
-| ![alt text](https://dl.dropboxusercontent.com/u/46690444/GITHUB/react-native-starter-app-listview.png "List View Example") | ![alt text](https://dl.dropboxusercontent.com/u/46690444/GITHUB/react-native-starter-app-listview2.png "List View Example 2") | ... |
-| | | |
-
 ### Features
 
 | Feature | Summary |
@@ -26,6 +18,15 @@ React Native Starter Kit
 | [Data persistence](https://github.com/darkrishabh/react-native-db-models) | Shows how to persist data, even after closing/reopening the app. |
 | Style Guide | A bunch of elements and components to get you started - styled headings, buttons, list rows, alerts etc. |
 | An example directory/file structure I've found useful for scaling apps | ... |
+
+
+### Screenshots
+
+| | | |
+|---|---|---|
+| ![alt text](https://dl.dropboxusercontent.com/u/46690444/GITHUB/react-native-starter-app.png "Default Screen w/ tabs") | ![alt text](https://dl.dropboxusercontent.com/u/46690444/GITHUB/react-native-starter-app-open-menu.png "Sidebar Menu open") | ![alt text](https://dl.dropboxusercontent.com/u/46690444/GITHUB/react-native-starter-app-forms.png "Data validation and persistence") | 
+| ![alt text](https://dl.dropboxusercontent.com/u/46690444/GITHUB/react-native-starter-app-listview.png "List View Example") | ![alt text](https://dl.dropboxusercontent.com/u/46690444/GITHUB/react-native-starter-app-listview2.png "List View Example 2") | ... |
+| | | |
 
 ### Getting Started
 

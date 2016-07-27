@@ -24,10 +24,12 @@ import AppConfig from '../config'
 import Button from '../components/button'
 
 // Screens
-import ComingSoon from './soon'
+import Form from './forms'
 
 /* Component ==================================================================== */
 class FirstLoad extends Component {
+  static componentName = 'FirstLoad';
+
   static propTypes = {
     navigator: React.PropTypes.object.isRequired,
     close: React.PropTypes.func.isRequired,
@@ -40,9 +42,9 @@ class FirstLoad extends Component {
     this.props.close();
 
 	  this.props.navigator.push({
-	    title: 'Sign Up', 
-	    component: ComingSoon, 
-	    index: 2
+	    title: 'Sign Up',
+	    component: Form, 
+	    index: 2,
 	  });
 	}
 
@@ -89,7 +91,4 @@ const styles = StyleSheet.create({
 });
 
 /* Export Component ==================================================================== */
-module.exports = FirstLoad;
-module.exports.details = {
-  title: 'FirstLoad'
-};
+export default FirstLoad

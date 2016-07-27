@@ -26,6 +26,8 @@ import ListRow from '../components/list.row'
 
 /* Component ==================================================================== */
 class StyleGuide extends Component {
+	static componentName = 'StyleGuide';
+
   render = () => {
     return (
       <ScrollView automaticallyAdjustContentInsets={false} 
@@ -142,7 +144,4 @@ class StyleGuide extends Component {
 }
 
 /* Export Component ==================================================================== */
-module.exports = StyleGuide;
-module.exports.details = {
-  title: 'StyleGuide'
-};
+export default StyleGuide

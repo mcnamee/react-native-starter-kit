@@ -33,7 +33,7 @@ import Menu from '../components/menu';
 import NavbarElements from '../components/navbar.elements';
 
 // Screens
-import Index from '../screens/soon.js';
+import Index from '../screens/soon';
 
 /* Component ==================================================================== */
 class AppContainer extends Component {

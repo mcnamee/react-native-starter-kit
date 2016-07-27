@@ -24,11 +24,16 @@ module.exports = StyleSheet.create({
 	container: {
     position: 'relative',
     flex: 1,
+    flexDirection: 'column',
     backgroundColor: '#FFFFFF',
   },
   containerCentered: {
     justifyContent: 'center',
     alignItems: 'center',
+  },
+  windowSize: {
+    height: AppConfig.windowHeight,
+    width: AppConfig.windowWidth,
   },
 
   /* Aligning items */

@@ -30,6 +30,8 @@ import Alerts from '../components/alerts'
 
 /* Component ==================================================================== */
 class Form extends Component {
+  static componentName = 'Form';
+
   constructor(props) {
     super(props);
 
@@ -257,7 +259,4 @@ const styles = StyleSheet.create({
 });
 
 /* Export Component ==================================================================== */
-module.exports = Form;
-module.exports.details = {
-  title: 'Form'
-};
+export default Form

@@ -68,6 +68,8 @@ const defaultData = [
 
 /* Component ==================================================================== */
 class ListViewExample extends Component {
+  static componentName = 'ListViewExample';
+
   constructor(props) {
     super(props);
 
@@ -112,7 +114,7 @@ class ListViewExample extends Component {
 
     return (
       <ListRow title={title.toString()}
-        image={!this.props.route.noImages ? image : null}
+        image={!this.props.noImages ? image : null}
         onPress={()=>{
           this.props.navigator.push({
             title: title,
@@ -152,7 +154,4 @@ const styles = StyleSheet.create({
 });
 
 /* Export Component ==================================================================== */
-module.exports = ListViewExample;
-module.exports.details = {
-  title: 'ListViewExample'
-};
+export default ListViewExample

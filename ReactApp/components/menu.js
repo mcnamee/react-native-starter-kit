@@ -24,6 +24,7 @@ import StyleGuide from '../screens/style.guide'
 import ComingSoon from '../screens/soon'
 import FormExample from '../screens/forms'
 import ListViewExample from '../screens/listview'
+import Tabs from '../screens/tabs'
 
 
 /* Component ==================================================================== */
@@ -36,8 +37,9 @@ class Menu extends Component {
       menu: [
         {title: 'Home', component: ComingSoon, props: {passProps: {placeholder: 'Hey there, you passProps bro?'}}},
         {title: 'Style Guide', component: StyleGuide},
+        {title: 'Tabs', component: Tabs},
         {title: 'Forms', component: FormExample},
-        {title: 'List Example', component: ListViewExample, props: {noImages: true}},
+        {title: 'List Example', component: ListViewExample, props: {passProps: {noImages: true}}},
         {title: 'List Example 2', component: ListViewExample},
       ],
     };

@@ -27,6 +27,8 @@ import FirstLoad from './first.load'
 
 /* Component ==================================================================== */
 class ComingSoon extends Component {
+  static componentName = 'ComingSoon';
+
   constructor(props) {
     super(props);
 
@@ -91,7 +93,4 @@ class ComingSoon extends Component {
 }
 
 /* Export Component ==================================================================== */
-module.exports = ComingSoon;
-module.exports.details = {
-  title: 'ComingSoon'
-};
+export default ComingSoon

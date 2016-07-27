@@ -90,8 +90,6 @@ class AppContainer extends Component {
       leftButton.icon = 'ios-close-outline';
     }
 
-    console.log(route);
-
     return (
       <View style={[AppStyles.appContainer, AppStyles.container]}>
         <NavigationBar

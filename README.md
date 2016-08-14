@@ -43,6 +43,9 @@ React Native Starter Kit
 | **Opening the Debug Menu** | CMD + D | CMD + M |
 | **Reload** | CMD + R | Double tap R on your keyboard |
 | **App Icons** [I use this tool to generate](https://makeappicon.com/) | /ios/StarterKit/Images.xcassets/AppIcon.appiconset | /android/app/src/main/res/mipmap-*/ic_launcher.png |
+| **Testing project in an emulator** | <ol><li>In your terminal, enter the root directory of the project</li><li>Then run: `react-native run-ios`</li></ul> | <ol><li>From terminal, run `android avd`. This will open the Android Virtual Device Manager. Select a device to open. </li><li>In a new terminal window, enter the root directory of the project, then run: `react-native run-android`</li></ul> |
+| **Opening the Debug Menu** | CMD + D | CMD + M |
+| **Reload** | CMD + R | Double tap R on your keyboard |
 
 ### Any advice?
 

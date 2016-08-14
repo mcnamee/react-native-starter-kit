@@ -34,20 +34,15 @@ React Native Starter Kit
 2. Clone this project
 3. Run `npm install` from root directory
 
-### Run on iOS
+### Quick Tips
 
-1. Open the /ios/StarterKit.xcodeproj file in Xcode
-2. Run in an iOS simulator by pressing the Play (triangle) icon at the top left
-
-### Run on Android
-
-1. Start an Android Simulator first - in terminal, type `android avd`. This will open the Android Virtual Device Manager. Select a device to open
-2. Once it's running, in a new terminal tab/window, type `react-native run-android`
-
-### Opening the Debug Menu
-
-- **iOS**: CMD + D
-- **Android**: CMD + M
+| Function | iOS | Android |
+|---|---|---|
+| **Testing project in an emulator** | <ol><li>Open the /ios/StarterKit.xcodeproj file in Xcode</li><li>Select the iOS simulator then press the Play (triangle) icon at the top left</li></ul> | <ol><li>From terminal, run `android avd`. This will open the Android Virtual Device Manager. Select a device to open. </li><li>In a new terminal window, enter the root directory of the project, then run: `react-native run-android`</li></ul> |
+| **Running on Device** | [iOS Guide](https://facebook.github.io/react-native/docs/running-on-device-ios.html) | [Android Guide](https://facebook.github.io/react-native/docs/running-on-device-android.html) |
+| **Opening the Debug Menu** | CMD + D | CMD + M |
+| **Reload** | CMD + R | Double tap R on your keyboard |
+| **App Icons** [I use this tool to generate](https://makeappicon.com/) | /ios/StarterKit/Images.xcassets/AppIcon.appiconset | /android/app/src/main/res/mipmap-*/ic_launcher.png |
 
 ### Any advice?
 

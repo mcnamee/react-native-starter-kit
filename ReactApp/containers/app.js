@@ -41,7 +41,9 @@ class AppContainer extends Component {
     * On first load
     */
   componentDidMount = () => {
-    StatusBar.setHidden(false, 'slide');
+    // Status Bar
+    StatusBar.setHidden(false, 'slide'); // Slide in on load
+    StatusBar.setBackgroundColor(AppConfig.primaryColor, true); // Android Status Bar Color
   }
 
   /**

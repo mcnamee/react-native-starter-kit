@@ -28,6 +28,10 @@ import AppStyles from '../styles';
 import AppConfig from '../config';
 import AppUtil from '../util';
 
+// Google Analytics
+import GoogleAnalytics from 'react-native-google-analytics-bridge';
+GoogleAnalytics.setTrackerId(AppConfig.gaTrackingId);
+
 // Components
 import Menu from '../components/menu';
 import NavbarElements from '../components/navbar.elements';
@@ -77,6 +81,13 @@ class AppContainer extends Component {
     * Render each scene with a Navbar and Sidebar
     */
   _renderScene = (route, navigator) => {
+    // Default Navbar Title
+    let title = route.title || AppConfig.appName;
+
+    // Google Analytics
+    let screenName = route.component.componentName ? route.component.componentName + ' - ' + title : title;
+    GoogleAnalytics.trackScreenView(screenName);
+
     // Show Hamburger Icon when index is 0, and Back Arrow Icon when index is > 0
     let leftButton = {
       onPress: (route.index > 0)
@@ -95,7 +106,7 @@ class AppContainer extends Component {
     return (
       <View style={[AppStyles.appContainer, AppStyles.container]}>
         <NavigationBar
-          title={<NavbarElements.Title title={route.title || null} />}
+          title={<NavbarElements.Title title={title || null} />}
           statusBar={{style: 'light-content', hidden: false}}
           style={[AppStyles.navbar]}
           tintColor={AppConfig.primaryColor}
@@ -126,7 +137,7 @@ class AppContainer extends Component {
             if(route.transition == 'FloatFromBottom') 
               return Navigator.SceneConfigs.FloatFromBottom;
             else
-              return Navigator.SceneConfigs.FloatFromRight;
+              return Navigator.SceneConfigs.PushFromRight;
           }}
           initialRoute={{
             component: Index,

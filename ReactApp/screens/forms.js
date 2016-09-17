@@ -13,8 +13,10 @@ import {
   View,
   Text,
   Image,
+  Alert,
   TextInput,
   ScrollView,
+  AsyncStorage,
   TouchableOpacity,
 } from 'react-native'
 import FormValidation from 'tcomb-form-native'
@@ -22,7 +24,6 @@ import FormValidation from 'tcomb-form-native'
 // App Globals
 import AppStyles from '../styles'
 import AppUtil from '../util'
-import AppDB from '../db'
 
 // Components
 import Button from '../components/button'
@@ -94,48 +95,32 @@ class Form extends Component {
   /**
     * Executes after all modules have been loaded
     */
-  componentDidMount = () => {
-    // Get setting from local DB to populate fields
-    AppDB.settings.get_all((result) => {
-      if(result.totalrows > 0) {
-        var firstIndex = AppUtil.firstIndexInObj(result.rows);
-        this.setState({form_values: result.rows[firstIndex].values});
-      }
-    });
+  componentDidMount = async () => {
+    // Get user data from AsyncStorage to populate fields
+    const value = await AsyncStorage.getItem('user');
+    if (value !== null) {
+      this.setState({ form_values: JSON.parse(value) });
+    }
   }
 
   /**
     * Save Form Data to App
     */
-  _saveData = (callback) => {
-    var values = this.state.form_values;
-
-    // Check if data exists so we know if to add or update
-    AppDB.settings.get_all((result) => {
-      if(result.totalrows == 0) {
-        // Add data to the local DB
-        AppDB.settings.add({values}, (added_data) => {
-          return callback(added_data);
-        });
-      } else {
-        // Update row
-        var firstIndex = AppUtil.firstIndexInObj(result.rows);
-        AppDB.settings.update_id(firstIndex, {values}, (updated_data) => {
-          return callback(updated_data);
-        });
-      }
-    });
+  _saveData = () => {
+    let values = JSON.stringify(this.state.form_values);
+    return AsyncStorage.setItem('user', values);
   }
 
   /**
     * Delete Data
     */
-  _deleteData = (callback) => {
-    // Erase the DB
-    AppDB.settings.erase_db((removed_data) => {
-      this.setState({form_values: this.state.empty_form_values});
-      return callback();
-    });
+  _deleteData = () => {
+     AsyncStorage.removeItem('user')
+      .then(() => {
+        this.setState({ form_values: this.state.empty_form_values });
+      }).catch(() => {
+        Alert.alert('Oops', 'Something went wrong when deleting');
+      });
   }
 
   /**
@@ -166,16 +151,24 @@ class Form extends Component {
     // Form is valid
     if(values) {
       this.setState({form_values: values}, () => {
-        this._saveData((result) => {
-          this.refs.scrollView.scrollTo({ y: 0 });
-
-          // Show save message
-          this.setState({
-            resultMsg: {
-              success: 'Awesome, that saved!',
+        // Persist Data
+        this._saveData()
+          .then(() => {
+            // Scroll to top, to show message
+            if (this.refs && this.refs.scrollView) {
+              this.refs.scrollView.scrollTo({ y: 0 });
             }
+
+            // Show save message
+            this.setState({
+              resultMsg: { success: 'Awesome, that saved!' }
+            });
+          }).catch((error) => {
+            // Show error message
+            this.setState({
+              resultMsg: { error: error }
+            });
           });
-        });
       });
     }
   }
@@ -218,7 +211,7 @@ class Form extends Component {
         <View style={[AppStyles.row]}>
           <View style={[AppStyles.flex2, AppStyles.paddingLeft]}>
             <View style={AppStyles.spacer_15} />
-            <TouchableOpacity onPress={()=>{this._deleteData()}}>
+            <TouchableOpacity onPress={this._deleteData}>
               <Text style={[AppStyles.baseText, AppStyles.p, AppStyles.link]}>Clear My Info</Text>
             </TouchableOpacity>
           </View>

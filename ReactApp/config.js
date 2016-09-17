@@ -7,34 +7,40 @@
 'use strict';
 
 import Dimensions from 'Dimensions';
+var window = Dimensions.get('window');
 
 /* Setup ==================================================================== */
 exports.title = 'GlobalConfig';
 
-/* Default Styles ==================================================================== */
-// Window Dimensions
-var window = Dimensions.get('window');
-exports.windowHeight = window.height;
-exports.windowWidth = window.width;
+export default {
+	// App Details
+	appName: 'StarterKit',
 
-// Grid
-exports.windowWidthHalf = window.width * 0.5;
-exports.windowWidthYhird = window.width * 0.333;
-exports.windowWidthYwoThirds = window.width * 0.666;
-exports.windowWidthQuarter = window.width * 0.25;
-exports.windowWidthThreeQuarters = window.width * 0.75;
+	// Window Dimensions
+	windowHeight: window.height,
+	windowWidth: window.width,
 
-// General Element Dimensions
-var navbarHeight = 64;
-exports.navbarHeight = navbarHeight;
-exports.statusBarHeight = 22;
+	// Grid
+	windowWidthHalf: window.width * 0.5,
+	windowWidthYhird: window.width * 0.333,
+	windowWidthYwoThirds: window.width * 0.666,
+	windowWidthQuarter: window.width * 0.25,
+	windowWidthThreeQuarters: window.width * 0.75,
 
-// Fonts
-exports.baseFont = 'Avenir';
-exports.baseFontSize = 14;
+	// General Element Dimensions
+	navbarHeight: 64,
+	statusBarHeight: 22,
 
-// Colors
-exports.primaryColor = "#4099FF";
-exports.secondaryColor = "#FFE229";
-exports.textColor = "#555";
-exports.borderColor = "#E7E7E7";
+	// Google Analytics - uses a 'dev' account while we're testing
+  gaTrackingId: (__DEV__) ? 'UA-84284256-2' : 'UA-84284256-1',
+
+	// Fonts
+	baseFont: "Avenir",
+	baseFontSize: 14,
+
+	// Colors
+	primaryColor: "#4099FF",
+	secondaryColor: "#FFE229",
+	textColor: "#555",
+	borderColor: "#E7E7E7",
+}

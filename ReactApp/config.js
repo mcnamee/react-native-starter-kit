@@ -34,6 +34,11 @@ export default {
 	// Google Analytics - uses a 'dev' account while we're testing
   gaTrackingId: (__DEV__) ? 'UA-84284256-2' : 'UA-84284256-1',
 
+  // Default Error Messages
+  errors: {
+  	default: "Hmm, an unknown error occured.",
+  },
+
 	// Fonts
 	baseFont: "Avenir",
 	baseFontSize: 14,

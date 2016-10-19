@@ -19,51 +19,15 @@ import {
 import AppStyles from '../styles'
 import AppConfig from '../config'
 import AppUtil from '../util'
+import AppAPI from '../api'
 
 // Components
 import ListRow from '../components/list.row'
+import Error from '../components/error'
+import Loading from '../components/loading'
 
 // Screens
 import Screen from './soon'
-
-// Demo data
-const defaultData = [
-  {
-    title: 'Lorem ipsum adipiscing',
-    summary: 'A vivamus neque consectetur parturient mi nisl proin molestie vestibulum in fames condimentum cum a.',
-    image: 'http://lorempixel.com/g/1000/250/nature',
-  },
-  {
-    title: 'Guim petis',
-    summary: 'A vivamus neque consectetur parturient mi nisl proin molestie vestibulum in fames condimentum cum a.',
-    image: 'http://lorempixel.com/g/1000/250/animals',
-  },
-  {
-    title: 'Filos be amik',
-    summary: 'A vivamus neque consectetur parturient mi nisl proin molestie vestibulum in fames condimentum cum a.',
-    image: 'http://lorempixel.com/g/1000/250/transport',
-  },
-  {
-    title: 'Mi a adipiscing',
-    summary: 'A vivamus neque consectetur parturient mi nisl proin molestie vestibulum in fames condimentum cum a.',
-    image: 'http://lorempixel.com/g/1000/250/nightlife',
-  },
-  {
-    title: 'Ching vivamus le',
-    summary: 'A vivamus neque consectetur parturient mi nisl proin molestie vestibulum in fames condimentum cum a.',
-    image: 'http://lorempixel.com/g/1000/250/food',
-  },
-  {
-    title: 'Parturinent my proin',
-    summary: 'A vivamus neque consectetur parturient mi nisl proin molestie vestibulum in fames condimentum cum a.',
-    image: 'http://lorempixel.com/g/1000/250/fashion',
-  },
-  {
-    title: 'Vestibulum in fames',
-    summary: 'A vivamus neque consectetur parturient mi nisl proin molestie vestibulum in fames condimentum cum a.',
-    image: 'http://lorempixel.com/g/1000/250/business',
-  },
-];
 
 
 /* Component ==================================================================== */
@@ -75,10 +39,11 @@ class ListViewExample extends Component {
 
     // Initial state
     this.state = {
+      loading: true,
+      isRefreshing: false,
       dataSource: new ListView.DataSource({
         rowHasChanged: (row1, row2) => row1 !== row2,
       }),
-      isRefreshing: false,
     }
   }
 
@@ -100,10 +65,21 @@ class ListViewExample extends Component {
   _fetchData = () => {
     this.setState({ isRefreshing: true });
 
-    this.setState({
-      dataSource: this.state.dataSource.cloneWithRows(defaultData),
-      isRefreshing: false,
-    });
+    AppAPI.recipes.get()
+      .then(res => {
+        this.setState({
+          dataSource: this.state.dataSource.cloneWithRows(res),
+          isRefreshing: false,
+          loading: false,
+        });
+      }).catch(err => {
+        let error = AppAPI.handleError(err);
+
+        this.setState({
+          error: error,
+          loading: false,
+        });
+      });
   }
 
   /**
@@ -113,11 +89,11 @@ class ListViewExample extends Component {
     let { title, image } = data;
 
     return (
-      <ListRow title={title.toString()}
+      <ListRow title={title.rendered.toString()}
         image={!this.props.noImages ? image : null}
         onPress={()=>{
           this.props.navigator.push({
-            title: title,
+            title: title.rendered,
             component: Screen,
             index: 2,
             transition: 'FloatFromBottom',
@@ -130,6 +106,9 @@ class ListViewExample extends Component {
     * RENDER
     */
   render = () => {
+    if (this.state.loading) return <Loading />;
+    if (this.state.error) return <Error text={this.state.error} />;
+
     return (
       <View style={[AppStyles.container]}>
         <ListView

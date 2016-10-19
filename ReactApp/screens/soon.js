@@ -22,24 +22,12 @@ import AppStyles from '../styles'
 // Components
 import Button from '../components/button'
 
-// Screens
-import FirstLoad from './first.load'
-
 /* Component ==================================================================== */
 class ComingSoon extends Component {
   static componentName = 'ComingSoon';
 
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      splashScreenVisible: this.props.showSplashScreen || false,
-    }
-  }
-
   static propTypes = {
     navigator: React.PropTypes.object.isRequired,
-    showSplashScreen: React.PropTypes.bool,
     placeholder: React.PropTypes.string,
   }
 
@@ -52,13 +40,6 @@ class ComingSoon extends Component {
       component: ComingSoon, 
       index: 2
     });
-  }
-
-  /**
-    * Splash Screen - Skip
-    */
-  onSplashSkip = () => {
-    this.setState({ splashScreenVisible: false })
   }
 
   /**
@@ -79,14 +60,6 @@ class ComingSoon extends Component {
         <Button type={'outlined'}
           text={'Tap to test the back button'}
           onPress={()=>this._navigate(text)} />
-
-        <Modal animationType={'fade'} 
-          transparent={false} 
-          visible={this.state.splashScreenVisible}
-          onRequestClose={()=>{}}>
-          <FirstLoad navigator={this.props.navigator}
-            close={this.onSplashSkip} />
-        </Modal>
       </View>
     );
   }

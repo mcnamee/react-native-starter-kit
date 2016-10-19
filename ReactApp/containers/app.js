@@ -22,6 +22,7 @@ import SideMenu from 'react-native-side-menu'
 
 // Actions
 import * as SideMenuActions from '../actions/sidemenu'
+import * as UserActions from '../actions/user'
 
 // App Globals
 import AppStyles from '../styles';
@@ -38,6 +39,7 @@ import NavbarElements from '../components/navbar.elements';
 
 // Screens
 import Index from '../screens/soon';
+import Authenticate from '../screens/authenticate';
 
 /* Component ==================================================================== */
 class AppContainer extends Component {
@@ -48,6 +50,27 @@ class AppContainer extends Component {
     // Status Bar
     StatusBar.setHidden(false, 'slide'); // Slide in on load
     StatusBar.setBackgroundColor(AppConfig.primaryColor, true); // Android Status Bar Color
+
+    // Try to authenticate based on existing token
+    this.props.login()
+      .then(() => {
+        // Logged in, show index screen
+        this.refs.rootNavigator.replace({
+          title: AppConfig.appName,
+          component: Index,
+          index: 0,
+        });
+      }).catch(error => {
+        // Not Logged in, show Login screen
+        this.refs.rootNavigator.replace({
+          title: 'Login',
+          component: Authenticate,
+          index: 0,
+          passProps: {
+            notPopupScreen: true,
+          }
+        });
+      });
   }
 
   /**
@@ -162,6 +185,7 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = {
   toggleSideMenu: SideMenuActions.toggle,
   closeSideMenu: SideMenuActions.close,
+  login: UserActions.login,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(AppContainer);

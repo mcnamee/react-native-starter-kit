@@ -6,7 +6,7 @@
  */
 'use strict';
 
-/* Setup ==================================================================== */
+// /* Setup ==================================================================== */
 import React, { Component } from 'react'
 import {
   StyleSheet,
@@ -19,12 +19,12 @@ import {
 import AppStyles from '../styles'
 import AppConfig from '../config'
 
-// Screens
+// // Screens
 import StyleGuide from '../screens/style.guide'
-import ComingSoon from '../screens/soon'
-import FormExample from '../screens/forms'
-import ListViewExample from '../screens/listview'
-import Tabs from '../screens/tabs'
+import ComingSoon from '../screens/soon'               // **
+import FormExample from '../screens/forms'             // **
+import ListViewExample from '../screens/listview'      // **
+import Tabs from '../screens/tabs'                     // **
 
 
 /* Component ==================================================================== */
@@ -113,5 +113,5 @@ const styles = StyleSheet.create({
   },
 });
 
-/* Export Component ==================================================================== */
+// /* Export Component ==================================================================== */
 export default Menu

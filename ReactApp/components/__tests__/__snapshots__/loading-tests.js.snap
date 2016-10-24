@@ -1,0 +1,35 @@
+exports[`test Loading renders correcly 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "backgroundColor": "#FFFFFF",
+        "flex": 1,
+        "flexDirection": "column",
+        "position": "relative",
+      },
+      Object {
+        "alignItems": "center",
+        "justifyContent": "center",
+      },
+      undefined,
+    ]
+  }>
+  <ActivityIndicator
+    animating={true}
+    color="#AAA"
+    hidesWhenStopped={true}
+    size="large" />
+  <View
+    style={
+      Array [
+        Object {
+          "height": 1,
+          "left": 0,
+          "marginTop": 10,
+          "right": 0,
+        },
+      ]
+    } />
+</View>
+`;

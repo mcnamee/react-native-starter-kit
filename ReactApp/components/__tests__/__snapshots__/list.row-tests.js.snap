@@ -1,0 +1,57 @@
+exports[`test ListRow renders correcly 1`] = `
+<View
+  accessibilityComponentType={undefined}
+  accessibilityLabel={undefined}
+  accessibilityTraits={undefined}
+  accessible={true}
+  hitSlop={undefined}
+  onLayout={undefined}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "backgroundColor": "#FFF",
+      "left": 0,
+      "opacity": 1,
+      "right": 0,
+    }
+  }
+  testID={undefined}>
+  <View
+    style={
+      Object {
+        "borderBottomColor": "#E7E7E7",
+        "borderBottomWidth": 1,
+        "paddingVertical": 20,
+      }
+    }>
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Array [
+          Object {
+            "color": "#555",
+            "fontFamily": "Avenir",
+            "fontSize": 14,
+            "fontWeight": "500",
+            "lineHeight": 21,
+          },
+          Object {
+            "backgroundColor": "transparent",
+            "color": "#555",
+            "fontWeight": "500",
+            "textAlign": "center",
+          },
+        ]
+      }>
+      LOREM IPSUM
+    </Text>
+  </View>
+</View>
+`;

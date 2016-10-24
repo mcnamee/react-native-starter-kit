@@ -5,7 +5,7 @@
  * https://github.com/mcnamee/react-native-starter-app
  */
 'use strict';
- 
+
 /* Setup ==================================================================== */
 import React, { Component } from 'react'
 import {
@@ -48,8 +48,8 @@ class ComingSoon extends Component {
     */
   _navigate = (navbarTitle) => {
     this.props.navigator.push({
-      title: navbarTitle, 
-      component: ComingSoon, 
+      title: navbarTitle,
+      component: ComingSoon,
       index: 2
     });
   }
@@ -80,8 +80,8 @@ class ComingSoon extends Component {
           text={'Tap to test the back button'}
           onPress={()=>this._navigate(text)} />
 
-        <Modal animationType={'fade'} 
-          transparent={false} 
+        <Modal animationType={'fade'}
+          transparent={false}
           visible={this.state.splashScreenVisible}
           onRequestClose={()=>{}}>
           <FirstLoad navigator={this.props.navigator}

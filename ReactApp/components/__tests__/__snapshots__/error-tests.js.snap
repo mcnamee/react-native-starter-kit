@@ -1,0 +1,64 @@
+exports[`test Error renders correcly 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "backgroundColor": "#FFFFFF",
+        "flex": 1,
+        "flexDirection": "column",
+        "position": "relative",
+      },
+      Object {
+        "alignItems": "center",
+        "justifyContent": "center",
+      },
+    ]
+  }>
+  <Text
+    accessible={true}
+    allowFontScaling={false}
+    ellipsizeMode="tail"
+    style={
+      Array [
+        Object {
+          "color": "#CCC",
+          "fontFamily": "Ionicons",
+          "fontSize": 50,
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+        },
+        undefined,
+      ]
+    }>
+    
+  </Text>
+  <View
+    style={
+      Array [
+        Object {
+          "height": 1,
+          "left": 0,
+          "marginTop": 10,
+          "right": 0,
+        },
+      ]
+    } />
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    style={
+      Array [
+        Object {
+          "color": "#555",
+          "fontFamily": "Avenir",
+          "fontSize": 14,
+          "fontWeight": "500",
+          "lineHeight": 21,
+        },
+      ]
+    }>
+    Woops, Something wen\'t wrong.
+  </Text>
+</View>
+`;

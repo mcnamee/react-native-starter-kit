@@ -1,0 +1,77 @@
+exports[`test Navbar left button renders correcly 1`] = `
+<View
+  accessibilityComponentType={undefined}
+  accessibilityLabel={undefined}
+  accessibilityTraits={undefined}
+  accessible={true}
+  hitSlop={
+    Object {
+      "bottom": 7,
+      "left": 7,
+      "right": 7,
+      "top": 7,
+    }
+  }
+  onLayout={undefined}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "left": 20,
+      "opacity": 1,
+      "top": 4,
+    }
+  }
+  testID={undefined}>
+  <Text
+    accessible={true}
+    allowFontScaling={false}
+    ellipsizeMode="tail"
+    style={
+      Array [
+        Object {
+          "color": "#FFF",
+          "fontFamily": "Ionicons",
+          "fontSize": 36,
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+        },
+        undefined,
+      ]
+    }>
+    
+  </Text>
+</View>
+`;
+
+exports[`test Navbar title renders correcly 1`] = `
+<Text
+  accessible={true}
+  allowFontScaling={true}
+  ellipsizeMode="tail"
+  style={
+    Array [
+      Object {
+        "color": "#555",
+        "fontFamily": "Avenir",
+        "fontSize": 14,
+        "fontWeight": "500",
+        "lineHeight": 21,
+      },
+      Object {
+        "fontWeight": "900",
+      },
+      Object {
+        "bottom": 6,
+        "color": "#FFFFFF",
+        "fontSize": 13,
+      },
+    ]
+  }>
+  Starter Kit
+</Text>
+`;

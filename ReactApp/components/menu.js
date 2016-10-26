@@ -14,16 +14,22 @@ import {
   Text,
   TouchableOpacity
 } from 'react-native'
+import { connect } from 'react-redux'
+
+// Actions
+import * as UserActions from '../actions/user'
 
 // App Globals
 import AppStyles from '../styles'
 import AppConfig from '../config'
 
+// Components
+import Button from './button'
+
 // Screens
 import StyleGuide from '../screens/style.guide'
-import ComingSoon from '../screens/soon'
-import FormExample from '../screens/forms'
 import ListViewExample from '../screens/listview'
+import Login from '../screens/auth.login'
 import Tabs from '../screens/tabs'
 
 
@@ -35,18 +41,28 @@ class Menu extends Component {
     // Initial state
     this.state = {
       menu: [
-        {title: 'Home', component: ComingSoon, props: {passProps: {placeholder: 'Hey there, you passProps bro?'}}},
+        {title: AppConfig.appName, component: Tabs},
         {title: 'Style Guide', component: StyleGuide},
-        {title: 'Tabs', component: Tabs},
-        {title: 'Forms', component: FormExample},
-        {title: 'List Example', component: ListViewExample, props: {passProps: {noImages: true}}},
-        {title: 'List Example 2', component: ListViewExample},
       ],
     };
   }
 
   static propTypes = {
     navigate: React.PropTypes.func.isRequired,
+  }
+
+  /**
+    * Logout
+    */
+  _logout = () => {
+    if (this.props.logout) {
+      this.props.logout()
+        .then(() => {
+          if (this.props.navigate) this.props.navigate('Login', Login);
+        }).catch(() => {
+          alert('Something went wrong.');
+        });
+    }
   }
 
   /**
@@ -74,6 +90,25 @@ class Menu extends Component {
     return (
       <View style={[styles.menuContainer]}>
         <View style={[styles.menu]}>{menuItems}</View>
+
+        {this.props.user && this.props.user.email ?
+          <View style={[styles.menuBottom]}>
+            <Text style={[AppStyles.baseText, styles.menuBottom_text, AppStyles.centered]}>
+              Logged in as:{"\n"}
+              {this.props.user.email}
+            </Text>
+
+            <View style={[AppStyles.spacer_10]} />
+
+            <View style={[AppStyles.paddingHorizontal]}>            
+              <Button
+                text={'Log Out'}
+                type={'outlined'}
+                size={'small'}
+                onPress={this._logout} />
+            </View>
+          </View>
+        : null}
       </View>
     );
   }
@@ -88,11 +123,12 @@ const styles = StyleSheet.create({
     right: 0,
     backgroundColor: "#111111",
   },
+
+  // Main Menu
   menu: {
-    flex: 1,
+    flex: 3,
     left: 0,
     right: 0,
-    height: AppConfig.windowHeight,
     backgroundColor: "#111111",
     padding: 20,
     paddingTop: AppConfig.statusBarHeight,
@@ -111,7 +147,29 @@ const styles = StyleSheet.create({
     flex: 1,
     color: "#EEE"
   },
+
+  // Menu Bottom
+  menuBottom: {
+    flex: 1,
+    left: 0,
+    right: 0,
+    justifyContent: 'flex-end',
+    paddingBottom: 10,
+  },
+  menuBottom_text: {
+    color: "#EEE"
+  }
 });
 
 /* Export Component ==================================================================== */
-export default Menu
+// Define which part of the state we're passing to this component
+const mapStateToProps = (state) => ({
+  user: state.user,
+});
+
+// Define the actions this component may dispatch
+const mapDispatchToProps = {
+  logout: UserActions.logout,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Menu);

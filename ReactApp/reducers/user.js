@@ -9,7 +9,7 @@
 // Set initial state
 const initialState = [];
 
-export default function sideMenuReducer(state = initialState, action) {
+export default function userReducer(state = initialState, action) {
   switch (action.type) {
     case 'USER_REPLACE':
       return action.data;

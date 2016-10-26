@@ -15,7 +15,18 @@ export function login(credentials) {
 			
 			AppAPI.authenticate(credentials)
 			  .then((authResponse) => {
-			  	AppAPI.users.get('me')
+			  	
+			  	dispatch({
+			  		type: 'USER_REPLACE',
+			  		data: {
+			  			username: authResponse.user_display_name,
+			  			email: authResponse.user_email
+		  			},
+		  		});
+
+		  		resolve(authResponse);
+
+			  	/*AppAPI.users.get('me')
 				  	.then((userData) => {
 	  			  	dispatch({
 	  			  		type: 'USER_REPLACE',
@@ -26,10 +37,28 @@ export function login(credentials) {
 
 				  	}).catch((err) => {
 				  		reject(err);
-				  	});
+				  	});*/
 		  	}).catch(err => {
 		  		reject(err);
 		  	});
 		});
+	}
+}
+
+export function logout() {
+	return (dispatch) => {
+		return new Promise((resolve, reject) => {
+			return AppAPI.logout()
+				.then(() => {
+			  	dispatch({
+			  		type: 'USER_REPLACE',
+			  		data: {},
+		  		});
+
+		  		resolve();
+		  	}).catch(err => {
+		  		reject(err);
+		  	});
+  	});
 	}
 }

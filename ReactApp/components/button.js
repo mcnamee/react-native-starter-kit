@@ -86,7 +86,7 @@ const styles = StyleSheet.create({
 
   // Outlined
   buttonOutline: {
-    backgroundColor: "#fff",
+    backgroundColor: 'transparent',
     borderWidth: 1,
     borderColor: AppConfig.primaryColor,
   },

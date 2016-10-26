@@ -29,10 +29,14 @@ import * as UserActions from '../actions/user'
 import AppStyles from '../styles'
 import AppUtil from '../util'
 import AppAPI from '../api'
+import AppConfig from '../config'
 
 // Components
 import Button from '../components/button'
 import Alerts from '../components/alerts'
+
+// Screens
+import Index from '../screens/tabs';
 
 /* Component ==================================================================== */
 class Login extends Component {
@@ -94,10 +98,12 @@ class Login extends Component {
     let jsonValues = JSON.parse(values);
 
     if (values !== null) {
-      this.setState({ form_values: {
-      	Email: jsonValues.username,
-      	Password: jsonValues.password,
-      } });
+      this.setState({ 
+        form_values: {
+        	Email: jsonValues.username,
+        	Password: jsonValues.password,
+        } 
+      });
     }
   }
 
@@ -109,8 +115,8 @@ class Login extends Component {
     var credentials = this.refs.form.getValue();
 
     // Form is valid
-    if(credentials) {
-      this.setState({form_values: credentials}, () => {
+    if (credentials) {
+      this.setState({ form_values: credentials }, () => {
       	this.setState({ resultMsg: { status: 'One moment...' }});
 
         // Scroll to top, to show message
@@ -123,6 +129,14 @@ class Login extends Component {
 	        	password: credentials.Password,
 	        }).then(res => {
         		this.setState({ resultMsg: { success: 'Awesome, you\'re now logged in!' } });
+
+            setTimeout(() => {
+              this.props.navigator.replace({
+                title: AppConfig.appName,
+                component: Index, 
+                index: 2,
+              });
+            }, 1000);
         	}).catch(err => {
         		let error = AppAPI.handleError(err);
         		this.setState({ resultMsg: { error } });
@@ -141,15 +155,15 @@ class Login extends Component {
       <ScrollView automaticallyAdjustContentInsets={false} 
         ref={'scrollView'}
         style={[AppStyles.container]}
-        contentContainerStyle={[AppStyles.containerCentered, styles.container]}>
+        contentContainerStyle={[AppStyles.container]}>
         <View style={[AppStyles.paddingHorizontal]}>
+
+          <View style={AppStyles.spacer_20} />
 
           <Alerts
             status={this.state.resultMsg.status}
             success={this.state.resultMsg.success}
             error={this.state.resultMsg.error} />
-          
-          <View style={AppStyles.spacer_20} />
 
           <Form
             ref="form"
@@ -159,8 +173,7 @@ class Login extends Component {
         </View>
 
         <View style={[AppStyles.row]}>
-          <View style={[AppStyles.flex2]} />
-          <View style={[AppStyles.flex1, AppStyles.paddingRight]}>
+          <View style={[AppStyles.flex1, AppStyles.paddingHorizontal]}>
             <Button
               text={"Login"}
               onPress={this._login} />
@@ -170,12 +183,12 @@ class Login extends Component {
         <View style={AppStyles.hr} />
 
         <View style={[AppStyles.paddingHorizontal]}>
-          <Button
-            text={'Sign In'}
-            onPress={()=>alert('Just for looks')} />
+          <Text style={[AppStyles.baseText, AppStyles.p, AppStyles.centered]}>
+            - or -
+          </Text>
 
           <Button
-            text={'Guest Checkout'}
+            text={'Sign In'}
             type={'outlined'}
             onPress={()=>alert('Just for looks')} />
         </View>
@@ -187,12 +200,6 @@ class Login extends Component {
 
 /* Styles ==================================================================== */
 const styles = StyleSheet.create({
-  container: {
-    paddingTop: 15,
-    paddingBottom: 20,
-    justifyContent: 'center',
-    alignItems: 'stretch',
-  },
 });
 
 /* Export Component ==================================================================== */

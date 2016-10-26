@@ -36,9 +36,10 @@ GoogleAnalytics.setTrackerId(AppConfig.gaTrackingId);
 // Components
 import Menu from '../components/menu';
 import NavbarElements from '../components/navbar.elements';
+import Loading from '../components/loading';
 
 // Screens
-import Index from '../screens/soon';
+import Index from '../screens/tabs';
 import Authenticate from '../screens/authenticate';
 
 /* Component ==================================================================== */
@@ -163,7 +164,7 @@ class AppContainer extends Component {
               return Navigator.SceneConfigs.PushFromRight;
           }}
           initialRoute={{
-            component: Index,
+            component: Loading,
             index: 0,
             navigator: this.refs.rootNavigator,
             passProps: {

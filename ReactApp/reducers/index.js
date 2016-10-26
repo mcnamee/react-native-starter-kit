@@ -12,11 +12,13 @@ import { combineReducers } from 'redux'
 // We need to import each one here and add them to the combiner at the bottom
 import sideMenu from './sidemenu'
 import user from './user'
+import recipe from './recipe'
 
 // Combine all
 const appReducer = combineReducers({
   sideMenu,
   user,
+  recipe,
 });
 
 // Setup root reducer

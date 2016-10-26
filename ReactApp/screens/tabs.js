@@ -14,14 +14,20 @@ import {
   Text,
   InteractionManager,
 } from 'react-native'
+import { connect } from 'react-redux'
 import { TabViewAnimated, TabViewPage, TabBarTop } from 'react-native-tab-view';
+
+// Actions
+import * as RecipeActions from '../actions/recipe'
 
 // App Globals
 import AppStyles from '../styles'
 import AppConfig from '../config'
+import AppAPI from '../api'
 
 // Components
 import Loading from '../components/loading'
+import Error from '../components/error'
 
 // Screens
 import ComingSoon from './soon'
@@ -38,15 +44,14 @@ class Tabs extends Component {
     this.state = {
       loading: true,
       visitedRoutes: [],
-      navigation: {
-        index: 0,
-        routes: [
-          { key: '1', title: 'Tab 1'},
-          { key: '2', title: 'Tab 2'},
-          { key: '3', title: 'Tab 3'},
-          { key: '4', title: 'Tab 4'},
-        ],
-      },
+      //navigation: {
+      //  index: 0,
+      //  routes: [
+      //    // Component needs some defaults...
+      //    { key: '-1', title: 'Loading...'},
+      //    { key: '-2', title: 'Loading 2...'},
+      //  ],
+      //},
     };
   }
 
@@ -55,7 +60,56 @@ class Tabs extends Component {
     */
   componentDidMount = () => {
     InteractionManager.runAfterInteractions(() => {
-      this.setState({ loading: false });
+      this._fetchData();
+    });
+  }
+
+  /**
+    * Fetch meals to populate tabs
+    */
+  _fetchData = () => {
+    // Get meals to populate tabs
+    if (!this.props.meals || this.props.meals.length < 1) {
+      this.props.getMeals()
+        .then(() => {
+          this._setTabs();
+        }).catch(err => {
+          let error = AppAPI.handleError(err);
+          this.setState({ 
+            loading: false,
+            error: error
+          });
+        });
+    } else {
+      this._setTabs();
+    }
+  }
+
+  /**
+    * When meals are ready, populate tabs
+    */
+  _setTabs = () => {
+    let routes = [];
+    let idx = 0;
+    this.props.meals.forEach(meal => {
+      routes.push({
+        key: idx.toString(),
+        id: meal.id.toString(),
+        title: meal.name,
+      });
+
+      idx++;
+    });
+
+    this.setState({
+      navigation: {
+        index: 0,
+        routes: routes,
+      }
+    }, () => {
+      this.setState({
+        loading: false,
+      });
     });
   }
 
@@ -90,47 +144,23 @@ class Tabs extends Component {
     */
   _renderScene = ({ route }) => {
     // For performance, only render if it's this route, or I've visited before
-    /*if((this.state.navigation.index + 1) != route.key && this.state.visitedRoutes.indexOf(route.key) < 0) {
+    if((this.state.navigation.index) != route.key && this.state.visitedRoutes.indexOf(route.key) < 0) {
       return null;
-    }*/
+    }
+
     // And Add this index to visited routes
     if(this.state.visitedRoutes.indexOf(route.key) < 0) this.state.visitedRoutes.push(route.key);
 
     // Which component should be loaded?
     switch (route.key) {
-      case '1':
-        return (
-        	<View style={AppStyles.windowSize}>
-            <ComingSoon 
-            	placeholder={'This is ' + route.title}
-              navigator={this.props.navigator} />
-          </View>
-        );
-      case '2':
-        return (
-        	<View style={AppStyles.windowSize}>
-            <ListView
-            	noImages={true}
-              navigator={this.props.navigator} />
-          </View>
-        );
-      case '3':
-        return (
-        	<View style={AppStyles.windowSize}>
-            <ComingSoon
-            	placeholder={'This is ' + route.title}
-              navigator={this.props.navigator} />
-          </View>
-        );
-      case '4':
-        return (
-        	<View style={AppStyles.windowSize}>
-            <ListView
-              navigator={this.props.navigator} />
-          </View>
-        );
       default:
-        return null;
+        return (
+          <View style={AppStyles.windowSize}>
+            <ListView
+              meal={route.id}
+              navigator={this.props.navigator} />
+          </View>
+        );
     }
   }
 
@@ -147,7 +177,8 @@ class Tabs extends Component {
     * Do Render
     */
   render = () => {
-    if (this.state.loading) return <Loading />
+    if (this.state.loading || !this.state.navigation) return <Loading />
+    if (this.state.error) return <Error text={this.state.error} />
 
     return (
       <TabViewAnimated
@@ -182,4 +213,14 @@ const styles = StyleSheet.create({
 });
 
 /* Export Component ==================================================================== */
-export default Tabs
+// Define which part of the state we're passing to this component
+const mapStateToProps = (state) => ({
+  meals: state.recipe.meals,
+});
+
+// Define the actions this component may dispatch
+const mapDispatchToProps = {
+  getMeals: RecipeActions.getMeals,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Tabs);

@@ -24,7 +24,7 @@ import AppConfig from '../config'
 import Button from '../components/button'
 
 // Screens
-import Index from './soon';
+import Index from './tabs';
 import Login from './auth.login'
 
 /* Component ==================================================================== */
@@ -62,38 +62,40 @@ class Authenticate extends Component {
     */
   render = () => {
     return (
-      <View style={[AppStyles.container, styles.containerCover]}>
-      	<View style={[AppStyles.paddingHorizontal]}>
-          <Text style={[AppStyles.baseText, AppStyles.p, AppStyles.centered]}>
-            Login!
-          </Text>
+      <View style={[AppStyles.containerCentered, AppStyles.container]}>
+        <Text style={[AppStyles.baseText, AppStyles.h1, AppStyles.centered]}>
+          Login
+        </Text>
 
-          <View style={[AppStyles.spacer_10]} />
+        <View style={[AppStyles.spacer_10]} />
 
-          <View style={[AppStyles.row]}>
-          	<View style={[AppStyles.flex1, AppStyles.paddingRightSml]}>
-		          <Button
-		            text={'Login'}
-		            onPress={()=>this._onPressLogin()} />
-            </View>
-
-            <View style={[AppStyles.flex1, AppStyles.paddingRightSml]}>
-              <Button
-                text={'Sign up'}
-                onPress={()=>this._onPressLogin()} />
-            </View>
+        <View style={[AppStyles.row, AppStyles.paddingHorizontal]}>
+        	<View style={[AppStyles.flex1, AppStyles.paddingRightSml]}>
+	          <Button
+	            text={'Login'}
+	            onPress={()=>this._onPressLogin()} />
           </View>
+
+          <View style={[AppStyles.flex1, AppStyles.paddingLeftSml]}>
+            <Button
+              text={'Sign up'}
+              onPress={()=>this._onPressLogin()} />
+          </View>
+        </View>
+
+        <Text style={[AppStyles.baseText, AppStyles.p, AppStyles.centered]}>
+          - or -
+        </Text>
           
-          <View style={[AppStyles.row]}>
-            <View style={[AppStyles.flex1, AppStyles.paddingLeftSml]}>
-  	          <Button
-  	            text={'Skip'}
-                size={'small'}
-  	            type={'outlined'}
-  	            onPress={this.props.close} />
-        		</View>
-          </View>
-      	</View>
+        <View style={[AppStyles.row, AppStyles.paddingHorizontal]}>
+          <View style={[AppStyles.flex1]}>
+	          <Button
+	            text={'Skip'}
+              size={'small'}
+	            type={'outlined'}
+	            onPress={this.props.close} />
+      		</View>
+        </View>
       </View>
     );
   }

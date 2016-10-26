@@ -1,5 +1,5 @@
 /**
- * Form SCREEN
+ * Signup SCREEN
  *
  * React Native Starter App
  * https://github.com/mcnamee/react-native-starter-app
@@ -30,8 +30,8 @@ import Button from '../components/button'
 import Alerts from '../components/alerts'
 
 /* Component ==================================================================== */
-class Form extends Component {
-  static componentName = 'Form';
+class Signup extends Component {
+  static componentName = 'Signup';
 
   constructor(props) {
     super(props);
@@ -252,4 +252,4 @@ const styles = StyleSheet.create({
 });
 
 /* Export Component ==================================================================== */
-export default Form
+export default Signup

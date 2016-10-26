@@ -1,5 +1,5 @@
 /**
- * Listing SCREEN
+ * Recipe Listing SCREEN
  *
  * React Native Starter App
  * https://github.com/mcnamee/react-native-starter-app
@@ -31,8 +31,8 @@ import Screen from './soon'
 
 
 /* Component ==================================================================== */
-class ListViewExample extends Component {
-  static componentName = 'ListViewExample';
+class RecipeListing extends Component {
+  static componentName = 'RecipeListing';
 
   constructor(props) {
     super(props);
@@ -41,6 +41,7 @@ class ListViewExample extends Component {
     this.state = {
       loading: true,
       isRefreshing: false,
+      data: [],
       dataSource: new ListView.DataSource({
         rowHasChanged: (row1, row2) => row1 !== row2,
       }),
@@ -60,24 +61,36 @@ class ListViewExample extends Component {
 	}
 
   /**
-    * Fetch Data from "API" (for Demo Purposes)
+    * Fetch Data from API
     */
   _fetchData = () => {
+    let { meal } = this.props;
+
+    // Forgot to pass in a category
+    if (!meal) {
+      this.setState({
+        error: 'Missing meal definition',
+      });
+    }
+
     this.setState({ isRefreshing: true });
 
-    AppAPI.recipes.get()
+    AppAPI.recipes.get({ recipe_meal: meal })
       .then(res => {
         this.setState({
+          data: res,
           dataSource: this.state.dataSource.cloneWithRows(res),
           isRefreshing: false,
           loading: false,
         });
+
       }).catch(err => {
         let error = AppAPI.handleError(err);
-
         this.setState({
+          data: [],
           error: error,
           loading: false,
+          isRefreshing: false,
         });
       });
   }
@@ -87,6 +100,7 @@ class ListViewExample extends Component {
     */
   _renderRow = (data) => {
     let { title, image } = data;
+    title.rendered = AppUtil.HTMLEntitiesDecode(title.rendered);
 
     return (
       <ListRow title={title.rendered.toString()}
@@ -108,6 +122,9 @@ class ListViewExample extends Component {
   render = () => {
     if (this.state.loading) return <Loading />;
     if (this.state.error) return <Error text={this.state.error} />;
+    
+    if (!this.state.data || this.state.data.length < 1) 
+      return <Error text={'Nothing found'} />;
 
     return (
       <View style={[AppStyles.container]}>
@@ -133,4 +150,4 @@ const styles = StyleSheet.create({
 });
 
 /* Export Component ==================================================================== */
-export default ListViewExample
+export default RecipeListing

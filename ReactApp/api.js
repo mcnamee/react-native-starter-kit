@@ -29,6 +29,7 @@ const ENDPOINTS = {
 	'login': 'wp-json/jwt-auth/v1/token',
 	'users': 'wp-json/wp/v2/users',
 	'recipes': 'wp-json/wp/v2/recipes',
+	'meals': 'wp-json/wp/v2/recipe_meal',
 };
 
 // In memory to make it quicker
@@ -45,7 +46,7 @@ let Internal = {
 	  */
 	debug: function(str, title) {
 		if (DEBUG_MODE && str) {
-			if (title) console.log('DEBUG: ' + title + '..........................................');
+			if (title) console.log('DEBUG: ' + title + ' ..........................................');
 			console.log(str);
 			console.log('/DEBUG ..........................................');
 		}
@@ -87,7 +88,7 @@ let Internal = {
 
 			// Build request
 			let req = {
-			  method: method,
+			  method: method.toUpperCase(),
 			  headers: {
 			    'Accept': 'application/json',
 			    'Content-Type': 'application/json',
@@ -97,7 +98,7 @@ let Internal = {
 	  	// Add Token
 	  	apiToken = await Internal.getToken();
 	  	if (apiToken) {
-	  		req.headers['Authorization'] = 'Bearer ' + apiToken;
+	  		req.headers.Authorization = 'Bearer ' + apiToken;
 	  	}
 
 	  	// Add Endpoint Params
@@ -193,7 +194,11 @@ AppAPI.authenticate = function(credentials) {
 
 		// See if credentials are in AsyncStoreage
 		} else {
-			let storedCreds = await AsyncStorage.getItem('api/credentials');
+			let storedCredsStr = await AsyncStorage.getItem('api/credentials');
+			if (storedCredsStr) {
+				var storedCreds = JSON.parse(storedCredsStr);
+			}
+
 			if (storedCreds && typeof storedCreds === 'object' && storedCreds.username && storedCreds.password) {
 				apiCredentials.username = storedCreds.username;
 				apiCredentials.password = storedCreds.password;
@@ -217,14 +222,24 @@ AppAPI.authenticate = function(credentials) {
 				return reject(res);
 			}
 
-			// Set token in AsyncStorage
+			// Set token in AsyncStorage + memory
 			await AsyncStorage.setItem('api/token', res.token);
+			apiToken = res.token;
 
 			return resolve(res);
 		}).catch(err => {
 			return reject(err);
 		});
 	});
+};
+
+/**
+  * Logout
+  */
+AppAPI.logout = async function() {
+	await AsyncStorage.setItem('api/token', '');
+	await AsyncStorage.setItem('api/credentials', '');
+	apiToken = '';
 };
 
 /* Export ==================================================================== */

@@ -6,6 +6,7 @@
  */
 'use strict';
 
+var striptags = require('striptags');
 var Entities = require('html-entities').AllHtmlEntities;
 var entities = new Entities();
 
@@ -33,6 +34,14 @@ const UTIL = {
 	  */
 	firstIndexInObj: function(obj) {
 	  for (let a in obj) return a;
+	},
+
+	/**
+	  * Limit characters, placing a ... at the end
+	  */
+	limitChars: function(str, limit = 15) {
+	  if (str.length > limit) return str.substr(0, limit).trim() + '...';
+	  else return str;
 	},
 
 	/**
@@ -77,6 +86,13 @@ const UTIL = {
 
     return obj;
 	},
+
+	/**
+	  * Strips all HTML tags
+	  */
+	stripTags: function(str) {
+		return striptags(str);
+	}
 };
 
 /* Export ==================================================================== */

@@ -9,11 +9,12 @@
 /* Setup ==================================================================== */
 import React, { Component } from 'react'
 import {
-  StyleSheet,
   View,
   Text,
+  Image,
+  StyleSheet,
+  ScrollView,
   TouchableOpacity,
-  ScrollView
 } from 'react-native'
 
 // App Globals
@@ -23,6 +24,7 @@ import AppStyles from '../styles'
 import Alerts from '../components/alerts'
 import Button from '../components/button'
 import ListRow from '../components/list.row'
+import Card from '../components/card'
 
 /* Component ==================================================================== */
 class StyleGuide extends Component {
@@ -58,6 +60,7 @@ class StyleGuide extends Component {
 
 		          <View style={[AppStyles.flex1, AppStyles.paddingLeftSml]}>
 				        <Button size={'large'}
+				        	color={'#FB6567'}
 				          text={'Large'}
 				          onPress={()=>alert('This can do what you want.')} />
 		          </View>
@@ -106,8 +109,43 @@ class StyleGuide extends Component {
 		        <View style={[AppStyles.hr]} />
 		        <View style={[AppStyles.spacer_10]} />
 
-		        <Text style={[AppStyles.h2]}>List Rows</Text>
+		        <Text style={[AppStyles.h2]}>Cards</Text>
 	        </View>
+
+	        <Card onPress={()=>{alert('Hello')}}>
+	        	<View style={[AppStyles.row, AppStyles.paddingBottomSml]}>
+	  					<View style={[AppStyles.flex1]}>
+	  						<Image 
+	  							source={{uri: 'http://wp-api.mcnam.ee/wp-content/uploads/2016/10/brekkie-crumble-33651_l.jpeg'}} 
+	  							style={[{ left: 0, right: 0, top: 0, bottom: 0, position: 'absolute', resizeMode: 'contain', }]} />
+	  					</View>
+	  					<View style={[AppStyles.flex3, AppStyles.paddingLeftSml]}>
+		          	<Text style={[AppStyles.h3]}>Title of post</Text>
+		          	<Text style={[AppStyles.baseText]}>Lorem ipsum diem or seckt original de pingdo of the lespec.</Text>
+	          	</View>
+          	</View>
+	        </Card>
+	        <Card onPress={()=>{alert('Hello')}}>
+  					<View style={[AppStyles.row, AppStyles.paddingBottomSml]}>
+	  					<View style={[AppStyles.flex1]}>
+	  						<Image 
+	  							source={{uri: 'http://wp-api.mcnam.ee/wp-content/uploads/2016/10/brekkie-crumble-33651_l.jpeg'}} 
+	  							style={[{ left: 0, right: 0, top: 0, bottom: 0, position: 'absolute', resizeMode: 'contain', }]} />
+	  					</View>
+	  					<View style={[AppStyles.flex3, AppStyles.paddingLeftSml]}>
+		          	<Text style={[AppStyles.h3]}>Another Title</Text>
+		          	<Text style={[AppStyles.baseText]}>Lorem ipsum diem or seckt original de pingdo of the lespec.</Text>
+	          	</View>
+          	</View>
+	        </Card>
+        	
+        	<View style={[AppStyles.paddingHorizontal]}>
+  	        <View style={[AppStyles.spacer_10]} />
+  	        <View style={[AppStyles.hr]} />
+  	        <View style={[AppStyles.spacer_10]} />
+
+  	        <Text style={[AppStyles.h2]}>List Rows</Text>
+          </View>
 
 	        <ListRow 
 	          title={'Single Malt'}

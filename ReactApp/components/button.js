@@ -34,6 +34,7 @@ class Button extends Component {
     onPress: React.PropTypes.func.isRequired,
     type: React.PropTypes.oneOf(['', 'outlined']),
     text: React.PropTypes.string.isRequired,
+    color: React.PropTypes.string,
     size: React.PropTypes.oneOf(['', 'small', 'medium', 'large']),
     disabled: React.PropTypes.bool,
   }
@@ -41,6 +42,7 @@ class Button extends Component {
   static defaultProps = {
     onPress: () => {}, // Do nothing
     type: '',
+    color: '',
     text: 'Click Here',
     size: 'medium',
     disabled: false,
@@ -50,12 +52,42 @@ class Button extends Component {
     * RENDER
     */
   render = ()=> {
-    let { text, type, onPress, size, disabled } = this.props;
+    let { text, type, onPress, size, disabled, color } = this.props;
+
+    // Setup styles based on Props
+    let buttonStyles = [styles.button];
+    let textStyles = [AppStyles.baseText, styles.button_text];
+
+    if (type == 'outlined') {
+      buttonStyles.push(styles.buttonOutline);
+      textStyles.push(styles.buttonOutline_text);
+    }
+    if (size == 'small') {
+      buttonStyles.push(styles.buttonSml);
+    }
+    if (size == 'large') {
+      buttonStyles.push(styles.buttonLrg);
+    }
+    if (disabled) buttonStyles.push(styles.disabled);
+    if (color != '') {
+      if (type == 'outlined') {
+        buttonStyles.push({ borderColor: color });
+        textStyles.push({ color: color });
+      } else {
+        buttonStyles.push({ backgroundColor: color });
+      }
+    }
+    if (size == 'small') {
+      textStyles.push(styles.buttonSml_text);
+    }
+    if (size == 'large') {
+      textStyles.push(styles.buttonLrg_text);
+    }
 
     return (
       <TouchableOpacity onPress={onPress} activeOpacity={0.7} disabled={disabled}
-        style={[styles.button, type == 'outlined' && styles.buttonOutline, size == 'small' && styles.buttonSml, size == 'large' && styles.buttonLrg, disabled && styles.disabled]}>
-        <Text style={[AppStyles.baseText, styles.button_text, type == 'outlined' && styles.buttonOutline_text, size == 'small' && styles.buttonSml_text, size == 'large' && styles.buttonLrg_text]}>
+        style={ buttonStyles }>
+        <Text style={ textStyles }>
           {text}
         </Text>
       </TouchableOpacity>

@@ -25,7 +25,7 @@ module.exports = StyleSheet.create({
     position: 'relative',
     flex: 1,
     flexDirection: 'column',
-    backgroundColor: '#FFFFFF',
+    backgroundColor: AppConfig.backgroundColor,
   },
   containerCentered: {
     justifyContent: 'center',
@@ -117,6 +117,10 @@ module.exports = StyleSheet.create({
   },
 
   /* Give me padding */
+  padding: {
+    paddingVertical: 20,
+    paddingHorizontal: 20,
+  },
   paddingHorizontal: {
     paddingHorizontal: 20,
   },
@@ -134,6 +138,10 @@ module.exports = StyleSheet.create({
   },
   paddingBottom: {
     paddingBottom: 20,
+  },
+  paddingSml: {
+    paddingVertical: 10,
+    paddingHorizontal: 10,
   },
   paddingHorizontalSml: {
     paddingHorizontal: 10,

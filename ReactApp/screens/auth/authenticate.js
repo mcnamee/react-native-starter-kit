@@ -17,15 +17,15 @@ import {
 } from 'react-native'
 
 // App Globals
-import AppStyles from '../styles'
-import AppConfig from '../config'
+import AppStyles from '../../styles'
+import AppConfig from '../../config'
 
 // Components
-import Button from '../components/button'
+import Button from '../../components/button'
 
 // Screens
-import Index from './tabs';
-import Login from './auth.login'
+import Index from '../recipes/tabs';
+import Login from '../auth/login'
 
 /* Component ==================================================================== */
 class Authenticate extends Component {

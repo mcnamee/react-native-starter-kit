@@ -23,20 +23,20 @@ import { connect } from 'react-redux'
 import FormValidation from 'tcomb-form-native'
 
 // Actions
-import * as UserActions from '../actions/user'
+import * as UserActions from '../../actions/user'
 
 // App Globals
-import AppStyles from '../styles'
-import AppUtil from '../util'
-import AppAPI from '../api'
-import AppConfig from '../config'
+import AppStyles from '../../styles'
+import AppUtil from '../../util'
+import AppAPI from '../../api'
+import AppConfig from '../../config'
 
 // Components
-import Button from '../components/button'
-import Alerts from '../components/alerts'
+import Button from '../../components/button'
+import Alerts from '../../components/alerts'
 
 // Screens
-import Index from '../screens/tabs';
+import Index from '../../screens/recipes/tabs';
 
 /* Component ==================================================================== */
 class Login extends Component {

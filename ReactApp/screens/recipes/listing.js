@@ -9,25 +9,27 @@
 /* Setup ==================================================================== */
 import React, { Component } from 'react'
 import {
-  StyleSheet,
+  Text,
   View,
+  Image,
   ListView,
+  StyleSheet,
   RefreshControl,
 } from 'react-native'
 
 // App Globals
-import AppStyles from '../styles'
-import AppConfig from '../config'
-import AppUtil from '../util'
-import AppAPI from '../api'
+import AppStyles from '../../styles'
+import AppConfig from '../../config'
+import AppUtil from '../../util'
+import AppAPI from '../../api'
 
 // Components
-import ListRow from '../components/list.row'
-import Error from '../components/error'
-import Loading from '../components/loading'
+import Card from '../../components/card'
+import Error from '../../components/error'
+import Loading from '../../components/loading'
 
 // Screens
-import Screen from './soon'
+import Screen from '../soon'
 
 
 /* Component ==================================================================== */
@@ -98,21 +100,54 @@ class RecipeListing extends Component {
   /**
     * Each Row Item
     */
+  _onPressRow = (title) => {
+    this.props.navigator.push({
+      title: title || '',
+      component: Screen,
+      index: 2,
+      transition: 'FloatFromBottom',
+    });
+  }
+
+  /**
+    * Each Row Item
+    */
   _renderRow = (data) => {
-    let { title, image } = data;
+    console.log(data);
+    let { title, content, better_featured_image } = data;
     title.rendered = AppUtil.HTMLEntitiesDecode(title.rendered);
 
+    // Play with the content
+    content.rendered = AppUtil.HTMLEntitiesDecode(content.rendered);
+    content.rendered = AppUtil.stripTags(content.rendered);
+    content.rendered = AppUtil.limitChars(content.rendered, 60);
+
+    // Is there a better way to test this?
+    let image =(
+      better_featured_image 
+      && better_featured_image.media_details 
+      && better_featured_image.media_details.sizes
+      && better_featured_image.media_details.sizes.medium
+      && better_featured_image.media_details.sizes.medium.source_url
+    ) ? 
+      better_featured_image.media_details.sizes.medium.source_url : '';
+
     return (
-      <ListRow title={title.rendered.toString()}
-        image={!this.props.noImages ? image : null}
-        onPress={()=>{
-          this.props.navigator.push({
-            title: title.rendered,
-            component: Screen,
-            index: 2,
-            transition: 'FloatFromBottom',
-          });
-        }} />
+      <Card onPress={()=>{ this._onPressRow(title.rendered) }}>
+        <View style={[AppStyles.row, AppStyles.paddingBottomSml]}>
+          <View style={[AppStyles.flex1]}>
+            {image ?
+              <Image 
+                source={{uri: image}} 
+                style={[styles.listingImage]} />
+            : null}
+          </View>
+          <View style={[AppStyles.flex3, AppStyles.paddingLeftSml]}>
+            <Text style={[AppStyles.h3]}>{title.rendered.toString()}</Text>
+            <Text style={[AppStyles.baseText]}>{content.rendered.toString()}</Text>
+          </View>
+        </View>
+      </Card>
     );
   }
 
@@ -147,6 +182,15 @@ class RecipeListing extends Component {
 
 /* Styles ==================================================================== */
 const styles = StyleSheet.create({
+  listingImage: {
+    backgroundColor: "#eee",
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    position: 'absolute',
+    resizeMode: 'cover',
+  }
 });
 
 /* Export Component ==================================================================== */

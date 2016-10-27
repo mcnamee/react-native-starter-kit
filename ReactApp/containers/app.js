@@ -39,8 +39,8 @@ import NavbarElements from '../components/navbar.elements';
 import Loading from '../components/loading';
 
 // Screens
-import Index from '../screens/tabs';
-import Authenticate from '../screens/authenticate';
+import Index from '../screens/recipes/tabs';
+import Authenticate from '../screens/auth/authenticate';
 
 /* Component ==================================================================== */
 class AppContainer extends Component {
@@ -119,12 +119,12 @@ class AppContainer extends Component {
         : this.props.toggleSideMenu,
       icon: (route.index > 0)
         ? 'ios-arrow-back-outline'
-        : 'ios-menu-outline'
+        : 'ios-menu'
     };
 
     // Show a cross icon when transition pops from bottom
     if(route.transition == 'FloatFromBottom')  {
-      leftButton.icon = 'ios-close-outline';
+      leftButton.icon = 'md-close';
     }
 
     return (

@@ -18,20 +18,20 @@ import { connect } from 'react-redux'
 import { TabViewAnimated, TabViewPage, TabBarTop } from 'react-native-tab-view';
 
 // Actions
-import * as RecipeActions from '../actions/recipe'
+import * as RecipeActions from '../../actions/recipe'
 
 // App Globals
-import AppStyles from '../styles'
-import AppConfig from '../config'
-import AppAPI from '../api'
+import AppStyles from '../../styles'
+import AppConfig from '../../config'
+import AppAPI from '../../api'
 
 // Components
-import Loading from '../components/loading'
-import Error from '../components/error'
+import Loading from '../../components/loading'
+import Error from '../../components/error'
 
 // Screens
-import ComingSoon from './soon'
-import ListView from './listview'
+import ComingSoon from '../soon'
+import ListView from './listing'
 
 /* Component ==================================================================== */
 class Tabs extends Component {
@@ -205,7 +205,7 @@ const styles = StyleSheet.create({
 		backgroundColor: AppConfig.primaryColor,
 	},
 	tabbarIndicator: {
-		backgroundColor: AppConfig.secondaryColor,
+		backgroundColor: "#FFF",
 	},
 	tabbar_text: {
 		color: "#FFF",

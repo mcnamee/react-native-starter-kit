@@ -22,12 +22,12 @@ import {
 import FormValidation from 'tcomb-form-native'
 
 // App Globals
-import AppStyles from '../styles'
-import AppUtil from '../util'
+import AppStyles from '../../styles'
+import AppUtil from '../../util'
 
 // Components
-import Button from '../components/button'
-import Alerts from '../components/alerts'
+import Button from '../../components/button'
+import Alerts from '../../components/alerts'
 
 /* Component ==================================================================== */
 class Signup extends Component {

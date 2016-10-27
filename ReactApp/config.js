@@ -14,7 +14,7 @@ exports.title = 'GlobalConfig';
 
 export default {
 	// App Details
-	appName: 'StarterKit',
+	appName: 'Starter Kit',
 
 	// Window Dimensions
 	windowHeight: window.height,
@@ -44,8 +44,9 @@ export default {
 	baseFontSize: 14,
 
 	// Colors
-	primaryColor: "#4099FF",
-	secondaryColor: "#FFE229",
-	textColor: "#555",
-	borderColor: "#E7E7E7",
+	primaryColor: "#4267B2",
+	secondaryColor: "#17233D",
+	textColor: "#1D2129",
+	borderColor: "#D0D1D5",
+	backgroundColor: "#E9EBEE",
 }

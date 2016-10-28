@@ -22,7 +22,6 @@ import SideMenu from 'react-native-side-menu'
 
 // Actions
 import * as SideMenuActions from '../actions/sidemenu'
-import * as UserActions from '../actions/user'
 
 // App Globals
 import AppStyles from '../styles';
@@ -39,8 +38,7 @@ import NavbarElements from '../components/navbar.elements';
 import Loading from '../components/loading';
 
 // Screens
-import Index from '../screens/recipes/tabs';
-import Authenticate from '../screens/auth/authenticate';
+import Index from '../screens/first.load';
 
 /* Component ==================================================================== */
 class AppContainer extends Component {
@@ -49,29 +47,8 @@ class AppContainer extends Component {
     */
   componentDidMount = () => {
     // Status Bar
-    StatusBar.setHidden(false, 'slide'); // Slide in on load
-    StatusBar.setBackgroundColor(AppConfig.primaryColor, true); // Android Status Bar Color
-
-    // Try to authenticate based on existing token
-    this.props.login()
-      .then(() => {
-        // Logged in, show index screen
-        this.refs.rootNavigator.replace({
-          title: AppConfig.appName,
-          component: Index,
-          index: 0,
-        });
-      }).catch(error => {
-        // Not Logged in, show Login screen
-        this.refs.rootNavigator.replace({
-          title: 'Login',
-          component: Authenticate,
-          index: 0,
-          passProps: {
-            notPopupScreen: true,
-          }
-        });
-      });
+    // StatusBar.setHidden(true); // Slide in on load
+    // StatusBar.setBackgroundColor(AppConfig.primaryColor, true); // Android Status Bar Color
   }
 
   /**
@@ -127,14 +104,19 @@ class AppContainer extends Component {
       leftButton.icon = 'md-close';
     }
 
+    // If Navbar hidden, don't show status bar
+    if (route.hideNavbar) StatusBar.setHidden(true);
+
     return (
       <View style={[AppStyles.appContainer, AppStyles.container]}>
-        <NavigationBar
-          title={<NavbarElements.Title title={title || null} />}
-          statusBar={{style: 'light-content', hidden: false}}
-          style={[AppStyles.navbar]}
-          tintColor={AppConfig.primaryColor}
-          leftButton={<NavbarElements.LeftButton onPress={leftButton.onPress} icon={leftButton.icon} />} />
+        {!route.hideNavbar &&
+          <NavigationBar
+            title={<NavbarElements.Title title={title || null} />}
+            statusBar={{style: 'light-content', hidden: false}}
+            style={[AppStyles.navbar]}
+            tintColor={AppConfig.primaryColor}
+            leftButton={<NavbarElements.LeftButton onPress={leftButton.onPress} icon={leftButton.icon} />} />
+        }
 
         <route.component navigator={navigator} route={route} {...route.passProps} />
       </View>
@@ -164,12 +146,10 @@ class AppContainer extends Component {
               return Navigator.SceneConfigs.PushFromRight;
           }}
           initialRoute={{
-            component: Loading,
+            component: Index,
             index: 0,
             navigator: this.refs.rootNavigator,
-            passProps: {
-              showSplashScreen: true,
-            }
+            hideNavbar: true,
           }} />
 
       </SideMenu>
@@ -186,7 +166,6 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = {
   toggleSideMenu: SideMenuActions.toggle,
   closeSideMenu: SideMenuActions.close,
-  login: UserActions.login,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(AppContainer);

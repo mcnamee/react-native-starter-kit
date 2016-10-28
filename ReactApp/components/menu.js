@@ -41,7 +41,7 @@ class Menu extends Component {
     // Initial state
     this.state = {
       menu: [
-        {title: AppConfig.appName, component: Tabs},
+        {title: 'Recipes', component: Tabs},
         {title: 'Style Guide', component: StyleGuide},
       ],
     };
@@ -49,6 +49,13 @@ class Menu extends Component {
 
   static propTypes = {
     navigate: React.PropTypes.func.isRequired,
+  }
+
+  /**
+    * Login
+    */
+  _login = () => {
+    if (this.props.navigate) this.props.navigate('Login', Login);
   }
 
   /**
@@ -94,25 +101,36 @@ class Menu extends Component {
         <View style={[styles.menuContainer]}>
           <View style={[styles.menu]}>{menuItems}</View>
 
-          {this.props.user && this.props.user.email ?
-            <View style={[styles.menuBottom]}>
-              <Text style={[AppStyles.baseText, styles.menuBottom_text, AppStyles.centered]}>
-                Logged in as:{"\n"}
-                {this.props.user.email}
-              </Text>
+          <View style={[styles.menuBottom]}>
+            {this.props.user && this.props.user.name ?
+              <View>
+                <Text style={[AppStyles.baseText, styles.menuBottom_text, AppStyles.centered]}>
+                  Logged in as:{"\n"}
+                  {this.props.user.name}
+                </Text>
 
-              <View style={[AppStyles.spacer_10]} />
+                <View style={[AppStyles.spacer_10]} />
 
+                <View style={[AppStyles.paddingHorizontal]}>            
+                  <Button
+                    text={'Log Out'}
+                    type={'outlined'}
+                    size={'small'}
+                    color={'#fff'}
+                    onPress={this._logout} />
+                </View>
+              </View>
+            : 
               <View style={[AppStyles.paddingHorizontal]}>            
                 <Button
-                  text={'Log Out'}
+                  text={'Log In'}
                   type={'outlined'}
                   size={'small'}
                   color={'#fff'}
-                  onPress={this._logout} />
+                  onPress={this._login} />
               </View>
-            </View>
-          : null}
+            }
+          </View>
         </View>
       </View>
     );

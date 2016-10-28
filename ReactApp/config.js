@@ -34,9 +34,27 @@ export default {
 	// Google Analytics - uses a 'dev' account while we're testing
   gaTrackingId: (__DEV__) ? 'UA-84284256-2' : 'UA-84284256-1',
 
+  // API Details
+  hostname: 'http://wp-api.mcnam.ee',
+  // Map shortnames to the actual endpoints, so that we can
+  // use them like AppAPI.recipes.get() or AppAPI.users.post() for example
+  endpoints: {
+		'login': '/wp-json/jwt-auth/v1/token',
+		'users': '/wp-json/wp/v2/users',
+		'recipes': '/wp-json/wp/v2/recipes',
+		'meals': '/wp-json/wp/v2/recipe_meal',
+	},
+
+	// URLs
+	urls: {
+		resetPassword: 'http://wp-api.mcnam.ee/wp-login.php?action=lostpassword',
+		signUp: 'http://wp-api.mcnam.ee/wp-login.php?action=register',
+	},
+
   // Default Error Messages
   errors: {
   	default: "Hmm, an unknown error occured.",
+  	timeout: "Server Timed Out. Check your internet connection.",
   },
 
 	// Fonts

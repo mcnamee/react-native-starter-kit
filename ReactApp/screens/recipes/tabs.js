@@ -44,14 +44,6 @@ class Tabs extends Component {
     this.state = {
       loading: true,
       visitedRoutes: [],
-      //navigation: {
-      //  index: 0,
-      //  routes: [
-      //    // Component needs some defaults...
-      //    { key: '-1', title: 'Loading...'},
-      //    { key: '-2', title: 'Loading 2...'},
-      //  ],
-      //},
     };
   }
 

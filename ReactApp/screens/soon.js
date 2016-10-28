@@ -48,7 +48,6 @@ class ComingSoon extends Component {
   render = () => {
     let text = this.props.placeholder || 'Coming soon...'
 
-    // Done
     return (
       <View style={[AppStyles.container, AppStyles.containerCentered]}>
         <Text style={[AppStyles.baseText, AppStyles.p]}>

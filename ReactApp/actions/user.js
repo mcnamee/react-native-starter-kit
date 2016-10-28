@@ -7,6 +7,7 @@
 'use strict';
 
 import AppAPI from '../api';
+import jwtDecode from 'jwt-decode'
 
 export function login(credentials) {
 	return (dispatch) => {
@@ -14,19 +15,19 @@ export function login(credentials) {
 			if (!credentials) credentials = null;
 			
 			AppAPI.authenticate(credentials)
-			  .then((authResponse) => {
-			  	
-			  	dispatch({
-			  		type: 'USER_REPLACE',
-			  		data: {
-			  			username: authResponse.user_display_name,
-			  			email: authResponse.user_email
-		  			},
-		  		});
+			  .then((token) => {
 
-		  		resolve(authResponse);
+			  	try {
+			  	  var decodedToken = jwtDecode(token);
+			  	} catch (err) {
+			  	  return reject('Token decode failed.');
+			  	}
 
-			  	/*AppAPI.users.get('me')
+			  	if (!decodedToken || !decodedToken.data || !decodedToken.data.user || !decodedToken.data.user.id) {
+			  		return reject('Token decode failed.');
+			  	}
+
+			  	AppAPI.users.get(decodedToken.data.user.id)
 				  	.then((userData) => {
 	  			  	dispatch({
 	  			  		type: 'USER_REPLACE',
@@ -34,10 +35,10 @@ export function login(credentials) {
 	  		  		});
 
 				  		resolve(userData);
-
 				  	}).catch((err) => {
 				  		reject(err);
-				  	});*/
+				  	});
+
 		  	}).catch(err => {
 		  		reject(err);
 		  	});

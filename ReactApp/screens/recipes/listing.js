@@ -29,8 +29,7 @@ import Error from '../../components/error'
 import Loading from '../../components/loading'
 
 // Screens
-import Screen from '../soon'
-
+import RecipeView from './view'
 
 /* Component ==================================================================== */
 class RecipeListing extends Component {
@@ -100,12 +99,15 @@ class RecipeListing extends Component {
   /**
     * Each Row Item
     */
-  _onPressRow = (title) => {
+  _onPressRow = (title, data) => {
     this.props.navigator.push({
       title: title || '',
-      component: Screen,
+      component: RecipeView,
       index: 2,
       transition: 'FloatFromBottom',
+      passProps: {
+        recipe: data,
+      }
     });
   }
 
@@ -113,18 +115,18 @@ class RecipeListing extends Component {
     * Each Row Item
     */
   _renderRow = (data) => {
-    console.log(data);
     let { title, content, better_featured_image } = data;
     title.rendered = AppUtil.HTMLEntitiesDecode(title.rendered);
 
-    // Play with the content
+    // Produce a summary
     content.rendered = AppUtil.HTMLEntitiesDecode(content.rendered);
     content.rendered = AppUtil.stripTags(content.rendered);
-    content.rendered = AppUtil.limitChars(content.rendered, 60);
+    let summary = AppUtil.limitChars(content.rendered, 60);
 
     // Is there a better way to test this?
-    let image =(
+    data.featured_image =(
       better_featured_image 
+      && typeof better_featured_image != null
       && better_featured_image.media_details 
       && better_featured_image.media_details.sizes
       && better_featured_image.media_details.sizes.medium
@@ -133,18 +135,18 @@ class RecipeListing extends Component {
       better_featured_image.media_details.sizes.medium.source_url : '';
 
     return (
-      <Card onPress={()=>{ this._onPressRow(title.rendered) }}>
+      <Card onPress={()=>{ this._onPressRow(title.rendered, data) }}>
         <View style={[AppStyles.row, AppStyles.paddingBottomSml]}>
-          <View style={[AppStyles.flex1]}>
-            {image ?
+          {data.featured_image != '' ?
+            <View style={[AppStyles.flex1]}>
               <Image 
-                source={{uri: image}} 
+                source={{uri: data.featured_image}} 
                 style={[styles.listingImage]} />
-            : null}
-          </View>
+            </View>
+          : null}
           <View style={[AppStyles.flex3, AppStyles.paddingLeftSml]}>
             <Text style={[AppStyles.h3]}>{title.rendered.toString()}</Text>
-            <Text style={[AppStyles.baseText]}>{content.rendered.toString()}</Text>
+            <Text style={[AppStyles.baseText]}>{summary.toString()}</Text>
           </View>
         </View>
       </Card>

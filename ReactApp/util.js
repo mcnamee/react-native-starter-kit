@@ -55,15 +55,17 @@ const UTIL = {
 	  * Convert all HTMLEntities when Array
 	  */
 	convertHtmlEntitiesArray: function(arr) {
-	  arr.forEach(item => {
-	    if (typeof item === 'object') {
-	      item = UTIL.convertHtmlEntitiesObject(item);
-	    } else if (typeof item === 'array') {
-	    	item = UTIL.convertHtmlEntitiesArray(item);
-	    } else {
-	    	item = entities.decode(item);
-	    }
-	  });
+		if (item instanceof Array) {
+		  arr.forEach(item => {
+		    if (item instanceof Array) {
+	      	obj[key] = UTIL.convertHtmlEntitiesArray(item);
+	      } else if (typeof item === 'object') {
+	        obj[key] = UTIL.convertHtmlEntitiesObject(item);
+	      } else if (typeof item === 'string') {
+	      	obj[key] = entities.decode(striptags(item));
+	      }
+		  });
+	  }
 
 	  return arr;
 	},
@@ -72,17 +74,19 @@ const UTIL = {
 	  * Convert all HTMLEntities when Object
 	  */
 	convertHtmlEntitiesObject: function(obj) {
-	  Object.keys(obj).forEach(key => {
-      let item = obj[key];
+		if (typeof obj === 'object' && !(item instanceof Array)) {
+		  Object.keys(obj).forEach(key => {
+	      let item = obj[key];
 
-      if (typeof item === 'object') {
-        obj[key] = UTIL.convertHtmlEntitiesObject(item);
-      } else if (typeof item === 'array') {
-      	obj[key] = UTIL.convertHtmlEntitiesArray(item);
-      } else {
-      	obj[key] = entities.decode(item);
-      }
-    });
+	      if (item instanceof Array) {
+	      	obj[key] = UTIL.convertHtmlEntitiesArray(item);
+	      } else if (typeof item === 'object') {
+	        obj[key] = UTIL.convertHtmlEntitiesObject(item);
+	      } else if (typeof item === 'string') {
+	      	obj[key] = entities.decode(striptags(item));
+	      }
+	    });
+		}
 
     return obj;
 	},

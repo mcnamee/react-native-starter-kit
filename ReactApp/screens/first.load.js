@@ -9,22 +9,25 @@
 /* Setup ==================================================================== */
 import React, { Component } from 'react'
 import {
-  StyleSheet,
   View,
   Text,
+  Image,
+  StyleSheet,
   TouchableOpacity,
-  StatusBar,
+  ActivityIndicator,
 } from 'react-native'
+import { connect } from 'react-redux'
+
+// Actions
+import * as UserActions from '../actions/user'
 
 // App Globals
 import AppStyles from '../styles'
 import AppConfig from '../config'
 
-// Components
-import Button from '../components/button'
-
 // Screens
-import Form from './forms'
+import Index from '../screens/recipes/tabs';
+import Authenticate from '../screens/auth/authenticate';
 
 /* Component ==================================================================== */
 class FirstLoad extends Component {
@@ -32,50 +35,46 @@ class FirstLoad extends Component {
 
   static propTypes = {
     navigator: React.PropTypes.object.isRequired,
-    close: React.PropTypes.func.isRequired,
   }
 
-	/**
-	  * Navigates to Sign Up
-	  */
-	_navigate = () => {
-    this.props.close();
-
-	  this.props.navigator.push({
-	    title: 'Sign Up',
-	    component: Form, 
-	    index: 2,
-	  });
-	}
+  /**
+    * On first load
+    */
+  componentDidMount = () => {
+    // Try to authenticate based on existing token
+    this.props.login()
+      .then(() => {
+        // Logged in, show index screen
+        this.props.navigator.replace({
+          title: AppConfig.appName,
+          component: Index,
+          index: 0,
+        });
+      }).catch(error => {
+        // Not Logged in, show Login screen
+        this.props.navigator.replace({
+          title: 'Login',
+          component: Authenticate,
+          index: 0,
+          hideNavbar: true,
+        });
+      });
+  }
 
   /**
     * RENDER
     */
   render = () => {
     return (
-      <View style={[AppStyles.container, styles.containerCover]}>
-      	<View style={[AppStyles.paddingHorizontal]}>
-          <Text style={[AppStyles.baseText, AppStyles.p, AppStyles.centered]}>
-            Sign Up Now!
-          </Text>
-
-          <View style={[AppStyles.spacer_10]} />
-
-          <View style={[AppStyles.row]}>
-          	<View style={[AppStyles.flex1, AppStyles.paddingRightSml]}>
-		          <Button
-		            text={'Sign In/Up Now'}
-		            onPress={()=>this._navigate()} />
-            </View>
-
-            <View style={[AppStyles.flex1, AppStyles.paddingLeftSml]}>
-		          <Button
-		            text={'Skip'}
-		            type={'outlined'}
-		            onPress={this.props.close} />
-        		</View>
-      		</View>
-      	</View>
+      <View style={[AppStyles.container]}>
+      	<Image 
+          source={require('../images/launch.jpg')}
+          style={[styles.launchImage, AppStyles.containerCentered]}>
+          <ActivityIndicator 
+            size={'large'}
+            animating={true}
+            color={'#C1C5C8'} />
+        </Image>
       </View>
     );
   }
@@ -83,12 +82,21 @@ class FirstLoad extends Component {
 
 /* Styles ==================================================================== */
 const styles = StyleSheet.create({
-	containerCover: {
-		marginTop: -AppConfig.navbarHeight,
-		backgroundColor: "#FFF",
-		justifyContent: 'center',
-	},
+  launchImage: {
+    width: AppConfig.windowWidth,
+    height: AppConfig.windowHeight,
+  },
 });
 
 /* Export Component ==================================================================== */
-export default FirstLoad
+// Define which part of the state we're passing to this component
+const mapStateToProps = (state) => ({
+  sideMenuIsOpen: state.sideMenu.isOpen,
+});
+
+// Define the actions this component may dispatch
+const mapDispatchToProps = {
+  login: UserActions.login,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(FirstLoad);

@@ -13,6 +13,7 @@ import {
   Alert,
 } from 'react-native'
 import { connect } from 'react-redux'
+import jwtDecode from 'jwt-decode'
 
 // App Globals
 import AppConfig from './config';
@@ -22,15 +23,10 @@ import AppUtil from './util';
 import * as UserActions from './actions/user'
 
 // Config
-const HOSTNAME = 'http://wp-api.mcnam.ee/';
+const HOSTNAME = AppConfig.hostname;
 
 // Add each endpoint here
-const ENDPOINTS = {
-	'login': 'wp-json/jwt-auth/v1/token',
-	'users': 'wp-json/wp/v2/users',
-	'recipes': 'wp-json/wp/v2/recipes',
-	'meals': 'wp-json/wp/v2/recipe_meal',
-};
+const ENDPOINTS = AppConfig.endpoints;
 
 // In memory to make it quicker
 let apiToken = '';
@@ -76,7 +72,40 @@ let Internal = {
 	  */
 	getToken: async function() {
 		if (!apiToken) apiToken = await AsyncStorage.getItem('api/token');
+		if (apiToken && !Internal.tokenIsValid(apiToken)) apiToken = null;
+
 		return apiToken;
+	},
+
+	/**
+	  * Check if a token is valid
+	  */
+	tokenIsValid: function(token, userId = null) {
+	  let decodedToken;
+	  try {
+	    decodedToken = jwtDecode(token);
+	  } catch (e) {
+	    // Decode failed, must be invalid
+	    return false;
+	  }
+
+	  const NOW = (Date.now() / 1000) | 0; // current UTC time in whole seconds
+	  const EAGER_RENEW = 60; // number of seconds prior to expiry that a token is considered "old"
+
+	  // Validate against "expiry", "not before" and "sub" fields in token
+	  if (NOW > (decodedToken.exp - EAGER_RENEW)) return false; // Expired
+	  if (NOW < decodedToken.nbf - 300) return false; // Not yet valid (too early!)
+
+	  // Don't worry about http vs https - strip it out
+	  let thisHostname = AppConfig.hostname.replace(/.*?:\/\//g, "");
+	  let tokenHostname = decodedToken.iss.replace(/.*?:\/\//g, "").substr(0, thisHostname.length);
+	  if (thisHostname != tokenHostname) {
+	    return false; // Issuing server is different
+	  }
+
+	  if (userId && decodedToken.sub > 0 && decodedToken.sub != userId) return false; // Token is for another user
+
+	  return true;
 	},
 
 	/**
@@ -84,6 +113,12 @@ let Internal = {
 	  */
 	fetcher: function(method, endpoint, params, body) {
 		return new Promise(async (resolve, reject) => {
+			// After x seconds, let's call it a day!
+			let timeoutAfter = 7;
+			let apiTimedOut = setTimeout(() => {
+				return reject(AppConfig.errors.timeout);
+			}, timeoutAfter * 1000);
+
 			if (!method || !endpoint) return reject('Missing params (AppAPI.fetcher).');
 
 			// Build request
@@ -124,6 +159,9 @@ let Internal = {
 	  	// Make the request
 			fetch(HOSTNAME + endpoint + urlParams, req)
 				.then(async (rawRes) => {
+					// API got back to us, clear the timeout
+					clearTimeout(apiTimedOut);
+
 					let jsonRes = await rawRes.json()
 					// Only continue if the header is successful
 					if (rawRes && rawRes.status == 200) { return jsonRes; }
@@ -134,8 +172,16 @@ let Internal = {
 	        return resolve(res);
 	      })
 	      .catch((err) => {
+	      	// API got back to us, clear the timeout
+	      	clearTimeout(apiTimedOut);
+
 	      	// If unauthorized, try logging them back in
-	      	if (!AppUtil.objIsEmpty(apiCredentials) && err && err.data && err.data.status == 403) {
+	      	if (
+	      		!AppUtil.objIsEmpty(apiCredentials)
+	      		&& err && err.data 
+	      		&& err.data.status.toString().charAt(0) == 4
+	      		&& err.code != "jwt_auth_failed") 
+	      	{
 	      		AppAPI.authenticate()
 	      			.then(res => { Internal.fetcher(method, endpoint, params, body); })
 	      			.catch(err => { return reject(err); });
@@ -184,6 +230,10 @@ Object.keys(ENDPOINTS).forEach(key => {
   */
 AppAPI.authenticate = function(credentials) {
 	return new Promise(async (resolve, reject) => {
+		// Check any existing tokens - if still valid, use it, otherwise login
+		apiToken = await Internal.getToken();
+		if (apiToken && Internal.tokenIsValid(apiToken)) return resolve(apiToken);
+
 		// Use credentials or AsyncStore Creds?
 		if (credentials && typeof credentials === 'object' && credentials.username && credentials.password) {
 			apiCredentials.username = credentials.username;
@@ -222,11 +272,15 @@ AppAPI.authenticate = function(credentials) {
 				return reject(res);
 			}
 
+			if (!Internal.tokenIsValid(res.token)) {
+				return reject(res);
+			}
+
 			// Set token in AsyncStorage + memory
 			await AsyncStorage.setItem('api/token', res.token);
 			apiToken = res.token;
 
-			return resolve(res);
+			return resolve(res.token);
 		}).catch(err => {
 			return reject(err);
 		});

@@ -107,6 +107,10 @@ module.exports = StyleSheet.create({
   strong: {
     fontWeight: '900',
   },
+  link: {
+    textDecorationLine: 'underline',
+    color: AppConfig.primaryColor,
+  },
 
   /* Helper Text Styles */
   centered: {

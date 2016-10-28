@@ -25,7 +25,8 @@ import Button from '../../components/button'
 
 // Screens
 import Index from '../recipes/tabs';
-import Login from '../auth/login'
+import Login from './login'
+import AuthWebView from './webview'
 
 /* Component ==================================================================== */
 class Authenticate extends Component {
@@ -36,13 +37,27 @@ class Authenticate extends Component {
   }
 
   /**
-    * Navigates to Sign Up
+    * Navigates to Login
     */
   _onPressLogin = () => {
     this.props.navigator.push({
       title: 'Login',
-      component: Login, 
+      component: Login,
       index: 2,
+    });
+  }
+
+  /**
+    * Navigates to Sign Up
+    */
+  _onPressSignUp = () => {
+    this.props.navigator.push({
+      title: 'Sign Up',
+      component: AuthWebView, 
+      index: 2,
+      passProps: {
+        url: AppConfig.urls.signUp
+      },
     });
   }
 
@@ -50,11 +65,10 @@ class Authenticate extends Component {
 	  * Skips Auth
 	  */
 	_onPressSkip = () => {
-	  this.props.navigator.push({
+	  this.props.navigator.replaceAtIndex({
 	    title: AppConfig.appName,
 	    component: Index,
-	    index: 0,
-	  });
+	  }, 0);
 	}
 
   /**
@@ -73,13 +87,13 @@ class Authenticate extends Component {
         	<View style={[AppStyles.flex1, AppStyles.paddingRightSml]}>
 	          <Button
 	            text={'Login'}
-	            onPress={()=>this._onPressLogin()} />
+	            onPress={this._onPressLogin} />
           </View>
 
           <View style={[AppStyles.flex1, AppStyles.paddingLeftSml]}>
             <Button
               text={'Sign up'}
-              onPress={()=>this._onPressLogin()} />
+              onPress={this._onPressSignUp} />
           </View>
         </View>
 
@@ -93,7 +107,7 @@ class Authenticate extends Component {
 	            text={'Skip'}
               size={'small'}
 	            type={'outlined'}
-	            onPress={this.props.close} />
+	            onPress={this._onPressSkip} />
       		</View>
         </View>
       </View>

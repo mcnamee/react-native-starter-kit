@@ -26,17 +26,18 @@ import FormValidation from 'tcomb-form-native'
 import * as UserActions from '../../actions/user'
 
 // App Globals
+import AppConfig from '../../config'
 import AppStyles from '../../styles'
 import AppUtil from '../../util'
 import AppAPI from '../../api'
-import AppConfig from '../../config'
 
 // Components
 import Button from '../../components/button'
 import Alerts from '../../components/alerts'
 
 // Screens
-import Index from '../../screens/recipes/tabs';
+import Index from '../recipes/tabs'
+import AuthWebView from './webview'
 
 /* Component ==================================================================== */
 class Login extends Component {
@@ -79,9 +80,14 @@ class Login extends Component {
       form_values: {},
       options: {
         fields: {
-          Email: { error: 'Please enter a valid email' },
+          Email: { 
+            error: 'Please enter a valid email',
+            autoCapitalize: 'none',
+            clearButtonMode: 'while-editing',
+          },
           Password: {
             error: 'Your new password must be more than 6 characters', 
+            clearButtonMode: 'while-editing',
             secureTextEntry: true,
           },
         }
@@ -131,11 +137,10 @@ class Login extends Component {
         		this.setState({ resultMsg: { success: 'Awesome, you\'re now logged in!' } });
 
             setTimeout(() => {
-              this.props.navigator.replace({
+              this.props.navigator.replaceAtIndex({
                 title: AppConfig.appName,
-                component: Index, 
-                index: 2,
-              });
+                component: Index,
+              }, 0);
             }, 1000);
         	}).catch(err => {
         		let error = AppAPI.handleError(err);
@@ -143,6 +148,34 @@ class Login extends Component {
         	});
       });
     }
+  }
+
+  /**
+    * Sign Up
+    */
+  _onPressSignUp = () => {
+    this.props.navigator.push({
+      title: 'Sign Up',
+      component: AuthWebView,
+      index: 2,
+      passProps: {
+        url: AppConfig.urls.signUp
+      },
+    });
+  }
+
+  /**
+    * Password Reset
+    */
+  _onPressReset = () => {
+    this.props.navigator.push({
+      title: 'Reset Password',
+      component: AuthWebView,
+      index: 2,
+      passProps: {
+        url: AppConfig.urls.resetPassword
+      },
+    });
   }
 
   /**
@@ -177,6 +210,12 @@ class Login extends Component {
             <Button
               text={"Login"}
               onPress={this._login} />
+
+            <TouchableOpacity onPress={this._onPressReset}>
+              <Text style={[AppStyles.baseText, AppStyles.centered, AppStyles.link]}>
+                Forgot Password
+              </Text>
+            </TouchableOpacity>
           </View>
         </View>
 
@@ -188,9 +227,9 @@ class Login extends Component {
           </Text>
 
           <Button
-            text={'Sign In'}
+            text={'Sign Up'}
             type={'outlined'}
-            onPress={()=>alert('Just for looks')} />
+            onPress={this._onPressSignUp} />
         </View>
 
       </ScrollView>

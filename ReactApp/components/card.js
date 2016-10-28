@@ -27,7 +27,7 @@ import AppConfig from '../config'
 /* Component ==================================================================== */
 class Card extends Component {
   static propTypes = {
-    onPress: React.PropTypes.func.isRequired,
+    onPress: React.PropTypes.func,
   }
 
   /**

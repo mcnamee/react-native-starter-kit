@@ -6,28 +6,38 @@
  * React Native Starter App
  * https://github.com/mcnamee/react-native-starter-app
  */
-'use strict';
- 
+
 /* Setup ==================================================================== */
-import React, { Component } from 'react'
+import React, { Component, PropTypes } from 'react';
 import {
-  View,
   WebView,
   StyleSheet,
   InteractionManager,
-} from 'react-native'
+} from 'react-native';
 
 // App Globals
-import AppStyles from '../styles'
-import AppConfig from '../config'
+import AppStyles from '../styles';
+import AppConfig from '../config';
 
 // Screens
-import Loading from '../components/loading'
-import Error from '../components/error'
+import Loading from '../components/loading';
+import Error from '../components/error';
+
+/* Styles ==================================================================== */
+const styles = StyleSheet.create({
+  container: {
+    backgroundColor: AppConfig.backgroundColor,
+  },
+});
 
 /* Component ==================================================================== */
 class AppWebView extends Component {
   static componentName = 'AppWebView';
+
+  static propTypes = {
+    url: PropTypes.string.isRequired,
+    onNavigationStateChange: PropTypes.func,
+  }
 
   constructor(props) {
     super(props);
@@ -38,11 +48,6 @@ class AppWebView extends Component {
     };
   }
 
-  static propTypes = {
-    url: React.PropTypes.string.isRequired,
-    onNavigationStateChange: React.PropTypes.func,
-  }
-
   /**
     * On Load
     */
@@ -51,7 +56,7 @@ class AppWebView extends Component {
     InteractionManager.runAfterInteractions(() => {
       this.setState({
         loading: false,
-        webViewURL: this.props.url || null
+        webViewURL: this.props.url || null,
       });
     });
   }
@@ -59,7 +64,7 @@ class AppWebView extends Component {
   /**
     * Each time page loads, update the URL
     */
-  _onNavigationStateChange = (navState) => {
+  onNavigationStateChange = (navState) => {
     this.state.webViewURL = navState.url;
 
     if (this.props.onNavigationStateChange) this.props.onNavigationStateChange(navState.url);
@@ -69,29 +74,23 @@ class AppWebView extends Component {
     * RENDER
     */
   render = () => {
-    let { webViewURL, loading } = this.state;
+    const { webViewURL, loading } = this.state;
 
     if (loading) return (<Loading />);
     if (!webViewURL) return (<Error type={'URL not defined.'} />);
 
     return (
       <WebView
-        scalesPageToFit={true} 
-        source={{uri: webViewURL}}
-        startInLoadingState={true}
+        scalesPageToFit
+        startInLoadingState
+        source={{ uri: webViewURL }}
         automaticallyAdjustContentInsets={false}
         style={[AppStyles.container, styles.container]}
-        onNavigationStateChange={this._onNavigationStateChange} />
+        onNavigationStateChange={this.onNavigationStateChange}
+      />
     );
   }
 }
 
-/* Styles ==================================================================== */
-const styles = StyleSheet.create({
-  container: {
-    backgroundColor: AppConfig.backgroundColor,
-  },
-});
-
 /* Export Component ==================================================================== */
-export default AppWebView
+export default AppWebView;

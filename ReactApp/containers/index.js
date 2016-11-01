@@ -6,16 +6,16 @@
  * https://github.com/mcnamee/react-native-starter-app
  */
 
-import React, { Component } from 'react'
-import { applyMiddleware, compose, createStore } from 'redux'
-import { Provider } from 'react-redux'
-import logger from 'redux-logger'
-import thunk from 'redux-thunk'
+import React from 'react';
+import { applyMiddleware, compose, createStore } from 'redux';
+import { Provider } from 'react-redux';
+import logger from 'redux-logger';
+import thunk from 'redux-thunk';
 
-import App from './app'
+import App from './app';
 
 // All redux reducers (rolled into one mega-reducer)
-import rootReducer from '../reducers/index'
+import rootReducer from '../reducers/index';
 
 // Load middleware
 let middleware = [
@@ -36,12 +36,10 @@ const store = compose(
 )(createStore)(rootReducer);
 
 // Wrap App in Redux provider (makes Redux available to all sub-components)
-export default class AppContainer extends Component {
-  render() {
-    return (
-      <Provider store={store}>
-        <App />
-      </Provider>
-    );
-  }
+export default function AppContainer() {
+  return (
+    <Provider store={store}>
+      <App />
+    </Provider>
+  );
 }

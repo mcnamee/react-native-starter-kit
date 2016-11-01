@@ -4,60 +4,59 @@
  * React Native Starter App
  * https://github.com/mcnamee/react-native-starter-app
  */
-'use strict';
 
 /* Setup ==================================================================== */
-import React, { Component } from 'react'
+import React, { Component, PropTypes } from 'react';
 import {
-  StyleSheet,
   View,
   Text,
-  Image,
-  Alert,
-  TextInput,
   ScrollView,
   AsyncStorage,
   TouchableOpacity,
-} from 'react-native'
-import { connect } from 'react-redux'
-import FormValidation from 'tcomb-form-native'
+} from 'react-native';
+import { connect } from 'react-redux';
+import FormValidation from 'tcomb-form-native';
 
 // Actions
-import * as UserActions from '../../actions/user'
+import * as UserActions from '../../actions/user';
 
 // App Globals
-import AppConfig from '../../config'
-import AppStyles from '../../styles'
-import AppUtil from '../../util'
-import AppAPI from '../../api'
+import AppAPI from '../../api';
+import AppConfig from '../../config';
+import AppStyles from '../../styles';
 
 // Components
-import Button from '../../components/button'
-import Alerts from '../../components/alerts'
+import Button from '../../components/button';
+import Alerts from '../../components/alerts';
 
 // Screens
-import Index from '../recipes/tabs'
-import AuthWebView from './webview'
+import Index from '../recipes/tabs';
+import AuthWebView from './webview';
 
 /* Component ==================================================================== */
 class Login extends Component {
   static componentName = 'Login';
 
+  static propTypes = {
+    navigator: PropTypes.object.isRequired,
+    login: PropTypes.func.isRequired,
+  }
+
   constructor(props) {
     super(props);
 
     // Email Validation
-    var valid_email = FormValidation.refinement(
-      FormValidation.String, function (email) {
-        var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+    const validEmail = FormValidation.refinement(
+      FormValidation.String, (email) => {
+        const re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
         return re.test(email);
       }
     );
 
     // Password Validation - Must be 6 chars long
-    var valid_password = FormValidation.refinement(
-      FormValidation.String, function (password) {
-        if(password.length < 6) return false;
+    const validPassword = FormValidation.refinement(
+      FormValidation.String, (password) => {
+        if (password.length < 6) return false;
         return true;
       }
     );
@@ -70,8 +69,8 @@ class Login extends Component {
         error: '',
       },
       form_fields: FormValidation.struct({
-        Email: valid_email,
-        Password: valid_password,
+        Email: validEmail,
+        Password: validPassword,
       }),
       empty_form_values: {
         Email: '',
@@ -80,19 +79,19 @@ class Login extends Component {
       form_values: {},
       options: {
         fields: {
-          Email: { 
+          Email: {
             error: 'Please enter a valid email',
             autoCapitalize: 'none',
             clearButtonMode: 'while-editing',
           },
           Password: {
-            error: 'Your new password must be more than 6 characters', 
+            error: 'Your new password must be more than 6 characters',
             clearButtonMode: 'while-editing',
             secureTextEntry: true,
           },
-        }
+        },
       },
-    }
+    };
   }
 
   /**
@@ -101,51 +100,14 @@ class Login extends Component {
   componentDidMount = async () => {
     // Get user data from AsyncStorage to populate fields
     const values = await AsyncStorage.getItem('api/credentials');
-    let jsonValues = JSON.parse(values);
+    const jsonValues = JSON.parse(values);
 
     if (values !== null) {
-      this.setState({ 
+      this.setState({
         form_values: {
-        	Email: jsonValues.username,
-        	Password: jsonValues.password,
-        } 
-      });
-    }
-  }
-
-  /**
-    * Login
-    */
-  _login = () => {
-    // Get new credentials and update
-    var credentials = this.refs.form.getValue();
-
-    // Form is valid
-    if (credentials) {
-      this.setState({ form_values: credentials }, () => {
-      	this.setState({ resultMsg: { status: 'One moment...' }});
-
-        // Scroll to top, to show message
-        if (this.refs && this.refs.scrollView) {
-          this.refs.scrollView.scrollTo({ y: 0 });
-        }
-
-        this.props.login({
-	        	username: credentials.Email,
-	        	password: credentials.Password,
-	        }).then(res => {
-        		this.setState({ resultMsg: { success: 'Awesome, you\'re now logged in!' } });
-
-            setTimeout(() => {
-              this.props.navigator.replaceAtIndex({
-                title: AppConfig.appName,
-                component: Index,
-              }, 0);
-            }, 1000);
-        	}).catch(err => {
-        		let error = AppAPI.handleError(err);
-        		this.setState({ resultMsg: { error } });
-        	});
+          Email: jsonValues.username,
+          Password: jsonValues.password,
+        },
       });
     }
   }
@@ -153,13 +115,13 @@ class Login extends Component {
   /**
     * Sign Up
     */
-  _onPressSignUp = () => {
+  onPressSignUp = () => {
     this.props.navigator.push({
       title: 'Sign Up',
       component: AuthWebView,
       index: 2,
       passProps: {
-        url: AppConfig.urls.signUp
+        url: AppConfig.urls.signUp,
       },
     });
   }
@@ -167,28 +129,67 @@ class Login extends Component {
   /**
     * Password Reset
     */
-  _onPressReset = () => {
+  onPressReset = () => {
     this.props.navigator.push({
       title: 'Reset Password',
       component: AuthWebView,
       index: 2,
       passProps: {
-        url: AppConfig.urls.resetPassword
+        url: AppConfig.urls.resetPassword,
       },
     });
+  }
+
+  /**
+    * Login
+    */
+  login = () => {
+    // Get new credentials and update
+    const credentials = this.refs.form.getValue();
+
+    // Form is valid
+    if (credentials) {
+      this.setState({ form_values: credentials }, () => {
+        this.setState({ resultMsg: { status: 'One moment...' } });
+
+        // Scroll to top, to show message
+        if (this.refs && this.refs.scrollView) {
+          this.refs.scrollView.scrollTo({ y: 0 });
+        }
+
+        this.props.login({
+          username: credentials.Email,
+          password: credentials.Password,
+        }).then(() => {
+          this.setState({ resultMsg: { success: 'Awesome, you\'re now logged in!' } });
+
+          setTimeout(() => {
+            this.props.navigator.replaceAtIndex({
+              title: AppConfig.appName,
+              component: Index,
+            }, 0);
+          }, 1000);
+        }).catch((err) => {
+          const error = AppAPI.handleError(err);
+          this.setState({ resultMsg: { error } });
+        });
+      });
+    }
   }
 
   /**
     * RENDER
     */
   render = () => {
-    var Form = FormValidation.form.Form;
+    const Form = FormValidation.form.Form;
 
     return (
-      <ScrollView automaticallyAdjustContentInsets={false} 
+      <ScrollView
+        automaticallyAdjustContentInsets={false}
         ref={'scrollView'}
         style={[AppStyles.container]}
-        contentContainerStyle={[AppStyles.container]}>
+        contentContainerStyle={[AppStyles.container]}
+      >
         <View style={[AppStyles.paddingHorizontal]}>
 
           <View style={AppStyles.spacer_20} />
@@ -196,22 +197,25 @@ class Login extends Component {
           <Alerts
             status={this.state.resultMsg.status}
             success={this.state.resultMsg.success}
-            error={this.state.resultMsg.error} />
+            error={this.state.resultMsg.error}
+          />
 
           <Form
-            ref="form"
+            ref={'form'}
             type={this.state.form_fields}
             value={this.state.form_values}
-            options={this.state.options} />
+            options={this.state.options}
+          />
         </View>
 
         <View style={[AppStyles.row]}>
           <View style={[AppStyles.flex1, AppStyles.paddingHorizontal]}>
             <Button
-              text={"Login"}
-              onPress={this._login} />
+              text={'Login'}
+              onPress={this.login}
+            />
 
-            <TouchableOpacity onPress={this._onPressReset}>
+            <TouchableOpacity onPress={this.onPressReset}>
               <Text style={[AppStyles.baseText, AppStyles.centered, AppStyles.link]}>
                 Forgot Password
               </Text>
@@ -229,7 +233,8 @@ class Login extends Component {
           <Button
             text={'Sign Up'}
             type={'outlined'}
-            onPress={this._onPressSignUp} />
+            onPress={this.onPressSignUp}
+          />
         </View>
 
       </ScrollView>
@@ -237,13 +242,9 @@ class Login extends Component {
   }
 }
 
-/* Styles ==================================================================== */
-const styles = StyleSheet.create({
-});
-
 /* Export Component ==================================================================== */
 // Define which part of the state we're passing to this component
-const mapStateToProps = (state) => ({
+const mapStateToProps = state => ({
   user: state.user,
 });
 

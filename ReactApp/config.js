@@ -4,34 +4,36 @@
  * React Native Starter App
  * https://github.com/mcnamee/react-native-starter-app
  */
-'use strict';
 
-import Dimensions from 'Dimensions';
-var window = Dimensions.get('window');
+import {
+  Dimensions,
+} from 'react-native';
+
+const window = Dimensions.get('window');
 
 /* Setup ==================================================================== */
 exports.title = 'GlobalConfig';
 
 export default {
-	// App Details
-	appName: 'Starter Kit',
+  // App Details
+  appName: 'Starter Kit',
 
-	// Window Dimensions
-	windowHeight: window.height,
-	windowWidth: window.width,
+  // Window Dimensions
+  windowHeight: window.height,
+  windowWidth: window.width,
 
-	// Grid
-	windowWidthHalf: window.width * 0.5,
-	windowWidthYhird: window.width * 0.333,
-	windowWidthYwoThirds: window.width * 0.666,
-	windowWidthQuarter: window.width * 0.25,
-	windowWidthThreeQuarters: window.width * 0.75,
+  // Grid
+  windowWidthHalf: window.width * 0.5,
+  windowWidthYhird: window.width * 0.333,
+  windowWidthYwoThirds: window.width * 0.666,
+  windowWidthQuarter: window.width * 0.25,
+  windowWidthThreeQuarters: window.width * 0.75,
 
-	// General Element Dimensions
-	navbarHeight: 64,
-	statusBarHeight: 22,
+  // General Element Dimensions
+  navbarHeight: 64,
+  statusBarHeight: 22,
 
-	// Google Analytics - uses a 'dev' account while we're testing
+  // Google Analytics - uses a 'dev' account while we're testing
   gaTrackingId: (__DEV__) ? 'UA-84284256-2' : 'UA-84284256-1',
 
   // API Details
@@ -39,32 +41,32 @@ export default {
   // Map shortnames to the actual endpoints, so that we can
   // use them like AppAPI.recipes.get() or AppAPI.users.post() for example
   endpoints: {
-		'login': '/wp-json/jwt-auth/v1/token',
-		'users': '/wp-json/wp/v2/users',
-		'recipes': '/wp-json/wp/v2/recipes',
-		'meals': '/wp-json/wp/v2/recipe_meal',
-	},
+    login: '/wp-json/jwt-auth/v1/token',
+    users: '/wp-json/wp/v2/users',
+    recipes: '/wp-json/wp/v2/recipes',
+    meals: '/wp-json/wp/v2/recipe_meal',
+  },
 
-	// URLs
-	urls: {
-		resetPassword: 'http://wp-api.mcnam.ee/wp-login.php?action=lostpassword',
-		signUp: 'http://wp-api.mcnam.ee/wp-login.php?action=register',
-	},
+  // URLs
+  urls: {
+    resetPassword: 'http://wp-api.mcnam.ee/wp-login.php?action=lostpassword',
+    signUp: 'http://wp-api.mcnam.ee/wp-login.php?action=register',
+  },
 
   // Default Error Messages
   errors: {
-  	default: "Hmm, an unknown error occured.",
-  	timeout: "Server Timed Out. Check your internet connection.",
+    default: 'Hmm, an unknown error occured.',
+    timeout: 'Server Timed Out. Check your internet connection.',
   },
 
-	// Fonts
-	baseFont: "Avenir",
-	baseFontSize: 14,
+  // Fonts
+  baseFont: 'Avenir',
+  baseFontSize: 14,
 
-	// Colors
-	primaryColor: "#4267B2",
-	secondaryColor: "#17233D",
-	textColor: "#1D2129",
-	borderColor: "#D0D1D5",
-	backgroundColor: "#E9EBEE",
-}
+  // Colors
+  primaryColor: '#4267B2',
+  secondaryColor: '#17233D',
+  textColor: '#1D2129',
+  borderColor: '#D0D1D5',
+  backgroundColor: '#E9EBEE',
+};

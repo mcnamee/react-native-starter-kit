@@ -4,103 +4,93 @@
  * React Native Starter App
  * https://github.com/mcnamee/react-native-starter-app
  */
-'use strict';
 
-var striptags = require('striptags');
-var Entities = require('html-entities').AllHtmlEntities;
-var entities = new Entities();
+const striptags = require('striptags');
+const Entities = require('html-entities').AllHtmlEntities;
+
+const entities = new Entities();
 
 const UTIL = {
-	/**
-	  * Test if Obj is empty
-	  */
-	objIsEmpty: function(obj) {
-	  for(let prop in obj) {
-	    if(obj.hasOwnProperty(prop))
-	      return false;
-	  }
-	  return true;
-	},
+  /**
+    * Test if Obj is empty
+    */
+  objIsEmpty: (obj) => {
+    if (typeof obj === 'object' && !(obj instanceof Array)) {
+      if (Object.keys(obj).length === 0) return true;
+    }
+    return false;
+  },
 
-	/**
-	  * Convert Obj to Arr
-	  */
-	objToArr: function(obj) {
-	  return Object.keys(obj).map(function(k) { return obj[k] });
-	},
+  /**
+    * Convert Obj to Arr
+    */
+  objToArr: obj => Object.keys(obj).map(k => obj[k]),
 
-	/**
-	  * Get First Item in Object
-	  */
-	firstIndexInObj: function(obj) {
-	  for (let a in obj) return a;
-	},
+  /**
+    * Limit characters, placing a ... at the end
+    */
+  limitChars: (str, limit = 15) => {
+    if (str.length > limit) return `${str.substr(0, limit).trim()} ...`;
+    return str;
+  },
 
-	/**
-	  * Limit characters, placing a ... at the end
-	  */
-	limitChars: function(str, limit = 15) {
-	  if (str.length > limit) return str.substr(0, limit).trim() + '...';
-	  else return str;
-	},
+  /**
+    * Decode HTML Entites
+    */
+  htmlEntitiesDecode: str => entities.decode(str),
 
-	/**
-	  * Decode HTML Entites
-	  */
-	HTMLEntitiesDecode: function(str) {
-		return entities.decode(str);
-	},
+  /**
+    * Convert all HTMLEntities when Array
+    */
+  convertHtmlEntitiesArray: (arr) => {
+    const finalArr = arr;
 
-	/**
-	  * Convert all HTMLEntities when Array
-	  */
-	convertHtmlEntitiesArray: function(arr) {
-		if (item instanceof Array) {
-		  arr.forEach(item => {
-		    if (item instanceof Array) {
-	      	obj[key] = UTIL.convertHtmlEntitiesArray(item);
-	      } else if (typeof item === 'object') {
-	        obj[key] = UTIL.convertHtmlEntitiesObject(item);
-	      } else if (typeof item === 'string') {
-	      	obj[key] = entities.decode(striptags(item));
-	      }
-		  });
-	  }
+    if (arr instanceof Array) {
+      arr.forEach((item, key) => {
+        if (item instanceof Array) {
+          finalArr[key] = UTIL.convertHtmlEntitiesArray(item);
+        } else if (typeof item === 'object') {
+          finalArr[key] = UTIL.convertHtmlEntitiesObject(item);
+        } else if (typeof item === 'string') {
+          finalArr[key] = entities.decode(striptags(item));
+        }
+      });
+    }
 
-	  return arr;
-	},
+    return finalArr;
+  },
 
-	/**
-	  * Convert all HTMLEntities when Object
-	  */
-	convertHtmlEntitiesObject: function(obj) {
-		if (typeof obj === 'object' && !(item instanceof Array)) {
-		  Object.keys(obj).forEach(key => {
-	      let item = obj[key];
+  /**
+    * Convert all HTMLEntities when Object
+    */
+  convertHtmlEntitiesObject: (obj) => {
+    const finalObj = obj;
 
-	      if (item instanceof Array) {
-	      	obj[key] = UTIL.convertHtmlEntitiesArray(item);
-	      } else if (typeof item === 'object') {
-	        obj[key] = UTIL.convertHtmlEntitiesObject(item);
-	      } else if (typeof item === 'string') {
-	      	obj[key] = entities.decode(striptags(item));
-	      }
-	    });
-		}
+    if (typeof obj === 'object' && !(obj instanceof Array)) {
+      Object.keys(obj).forEach((key) => {
+        const item = obj[key];
 
-    return obj;
-	},
+        if (item instanceof Array) {
+          finalObj[key] = UTIL.convertHtmlEntitiesArray(item);
+        } else if (typeof item === 'object') {
+          finalObj[key] = UTIL.convertHtmlEntitiesObject(item);
+        } else if (typeof item === 'string') {
+          finalObj[key] = entities.decode(striptags(item));
+        }
+      });
+    }
 
-	/**
-	  * Strips all HTML tags
-	  */
-	stripTags: function(str) {
-		return striptags(str);
-	}
+    return finalObj;
+  },
+
+  /**
+    * Strips all HTML tags
+    */
+  stripTags: str => striptags(str),
 };
 
 /* Export ==================================================================== */
 module.exports = UTIL;
 module.exports.details = {
-  title: 'UTIL'
+  title: 'UTIL',
 };

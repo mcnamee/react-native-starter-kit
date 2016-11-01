@@ -4,9 +4,7 @@
  * React Native Starter App
  * https://github.com/mcnamee/react-native-starter-app
  */
-'use strict';
 
-import React, { Component } from 'react';
 import {
   StyleSheet,
 } from 'react-native';
@@ -16,12 +14,12 @@ import AppConfig from './config';
 
 /* Styles ==================================================================== */
 module.exports = StyleSheet.create({
-	appContainer: {
-    backgroundColor: "#000",
-	},
+  appContainer: {
+    backgroundColor: '#000',
+  },
 
-	/* Default */
-	container: {
+  /* Default */
+  container: {
     position: 'relative',
     flex: 1,
     flexDirection: 'column',
@@ -47,12 +45,12 @@ module.exports = StyleSheet.create({
     fontWeight: '500',
     color: AppConfig.textColor,
     fontSize: AppConfig.baseFontSize,
-    lineHeight: parseInt(AppConfig.baseFontSize + (AppConfig.baseFontSize * 0.5)),
+    lineHeight: parseInt(AppConfig.baseFontSize + (AppConfig.baseFontSize * 0.5), 10),
   },
   h1: {
     fontFamily: AppConfig.baseFont,
     fontSize: AppConfig.baseFontSize * 2,
-    lineHeight: parseInt((AppConfig.baseFontSize * 2) + (AppConfig.baseFontSize * 0.5)),
+    lineHeight: parseInt((AppConfig.baseFontSize * 2) + (AppConfig.baseFontSize * 0.5), 10),
     color: AppConfig.primaryColor,
     fontWeight: '800',
     margin: 0,
@@ -65,7 +63,7 @@ module.exports = StyleSheet.create({
     fontFamily: AppConfig.baseFont,
     color: AppConfig.primaryColor,
     fontSize: AppConfig.baseFontSize * 1.5,
-    lineHeight: parseInt((AppConfig.baseFontSize * 1.5) + (AppConfig.baseFontSize * 0.5)),
+    lineHeight: parseInt((AppConfig.baseFontSize * 1.5) + (AppConfig.baseFontSize * 0.5), 10),
     margin: 0,
     marginTop: 4,
     marginBottom: 4,
@@ -77,7 +75,7 @@ module.exports = StyleSheet.create({
     fontWeight: '500',
     color: AppConfig.primaryColor,
     fontSize: AppConfig.baseFontSize * 1.25,
-    lineHeight: parseInt((AppConfig.baseFontSize * 1.25) + (AppConfig.baseFontSize * 0.5)),
+    lineHeight: parseInt((AppConfig.baseFontSize * 1.25) + (AppConfig.baseFontSize * 0.5), 10),
     margin: 0,
     marginTop: 4,
     marginBottom: 4,
@@ -89,7 +87,7 @@ module.exports = StyleSheet.create({
     fontWeight: '800',
     color: AppConfig.primaryColor,
     fontSize: AppConfig.baseFontSize * 1.1,
-    lineHeight: parseInt((AppConfig.baseFontSize * 1.1) + (AppConfig.baseFontSize * 0.5)),
+    lineHeight: parseInt((AppConfig.baseFontSize * 1.1) + (AppConfig.baseFontSize * 0.5), 10),
     margin: 0,
     marginTop: 4,
     marginBottom: 4,
@@ -102,7 +100,7 @@ module.exports = StyleSheet.create({
     fontWeight: '500',
     color: AppConfig.textColor,
     fontSize: AppConfig.baseFontSize,
-    lineHeight: parseInt(AppConfig.baseFontSize + (AppConfig.baseFontSize * 0.5)),
+    lineHeight: parseInt(AppConfig.baseFontSize + (AppConfig.baseFontSize * 0.5), 10),
   },
   strong: {
     fontWeight: '900',
@@ -178,31 +176,45 @@ module.exports = StyleSheet.create({
     marginBottom: 20,
   },
   spacer_5: {
-    left: 0, right: 0, height: 1,
+    left: 0,
+    right: 0,
+    height: 1,
     marginTop: 5,
   },
   spacer_10: {
-    left: 0, right: 0, height: 1,
+    left: 0,
+    right: 0,
+    height: 1,
     marginTop: 10,
   },
   spacer_15: {
-    left: 0, right: 0, height: 1,
+    left: 0,
+    right: 0,
+    height: 1,
     marginTop: 15,
   },
   spacer_20: {
-    left: 0, right: 0, height: 1,
+    left: 0,
+    right: 0,
+    height: 1,
     marginTop: 20,
   },
   spacer_25: {
-    left: 0, right: 0, height: 1,
+    left: 0,
+    right: 0,
+    height: 1,
     marginTop: 25,
   },
   spacer_30: {
-    left: 0, right: 0, height: 1,
+    left: 0,
+    right: 0,
+    height: 1,
     marginTop: 30,
   },
   spacer_40: {
-    left: 0, right: 0, height: 1,
+    left: 0,
+    right: 0,
+    height: 1,
     marginTop: 40,
   },
 
@@ -230,7 +242,7 @@ module.exports = StyleSheet.create({
   flex6: {
     flex: 6,
   },
- 
+
   /* Forms */
   formLabel: {
     textAlign: 'left',
@@ -244,6 +256,6 @@ module.exports = StyleSheet.create({
     paddingVertical: 4,
     paddingHorizontal: 10,
     marginBottom: 10,
-    backgroundColor: "#fff",
+    backgroundColor: '#fff',
   },
 });

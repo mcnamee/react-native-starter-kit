@@ -9,10 +9,9 @@
  * React Native Starter App
  * https://github.com/mcnamee/react-native-starter-app
  */
-'use strict';
 
 /* Setup ==================================================================== */
-import React, { Component } from 'react'
+import React, { Component, PropTypes } from 'react'
 import {
   StyleSheet,
   View,
@@ -28,9 +27,9 @@ import AppConfig from '../config'
 /* Component ==================================================================== */
 class ListRow extends Component {
   static propTypes = {
-    onPress: React.PropTypes.func.isRequired,
-    title: React.PropTypes.string.isRequired,
-    image: React.PropTypes.string,
+    onPress: PropTypes.func.isRequired,
+    title: PropTypes.string.isRequired,
+    image: PropTypes.string,
   }
 
   static defaultProps = {

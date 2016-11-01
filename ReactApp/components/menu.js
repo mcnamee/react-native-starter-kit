@@ -4,10 +4,9 @@
  * React Native Starter App
  * https://github.com/mcnamee/react-native-starter-app
  */
-'use strict';
 
 /* Setup ==================================================================== */
-import React, { Component } from 'react'
+import React, { Component, PropTypes } from 'react'
 import {
   StyleSheet,
   View,
@@ -32,6 +31,65 @@ import ListViewExample from '../screens/recipes/listing'
 import Login from '../screens/auth/login'
 import Tabs from '../screens/recipes/tabs'
 
+/* Styles ==================================================================== */
+const MENU_BG_COLOR = "#4E5665";
+
+const styles = StyleSheet.create({
+  backgroundFill: {
+    backgroundColor: MENU_BG_COLOR,
+    height: AppConfig.windowHeight,
+    width: AppConfig.windowWidth,
+    position: 'absolute',
+    top: 0,
+    left: 0,
+  },
+  container: {
+    position: 'relative',
+    flex: 1,
+  },
+  menuContainer: {
+    flex: 1,
+    left: 0,
+    right: 0,
+    backgroundColor: MENU_BG_COLOR,
+  },
+
+  // Main Menu
+  menu: {
+    flex: 3,
+    left: 0,
+    right: 0,
+    backgroundColor: MENU_BG_COLOR,
+    padding: 20,
+    paddingTop: AppConfig.statusBarHeight,
+  },
+  menuItem: {
+    flex: 1,
+    borderBottomWidth: 1,
+    borderBottomColor: "#5D677A",
+    paddingBottom: 10,
+  },
+  menuItem_text: {
+    fontSize: 18,
+    lineHeight: parseInt(18 + (18 * 0.5)),
+    fontWeight: '500',
+    marginTop: 10,
+    flex: 1,
+    color: "#EEEFF0"
+  },
+
+  // Menu Bottom
+  menuBottom: {
+    flex: 1,
+    left: 0,
+    right: 0,
+    justifyContent: 'flex-end',
+    paddingBottom: 10,
+  },
+  menuBottom_text: {
+    color: "#EEEFF0"
+  }
+});
 
 /* Component ==================================================================== */
 class Menu extends Component {
@@ -48,7 +106,7 @@ class Menu extends Component {
   }
 
   static propTypes = {
-    navigate: React.PropTypes.func.isRequired,
+    navigate: PropTypes.func.isRequired,
   }
 
   /**
@@ -136,67 +194,6 @@ class Menu extends Component {
     );
   }
 }
-
-
-/* Styles ==================================================================== */
-const MENU_BG_COLOR = "#4E5665";
-
-const styles = StyleSheet.create({
-  backgroundFill: {
-    backgroundColor: MENU_BG_COLOR,
-    height: AppConfig.windowHeight,
-    width: AppConfig.windowWidth,
-    position: 'absolute',
-    top: 0,
-    left: 0,
-  },
-  container: {
-    position: 'relative',
-    flex: 1,
-  },
-  menuContainer: {
-    flex: 1,
-    left: 0,
-    right: 0,
-    backgroundColor: MENU_BG_COLOR,
-  },
-
-  // Main Menu
-  menu: {
-    flex: 3,
-    left: 0,
-    right: 0,
-    backgroundColor: MENU_BG_COLOR,
-    padding: 20,
-    paddingTop: AppConfig.statusBarHeight,
-  },
-  menuItem: {
-    flex: 1,
-    borderBottomWidth: 1,
-    borderBottomColor: "#5D677A",
-    paddingBottom: 10,
-  },
-  menuItem_text: {
-    fontSize: 18,
-    lineHeight: parseInt(18 + (18 * 0.5)),
-    fontWeight: '500',
-    marginTop: 10,
-    flex: 1,
-    color: "#EEEFF0"
-  },
-
-  // Menu Bottom
-  menuBottom: {
-    flex: 1,
-    left: 0,
-    right: 0,
-    justifyContent: 'flex-end',
-    paddingBottom: 10,
-  },
-  menuBottom_text: {
-    color: "#EEEFF0"
-  }
-});
 
 /* Export Component ==================================================================== */
 // Define which part of the state we're passing to this component

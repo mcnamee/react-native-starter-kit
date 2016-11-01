@@ -8,10 +8,9 @@
  * React Native Starter App
  * https://github.com/mcnamee/react-native-starter-app
  */
-'use strict';
 
 /* Setup ==================================================================== */
-import React, { Component } from 'react'
+import React, { Component, PropTypes } from 'react'
 import {
   StyleSheet,
   View,
@@ -27,7 +26,7 @@ import AppConfig from '../config'
 /* Component ==================================================================== */
 class Card extends Component {
   static propTypes = {
-    onPress: React.PropTypes.func,
+    onPress: PropTypes.func,
   }
 
   /**

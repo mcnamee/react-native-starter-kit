@@ -4,27 +4,38 @@
  * React Native Starter App
  * https://github.com/mcnamee/react-native-starter-app
  */
-'use strict';
 
 /* Setup ==================================================================== */
-import React, { Component } from 'react'
+import React, { Component, PropTypes } from 'react';
 import {
-  StyleSheet,
   Text,
+  StyleSheet,
   TouchableOpacity,
-} from 'react-native'
+} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 // App Globals
-import AppStyles from '../styles'
-import AppConfig from '../config'
-import AppUtil from '../util'
+import AppStyles from '../styles';
+import AppConfig from '../config';
+import AppUtil from '../util';
 
+/* Styles ==================================================================== */
+const styles = StyleSheet.create({
+  navbarButton: {
+    left: 20,
+    top: 4,
+  },
+  navbarTitle: {
+    color: '#FFFFFF',
+    bottom: 6,
+    fontSize: 16,
+  },
+});
 
 /* Navbar Title Component ==================================================================== */
 class NavbarTitle extends Component {
   static propTypes = {
-    title: React.PropTypes.string,
+    title: PropTypes.string,
   }
 
   render = () => {
@@ -43,8 +54,8 @@ exports.Title = NavbarTitle;
 /* Navbar Left Button Component ==================================================================== */
 class NavbarLeftButton extends Component {
   static propTypes = {
-    onPress: React.PropTypes.func.isRequired,
-    icon: React.PropTypes.string.isRequired,
+    onPress: PropTypes.func.isRequired,
+    icon: PropTypes.string.isRequired,
   }
 
   render = () => {
@@ -59,16 +70,3 @@ class NavbarLeftButton extends Component {
 }
 
 exports.LeftButton = NavbarLeftButton;
-
-/* Styles ==================================================================== */
-const styles = StyleSheet.create({
-  navbarButton: {
-    left: 20,
-    top: 4,
-  },
-  navbarTitle: {
-    color: '#FFFFFF',
-    bottom: 6,
-    fontSize: 16,
-  },
-});

@@ -4,7 +4,6 @@
  * React Native Starter App
  * https://github.com/mcnamee/react-native-starter-app
  */
-'use strict';
 
 /* Setup ==================================================================== */
 import React, { Component } from 'react'
@@ -42,15 +41,6 @@ import Index from '../screens/first.load';
 
 /* Component ==================================================================== */
 class AppContainer extends Component {
-  /**
-    * On first load
-    */
-  componentDidMount = () => {
-    // Status Bar
-    // StatusBar.setHidden(true); // Slide in on load
-    // StatusBar.setBackgroundColor(AppConfig.primaryColor, true); // Android Status Bar Color
-  }
-
   /**
     * An option was pressed in the Side Menu. Go to scene...
     */

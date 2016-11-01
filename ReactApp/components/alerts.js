@@ -7,10 +7,9 @@
  * React Native Starter App
  * https://github.com/mcnamee/react-native-starter-app
  */
- 'use strict';
-
+ 
 /* Setup ==================================================================== */
-import React, { Component } from 'react'
+import React, { Component, PropTypes } from 'react'
 import {
   StyleSheet,
   View,
@@ -20,12 +19,54 @@ import {
 // App Globals
 import AppStyles from '../styles'
 
+/* Styles ==================================================================== */
+const styles = StyleSheet.create({
+  alerts: {
+    left: 0,
+    right: 0,
+  },
+  // Success
+  msg: {
+    right: 0,
+    left: 0,
+    paddingVertical: 10,
+    paddingHorizontal: 10,
+    borderLeftWidth: 3,
+    borderColor: "#1C854C",
+    backgroundColor: "#59DC9A",
+    // borderRadius: 2,
+  },
+  msg_text: {
+    textAlign: "center",
+    color: "#16693c",
+    fontWeight: "500"
+  },
+
+  // Error
+  msgError: {
+    borderColor: "#C02827",
+    backgroundColor: "#FB6567",
+  },
+  msgError_text: {
+    color: "#7f1a1a",
+  },
+
+  // Status
+  msgStatus: {
+    borderColor: "#408491",
+    backgroundColor: "#8EDBE5",
+  },
+  msgStatus_text: {
+    color: "#2f606a",
+  },
+});
+
 /* Component ==================================================================== */
 class Alerts extends Component {
   static propTypes = {
-    status: React.PropTypes.string,
-    success: React.PropTypes.string,
-    error: React.PropTypes.string,
+    status: PropTypes.string,
+    success: PropTypes.string,
+    error: PropTypes.string,
   }
 
   static defaultProps = {
@@ -70,48 +111,6 @@ class Alerts extends Component {
     )
   }
 }
-
-/* Styles ==================================================================== */
-const styles = StyleSheet.create({
-  alerts: {
-    left: 0,
-    right: 0,
-  },
-  // Success
-  msg: {
-    right: 0,
-    left: 0,
-    paddingVertical: 10,
-    paddingHorizontal: 10,
-    borderLeftWidth: 3,
-    borderColor: "#1C854C",
-    backgroundColor: "#59DC9A",
-    // borderRadius: 2,
-  },
-  msg_text: {
-    textAlign: "center",
-    color: "#16693c",
-    fontWeight: "500"
-  },
-
-  // Error
-  msgError: {
-    borderColor: "#C02827",
-    backgroundColor: "#FB6567",
-  },
-  msgError_text: {
-    color: "#7f1a1a",
-  },
-
-  // Status
-  msgStatus: {
-    borderColor: "#408491",
-    backgroundColor: "#8EDBE5",
-  },
-  msgStatus_text: {
-    color: "#2f606a",
-  },
-});
 
 /* Export Component ==================================================================== */
 export default Alerts

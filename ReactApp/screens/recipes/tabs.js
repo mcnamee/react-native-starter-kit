@@ -4,38 +4,62 @@
  * React Native Starter App
  * https://github.com/mcnamee/react-native-starter-app
  */
-'use strict';
- 
+
 /* Setup ==================================================================== */
-import React, { Component } from 'react'
+import React, { Component, PropTypes } from 'react';
 import {
-  StyleSheet,
   View,
   Text,
+  StyleSheet,
   InteractionManager,
-} from 'react-native'
-import { connect } from 'react-redux'
+} from 'react-native';
+import { connect } from 'react-redux';
 import { TabViewAnimated, TabViewPage, TabBarTop } from 'react-native-tab-view';
 
 // Actions
-import * as RecipeActions from '../../actions/recipe'
+import * as RecipeActions from '../../actions/recipe';
 
 // App Globals
-import AppStyles from '../../styles'
-import AppConfig from '../../config'
-import AppAPI from '../../api'
+import AppStyles from '../../styles';
+import AppConfig from '../../config';
+import AppAPI from '../../api';
 
 // Components
-import Loading from '../../components/loading'
-import Error from '../../components/error'
+import Loading from '../../components/loading';
+import Error from '../../components/error';
 
 // Screens
-import ComingSoon from '../soon'
-import ListView from './listing'
+import ListView from './listing';
+
+/* Styles ==================================================================== */
+const styles = StyleSheet.create({
+  // Tab Styles
+  tabContainer: {
+    flex: 1,
+  },
+  tabbar: {
+    backgroundColor: AppConfig.primaryColor,
+  },
+  tabbarTab: {
+    backgroundColor: AppConfig.primaryColor,
+  },
+  tabbarIndicator: {
+    backgroundColor: '#FFF',
+  },
+  tabbar_text: {
+    color: '#FFF',
+  },
+});
 
 /* Component ==================================================================== */
 class Tabs extends Component {
   static componentName = 'Tabs';
+
+  static propTypes = {
+    navigator: PropTypes.object.isRequired,
+    meals: PropTypes.object.isRequired,
+    getMeals: PropTypes.func.isRequired,
+  }
 
   constructor(props) {
     super(props);
@@ -52,52 +76,31 @@ class Tabs extends Component {
     */
   componentDidMount = () => {
     InteractionManager.runAfterInteractions(() => {
-      this._fetchData();
+      this.fetchData();
     });
-  }
-
-  /**
-    * Fetch meals to populate tabs
-    */
-  _fetchData = () => {
-    // Get meals to populate tabs
-    if (!this.props.meals || this.props.meals.length < 1) {
-      this.props.getMeals()
-        .then(() => {
-          this._setTabs();
-        }).catch(err => {
-          let error = AppAPI.handleError(err);
-          this.setState({ 
-            loading: false,
-            error: error
-          });
-        });
-    } else {
-      this._setTabs();
-    }
   }
 
   /**
     * When meals are ready, populate tabs
     */
-  _setTabs = () => {
-    let routes = [];
+  setTabs = () => {
+    const routes = [];
     let idx = 0;
-    this.props.meals.forEach(meal => {
+    this.props.meals.forEach((meal) => {
       routes.push({
         key: idx.toString(),
         id: meal.id.toString(),
         title: meal.name,
       });
 
-      idx++;
+      idx += 1;
     });
 
     this.setState({
       navigation: {
         index: 0,
-        routes: routes,
-      }
+        routes,
+      },
     }, () => {
       this.setState({
         loading: false,
@@ -106,42 +109,73 @@ class Tabs extends Component {
   }
 
   /**
+    * Fetch meals to populate tabs
+    */
+  fetchData = () => {
+    // Get meals to populate tabs
+    if (!this.props.meals || this.props.meals.length < 1) {
+      this.props.getMeals()
+        .then(() => {
+          this.setTabs();
+        }).catch((err) => {
+          const error = AppAPI.handleError(err);
+          this.setState({
+            loading: false,
+            error,
+          });
+        });
+    } else {
+      this.setTabs();
+    }
+  }
+
+  /**
     * On Change Tab
     */
-  _handleChangeTab = (index) => {
+  handleChangeTab = (index) => {
     this.setState({
       navigation: { ...this.state.navigation, index },
     });
   }
 
   /**
+    * Page Component
+    */
+  renderPage = props => (
+    <TabViewPage {...props} renderScene={this.renderScene} />
+  )
+
+  /**
     * Header Component
     */
-  _renderHeader = (props) => {
-    return (
-      <TabBarTop {...props} 
-        style={styles.tabbar}
-        tabStyle={styles.tabbarTab}
-        indicatorStyle={styles.tabbarIndicator}
-        renderLabel={(scene)=>{
-          return (
-            <Text style={[styles.tabbar_text]}>{scene.route.title}</Text>
-          );
-        }} />
-    );
-  }
+  renderHeader = props => (
+    <TabBarTop
+      {...props}
+      style={styles.tabbar}
+      tabStyle={styles.tabbarTab}
+      indicatorStyle={styles.tabbarIndicator}
+      renderLabel={scene => (
+        <Text style={[styles.tabbar_text]}>{scene.route.title}</Text>
+      )}
+    />
+  )
 
   /**
     * Which component to show
     */
-  _renderScene = ({ route }) => {
+  renderScene = ({ route }) => {
     // For performance, only render if it's this route, or I've visited before
-    if((this.state.navigation.index) != route.key && this.state.visitedRoutes.indexOf(route.key) < 0) {
+    if (
+      (this.state.navigation.index) !== route.key &&
+      this.state.visitedRoutes.indexOf(route.key) < 0
+    ) {
       return null;
     }
 
     // And Add this index to visited routes
-    if(this.state.visitedRoutes.indexOf(route.key) < 0) this.state.visitedRoutes.push(route.key);
+    if (this.state.visitedRoutes.indexOf(route.key) < 0) {
+      this.state.visitedRoutes.push(route.key);
+    }
 
     // Which component should be loaded?
     switch (route.key) {
@@ -150,63 +184,35 @@ class Tabs extends Component {
           <View style={AppStyles.windowSize}>
             <ListView
               meal={route.id}
-              navigator={this.props.navigator} />
+              navigator={this.props.navigator}
+            />
           </View>
         );
     }
   }
 
   /**
-    * Page Component
-    */
-  _renderPage = (props) => {
-    return (
-    	<TabViewPage {...props} renderScene={this._renderScene} />
-    )
-  }
-
-  /**
     * Do Render
     */
   render = () => {
-    if (this.state.loading || !this.state.navigation) return <Loading />
-    if (this.state.error) return <Error text={this.state.error} />
+    if (this.state.loading || !this.state.navigation) return <Loading />;
+    if (this.state.error) return <Error text={this.state.error} />;
 
     return (
       <TabViewAnimated
         style={[styles.tabContainer]}
         navigationState={this.state.navigation}
-        renderScene={this._renderPage}
-        renderHeader={this._renderHeader}
-        onRequestChangeTab={this._handleChangeTab}
+        renderScene={this.renderPage}
+        renderHeader={this.renderHeader}
+        onRequestChangeTab={this.handleChangeTab}
       />
     );
   }
 }
 
-/* Styles ==================================================================== */
-const styles = StyleSheet.create({
-	// Tab Styles
-  tabContainer: {
-    flex: 1,
-  },
-	tabbar: {
-		backgroundColor: AppConfig.primaryColor,
-	},
-	tabbarTab: {
-		backgroundColor: AppConfig.primaryColor,
-	},
-	tabbarIndicator: {
-		backgroundColor: "#FFF",
-	},
-	tabbar_text: {
-		color: "#FFF",
-	},
-});
-
 /* Export Component ==================================================================== */
 // Define which part of the state we're passing to this component
-const mapStateToProps = (state) => ({
+const mapStateToProps = state => ({
   meals: state.recipe.meals,
 });
 

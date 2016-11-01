@@ -11,10 +11,9 @@
  * React Native Starter App
  * https://github.com/mcnamee/react-native-starter-app
  */
-'use strict';
 
 /* Setup ==================================================================== */
-import React, { Component } from 'react'
+import React, { Component, PropTypes } from 'react'
 import {
   StyleSheet,
   View,
@@ -27,16 +26,15 @@ import {
 import AppStyles from '../styles'
 import AppConfig from '../config'
 
-
 /* Component ==================================================================== */
 class Button extends Component {
   static propTypes = {
-    onPress: React.PropTypes.func.isRequired,
-    type: React.PropTypes.oneOf(['', 'outlined']),
-    text: React.PropTypes.string.isRequired,
-    color: React.PropTypes.string,
-    size: React.PropTypes.oneOf(['', 'small', 'medium', 'large']),
-    disabled: React.PropTypes.bool,
+    onPress: PropTypes.func.isRequired,
+    type: PropTypes.oneOf(['', 'outlined']),
+    text: PropTypes.string.isRequired,
+    color: PropTypes.string,
+    size: PropTypes.oneOf(['', 'small', 'medium', 'large']),
+    disabled: PropTypes.bool,
   }
 
   static defaultProps = {
@@ -149,7 +147,6 @@ const styles = StyleSheet.create({
     opacity: 25,
   },
 });
-
 
 /* Export Component ==================================================================== */
 export default Button

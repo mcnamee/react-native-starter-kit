@@ -6,6 +6,7 @@
     "start": "node node_modules/react-native/local-cli/cli.js start"
   },
   "dependencies": {
+    "html-entities": "^1.2.0",
     "jwt-decode": "^2.1.0",
     "react": "15.3.2",
     "react-addons-shallow-compare": "^15.3.2",
@@ -19,13 +20,20 @@
     "redux": "^3.6.0",
     "redux-logger": "^2.7.0",
     "redux-thunk": "^2.1.0",
+    "striptags": "^2.1.1",
     "tcomb-form-native": "^0.6.1"
   },
   "devDependencies": {
     "babel-core": "^6.17.0",
+    "babel-eslint": "^7.1.0",
     "babel-preset-react-native": "^1.9.0",
     "babel-register": "^6.16.3",
     "chai": "^3.5.0",
+    "eslint": "^3.9.1",
+    "eslint-config-airbnb": "^12.0.0",
+    "eslint-plugin-import": "^1.16.0",
+    "eslint-plugin-jsx-a11y": "^2.2.3",
+    "eslint-plugin-react": "^6.4.1",
     "mocha": "^3.1.2"
   }
 }

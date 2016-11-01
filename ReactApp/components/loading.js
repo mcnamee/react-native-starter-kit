@@ -6,10 +6,9 @@
  * React Native Starter App
  * https://github.com/mcnamee/react-native-starter-app
  */
-'use strict';
 
 /* Setup ==================================================================== */
-import React, { Component } from 'react'
+import React, { Component, PropTypes } from 'react'
 import {
   View,
   ActivityIndicator,
@@ -23,8 +22,8 @@ import AppConfig from '../config'
 /* Component ==================================================================== */
 class Loading extends Component {
   static propTypes = {
-    text: React.PropTypes.string,
-    transparent: React.PropTypes.bool,
+    text: PropTypes.string,
+    transparent: PropTypes.bool,
   }
 
   render = () => {

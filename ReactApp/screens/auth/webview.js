@@ -4,18 +4,12 @@
  * React Native Starter App
  * https://github.com/mcnamee/react-native-starter-app
  */
-'use strict';
- 
-/* Setup ==================================================================== */
-import React, { Component } from 'react'
-import {
-} from 'react-native'
 
-// App Globals
-import AppConfig from '../../config'
+/* Setup ==================================================================== */
+import React, { Component, PropTypes } from 'react';
 
 // Screens
-import WebView from '../webview'
+import WebView from '../webview';
 
 let timeout;
 
@@ -24,8 +18,8 @@ class AuthWebView extends Component {
   static componentName = 'AuthWebView';
 
   static propTypes = {
-    navigator: React.PropTypes.object.isRequired,
-    url: React.PropTypes.string.isRequired,
+    navigator: PropTypes.object.isRequired,
+    url: PropTypes.string.isRequired,
   }
 
   /**
@@ -41,8 +35,8 @@ class AuthWebView extends Component {
     * + for when the action is completed
     * + restricting people from freely browsing
     */
-  _urlChanged = (newUrl) => {
-    if (newUrl != this.props.url) {
+  urlChanged = (newUrl) => {
+    if (newUrl !== this.props.url) {
       timeout = setTimeout(() => {
         clearTimeout(timeout);
         this.props.navigator.pop();
@@ -53,14 +47,13 @@ class AuthWebView extends Component {
   /**
     * RENDER
     */
-  render = () => {
-    return (
-      <WebView 
-        onNavigationStateChange={this._urlChanged}
-      	url={this.props.url} />
-    );
-  }
+  render = () => (
+    <WebView
+      onNavigationStateChange={this.urlChanged}
+      url={this.props.url}
+    />
+  )
 }
 
 /* Export Component ==================================================================== */
-export default AuthWebView
+export default AuthWebView;

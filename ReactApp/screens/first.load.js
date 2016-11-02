@@ -39,8 +39,10 @@ class FirstLoad extends Component {
   static componentName = 'FirstLoad';
 
   static propTypes = {
-    navigator: PropTypes.object.isRequired,
-    login: PropTypes.function.isRequired,
+    navigator: PropTypes.shape({
+      replace: PropTypes.func.isRequired,
+    }).isRequired,
+    login: PropTypes.func.isRequired,
   }
 
   /**
@@ -67,9 +69,6 @@ class FirstLoad extends Component {
       });
   }
 
-  /**
-    * RENDER
-    */
   render = () => (
     <View style={[AppStyles.container]}>
       <Image

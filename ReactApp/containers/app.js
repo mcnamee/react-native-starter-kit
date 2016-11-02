@@ -6,21 +6,19 @@
  */
 
 /* Setup ==================================================================== */
-import React, { Component } from 'react'
+import React, { Component, PropTypes } from 'react';
 import {
-  Navigator,
-  Text,
   View,
-  TouchableOpacity,
-  Image,
+  Navigator,
   StatusBar,
-} from 'react-native'
-import { connect } from 'react-redux'
-import NavigationBar from 'react-native-navbar'
-import SideMenu from 'react-native-side-menu'
+} from 'react-native';
+import { connect } from 'react-redux';
+import NavigationBar from 'react-native-navbar';
+import SideMenu from 'react-native-side-menu';
+import GoogleAnalytics from 'react-native-google-analytics-bridge';
 
 // Actions
-import * as SideMenuActions from '../actions/sidemenu'
+import * as SideMenuActions from '../actions/sidemenu';
 
 // App Globals
 import AppStyles from '../styles';
@@ -34,36 +32,46 @@ const GoogleAnalytics = new GoogleAnalyticsTracker(AppConfig.gaTrackingId);
 // Components
 import Menu from '../components/menu';
 import NavbarElements from '../components/navbar.elements';
-import Loading from '../components/loading';
 
 // Screens
 import Index from '../screens/first.load';
 
+// Google Analytics
+GoogleAnalytics.setTrackerId(AppConfig.gaTrackingId);
+
 /* Component ==================================================================== */
 class AppContainer extends Component {
+  static propTypes = {
+    sideMenuIsOpen: PropTypes.bool.isRequired,
+    closeSideMenu: PropTypes.func.isRequired,
+    toggleSideMenu: PropTypes.func.isRequired,
+    sideMenuGesturesDisabled: PropTypes.bool,
+  }
+
   /**
     * An option was pressed in the Side Menu. Go to scene...
     */
-  _onSideMenuPress = (title, component, extraProps) => {
+  onSideMenuPress = (title, component, extraProps) => {
     // Close menu
     this.props.closeSideMenu();
 
-    if(AppUtil.objIsEmpty(extraProps)) extraProps = {};
+    let passProps = extraProps;
+    if (AppUtil.objIsEmpty(extraProps)) passProps = {};
 
     // Change Scene
-    this.refs.rootNavigator.replace({
-      title: title,
-      component: component,
+    this.rootNavigator.replace({
+      title,
+      component,
       index: 0,
-      ...extraProps
+      ...passProps,
     });
   }
 
   /**
     * Toggle Side Menu
     */
-  _onSideMenuChange = (isOpen) => {
-    if (isOpen != this.props.sideMenuIsOpen) {
+  onSideMenuChange = (isOpen) => {
+    if (isOpen !== this.props.sideMenuIsOpen) {
       this.props.toggleSideMenu();
     }
   }
@@ -71,26 +79,28 @@ class AppContainer extends Component {
   /**
     * Render each scene with a Navbar and Sidebar
     */
-  _renderScene = (route, navigator) => {
+  renderScene = (route, navigator) => {
     // Default Navbar Title
-    let title = route.title || AppConfig.appName;
+    const title = route.title || AppConfig.appName;
 
     // Google Analytics
-    let screenName = route.component.componentName ? route.component.componentName + ' - ' + title : title;
+    const screenName = route.component.componentName
+      ? `${route.component.componentName} - ${title}`
+      : title;
     GoogleAnalytics.trackScreenView(screenName);
 
     // Show Hamburger Icon when index is 0, and Back Arrow Icon when index is > 0
-    let leftButton = {
+    const leftButton = {
       onPress: (route.index > 0)
-        ? this.refs.rootNavigator.pop 
+        ? this.rootNavigator.pop
         : this.props.toggleSideMenu,
       icon: (route.index > 0)
         ? 'ios-arrow-back-outline'
-        : 'ios-menu'
+        : 'ios-menu',
     };
 
     // Show a cross icon when transition pops from bottom
-    if(route.transition == 'FloatFromBottom')  {
+    if (route.transition === 'FloatFromBottom') {
       leftButton.icon = 'md-close';
     }
 
@@ -102,10 +112,16 @@ class AppContainer extends Component {
         {!route.hideNavbar &&
           <NavigationBar
             title={<NavbarElements.Title title={title || null} />}
-            statusBar={{style: 'light-content', hidden: false}}
+            statusBar={{ style: 'light-content', hidden: false }}
             style={[AppStyles.navbar]}
             tintColor={AppConfig.primaryColor}
-            leftButton={<NavbarElements.LeftButton onPress={leftButton.onPress} icon={leftButton.icon} />} />
+            leftButton={
+              <NavbarElements.LeftButton
+                onPress={leftButton.onPress}
+                icon={leftButton.icon}
+              />
+            }
+          />
         }
 
         <route.component navigator={navigator} route={route} {...route.passProps} />
@@ -113,34 +129,38 @@ class AppContainer extends Component {
     );
   }
 
-  /**
-    * RENDER
-    */
   render() {
     return (
       <SideMenu
-        ref="rootSidebarMenu"
-        menu={<Menu navigate={this._onSideMenuPress} ref="rootSidebarMenuMenu" />}
+        ref={(a) => { this.rootSidebarMenu = a; }}
+        menu={
+          <Menu
+            navigate={this.onSideMenuPress}
+            ref={(b) => { this.rootSidebarMenuMenu = b; }}
+          />
+        }
         disableGestures={this.props.sideMenuGesturesDisabled}
         isOpen={this.props.sideMenuIsOpen}
-        onChange={this._onSideMenuChange}>
+        onChange={this.onSideMenuChange}
+      >
 
-        <Navigator 
-          ref="rootNavigator"
+        <Navigator
+          ref={(c) => { this.rootNavigator = c; }}
           style={[AppStyles.container, AppStyles.appContainer]}
-          renderScene={this._renderScene}
-          configureScene={function(route, routeStack) {
-            if(route.transition == 'FloatFromBottom') 
+          renderScene={this.renderScene}
+          configureScene={(route) => {
+            if (route.transition === 'FloatFromBottom') {
               return Navigator.SceneConfigs.FloatFromBottom;
-            else
-              return Navigator.SceneConfigs.PushFromRight;
+            }
+            return Navigator.SceneConfigs.PushFromRight;
           }}
           initialRoute={{
             component: Index,
             index: 0,
-            navigator: this.refs.rootNavigator,
+            navigator: this.rootNavigator,
             hideNavbar: true,
-          }} />
+          }}
+        />
 
       </SideMenu>
     );
@@ -148,7 +168,7 @@ class AppContainer extends Component {
 }
 
 // Define which part of the state we're passing to this component
-const mapStateToProps = (state) => ({
+const mapStateToProps = state => ({
   sideMenuIsOpen: state.sideMenu.isOpen,
 });
 

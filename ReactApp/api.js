@@ -10,6 +10,7 @@ import {
   AsyncStorage,
 } from 'react-native';
 import jwtDecode from 'jwt-decode';
+import DeviceInfo from 'react-native-device-info';
 
 // App Globals
 import AppConfig from './config';
@@ -21,12 +22,21 @@ const HOSTNAME = AppConfig.hostname;
 // Add each endpoint here
 const ENDPOINTS = AppConfig.endpoints;
 
+// Build user agent string
+const USER_AGENT = `${AppConfig.appName} ` +
+  `${DeviceInfo.getVersion()}; ${DeviceInfo.getSystemName()}  ` +
+  `${DeviceInfo.getSystemVersion()}; ${DeviceInfo.getBrand()} ` +
+  `${DeviceInfo.getDeviceId()}`;
+
 // In memory to make it quicker
 let apiToken = '';
 const apiCredentials = {};
 
 // Enable debug output
-const DEBUG_MODE = __DEV__;
+const DEBUG_MODE = AppConfig.DEV;
+
+// Number each API request (used for debugging)
+let requestCounter = 0;
 
 /* Public API Functions ==================================================================== */
 const AppAPI = {
@@ -49,10 +59,14 @@ const Internal = {
     * Debug or not to debug
     */
   debug: (str, title) => {
-    if (DEBUG_MODE && str) {
-      if (title) console.log(`DEBUG: ${title} ..........................................`);
-      console.log(str);
-      console.log('/DEBUG ..........................................');
+    if (DEBUG_MODE && (title || str)) {
+      if (title) {
+        console.log(`=== DEBUG: ${title} ===========================`);
+      }
+      if (str) {
+        console.log(str);
+        console.log('%c ...', 'color: #CCC');
+      }
     }
   },
 
@@ -66,12 +80,12 @@ const Internal = {
     const str = [];
 
     Object.keys(obj).forEach((p) => {
-      const k = prefix ? `${prefix} [ ${p} ]` : p;
+      const k = prefix ? `${prefix}[${p}]` : p;
       const v = obj[p];
 
       str.push((v !== null && typeof v === 'object') ?
         Internal.serialize(v, k) :
-        `${encodeURIComponent(k)} = ${encodeURIComponent(v)}`);
+        `${encodeURIComponent(k)}=${encodeURIComponent(v)}`);
     });
 
     return str.join('&');
@@ -128,6 +142,9 @@ const Internal = {
     */
   fetcher: (method, endpoint, params, body) => {
     return new Promise(async (resolve, reject) => {
+      requestCounter += 1;
+      let requestNum = requestCounter;
+
       // After x seconds, let's call it a day!
       const timeoutAfter = 7;
       const apiTimedOut = setTimeout(() => {
@@ -142,6 +159,7 @@ const Internal = {
         headers: {
           Accept: 'application/json',
           'Content-Type': 'application/json',
+          'User-Agent': USER_AGENT,
         },
       };
 
@@ -156,11 +174,11 @@ const Internal = {
       if (params) {
         // Object - eg. /recipes?title=this&cat=2
         if (typeof params === 'object') {
-          urlParams = `? ${Internal.serialize(params)}`;
+          urlParams = `?${Internal.serialize(params)}`;
 
         // String or Number - eg. /recipes/23
         } else if (typeof params === 'string' || typeof params === 'number') {
-          urlParams = `/ ${params}`;
+          urlParams = `/${params}`;
 
         // Something else? Just log an error
         } else {
@@ -171,8 +189,12 @@ const Internal = {
       // Add Body
       if (body) req.body = JSON.stringify(body);
 
+      const thisUrl = HOSTNAME + endpoint + urlParams;
+
+      Internal.debug('', `Request #${requestNum} to ${thisUrl}`);
+
       // Make the request
-      return fetch(HOSTNAME + endpoint + urlParams, req)
+      return fetch(thisUrl, req)
         .then(async (rawRes) => {
           // API got back to us, clear the timeout
           clearTimeout(apiTimedOut);
@@ -184,7 +206,7 @@ const Internal = {
           throw jsonRes;
         })
         .then((res) => {
-          Internal.debug(res, HOSTNAME + endpoint + urlParams);
+          Internal.debug(res, `Response #${requestNum} from ${thisUrl}`);
           return resolve(res);
         })
         .catch((err) => {
@@ -201,7 +223,7 @@ const Internal = {
           {
             return AppAPI.authenticate()
               .then(() => { Internal.fetcher(method, endpoint, params, body); })
-              .catch((error) => { return reject(error); });
+              .catch(error => reject(error));
           }
 
           Internal.debug(err, HOSTNAME + endpoint + urlParams);
@@ -215,9 +237,7 @@ const Internal = {
   * Build services from Endpoints
   * - So we can call AppAPI.recipes.get() for example
   */
-Object.keys(ENDPOINTS).forEach((key) => {
-  const endpoint = ENDPOINTS[key];
-
+ENDPOINTS.forEach((endpoint, key) => {
   AppAPI[key] = {
     get: (params, payload) => Internal.fetcher('GET', endpoint, params, payload),
     post: (params, payload) => Internal.fetcher('POST', endpoint, params, payload),
@@ -230,7 +250,7 @@ Object.keys(ENDPOINTS).forEach((key) => {
 /**
   * Authenticate
   */
-AppAPI.authenticate = function (credentials) {
+AppAPI.authenticate = (credentials) => {
   return new Promise(async (resolve, reject) => {
     // Check any existing tokens - if still valid, use it, otherwise login
     apiToken = await Internal.getToken();
@@ -292,7 +312,7 @@ AppAPI.authenticate = function (credentials) {
 /**
   * Logout
   */
-AppAPI.logout = async function () {
+AppAPI.logout = async () => {
   await AsyncStorage.setItem('api/token', '');
   await AsyncStorage.setItem('api/credentials', '');
   apiToken = '';

@@ -23,7 +23,9 @@ class ComingSoon extends Component {
   static componentName = 'ComingSoon';
 
   static propTypes = {
-    navigator: PropTypes.object.isRequired,
+    navigator: PropTypes.shape({
+      push: PropTypes.func.isRequired,
+    }).isRequired,
     placeholder: PropTypes.string,
   }
 
@@ -38,9 +40,6 @@ class ComingSoon extends Component {
     });
   }
 
-  /**
-    * RENDER
-    */
   render = () => {
     const text = this.props.placeholder || 'Coming soon...';
 

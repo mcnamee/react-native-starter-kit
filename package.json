@@ -8,10 +8,12 @@
   "dependencies": {
     "html-entities": "^1.2.0",
     "jwt-decode": "^2.1.0",
+    "qs": "^6.3.0",
     "react": "15.3.2",
     "react-addons-shallow-compare": "^15.3.2",
     "react-native": "^0.35.0",
     "react-native-google-analytics-bridge": "^4.0.1",
+    "react-native-device-info": "^0.9.6",
     "react-native-navbar": "^1.5.4",
     "react-native-side-menu": "^0.20.1",
     "react-native-tab-view": "0.0.29",

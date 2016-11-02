@@ -29,7 +29,10 @@ class Authenticate extends Component {
   static componentName = 'Authenticate';
 
   static propTypes = {
-    navigator: PropTypes.object.isRequired,
+    navigator: PropTypes.shape({
+      push: PropTypes.func.isRequired,
+      replaceAtIndex: PropTypes.func.isRequired,
+    }).isRequired,
   }
 
   /**
@@ -67,9 +70,6 @@ class Authenticate extends Component {
     }, 0);
   }
 
-  /**
-    * RENDER
-    */
   render = () => (
     <View style={[AppStyles.containerCentered, AppStyles.container]}>
       <Text style={[AppStyles.baseText, AppStyles.h1, AppStyles.centered]}>

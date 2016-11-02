@@ -6,7 +6,7 @@
  */
 
 // Set initial state
-const initialState = [];
+const initialState = {};
 
 export default function userReducer(state = initialState, action) {
   switch (action.type) {

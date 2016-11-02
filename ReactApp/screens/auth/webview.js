@@ -18,15 +18,15 @@ class AuthWebView extends Component {
   static componentName = 'AuthWebView';
 
   static propTypes = {
-    navigator: PropTypes.object.isRequired,
+    navigator: PropTypes.shape({
+      pop: PropTypes.func.isRequired,
+    }).isRequired,
     url: PropTypes.string.isRequired,
   }
 
-  /**
-    * Clear the timeout, otherwise we'll get warnings
-    * when the user unmounts mid-way timeout
-    */
   componentWillUnmount = () => {
+    // Clear the timeout, otherwise we'll get warnings
+    // when the user unmounts mid-way timeout
     clearTimeout(timeout);
   }
 
@@ -44,9 +44,6 @@ class AuthWebView extends Component {
     }
   }
 
-  /**
-    * RENDER
-    */
   render = () => (
     <WebView
       onNavigationStateChange={this.urlChanged}

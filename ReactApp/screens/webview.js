@@ -70,9 +70,6 @@ class AppWebView extends Component {
     if (this.props.onNavigationStateChange) this.props.onNavigationStateChange(navState.url);
   }
 
-  /**
-    * RENDER
-    */
   render = () => {
     const { webViewURL, loading } = this.state;
 

@@ -18,7 +18,7 @@ module.exports = StyleSheet.create({
     backgroundColor: '#000',
   },
 
-  /* Default */
+  // Default
   container: {
     position: 'relative',
     flex: 1,
@@ -33,13 +33,16 @@ module.exports = StyleSheet.create({
     height: AppConfig.windowHeight,
     width: AppConfig.windowWidth,
   },
+  listView: {
+    paddingBottom: AppConfig.navbarHeight + AppConfig.statusBarHeight,
+  },
 
-  /* Aligning items */
+  // Aligning items
   rightAligned: {
     alignItems: 'flex-end',
   },
 
-  /* Text Styles */
+  // Text Styles
   baseText: {
     fontFamily: AppConfig.baseFont,
     fontWeight: '500',
@@ -110,7 +113,7 @@ module.exports = StyleSheet.create({
     color: AppConfig.primaryColor,
   },
 
-  /* Helper Text Styles */
+  // Helper Text Styles
   centered: {
     textAlign: 'center',
   },
@@ -118,7 +121,7 @@ module.exports = StyleSheet.create({
     textAlign: 'right',
   },
 
-  /* Give me padding */
+  // Give me padding
   padding: {
     paddingVertical: 20,
     paddingHorizontal: 20,
@@ -164,7 +167,7 @@ module.exports = StyleSheet.create({
     paddingBottom: 10,
   },
 
-  /* General Spacing */
+  // General Spacing
   hr: {
     left: 0,
     right: 0,
@@ -218,7 +221,7 @@ module.exports = StyleSheet.create({
     marginTop: 40,
   },
 
-  /* Grid */
+  // Grid
   row: {
     left: 0,
     right: 0,
@@ -243,7 +246,7 @@ module.exports = StyleSheet.create({
     flex: 6,
   },
 
-  /* Forms */
+  // Forms
   formLabel: {
     textAlign: 'left',
     marginBottom: 10,

@@ -29,7 +29,7 @@ import Loading from '../../components/loading';
 import Error from '../../components/error';
 
 // Screens
-import ListView from './listing';
+import RecipeListing from './listing';
 
 /* Styles ==================================================================== */
 const styles = StyleSheet.create({
@@ -57,23 +57,19 @@ class Tabs extends Component {
 
   static propTypes = {
     navigator: PropTypes.object.isRequired,
-    meals: PropTypes.object.isRequired,
+    meals: PropTypes.arrayOf(PropTypes.object),
     getMeals: PropTypes.func.isRequired,
   }
 
   constructor(props) {
     super(props);
 
-    // Initial state
     this.state = {
       loading: true,
       visitedRoutes: [],
     };
   }
 
-  /**
-    * Executes after all modules have been loaded
-    */
   componentDidMount = () => {
     InteractionManager.runAfterInteractions(() => {
       this.fetchData();
@@ -165,12 +161,12 @@ class Tabs extends Component {
     */
   renderScene = ({ route }) => {
     // For performance, only render if it's this route, or I've visited before
-    if (
-      (this.state.navigation.index) !== route.key &&
-      this.state.visitedRoutes.indexOf(route.key) < 0
-    ) {
-      return null;
-    }
+    // if (
+    //   this.state.navigation.index !== route.key &&
+    //   this.state.visitedRoutes.indexOf(route.key) < 0
+    // ) {
+    //   return null;
+    // }
 
     // And Add this index to visited routes
     if (this.state.visitedRoutes.indexOf(route.key) < 0) {
@@ -182,7 +178,7 @@ class Tabs extends Component {
       default:
         return (
           <View style={AppStyles.windowSize}>
-            <ListView
+            <RecipeListing
               meal={route.id}
               navigator={this.props.navigator}
             />
@@ -191,9 +187,6 @@ class Tabs extends Component {
     }
   }
 
-  /**
-    * Do Render
-    */
   render = () => {
     if (this.state.loading || !this.state.navigation) return <Loading />;
     if (this.state.error) return <Error text={this.state.error} />;
@@ -201,9 +194,9 @@ class Tabs extends Component {
     return (
       <TabViewAnimated
         style={[styles.tabContainer]}
-        navigationState={this.state.navigation}
         renderScene={this.renderPage}
         renderHeader={this.renderHeader}
+        navigationState={this.state.navigation}
         onRequestChangeTab={this.handleChangeTab}
       />
     );

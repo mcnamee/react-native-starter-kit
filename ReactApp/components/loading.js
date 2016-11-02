@@ -8,46 +8,45 @@
  */
 
 /* Setup ==================================================================== */
-import React, { Component, PropTypes } from 'react'
+import React, { PropTypes } from 'react';
 import {
   View,
+  Text,
   ActivityIndicator,
-  Text
-} from 'react-native'
+} from 'react-native';
 
 // App Globals
-import AppStyles from '../styles'
-import AppConfig from '../config'
+import AppStyles from '../styles';
 
 /* Component ==================================================================== */
-class Loading extends Component {
-  static propTypes = {
-    text: PropTypes.string,
-    transparent: PropTypes.bool,
-  }
+const Loading = ({ text, transparent }) => (
+  <View
+    style={[
+      AppStyles.container,
+      AppStyles.containerCentered,
+      transparent && { backgroundColor: 'rgba(255,255,255,0.75)' },
+    ]}
+  >
+    <ActivityIndicator
+      animating
+      size={'large'}
+      color={transparent ? '#000' : '#AAA'}
+    />
 
-  render = () => {
-    let { text, transparent } = this.props;
+    <View style={[AppStyles.spacer_10]} />
 
-    let colorOfSpinner = "#AAA";
-    if (transparent) colorOfSpinner = "#000";
+    {text &&
+      <Text style={[AppStyles.baseText]}>
+        {text}
+      </Text>
+    }
+  </View>
+);
 
-    return (
-      <View style={[AppStyles.container, AppStyles.containerCentered, transparent && {backgroundColor: 'rgba(255,255,255,0.75)'} ]}>
-        <ActivityIndicator animating={true} size="large"
-          color={colorOfSpinner} />
-
-        <View style={[AppStyles.spacer_10]} />
-
-        {text &&
-          <Text style={[AppStyles.baseText]}>
-            {text}
-          </Text>
-        }
-      </View>
-    );
-  }
-}
+Loading.propTypes = {
+  text: PropTypes.string,
+  transparent: PropTypes.bool,
+};
 
 /* Export Component ==================================================================== */
-export default Loading
+export default Loading;

@@ -6,33 +6,33 @@
  */
 
 /* Setup ==================================================================== */
-import React, { Component, PropTypes } from 'react'
+import React, { Component, PropTypes } from 'react';
 import {
-  StyleSheet,
   View,
   Text,
-  TouchableOpacity
-} from 'react-native'
-import { connect } from 'react-redux'
+  Alert,
+  StyleSheet,
+  TouchableOpacity,
+} from 'react-native';
+import { connect } from 'react-redux';
 
 // Actions
-import * as UserActions from '../actions/user'
+import * as UserActions from '../actions/user';
 
 // App Globals
-import AppStyles from '../styles'
-import AppConfig from '../config'
+import AppStyles from '../styles';
+import AppConfig from '../config';
 
 // Components
-import Button from './button'
+import Button from './button';
 
 // Screens
-import StyleGuide from '../screens/style.guide'
-import ListViewExample from '../screens/recipes/listing'
-import Login from '../screens/auth/login'
-import Tabs from '../screens/recipes/tabs'
+import StyleGuide from '../screens/style.guide';
+import Login from '../screens/auth/login';
+import Tabs from '../screens/recipes/tabs';
 
 /* Styles ==================================================================== */
-const MENU_BG_COLOR = "#4E5665";
+const MENU_BG_COLOR = '#4E5665';
 
 const styles = StyleSheet.create({
   backgroundFill: {
@@ -66,16 +66,16 @@ const styles = StyleSheet.create({
   menuItem: {
     flex: 1,
     borderBottomWidth: 1,
-    borderBottomColor: "#5D677A",
+    borderBottomColor: '#5D677A',
     paddingBottom: 10,
   },
   menuItem_text: {
     fontSize: 18,
-    lineHeight: parseInt(18 + (18 * 0.5)),
+    lineHeight: parseInt(18 + (18 * 0.5), 10),
     fontWeight: '500',
     marginTop: 10,
     flex: 1,
-    color: "#EEEFF0"
+    color: '#EEEFF0',
   },
 
   // Menu Bottom
@@ -87,66 +87,64 @@ const styles = StyleSheet.create({
     paddingBottom: 10,
   },
   menuBottom_text: {
-    color: "#EEEFF0"
-  }
+    color: '#EEEFF0',
+  },
 });
 
 /* Component ==================================================================== */
 class Menu extends Component {
+  static propTypes = {
+    navigate: PropTypes.func.isRequired,
+    logout: PropTypes.func.isRequired,
+    user: PropTypes.shape({
+      name: PropTypes.string,
+    }),
+  }
+
   constructor() {
     super();
 
-    // Initial state
     this.state = {
       menu: [
-        {title: 'Recipes', component: Tabs},
-        {title: 'Style Guide', component: StyleGuide},
+        { title: 'Recipes', component: Tabs },
+        { title: 'Style Guide', component: StyleGuide },
       ],
     };
   }
 
-  static propTypes = {
-    navigate: PropTypes.func.isRequired,
-  }
-
-  /**
-    * Login
-    */
-  _login = () => {
+  login = () => {
     if (this.props.navigate) this.props.navigate('Login', Login);
   }
 
-  /**
-    * Logout
-    */
-  _logout = () => {
+  logout = () => {
     if (this.props.logout) {
       this.props.logout()
         .then(() => {
           if (this.props.navigate) this.props.navigate('Login', Login);
         }).catch(() => {
-          alert('Something went wrong.');
+          Alert.alert('Oh uh!', 'Something went wrong.');
         });
     }
   }
 
-  /**
-    * RENDER
-    */
   render = () => {
-    let { navigate } = this.props;
-    let { menu } = this.state;
+    const { navigate } = this.props;
+    const { menu } = this.state;
 
     // Build the actual Menu Items
-    let menuItems = [];
-    menu.map((item)=>{
-      let { title, component, props } = item;
+    const menuItems = [];
+    menu.map((item) => {
+      const { title, component, props } = item;
 
-      menuItems.push(
-        <TouchableOpacity key={'menu-item-'+title}
-          onPress={()=>navigate(title, component, props)}>
+      return menuItems.push(
+        <TouchableOpacity
+          key={`menu-item-${title}`}
+          onPress={() => navigate(title, component, props)}
+        >
           <View style={[styles.menuItem]}>
-            <Text style={[AppStyles.baseText, styles.menuItem_text]}>{title}</Text>
+            <Text style={[AppStyles.baseText, styles.menuItem_text]}>
+              {title}
+            </Text>
           </View>
         </TouchableOpacity>
       );
@@ -162,30 +160,38 @@ class Menu extends Component {
           <View style={[styles.menuBottom]}>
             {this.props.user && this.props.user.name ?
               <View>
-                <Text style={[AppStyles.baseText, styles.menuBottom_text, AppStyles.centered]}>
-                  Logged in as:{"\n"}
+                <Text
+                  style={[
+                    AppStyles.baseText,
+                    styles.menuBottom_text,
+                    AppStyles.centered,
+                  ]}
+                >
+                  Logged in as:{'\n'}
                   {this.props.user.name}
                 </Text>
 
                 <View style={[AppStyles.spacer_10]} />
 
-                <View style={[AppStyles.paddingHorizontal]}>            
+                <View style={[AppStyles.paddingHorizontal]}>
                   <Button
                     text={'Log Out'}
                     type={'outlined'}
                     size={'small'}
                     color={'#fff'}
-                    onPress={this._logout} />
+                    onPress={this.logout}
+                  />
                 </View>
               </View>
-            : 
-              <View style={[AppStyles.paddingHorizontal]}>            
+            :
+              <View style={[AppStyles.paddingHorizontal]}>
                 <Button
                   text={'Log In'}
                   type={'outlined'}
                   size={'small'}
                   color={'#fff'}
-                  onPress={this._login} />
+                  onPress={this.login}
+                />
               </View>
             }
           </View>
@@ -197,7 +203,7 @@ class Menu extends Component {
 
 /* Export Component ==================================================================== */
 // Define which part of the state we're passing to this component
-const mapStateToProps = (state) => ({
+const mapStateToProps = state => ({
   user: state.user,
 });
 

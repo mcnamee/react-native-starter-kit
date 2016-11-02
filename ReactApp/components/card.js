@@ -1,53 +1,25 @@
 /**
  * Card
  *
-    <Card 
-      title={title}
-      onPress={()=>{alert('Go To Entry View')}} />
+    <Card onPress={() => alert('Go To Entry View')}>
+      <Text>Hello!</Text>
+    </Card>
  *
  * React Native Starter App
  * https://github.com/mcnamee/react-native-starter-app
  */
 
 /* Setup ==================================================================== */
-import React, { Component, PropTypes } from 'react'
+import React, { PropTypes } from 'react';
 import {
-  StyleSheet,
   View,
-  Text,
-  Image,
+  StyleSheet,
   TouchableOpacity,
-} from 'react-native'
+} from 'react-native';
 
 // App Globals
-import AppStyles from '../styles'
-import AppConfig from '../config'
-
-/* Component ==================================================================== */
-class Card extends Component {
-  static propTypes = {
-    onPress: PropTypes.func,
-  }
-
-  /**
-    * RENDER
-    */
-  render = () => {
-    let { title, onPress } = this.props;
-
-    return (
-      <TouchableOpacity style={[styles.card]} onPress={onPress} activeOpacity={onPress ? 0.7 : 1}>
-        <View style={[AppStyles.paddingTopSml, AppStyles.paddingLeftSml, AppStyles.paddingRightSml]}>
-          <View style={styles.cardInner}>
-            <View style={[AppStyles.paddingSml]}>
-              {this.props.children}
-            </View>
-          </View>
-        </View>
-      </TouchableOpacity>
-    )
-  }
-}
+import AppStyles from '../styles';
+import AppConfig from '../config';
 
 /* Styles ==================================================================== */
 const styles = StyleSheet.create({
@@ -58,7 +30,7 @@ const styles = StyleSheet.create({
   cardInner: {
     flex: 1,
     position: 'relative',
-    backgroundColor: "#FFF",
+    backgroundColor: '#FFF',
     borderBottomWidth: 1,
     borderBottomColor: AppConfig.borderColor,
     borderRightWidth: 1,
@@ -67,5 +39,33 @@ const styles = StyleSheet.create({
   },
 });
 
+/* Component ==================================================================== */
+const Card = ({ onPress, children }) => (
+  <TouchableOpacity
+    onPress={onPress}
+    style={[styles.card]}
+    activeOpacity={onPress ? 0.7 : 1}
+  >
+    <View
+      style={[
+        AppStyles.paddingTopSml,
+        AppStyles.paddingLeftSml,
+        AppStyles.paddingRightSml,
+      ]}
+    >
+      <View style={styles.cardInner}>
+        <View style={[AppStyles.paddingSml]}>
+          {children}
+        </View>
+      </View>
+    </View>
+  </TouchableOpacity>
+);
+
+Card.propTypes = {
+  onPress: PropTypes.func,
+  children: PropTypes.element.isRequired,
+};
+
 /* Export Component ==================================================================== */
-export default Card
+export default Card;

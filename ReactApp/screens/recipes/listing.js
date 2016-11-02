@@ -48,14 +48,15 @@ class RecipeListing extends Component {
   static componentName = 'RecipeListing';
 
   static propTypes = {
-    navigator: PropTypes.object.isRequired,
-    meal: PropTypes.object.isRequired,
+    navigator: PropTypes.shape({
+      push: PropTypes.func.isRequired,
+    }).isRequired,
+    meal: PropTypes.string.isRequired,
   }
 
   constructor(props) {
     super(props);
 
-    // Initial state
     this.state = {
       loading: true,
       isRefreshing: false,
@@ -66,11 +67,7 @@ class RecipeListing extends Component {
     };
   }
 
-  /**
-    * Executes after all modules have been loaded
-    */
   componentDidMount = () => {
-    // Fetch Data
     this.fetchData();
   }
 
@@ -95,7 +92,7 @@ class RecipeListing extends Component {
   fetchData = () => {
     const { meal } = this.props;
 
-    // Forgot to pass in a category
+    // Forgot to pass in a category?
     if (!meal) {
       this.setState({
         error: 'Missing meal definition',
@@ -167,9 +164,6 @@ class RecipeListing extends Component {
     );
   }
 
-  /**
-    * RENDER
-    */
   render = () => {
     if (this.state.loading) return <Loading />;
     if (this.state.error) return <Error text={this.state.error} />;
@@ -182,10 +176,10 @@ class RecipeListing extends Component {
       <View style={[AppStyles.container]}>
         <ListView
           initialListSize={8}
-          automaticallyAdjustContentInsets={false}
-          dataSource={this.state.dataSource}
           renderRow={this.renderRow}
-          contentContainerStyle={AppStyles.paddingBottom}
+          dataSource={this.state.dataSource}
+          contentContainerStyle={AppStyles.listView}
+          automaticallyAdjustContentInsets={false}
           refreshControl={
             <RefreshControl
               refreshing={this.state.isRefreshing}

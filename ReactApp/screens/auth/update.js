@@ -58,7 +58,6 @@ class Signup extends Component {
       }
     );
 
-    // Initial state
     this.state = {
       resultMsg: {
         status: '',
@@ -98,9 +97,6 @@ class Signup extends Component {
     };
   }
 
-  /**
-    * Executes after all modules have been loaded
-    */
   componentDidMount = async () => {
     // Get user data from AsyncStorage to populate fields
     const value = await AsyncStorage.getItem('user');
@@ -180,16 +176,13 @@ class Signup extends Component {
     }
   }
 
-  /**
-    * RENDER
-    */
   render = () => {
     const Form = FormValidation.form.Form;
 
     return (
       <ScrollView
         automaticallyAdjustContentInsets={false}
-        ref={'scrollView'}
+        ref={(a) => { this.scrollView = a; }}
         style={[AppStyles.container]}
         contentContainerStyle={[AppStyles.containerCentered, styles.container]}
       >
@@ -215,7 +208,7 @@ class Signup extends Component {
           <View style={AppStyles.spacer_20} />
 
           <Form
-            ref={'form'}
+            ref={(b) => { this.form = b; }}
             type={this.state.form_fields}
             value={this.state.form_values}
             options={this.state.options}

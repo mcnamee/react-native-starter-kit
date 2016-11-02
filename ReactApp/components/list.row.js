@@ -1,75 +1,36 @@
 /**
  * List Row
  *
-    <ListRow 
+    <ListRow
       title={title}
       image={entry.entry_image}
-      onPress={()=>{alert('Go To Entry View')}} />
+      onPress={()=>{alert('Go To Entry View')}}
+    />
  *
  * React Native Starter App
  * https://github.com/mcnamee/react-native-starter-app
  */
 
 /* Setup ==================================================================== */
-import React, { Component, PropTypes } from 'react'
+import React, { Component, PropTypes } from 'react';
 import {
   StyleSheet,
   View,
   Text,
   Image,
   TouchableOpacity,
-} from 'react-native'
+} from 'react-native';
 
 // App Globals
-import AppStyles from '../styles'
-import AppConfig from '../config'
-
-/* Component ==================================================================== */
-class ListRow extends Component {
-  static propTypes = {
-    onPress: PropTypes.func.isRequired,
-    title: PropTypes.string.isRequired,
-    image: PropTypes.string,
-  }
-
-  static defaultProps = {
-    title: 'Lorem Ipsum',
-  }
-
-  /**
-    * RENDER
-    */
-  render = () => {
-    let { title, image, onPress } = this.props;
-
-    if(image) {
-      return (
-        <TouchableOpacity 
-          style={[styles.listRow, image && styles.imageBackground]} 
-          onPress={onPress} activeOpacity={0.7}>
-          <Image source={{uri: image}} style={[styles.imageBackground_image]}>
-            <Text style={[AppStyles.baseText, styles.listRow_text, styles.listRowImage_text]}>{title.toUpperCase()}</Text>
-          </Image>
-        </TouchableOpacity>
-      )
-    } else {
-      return (
-        <TouchableOpacity style={[styles.listRow]} onPress={onPress} activeOpacity={0.7}>
-          <View style={styles.listRowInner}>
-            <Text style={[AppStyles.baseText, styles.listRow_text]}>{title.toUpperCase()}</Text>
-          </View>
-        </TouchableOpacity>
-      )
-    }
-  }
-}
+import AppStyles from '../styles';
+import AppConfig from '../config';
 
 /* Styles ==================================================================== */
 const styles = StyleSheet.create({
   listRow: {
     left: 0,
     right: 0,
-    backgroundColor: "#FFF",
+    backgroundColor: '#FFF',
   },
   listRowInner: {
     paddingVertical: 20,
@@ -83,12 +44,12 @@ const styles = StyleSheet.create({
     backgroundColor: 'transparent',
   },
   listRowImage_text: {
-    color: "#FFF",
+    color: '#FFF',
   },
 
   // With Image
   imageBackground: {
-    backgroundColor: "#333",
+    backgroundColor: '#333',
   },
   imageBackground_image: {
     height: AppConfig.windowHeight / 4,
@@ -97,8 +58,61 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     marginBottom: 1,
-  }
+  },
 });
 
+/* Component ==================================================================== */
+class ListRow extends Component {
+  static propTypes = {
+    onPress: PropTypes.func.isRequired,
+    title: PropTypes.string.isRequired,
+    image: PropTypes.string,
+  }
+
+  static defaultProps = {
+    title: 'Lorem Ipsum',
+  }
+
+  render = () => {
+    const { title, image, onPress } = this.props;
+
+    if (image) {
+      return (
+        <TouchableOpacity
+          onPress={onPress}
+          activeOpacity={0.7}
+          style={[styles.listRow, image && styles.imageBackground]}
+        >
+          <Image source={{ uri: image }} style={[styles.imageBackground_image]}>
+            <Text
+              style={[
+                AppStyles.baseText,
+                styles.listRow_text,
+                styles.listRowImage_text,
+              ]}
+            >
+              {title.toUpperCase()}
+            </Text>
+          </Image>
+        </TouchableOpacity>
+      );
+    }
+
+    return (
+      <TouchableOpacity
+        onPress={onPress}
+        activeOpacity={0.7}
+        style={[styles.listRow]}
+      >
+        <View style={styles.listRowInner}>
+          <Text style={[AppStyles.baseText, styles.listRow_text]}>
+            {title.toUpperCase()}
+          </Text>
+        </View>
+      </TouchableOpacity>
+    );
+  }
+}
+
 /* Export Component ==================================================================== */
-export default ListRow
+export default ListRow;

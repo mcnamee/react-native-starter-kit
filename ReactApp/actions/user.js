@@ -6,6 +6,7 @@
  */
 
 import jwtDecode from 'jwt-decode';
+
 import AppAPI from '../api';
 
 export function login(credentials) {

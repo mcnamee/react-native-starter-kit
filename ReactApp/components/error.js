@@ -8,34 +8,29 @@
  */
 
 /* Setup ==================================================================== */
-import React, { Component } from 'react'
-import { 
-  View, 
+import React, { PropTypes } from 'react';
+import {
+  View,
   Text,
-} from 'react-native'
+} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 // App Globals
-import AppStyles from '../styles'
-import AppConfig from '../config'
+import AppStyles from '../styles';
 
 /* Component ==================================================================== */
-class Error extends Component {
-  render = () => {
-    // What are we Erroring?
-    var text = this.props.text || 'Woops, Something wen\'t wrong.';
+const Error = ({ text }) => (
+  <View style={[AppStyles.container, AppStyles.containerCentered]}>
+    <Icon name={'ios-alert-outline'} size={50} color={'#CCC'} />
 
-    return (
-      <View style={[AppStyles.container, AppStyles.containerCentered]}>
-        <Icon name={'ios-alert-outline'} size={50} color={"#CCC"} />
+    <View style={[AppStyles.spacer_10]} />
 
-        <View style={[AppStyles.spacer_10]} />
+    <Text style={[AppStyles.baseText]}>{text}</Text>
+  </View>
+);
 
-        <Text style={[AppStyles.baseText]}>{text}</Text>
-      </View>
-    );
-  }
-}
+Error.propTypes = { text: PropTypes.string };
+Error.defaultProps = { text: 'Woops, Something wen\'t wrong.' };
 
 /* Export Component ==================================================================== */
-export default Error
+export default Error;

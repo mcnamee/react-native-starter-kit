@@ -18,6 +18,9 @@ export default {
   // App Details
   appName: 'Starter Kit',
 
+  // Build Configuration - eg. Debug or Release?
+  DEV: __DEV__,
+
   // Window Dimensions
   windowHeight: window.height,
   windowWidth: window.width,
@@ -40,12 +43,12 @@ export default {
   hostname: 'http://wp-api.mcnam.ee',
   // Map shortnames to the actual endpoints, so that we can
   // use them like AppAPI.recipes.get() or AppAPI.users.post() for example
-  endpoints: {
-    login: '/wp-json/jwt-auth/v1/token',
-    users: '/wp-json/wp/v2/users',
-    recipes: '/wp-json/wp/v2/recipes',
-    meals: '/wp-json/wp/v2/recipe_meal',
-  },
+  endpoints: new Map([
+    ['login', '/wp-json/jwt-auth/v1/token'],
+    ['users', '/wp-json/wp/v2/users'],
+    ['recipes', '/wp-json/wp/v2/recipes'],
+    ['meals', '/wp-json/wp/v2/recipe_meal'],
+  ]),
 
   // URLs
   urls: {

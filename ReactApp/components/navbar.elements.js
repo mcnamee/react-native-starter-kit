@@ -6,7 +6,7 @@
  */
 
 /* Setup ==================================================================== */
-import React, { Component, PropTypes } from 'react';
+import React, { PropTypes } from 'react';
 import {
   Text,
   StyleSheet,
@@ -33,40 +33,38 @@ const styles = StyleSheet.create({
 });
 
 /* Navbar Title Component ==================================================================== */
-class NavbarTitle extends Component {
-  static propTypes = {
-    title: PropTypes.string,
-  }
+const NavbarTitle = ({ title }) => {
+  let text = title || AppConfig.appName;
+  text = AppUtil.limitChars(text, 25);
 
-  render = () => {
-    let title = this.props.title || AppConfig.appName;
-    title = AppUtil.limitChars(title, 25);
+  return (
+    <Text style={[AppStyles.baseText, styles.navbarTitle]}>
+      {text}
+    </Text>
+  );
+};
 
-    return (
-      <Text style={[AppStyles.baseText, styles.navbarTitle]}>{title}</Text>
-    );
-  }
-}
+NavbarTitle.propTypes = {
+  title: PropTypes.string,
+};
 
 exports.Title = NavbarTitle;
 
+/* Navbar Left Button Component ========================================================= */
+const NavbarLeftButton = ({ onPress, icon }) => (
+  <TouchableOpacity
+    onPress={onPress}
+    activeOpacity={0.7}
+    style={styles.navbarButton}
+    hitSlop={{ top: 7, right: 7, bottom: 7, left: 7 }}
+  >
+    <Icon name={icon} size={34} color={'#FFF'} />
+  </TouchableOpacity>
+);
 
-/* Navbar Left Button Component ==================================================================== */
-class NavbarLeftButton extends Component {
-  static propTypes = {
-    onPress: PropTypes.func.isRequired,
-    icon: PropTypes.string.isRequired,
-  }
-
-  render = () => {
-    return (
-      <TouchableOpacity onPress={this.props.onPress} activeOpacity={0.7} 
-        style={styles.navbarButton}
-        hitSlop={{top: 7, right: 7, bottom: 7, left: 7}}>
-        <Icon name={this.props.icon} size={34} color={"#FFF"} />
-      </TouchableOpacity>
-    );
-  }
-}
+NavbarLeftButton.propTypes = {
+  onPress: PropTypes.func.isRequired,
+  icon: PropTypes.string.isRequired,
+};
 
 exports.LeftButton = NavbarLeftButton;

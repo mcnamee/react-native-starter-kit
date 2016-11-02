@@ -38,7 +38,10 @@ class Login extends Component {
   static componentName = 'Login';
 
   static propTypes = {
-    navigator: PropTypes.object.isRequired,
+    navigator: PropTypes.shape({
+      push: PropTypes.func.isRequired,
+      replaceAtIndex: PropTypes.func.isRequired,
+    }).isRequired,
     login: PropTypes.func.isRequired,
   }
 
@@ -61,7 +64,6 @@ class Login extends Component {
       }
     );
 
-    // Initial state
     this.state = {
       resultMsg: {
         status: '',
@@ -94,9 +96,6 @@ class Login extends Component {
     };
   }
 
-  /**
-    * Executes after all modules have been loaded
-    */
   componentDidMount = async () => {
     // Get user data from AsyncStorage to populate fields
     const values = await AsyncStorage.getItem('api/credentials');
@@ -145,7 +144,7 @@ class Login extends Component {
     */
   login = () => {
     // Get new credentials and update
-    const credentials = this.refs.form.getValue();
+    const credentials = this.form.getValue();
 
     // Form is valid
     if (credentials) {
@@ -153,8 +152,8 @@ class Login extends Component {
         this.setState({ resultMsg: { status: 'One moment...' } });
 
         // Scroll to top, to show message
-        if (this.refs && this.refs.scrollView) {
-          this.refs.scrollView.scrollTo({ y: 0 });
+        if (this.scrollView) {
+          this.scrollView.scrollTo({ y: 0 });
         }
 
         this.props.login({
@@ -177,16 +176,13 @@ class Login extends Component {
     }
   }
 
-  /**
-    * RENDER
-    */
   render = () => {
     const Form = FormValidation.form.Form;
 
     return (
       <ScrollView
         automaticallyAdjustContentInsets={false}
-        ref={'scrollView'}
+        ref={(a) => { this.scrollView = a; }}
         style={[AppStyles.container]}
         contentContainerStyle={[AppStyles.container]}
       >
@@ -201,7 +197,7 @@ class Login extends Component {
           />
 
           <Form
-            ref={'form'}
+            ref={(b) => { this.form = b; }}
             type={this.state.form_fields}
             value={this.state.form_values}
             options={this.state.options}

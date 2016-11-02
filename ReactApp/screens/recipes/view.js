@@ -37,7 +37,12 @@ class RecipeView extends Component {
   static componentName = 'RecipeView';
 
   static propTypes = {
-    recipe: PropTypes.object.isRequired,
+    recipe: PropTypes.shape({
+      title: PropTypes.object.isRequired,
+      content: PropTypes.object,
+      featured_image: PropTypes.string,
+      acf: PropTypes.object,
+    }).isRequired,
   }
 
   /**
@@ -84,13 +89,9 @@ class RecipeView extends Component {
     return ingJsx;
   }
 
-  /**
-    * RENDER
-    */
   render = () => {
-    const { recipe } = this.props;
-    const { title, content, acf } = recipe;
-    const featuredImage = recipe.featured_image;
+    const { title, content, acf } = this.props.recipe;
+    const featuredImage = this.props.recipe.featured_image;
 
     return (
       <ScrollView style={[AppStyles.container]}>

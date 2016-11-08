@@ -24,7 +24,7 @@ import AppConfig from '../config'
 class Error extends Component {
   render = () => {
     // What are we Erroring?
-    var text = this.props.text || 'Woops, Something wen\'t wrong.';
+    var text = this.props.text || 'Woops, Something went wrong.';
 
     return (
       <View style={[AppStyles.container, AppStyles.containerCentered]}>

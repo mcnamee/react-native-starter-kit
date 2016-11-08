@@ -16,10 +16,10 @@
 /* Setup ==================================================================== */
 import React, { Component } from 'react'
 import {
-  StyleSheet,
   View,
   Text,
   Image,
+  StyleSheet,
   TouchableOpacity,
 } from 'react-native'
 

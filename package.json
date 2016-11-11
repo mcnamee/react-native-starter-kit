@@ -9,7 +9,7 @@
     "react": "15.3.2",
     "react-addons-shallow-compare": "^15.3.2",
     "react-native": "^0.35.0",
-    "react-native-google-analytics-bridge": "^3.1.0",
+    "react-native-google-analytics-bridge": "^4.0.1",
     "react-native-navbar": "^1.5.4",
     "react-native-side-menu": "^0.20.1",
     "react-native-tab-view": "0.0.29",

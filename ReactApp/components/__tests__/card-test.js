@@ -3,19 +3,24 @@
  */
 /* global it expect */
 
-import 'react-native';
+import {
+  View,
+  Text,
+} from 'react-native';
 import React from 'react';
 import renderer from 'react-test-renderer';
 
-import Button from '../button';
+import Card from '../card';
 
 /**
  * Check if alerts renders correcly
  * and asserting it to the matching snapshot
  */
-it('Button renders correcly', () => {
+it('Card renders correcly', () => {
   const tree = renderer.create(
-    <Button />
+    <Card>
+      <View><Text>Hello World!</Text></View>
+    </Card>
   ).toJSON();
 
   expect(tree).toMatchSnapshot();

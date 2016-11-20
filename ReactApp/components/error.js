@@ -30,7 +30,7 @@ const Error = ({ text }) => (
 );
 
 Error.propTypes = { text: PropTypes.string };
-Error.defaultProps = { text: 'Woops, Something wen\'t wrong.' };
+Error.defaultProps = { text: 'Woops, Something went wrong.' };
 
 /* Export Component ==================================================================== */
 export default Error;

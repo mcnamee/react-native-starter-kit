@@ -4,7 +4,7 @@
  * React Native Starter App
  * https://github.com/mcnamee/react-native-starter-app
  */
-
+ /* global fetch */
 /* Setup ==================================================================== */
 import {
   AsyncStorage,
@@ -143,7 +143,7 @@ const Internal = {
   fetcher: (method, endpoint, params, body) => {
     return new Promise(async (resolve, reject) => {
       requestCounter += 1;
-      let requestNum = requestCounter;
+      const requestNum = requestCounter;
 
       // After x seconds, let's call it a day!
       const timeoutAfter = 7;

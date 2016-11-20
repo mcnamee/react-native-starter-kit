@@ -1,25 +1,24 @@
 /**
  * Test to check if the component renderes correctly
  */
-'use strict';
+ /* global it expect */
 
-import 'react-native'
-import React from 'react'
-import NavbarElements from '../navbar.elements'
-import renderer from 'react-test-renderer'
+import 'react-native';
+import React from 'react';
+import renderer from 'react-test-renderer';
+
+import NavbarElements from '../navbar.elements';
 
 /*
  * Check if alerts renders correcly
  * and asserting it to the matching snapshot
  */
 it('Navbar title renders correcly', () => {
-
   const tree = renderer.create(
     <NavbarElements.Title />
-  ).toJSON()
+  ).toJSON();
 
-  expect(tree).toMatchSnapshot()
-
+  expect(tree).toMatchSnapshot();
 });
 
 
@@ -28,14 +27,12 @@ it('Navbar title renders correcly', () => {
  * and asserting it to the matching snapshot
  */
 it('Navbar left button renders correcly', () => {
-
   const tree = renderer.create(
     <NavbarElements.LeftButton
-       onPress={ e => e}
-       icon='ios-menu-outline'
-     />
-  ).toJSON()
+      onPress={e => e}
+      icon={'ios-menu-outline'}
+    />
+  ).toJSON();
 
-  expect(tree).toMatchSnapshot()
-
+  expect(tree).toMatchSnapshot();
 });

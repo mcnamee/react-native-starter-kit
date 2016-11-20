@@ -1,5 +1,6 @@
 /**
- * Recipe Listing SCREEN
+ * Recipe Listing Screen
+ *  - Shows a list of receipes
  *
  * React Native Starter App
  * https://github.com/mcnamee/react-native-starter-app

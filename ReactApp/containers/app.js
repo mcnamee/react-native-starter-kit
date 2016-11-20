@@ -15,7 +15,7 @@ import {
 import { connect } from 'react-redux';
 import NavigationBar from 'react-native-navbar';
 import SideMenu from 'react-native-side-menu';
-import GoogleAnalytics from 'react-native-google-analytics-bridge';
+import { GoogleAnalyticsTracker } from 'react-native-google-analytics-bridge';
 
 // Actions
 import * as SideMenuActions from '../actions/sidemenu';
@@ -25,10 +25,6 @@ import AppStyles from '../styles';
 import AppConfig from '../config';
 import AppUtil from '../util';
 
-// Google Analytics
-import { GoogleAnalyticsTracker } from 'react-native-google-analytics-bridge';
-const GoogleAnalytics = new GoogleAnalyticsTracker(AppConfig.gaTrackingId);
-
 // Components
 import Menu from '../components/menu';
 import NavbarElements from '../components/navbar.elements';
@@ -37,7 +33,7 @@ import NavbarElements from '../components/navbar.elements';
 import Index from '../screens/first.load';
 
 // Google Analytics
-GoogleAnalytics.setTrackerId(AppConfig.gaTrackingId);
+const GoogleAnalytics = new GoogleAnalyticsTracker(AppConfig.gaTrackingId);
 
 /* Component ==================================================================== */
 class AppContainer extends Component {

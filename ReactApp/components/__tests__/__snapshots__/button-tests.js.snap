@@ -1,29 +1,20 @@
 exports[`test Button renders correcly 1`] = `
-<View
-  accessibilityComponentType={undefined}
-  accessibilityLabel={undefined}
-  accessibilityTraits={undefined}
-  accessible={true}
-  hitSlop={undefined}
-  onLayout={undefined}
-  onResponderGrant={[Function]}
-  onResponderMove={[Function]}
-  onResponderRelease={[Function]}
-  onResponderTerminate={[Function]}
-  onResponderTerminationRequest={[Function]}
-  onStartShouldSetResponder={[Function]}
+<TouchableOpacity
+  activeOpacity={0.7}
+  disabled={false}
+  onPress={[Function]}
   style={
-    Object {
-      "backgroundColor": "#4099FF",
-      "borderRadius": 3,
-      "height": 50,
-      "justifyContent": "center",
-      "marginBottom": 10,
-      "opacity": 1,
-      "paddingHorizontal": 10,
-    }
-  }
-  testID={undefined}>
+    Array [
+      Object {
+        "backgroundColor": "#0069FF",
+        "borderRadius": 3,
+        "height": 50,
+        "justifyContent": "center",
+        "marginBottom": 10,
+        "paddingHorizontal": 10,
+      },
+    ]
+  }>
   <Text
     accessible={true}
     allowFontScaling={true}
@@ -31,7 +22,7 @@ exports[`test Button renders correcly 1`] = `
     style={
       Array [
         Object {
-          "color": "#555",
+          "color": "#222222",
           "fontFamily": "Avenir",
           "fontSize": 14,
           "fontWeight": "500",
@@ -45,12 +36,9 @@ exports[`test Button renders correcly 1`] = `
           "lineHeight": 22,
           "textAlign": "center",
         },
-        false,
-        false,
-        false,
       ]
     }>
     Click Here
   </Text>
-</View>
+</TouchableOpacity>
 `;

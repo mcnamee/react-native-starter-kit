@@ -4,7 +4,7 @@
  * React Native Starter App
  * https://github.com/mcnamee/react-native-starter-app
  */
-
+/* global __DEV__ */
 import {
   Dimensions,
 } from 'react-native';
@@ -67,9 +67,9 @@ export default {
   baseFontSize: 14,
 
   // Colors
-  primaryColor: '#4267B2',
+  primaryColor: '#0069FF',
   secondaryColor: '#17233D',
-  textColor: '#1D2129',
+  textColor: '#222222',
   borderColor: '#D0D1D5',
   backgroundColor: '#E9EBEE',
 };

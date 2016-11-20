@@ -1,23 +1,22 @@
 /**
  * Test to check if the component renderes correctly
  */
-'use strict'
+/* global it expect */
 
-import 'react-native'
-import React from 'react'
-import Error from '../error'
-import renderer from 'react-test-renderer'
+import 'react-native';
+import React from 'react';
+import renderer from 'react-test-renderer';
+
+import Error from '../error';
 
 /**
  * Check if alerts renders correcly
  * and asserting it to the matching snapshot
  */
 it('Error renders correcly', () => {
-
   const tree = renderer.create(
     <Error />
-  ).toJSON()
+  ).toJSON();
 
-  expect(tree).toMatchSnapshot()
-
+  expect(tree).toMatchSnapshot();
 });

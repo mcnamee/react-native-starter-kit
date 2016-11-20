@@ -34,10 +34,8 @@ class StyleGuide extends Component {
       automaticallyAdjustContentInsets={false}
       style={[AppStyles.container]}
     >
-
-      <View style={[AppStyles.paddingVertical]}>
-        <View style={[AppStyles.paddingHorizontal]}>
-
+      <Card>
+        <View style={[AppStyles.paddingVerticalSml, AppStyles.paddingHorizontalSml]}>
           <Text style={[AppStyles.h1]}>Heading 1</Text>
           <Text style={[AppStyles.h2]}>Heading 2</Text>
           <Text style={[AppStyles.h3]}>Heading 3</Text>
@@ -54,11 +52,11 @@ class StyleGuide extends Component {
             condimentum penatibus neque urna magna. Leo dictumst
             senectus inceptos parturient pharetra.
           </Text>
+        </View>
+      </Card>
 
-          <View style={[AppStyles.spacer_10]} />
-          <View style={[AppStyles.hr]} />
-          <View style={[AppStyles.spacer_10]} />
-
+      <View style={[AppStyles.paddingVertical]}>
+        <View style={[AppStyles.paddingHorizontal]}>
           <Text style={[AppStyles.h2]}>Buttons</Text>
 
           <View style={[AppStyles.row]}>
@@ -118,8 +116,6 @@ class StyleGuide extends Component {
           </View>
 
           <View style={[AppStyles.spacer_10]} />
-          <View style={[AppStyles.hr]} />
-          <View style={[AppStyles.spacer_10]} />
 
           <Text style={[AppStyles.h2]}>Alerts</Text>
 
@@ -129,8 +125,6 @@ class StyleGuide extends Component {
             error={'Error hey'}
           />
 
-          <View style={[AppStyles.spacer_10]} />
-          <View style={[AppStyles.hr]} />
           <View style={[AppStyles.spacer_10]} />
 
           <Text style={[AppStyles.h2]}>Cards</Text>
@@ -170,8 +164,6 @@ class StyleGuide extends Component {
         </Card>
 
         <View style={[AppStyles.paddingHorizontal]}>
-          <View style={[AppStyles.spacer_10]} />
-          <View style={[AppStyles.hr]} />
           <View style={[AppStyles.spacer_10]} />
 
           <Text style={[AppStyles.h2]}>List Rows</Text>

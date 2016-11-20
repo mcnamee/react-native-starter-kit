@@ -1,5 +1,6 @@
 /**
- * Tabs
+ * Receipe Tabs Screen
+ *  - Shows tabs, which contain receipe listings
  *
  * React Native Starter App
  * https://github.com/mcnamee/react-native-starter-app
@@ -14,7 +15,7 @@ import {
   InteractionManager,
 } from 'react-native';
 import { connect } from 'react-redux';
-import { TabViewAnimated, TabViewPage, TabBarTop } from 'react-native-tab-view';
+import { TabViewAnimated, TabBarTop } from 'react-native-tab-view';
 
 // Actions
 import * as RecipeActions from '../../actions/recipe';
@@ -38,9 +39,6 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   tabbar: {
-    backgroundColor: AppConfig.primaryColor,
-  },
-  tabbarTab: {
     backgroundColor: AppConfig.primaryColor,
   },
   tabbarIndicator: {
@@ -135,20 +133,12 @@ class Tabs extends Component {
   }
 
   /**
-    * Page Component
-    */
-  renderPage = props => (
-    <TabViewPage {...props} renderScene={this.renderScene} />
-  )
-
-  /**
     * Header Component
     */
   renderHeader = props => (
     <TabBarTop
       {...props}
       style={styles.tabbar}
-      tabStyle={styles.tabbarTab}
       indicatorStyle={styles.tabbarIndicator}
       renderLabel={scene => (
         <Text style={[styles.tabbar_text]}>{scene.route.title}</Text>
@@ -174,17 +164,14 @@ class Tabs extends Component {
     }
 
     // Which component should be loaded?
-    switch (route.key) {
-      default:
-        return (
-          <View style={AppStyles.windowSize}>
-            <RecipeListing
-              meal={route.id}
-              navigator={this.props.navigator}
-            />
-          </View>
-        );
-    }
+    return (
+      <View style={AppStyles.windowSize}>
+        <RecipeListing
+          meal={route.id}
+          navigator={this.props.navigator}
+        />
+      </View>
+    );
   }
 
   render = () => {
@@ -194,7 +181,7 @@ class Tabs extends Component {
     return (
       <TabViewAnimated
         style={[styles.tabContainer]}
-        renderScene={this.renderPage}
+        renderScene={this.renderScene}
         renderHeader={this.renderHeader}
         navigationState={this.state.navigation}
         onRequestChangeTab={this.handleChangeTab}

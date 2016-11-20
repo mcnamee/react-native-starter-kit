@@ -1,4 +1,4 @@
-exports[`test Loading renders correcly 1`] = `
+exports[`test WebView renders correcly 1`] = `
 <View
   style={
     Array [

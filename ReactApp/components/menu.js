@@ -32,7 +32,7 @@ import Login from '../screens/auth/login';
 import Tabs from '../screens/recipes/tabs';
 
 /* Styles ==================================================================== */
-const MENU_BG_COLOR = '#4E5665';
+const MENU_BG_COLOR = '#2E3234';
 
 const styles = StyleSheet.create({
   backgroundFill: {
@@ -64,9 +64,8 @@ const styles = StyleSheet.create({
     paddingTop: AppConfig.statusBarHeight,
   },
   menuItem: {
-    flex: 1,
-    borderBottomWidth: 1,
-    borderBottomColor: '#5D677A',
+    borderBottomWidth: 2,
+    borderBottomColor: '#3D4346',
     paddingBottom: 10,
   },
   menuItem_text: {
@@ -74,7 +73,6 @@ const styles = StyleSheet.create({
     lineHeight: parseInt(18 + (18 * 0.5), 10),
     fontWeight: '500',
     marginTop: 10,
-    flex: 1,
     color: '#EEEFF0',
   },
 

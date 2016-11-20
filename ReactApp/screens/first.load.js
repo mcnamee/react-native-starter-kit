@@ -1,5 +1,7 @@
 /**
- * First Load
+ * First Load Screen
+ *  - Shows a nice loading screen whilst
+ *  - Checking if user is logged in, and redirects from there
  *
  * React Native Starter App
  * https://github.com/mcnamee/react-native-starter-app
@@ -87,8 +89,7 @@ class FirstLoad extends Component {
 
 /* Export Component ==================================================================== */
 // Define which part of the state we're passing to this component
-const mapStateToProps = state => ({
-  sideMenuIsOpen: state.sideMenu.isOpen,
+const mapStateToProps = () => ({
 });
 
 // Define the actions this component may dispatch

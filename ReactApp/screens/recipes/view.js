@@ -1,5 +1,6 @@
 /**
- * Recipe View
+ * Recipe View Screen
+ *  - The individual recipe screen
  *
  * React Native Starter App
  * https://github.com/mcnamee/react-native-starter-app

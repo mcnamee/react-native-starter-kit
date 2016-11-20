@@ -7,15 +7,15 @@ import 'react-native';
 import React from 'react';
 import renderer from 'react-test-renderer';
 
-import Button from '../button';
+import Soon from '../soon';
 
 /**
  * Check if alerts renders correcly
  * and asserting it to the matching snapshot
  */
-it('Button renders correcly', () => {
+it('Soon renders correcly', () => {
   const tree = renderer.create(
-    <Button />
+    <Soon navigator={{ push: () => {} }} />
   ).toJSON();
 
   expect(tree).toMatchSnapshot();

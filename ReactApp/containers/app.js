@@ -30,7 +30,7 @@ import AppUtil from '../util';
 
 // Google Analytics
 import { GoogleAnalyticsTracker } from 'react-native-google-analytics-bridge';
-const tracker = new GoogleAnalyticsTracker(AppConfig.gaTrackingId);
+const GoogleAnalytics = new GoogleAnalyticsTracker(AppConfig.gaTrackingId);
 
 // Components
 import Menu from '../components/menu';
@@ -86,7 +86,7 @@ class AppContainer extends Component {
 
     // Google Analytics
     let screenName = route.component.componentName ? route.component.componentName + ' - ' + title : title;
-    tracker.trackScreenView(screenName);
+    GoogleAnalytics.trackScreenView(screenName);
 
     // Show Hamburger Icon when index is 0, and Back Arrow Icon when index is > 0
     let leftButton = {

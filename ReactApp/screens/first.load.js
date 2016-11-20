@@ -5,7 +5,7 @@
  * https://github.com/mcnamee/react-native-starter-app
  */
 'use strict';
- 
+
 /* Setup ==================================================================== */
 import React, { Component } from 'react'
 import {
@@ -43,7 +43,7 @@ class FirstLoad extends Component {
 
 	  this.props.navigator.push({
 	    title: 'Sign Up',
-	    component: Form, 
+	    component: Form,
 	    index: 2,
 	  });
 	}

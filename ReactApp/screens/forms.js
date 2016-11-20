@@ -80,10 +80,10 @@ class Form extends Component {
           Last_name: { error: 'Please enter your last name' },
           Email: { error: 'Please enter a valid email' },
           Password: {
-            error: 'Your new password must be more than 6 characters', 
+            error: 'Your new password must be more than 6 characters',
             secureTextEntry: true,
           },
-          Confirm_password: { 
+          Confirm_password: {
             error: 'Please repeat your new password',
             secureTextEntry: true,
           },
@@ -180,7 +180,7 @@ class Form extends Component {
     var Form = FormValidation.form.Form;
 
     return (
-      <ScrollView automaticallyAdjustContentInsets={false} 
+      <ScrollView automaticallyAdjustContentInsets={false}
         ref={'scrollView'}
         style={[AppStyles.container]}
         contentContainerStyle={[AppStyles.containerCentered, styles.container]}>
@@ -198,7 +198,7 @@ class Form extends Component {
           <Text style={[AppStyles.baseText, AppStyles.p, AppStyles.centered]}>
             This page saves your input to the local DB. We also have form validation: required first and last name, valid email address + password validation (required, must be 6 characters or more + must match each other)
           </Text>
-          
+
           <View style={AppStyles.spacer_20} />
 
           <Form

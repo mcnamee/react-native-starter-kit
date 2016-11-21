@@ -13,10 +13,7 @@ import {
   View,
   Text,
 } from 'react-native';
-
-import {
-  Button,
-} from 'react-native-elements';
+import { Button } from 'react-native-elements';
 
 // App Globals
 import AppStyles from '../../styles';

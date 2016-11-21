@@ -102,27 +102,21 @@ class RecipeView extends Component {
         }
 
         <Card {...AppConfig.cardDefaults}>
-          <View style={[AppStyles.paddingLeftSml]}>
-            <Text style={[AppStyles.baseText, AppStyles.h2]}>{title.rendered}</Text>
-            <Text style={[AppStyles.baseText]}>{content.rendered}</Text>
-          </View>
+          <Text style={[AppStyles.baseText, AppStyles.h2]}>{title.rendered}</Text>
+          <Text style={[AppStyles.baseText]}>{content.rendered}</Text>
         </Card>
 
         {acf.ingredients ?
           <Card {...AppConfig.cardDefaults}>
-            <View style={[AppStyles.paddingLeftSml]}>
-              <Text style={[AppStyles.baseText, AppStyles.h2]}>Ingredients</Text>
-              {this.renderIngredients(acf.ingredients)}
-            </View>
+            <Text style={[AppStyles.baseText, AppStyles.h2]}>Ingredients</Text>
+            {this.renderIngredients(acf.ingredients)}
           </Card>
         : null}
 
         {acf.methods ?
           <Card {...AppConfig.cardDefaults}>
-            <View style={[AppStyles.paddingLeftSml]}>
-              <Text style={[AppStyles.baseText, AppStyles.h2]}>Method</Text>
-              {this.renderMethod(acf.methods)}
-            </View>
+            <Text style={[AppStyles.baseText, AppStyles.h2]}>Method</Text>
+            {this.renderMethod(acf.methods)}
           </Card>
         : null}
 

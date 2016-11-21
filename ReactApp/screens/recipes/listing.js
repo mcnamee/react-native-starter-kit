@@ -140,7 +140,7 @@ class RecipeListing extends Component {
           {...AppConfig.cardDefaults}
           image={recipe.featured_image && { uri: recipe.featured_image }}
         >
-          <View style={[AppStyles.paddingLeftSml, AppStyles.paddingBottomSml]}>
+          <View style={[AppStyles.paddingBottomSml]}>
             <Text style={[AppStyles.h3]}>{title.rendered.toString()}</Text>
             <Text style={[AppStyles.baseText]}>{summary.toString()}</Text>
           </View>
@@ -163,7 +163,8 @@ class RecipeListing extends Component {
           initialListSize={8}
           renderRow={this.renderRow}
           dataSource={this.state.dataSource}
-          contentContainerStyle={AppStyles.listView}
+          contentContainerStyle={[AppStyles.listView]}
+          style={[{ marginBottom: 20 }]}
           automaticallyAdjustContentInsets={false}
           refreshControl={
             <RefreshControl

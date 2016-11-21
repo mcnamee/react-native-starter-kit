@@ -15,10 +15,7 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import { connect } from 'react-redux';
-
-import {
-  Button,
-} from 'react-native-elements';
+import { Button } from 'react-native-elements';
 
 // Actions
 import * as UserActions from '../actions/user';

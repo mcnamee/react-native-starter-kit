@@ -11,12 +11,13 @@ React Native Starter Kit
 | Feature | Summary |
 |---|---|
 | [Redux](https://github.com/reactjs/react-redux) | A predictable state container - Helping you write applications that behave consistently and run in different environments. |
-| [Sidebar/Hamburger Menu](https://github.com/Kureev/react-native-side-menu) | ... |
+| API Example | A basic example showing how you can interact with a RESTful API with user authentication (JWT). |
+| [Sidebar/Hamburger Menu](https://github.com/react-native-community/react-native-elements#sidemenu) | ... |
+| [React Native Elements](https://github.com/react-native-community/react-native-elements) | Cross Platform React Native UI Toolkit. |
 | [Google Analytics](https://github.com/idehub/react-native-google-analytics-bridge) | Shows how to track screen views (includes both a 'debug' mode tracker as well as 'release' mode so that data doesn't get obfuscated). |
-| [Custom Navbar](https://github.com/Kureev/react-native-navbar) | ... |
+| [Custom Navbar](https://github.com/react-native-community/react-native-navbar) | ... |
 | [Icons](https://github.com/oblador/react-native-vector-icons) | Easily use icons from a wide range of icon libraries, it's as simple as importing the icon font and then `<Icon name={'ios-alert-outline'} size={50} color={"#CCC"} />`. |
 | [Form Validation](https://github.com/gcanti/tcomb-form-native) | An exmaple on how to create forms with validation. |
-| Data persistence | Shows how to persist data, even after closing/reopening the app. |
 | Style Guide | A bunch of elements and components to get you started - styled headings, buttons, list rows, alerts etc. |
 | An example directory/file structure I've found useful for scaling apps | ... |
 

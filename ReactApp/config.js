@@ -14,7 +14,7 @@ const window = Dimensions.get('window');
 /* Setup ==================================================================== */
 exports.title = 'GlobalConfig';
 
-export default {
+const AppConfig = {
   // App Details
   appName: 'Starter Kit',
 
@@ -72,4 +72,44 @@ export default {
   textColor: '#222222',
   borderColor: '#D0D1D5',
   backgroundColor: '#E9EBEE',
+
+  // Other Styles
+  borderRadius: 2,
+};
+
+/* react-native-elements Default Props ================================== */
+// Button - default
+AppConfig.buttonDefaults = {
+  backgroundColor: AppConfig.primaryColor,
+  fontFamily: AppConfig.baseFont,
+  fontSize: 16,
+  borderRadius: AppConfig.borderRadius,
+  buttonStyle: {
+    padding: 12,
+    marginLeft: 0,
+    marginRight: 0,
+  },
+};
+
+// Button - Small
+AppConfig.smlButtonDefaults = {
+  ...AppConfig.buttonDefaults,
+  fontSize: 14,
+  buttonStyle: {
+    ...AppConfig.buttonDefaults.buttonStyle,
+    padding: 8,
+  },
+};
+
+// Card
+AppConfig.cardDefaults = {
+  containerStyle: {
+    borderRadius: AppConfig.borderRadius,
+  },
+};
+
+/* Export ==================================================================== */
+module.exports = AppConfig;
+module.exports.details = {
+  title: 'AppConfig',
 };

@@ -14,11 +14,13 @@ import {
   Text,
 } from 'react-native';
 
+import {
+  Button,
+} from 'react-native-elements';
+
 // App Globals
 import AppStyles from '../styles';
-
-// Components
-import Button from '../components/button';
+import AppConfig from '../config';
 
 /* Component ==================================================================== */
 class ComingSoon extends Component {
@@ -54,8 +56,8 @@ class ComingSoon extends Component {
         <View style={[AppStyles.spacer_10]} />
 
         <Button
-          type={'outlined'}
-          text={'Tap to test the back button'}
+          {...AppConfig.buttonDefaults}
+          title={'Tap to test the back button'}
           onPress={() => this.navigate(text)}
         />
       </View>

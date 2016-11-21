@@ -14,7 +14,7 @@ import {
 } from 'react-native';
 import { connect } from 'react-redux';
 import NavigationBar from 'react-native-navbar';
-import SideMenu from 'react-native-side-menu';
+import { SideMenu } from 'react-native-elements';
 import { GoogleAnalyticsTracker } from 'react-native-google-analytics-bridge';
 
 // Actions
@@ -129,14 +129,13 @@ class AppContainer extends Component {
     return (
       <SideMenu
         ref={(a) => { this.rootSidebarMenu = a; }}
-        menu={
+        MenuComponent={
           <Menu
             navigate={this.onSideMenuPress}
             ref={(b) => { this.rootSidebarMenuMenu = b; }}
           />
         }
-        disableGestures={this.props.sideMenuGesturesDisabled}
-        isOpen={this.props.sideMenuIsOpen}
+        toggled={this.props.sideMenuIsOpen}
         onChange={this.onSideMenuChange}
       >
 

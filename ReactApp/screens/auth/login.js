@@ -17,6 +17,11 @@ import {
 import { connect } from 'react-redux';
 import FormValidation from 'tcomb-form-native';
 
+import {
+  Card,
+  Button,
+} from 'react-native-elements';
+
 // Actions
 import * as UserActions from '../../actions/user';
 
@@ -26,7 +31,6 @@ import AppConfig from '../../config';
 import AppStyles from '../../styles';
 
 // Components
-import Button from '../../components/button';
 import Alerts from '../../components/alerts';
 
 // Screens
@@ -40,7 +44,7 @@ class Login extends Component {
   static propTypes = {
     navigator: PropTypes.shape({
       push: PropTypes.func.isRequired,
-      replaceAtIndex: PropTypes.func.isRequired,
+      resetTo: PropTypes.func.isRequired,
     }).isRequired,
     login: PropTypes.func.isRequired,
   }
@@ -160,14 +164,16 @@ class Login extends Component {
           username: credentials.Email,
           password: credentials.Password,
         }).then(() => {
-          this.setState({ resultMsg: { success: 'Awesome, you\'re now logged in!' } });
-
-          setTimeout(() => {
-            this.props.navigator.replaceAtIndex({
-              title: AppConfig.appName,
-              component: Index,
-            }, 0);
-          }, 1000);
+          this.setState({
+            resultMsg: { success: 'Awesome, you\'re now logged in!' },
+          }, () => {
+            setTimeout(() => {
+              this.props.navigator.resetTo({
+                title: AppConfig.appName,
+                component: Index,
+              });
+            }, 1000);
+          });
         }).catch((err) => {
           const error = AppAPI.handleError(err);
           this.setState({ resultMsg: { error } });
@@ -186,10 +192,7 @@ class Login extends Component {
         style={[AppStyles.container]}
         contentContainerStyle={[AppStyles.container]}
       >
-        <View style={[AppStyles.paddingHorizontal]}>
-
-          <View style={AppStyles.spacer_20} />
-
+        <Card>
           <Alerts
             status={this.state.resultMsg.status}
             success={this.state.resultMsg.success}
@@ -202,37 +205,33 @@ class Login extends Component {
             value={this.state.form_values}
             options={this.state.options}
           />
-        </View>
 
-        <View style={[AppStyles.row]}>
-          <View style={[AppStyles.flex1, AppStyles.paddingHorizontal]}>
-            <Button
-              text={'Login'}
-              onPress={this.login}
-            />
+          <Button
+            title={'Login'}
+            onPress={this.login}
+            {...AppConfig.buttonDefaults}
+          />
 
-            <TouchableOpacity onPress={this.onPressReset}>
-              <Text style={[AppStyles.baseText, AppStyles.centered, AppStyles.link]}>
-                Forgot Password
-              </Text>
-            </TouchableOpacity>
-          </View>
-        </View>
+          <View style={AppStyles.spacer_10} />
 
-        <View style={AppStyles.hr} />
+          <TouchableOpacity onPress={this.onPressReset}>
+            <Text style={[AppStyles.baseText, AppStyles.centered, AppStyles.link]}>
+              Forgot Password
+            </Text>
+          </TouchableOpacity>
 
-        <View style={[AppStyles.paddingHorizontal]}>
+          <View style={AppStyles.spacer_10} />
+
           <Text style={[AppStyles.baseText, AppStyles.p, AppStyles.centered]}>
             - or -
           </Text>
 
           <Button
-            text={'Sign Up'}
-            type={'outlined'}
+            title={'Sign Up'}
             onPress={this.onPressSignUp}
+            {...AppConfig.buttonDefaults}
           />
-        </View>
-
+        </Card>
       </ScrollView>
     );
   }

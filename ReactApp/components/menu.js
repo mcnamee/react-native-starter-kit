@@ -16,15 +16,16 @@ import {
 } from 'react-native';
 import { connect } from 'react-redux';
 
+import {
+  Button,
+} from 'react-native-elements';
+
 // Actions
 import * as UserActions from '../actions/user';
 
 // App Globals
 import AppStyles from '../styles';
 import AppConfig from '../config';
-
-// Components
-import Button from './button';
 
 // Screens
 import StyleGuide from '../screens/style.guide';
@@ -171,24 +172,20 @@ class Menu extends Component {
 
                 <View style={[AppStyles.spacer_10]} />
 
-                <View style={[AppStyles.paddingHorizontal]}>
+                <View style={[AppStyles.paddingHorizontal, AppStyles.paddingVerticalSml]}>
                   <Button
-                    text={'Log Out'}
-                    type={'outlined'}
-                    size={'small'}
-                    color={'#fff'}
+                    title={'Log Out'}
                     onPress={this.logout}
+                    {...AppConfig.smlButtonDefaults}
                   />
                 </View>
               </View>
             :
-              <View style={[AppStyles.paddingHorizontal]}>
+              <View style={[AppStyles.paddingHorizontal, AppStyles.paddingVerticalSml]}>
                 <Button
-                  text={'Log In'}
-                  type={'outlined'}
-                  size={'small'}
-                  color={'#fff'}
+                  title={'Log In'}
                   onPress={this.login}
+                  {...AppConfig.smlButtonDefaults}
                 />
               </View>
             }

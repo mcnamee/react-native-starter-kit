@@ -10,10 +10,17 @@ import React, { Component } from 'react';
 import {
   View,
   Text,
-  Image,
   Alert,
   ScrollView,
+  TouchableOpacity,
 } from 'react-native';
+
+import {
+  Card,
+  List,
+  Button,
+  ListItem,
+} from 'react-native-elements';
 
 // App Globals
 import AppStyles from '../styles';
@@ -21,9 +28,6 @@ import AppConfig from '../config';
 
 // Components
 import Alerts from '../components/alerts';
-import Button from '../components/button';
-import ListRow from '../components/list.row';
-import Card from '../components/card';
 
 /* Component ==================================================================== */
 class StyleGuide extends Component {
@@ -34,8 +38,8 @@ class StyleGuide extends Component {
       automaticallyAdjustContentInsets={false}
       style={[AppStyles.container]}
     >
-      <Card>
-        <View style={[AppStyles.paddingVerticalSml, AppStyles.paddingHorizontalSml]}>
+      <Card {...AppConfig.cardDefaults}>
+        <View>
           <Text style={[AppStyles.h1]}>Heading 1</Text>
           <Text style={[AppStyles.h2]}>Heading 2</Text>
           <Text style={[AppStyles.h3]}>Heading 3</Text>
@@ -62,54 +66,41 @@ class StyleGuide extends Component {
           <View style={[AppStyles.row]}>
             <View style={[AppStyles.flex1, AppStyles.paddingRightSml]}>
               <Button
-                size={'large'}
-                text={'Large'}
-                type={'outlined'}
+                title={'Default'}
+                {...AppConfig.buttonDefaults}
                 onPress={() => Alert.alert(AppConfig.appName, 'This can do what you want.')}
               />
             </View>
 
             <View style={[AppStyles.flex1, AppStyles.paddingLeftSml]}>
               <Button
-                size={'large'}
-                text={'Large'}
-                color={'#FB6567'}
+                title={'Default'}
+                icon={{ name: 'code' }}
+                {...AppConfig.buttonDefaults}
+                backgroundColor={'#FB6567'}
                 onPress={() => Alert.alert(AppConfig.appName, 'This can do what you want.')}
               />
             </View>
           </View>
 
+          <View style={[AppStyles.spacer_10]} />
+
           <View style={[AppStyles.row]}>
             <View style={[AppStyles.flex1, AppStyles.paddingRightSml]}>
               <Button
-                text={'Default'}
+                title={'Small'}
+                {...AppConfig.smlButtonDefaults}
                 onPress={() => Alert.alert(AppConfig.appName, 'This can do what you want.')}
               />
             </View>
 
             <View style={[AppStyles.flex1, AppStyles.paddingLeftSml]}>
               <Button
-                type={'outlined'}
-                text={'Default'}
-                onPress={() => Alert.alert(AppConfig.appName, 'This can do what you want.')}
-              />
-            </View>
-          </View>
-
-          <View style={[AppStyles.row]}>
-            <View style={[AppStyles.flex1, AppStyles.paddingRightSml]}>
-              <Button
-                size={'small'}
-                text={'Small'}
-                type={'outlined'}
-                onPress={() => Alert.alert(AppConfig.appName, 'This can do what you want.')}
-              />
-            </View>
-
-            <View style={[AppStyles.flex1, AppStyles.paddingLeftSml]}>
-              <Button
-                size={'small'}
-                text={'Small'}
+                iconRight
+                title={'Small'}
+                icon={{ name: 'cached' }}
+                {...AppConfig.smlButtonDefaults}
+                backgroundColor={'#31E04A'}
                 onPress={() => Alert.alert(AppConfig.appName, 'This can do what you want.')}
               />
             </View>
@@ -130,38 +121,39 @@ class StyleGuide extends Component {
           <Text style={[AppStyles.h2]}>Cards</Text>
         </View>
 
-        <Card onPress={() => Alert.alert(AppConfig.appName, 'Hello')}>
-          <View style={[AppStyles.row, AppStyles.paddingBottomSml]}>
-            <View style={[AppStyles.flex1]}>
-              <Image
-                source={{ uri: 'http://wp-api.mcnam.ee/wp-content/uploads/2016/10/brekkie-crumble-33651_l.jpeg' }}
-                style={[{ left: 0, right: 0, top: 0, bottom: 0, position: 'absolute', resizeMode: 'contain' }]}
-              />
-            </View>
-            <View style={[AppStyles.flex3, AppStyles.paddingLeftSml]}>
+        <TouchableOpacity
+          activeOpacity={0.8}
+          onPress={() => Alert.alert('Go to Post', 'Maybe someday')}
+        >
+          <Card
+            {...AppConfig.cardDefaults}
+            image={{ uri: 'http://wp-api.mcnam.ee/wp-content/uploads/2016/10/brekkie-crumble-33651_l.jpeg' }}
+          >
+            <View style={[AppStyles.paddingLeftSml, AppStyles.paddingBottomSml]}>
               <Text style={[AppStyles.h3]}>Title of post</Text>
               <Text style={[AppStyles.baseText]}>
                 Lorem ipsum diem or seckt original de pingdo of the lespec.
               </Text>
             </View>
-          </View>
-        </Card>
-        <Card onPress={() => Alert.alert(AppConfig.appName, 'Hello')}>
-          <View style={[AppStyles.row, AppStyles.paddingBottomSml]}>
-            <View style={[AppStyles.flex1]}>
-              <Image
-                source={{ uri: 'http://wp-api.mcnam.ee/wp-content/uploads/2016/10/brekkie-crumble-33651_l.jpeg' }}
-                style={[{ left: 0, right: 0, top: 0, bottom: 0, position: 'absolute', resizeMode: 'contain' }]}
-              />
-            </View>
-            <View style={[AppStyles.flex3, AppStyles.paddingLeftSml]}>
-              <Text style={[AppStyles.h3]}>Another Title</Text>
+          </Card>
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          activeOpacity={0.8}
+          onPress={() => Alert.alert('Go to Post', 'Maybe someday')}
+        >
+          <Card
+            {...AppConfig.cardDefaults}
+            image={{ uri: 'http://wp-api.mcnam.ee/wp-content/uploads/2016/10/brekkie-crumble-33651_l.jpeg' }}
+          >
+            <View style={[AppStyles.paddingLeftSml, AppStyles.paddingBottomSml]}>
+              <Text style={[AppStyles.h3]}>Another Post</Text>
               <Text style={[AppStyles.baseText]}>
                 Lorem ipsum diem or seckt original de pingdo of the lespec.
               </Text>
             </View>
-          </View>
-        </Card>
+          </Card>
+        </TouchableOpacity>
 
         <View style={[AppStyles.paddingHorizontal]}>
           <View style={[AppStyles.spacer_10]} />
@@ -169,40 +161,23 @@ class StyleGuide extends Component {
           <Text style={[AppStyles.h2]}>List Rows</Text>
         </View>
 
-        <ListRow
-          title={'Single Malt'}
-          onPress={() => Alert.alert(AppConfig.appName, 'Go To Entry View')}
-        />
-        <ListRow
-          title={'Blended'}
-          onPress={() => Alert.alert(AppConfig.appName, 'Go To Entry View')}
-        />
-        <ListRow
-          title={'Bourbon'}
-          onPress={() => Alert.alert(AppConfig.appName, 'Go To Entry View')}
-        />
-
-        <View style={[AppStyles.paddingHorizontal]}>
-          <View style={[AppStyles.spacer_20]} />
-          <Text style={[AppStyles.h2]}>List Rows - with Image</Text>
-          <View style={[AppStyles.spacer_10]} />
-        </View>
-
-        <ListRow
-          title={'Single Malt'}
-          image={'http://lorempixel.com/g/1000/250/nature'}
-          onPress={() => Alert.alert(AppConfig.appName, 'Go To Entry View')}
-        />
-        <ListRow
-          title={'Blended'}
-          image={'http://lorempixel.com/g/1000/250/animals'}
-          onPress={() => Alert.alert(AppConfig.appName, 'Go To Entry View')}
-        />
-        <ListRow
-          title={'Bourbon'}
-          image={'http://lorempixel.com/g/1000/250/nature'}
-          onPress={() => Alert.alert(AppConfig.appName, 'Go To Entry View')}
-        />
+        <List>
+          <ListItem
+            title={'John Smith'}
+            subtitle={'CEO'}
+            onPress={() => Alert.alert(AppConfig.appName, 'Tapped on John Smith')}
+          />
+          <ListItem
+            title={'Jane Doe'}
+            subtitle={'COO'}
+            onPress={() => Alert.alert(AppConfig.appName, 'Tapped on John Smith')}
+          />
+          <ListItem
+            title={'Sam Smith'}
+            subtitle={'CFO'}
+            onPress={() => Alert.alert(AppConfig.appName, 'Tapped on Sam Smith')}
+          />
+        </List>
       </View>
     </ScrollView>
   )

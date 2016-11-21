@@ -15,13 +15,11 @@ import {
   ScrollView,
   StyleSheet,
 } from 'react-native';
+import { Card } from 'react-native-elements';
 
 // App Globals
 import AppStyles from '../../styles';
 import AppConfig from '../../config';
-
-// Components
-import Card from '../../components/card';
 
 /* Styles ==================================================================== */
 const styles = StyleSheet.create({
@@ -103,7 +101,7 @@ class RecipeView extends Component {
           />
         }
 
-        <Card>
+        <Card {...AppConfig.cardDefaults}>
           <View style={[AppStyles.paddingLeftSml]}>
             <Text style={[AppStyles.baseText, AppStyles.h2]}>{title.rendered}</Text>
             <Text style={[AppStyles.baseText]}>{content.rendered}</Text>
@@ -111,7 +109,7 @@ class RecipeView extends Component {
         </Card>
 
         {acf.ingredients ?
-          <Card>
+          <Card {...AppConfig.cardDefaults}>
             <View style={[AppStyles.paddingLeftSml]}>
               <Text style={[AppStyles.baseText, AppStyles.h2]}>Ingredients</Text>
               {this.renderIngredients(acf.ingredients)}
@@ -120,7 +118,7 @@ class RecipeView extends Component {
         : null}
 
         {acf.methods ?
-          <Card>
+          <Card {...AppConfig.cardDefaults}>
             <View style={[AppStyles.paddingLeftSml]}>
               <Text style={[AppStyles.baseText, AppStyles.h2]}>Method</Text>
               {this.renderMethod(acf.methods)}

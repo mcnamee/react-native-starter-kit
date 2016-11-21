@@ -191,7 +191,7 @@ const Internal = {
 
       const thisUrl = HOSTNAME + endpoint + urlParams;
 
-      Internal.debug('', `Request #${requestNum} to ${thisUrl}`);
+      Internal.debug('', `API Request #${requestNum} to ${thisUrl}`);
 
       // Make the request
       return fetch(thisUrl, req)
@@ -206,7 +206,7 @@ const Internal = {
           throw jsonRes;
         })
         .then((res) => {
-          Internal.debug(res, `Response #${requestNum} from ${thisUrl}`);
+          Internal.debug(res, `API Response #${requestNum} from ${thisUrl}`);
           return resolve(res);
         })
         .catch((err) => {

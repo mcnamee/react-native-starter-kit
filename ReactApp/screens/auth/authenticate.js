@@ -14,12 +14,13 @@ import {
   Text,
 } from 'react-native';
 
+import {
+  Button,
+} from 'react-native-elements';
+
 // App Globals
 import AppStyles from '../../styles';
 import AppConfig from '../../config';
-
-// Components
-import Button from '../../components/button';
 
 // Screens
 import Login from './login';
@@ -83,29 +84,34 @@ class Authenticate extends Component {
       <View style={[AppStyles.row, AppStyles.paddingHorizontal]}>
         <View style={[AppStyles.flex1, AppStyles.paddingRightSml]}>
           <Button
-            text={'Login'}
+            title={'Login'}
             onPress={this.onPressLogin}
+            {...AppConfig.buttonDefaults}
           />
         </View>
 
         <View style={[AppStyles.flex1, AppStyles.paddingLeftSml]}>
           <Button
-            text={'Sign up'}
+            title={'Sign up'}
             onPress={this.onPressSignUp}
+            {...AppConfig.buttonDefaults}
           />
         </View>
       </View>
+
+      <View style={AppStyles.spacer_15} />
 
       <Text style={[AppStyles.baseText, AppStyles.p, AppStyles.centered]}>
         - or -
       </Text>
 
+      <View style={AppStyles.spacer_10} />
+
       <View style={[AppStyles.row, AppStyles.paddingHorizontal]}>
         <View style={[AppStyles.flex1]}>
           <Button
-            text={'Skip'}
-            size={'small'}
-            type={'outlined'}
+            title={'Skip'}
+            {...AppConfig.smlButtonDefaults}
             onPress={this.onPressSkip}
           />
         </View>

@@ -11,11 +11,11 @@ import React, { Component, PropTypes } from 'react';
 import {
   Text,
   View,
-  Image,
   ListView,
-  StyleSheet,
   RefreshControl,
+  TouchableOpacity,
 } from 'react-native';
+import { Card } from 'react-native-elements';
 
 // App Globals
 import AppStyles from '../../styles';
@@ -24,25 +24,11 @@ import AppUtil from '../../util';
 import AppAPI from '../../api';
 
 // Components
-import Card from '../../components/card';
 import Error from '../../components/error';
 import Loading from '../../components/loading';
 
 // Screens
 import RecipeView from './view';
-
-/* Styles ==================================================================== */
-const styles = StyleSheet.create({
-  listingImage: {
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 0,
-    resizeMode: 'cover',
-    position: 'absolute',
-    backgroundColor: '#eee',
-  },
-});
 
 /* Component ==================================================================== */
 class RecipeListing extends Component {
@@ -146,22 +132,20 @@ class RecipeListing extends Component {
       featuredImg.media_details.sizes.medium.source_url : '';
 
     return (
-      <Card onPress={() => this.onPressRow(title.rendered, recipe)}>
-        <View style={[AppStyles.row, AppStyles.paddingBottomSml]}>
-          {recipe.featured_image !== '' ?
-            <View style={[AppStyles.flex1]}>
-              <Image
-                source={{ uri: recipe.featured_image }}
-                style={[styles.listingImage]}
-              />
-            </View>
-          : null}
-          <View style={[AppStyles.flex3, AppStyles.paddingLeftSml]}>
+      <TouchableOpacity
+        activeOpacity={0.8}
+        onPress={() => this.onPressRow(title.rendered, recipe)}
+      >
+        <Card
+          {...AppConfig.cardDefaults}
+          image={recipe.featured_image && { uri: recipe.featured_image }}
+        >
+          <View style={[AppStyles.paddingLeftSml, AppStyles.paddingBottomSml]}>
             <Text style={[AppStyles.h3]}>{title.rendered.toString()}</Text>
             <Text style={[AppStyles.baseText]}>{summary.toString()}</Text>
           </View>
-        </View>
-      </Card>
+        </Card>
+      </TouchableOpacity>
     );
   }
 

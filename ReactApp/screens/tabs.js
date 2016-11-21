@@ -14,7 +14,7 @@ import {
   Text,
   InteractionManager,
 } from 'react-native'
-import { TabViewAnimated, TabViewPage, TabBarTop } from 'react-native-tab-view';
+import { TabViewAnimated, TabBarTop } from 'react-native-tab-view';
 
 // App Globals
 import AppStyles from '../styles'
@@ -135,15 +135,6 @@ class Tabs extends Component {
   }
 
   /**
-    * Page Component
-    */
-  _renderPage = (props) => {
-    return (
-    	<TabViewPage {...props} renderScene={this._renderScene} />
-    )
-  }
-
-  /**
     * Do Render
     */
   render = () => {
@@ -153,7 +144,7 @@ class Tabs extends Component {
       <TabViewAnimated
         style={[styles.tabContainer]}
         navigationState={this.state.navigation}
-        renderScene={this._renderPage}
+        renderScene={this._renderScene}
         renderHeader={this._renderHeader}
         onRequestChangeTab={this._handleChangeTab}
       />
@@ -168,9 +159,6 @@ const styles = StyleSheet.create({
     flex: 1,
   },
 	tabbar: {
-		backgroundColor: AppConfig.primaryColor,
-	},
-	tabbarTab: {
 		backgroundColor: AppConfig.primaryColor,
 	},
 	tabbarIndicator: {

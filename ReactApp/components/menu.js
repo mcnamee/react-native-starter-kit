@@ -83,13 +83,11 @@ class Menu extends Component {
 /* Styles ==================================================================== */
 const styles = StyleSheet.create({
   menuContainer: {
-    flex: 1,
     left: 0,
     right: 0,
     backgroundColor: "#111111",
   },
   menu: {
-    flex: 1,
     left: 0,
     right: 0,
     height: AppConfig.windowHeight,
@@ -98,7 +96,6 @@ const styles = StyleSheet.create({
     paddingTop: AppConfig.statusBarHeight,
   },
   menuItem: {
-    flex: 1,
     borderBottomWidth: 1,
     borderBottomColor: "#333",
     paddingBottom: 10,
@@ -108,7 +105,6 @@ const styles = StyleSheet.create({
     lineHeight: parseInt(18 + (18 * 0.5)),
     fontWeight: '500',
     marginTop: 10,
-    flex: 1,
     color: "#EEE"
   },
 });

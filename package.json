@@ -12,7 +12,7 @@
      "\\./datepicker$": "<rootDir>/node_modules/tcomb-form-native/lib/templates/bootstrap/datepicker.ios.js",
       "\\./select$": "<rootDir>/node_modules/tcomb-form-native/lib/templates/bootstrap/select.ios.js"
    },
-   "preprocessorIgnorePatterns": [
+   "transformIgnorePatterns": [
      "node_modules/(?!react-native|tcomb-form-native|apsl-react-native-button)"
    ],
     "collectCoverage": true,

@@ -22,12 +22,14 @@ exports[`test Error renders correcly 1`] = `
       Array [
         Object {
           "color": "#CCC",
-          "fontFamily": "Ionicons",
           "fontSize": 50,
+        },
+        undefined,
+        Object {
+          "fontFamily": "Ionicons",
           "fontStyle": "normal",
           "fontWeight": "normal",
         },
-        undefined,
       ]
     }>
     
@@ -58,7 +60,7 @@ exports[`test Error renders correcly 1`] = `
         },
       ]
     }>
-    Woops, Something wen\'t wrong.
+    Woops, Something went wrong.
   </Text>
 </View>
 `;

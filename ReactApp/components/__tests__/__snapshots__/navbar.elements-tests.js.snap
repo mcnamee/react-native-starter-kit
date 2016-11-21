@@ -1,32 +1,21 @@
 exports[`test Navbar left button renders correcly 1`] = `
-<View
-  accessibilityComponentType={undefined}
-  accessibilityLabel={undefined}
-  accessibilityTraits={undefined}
-  accessible={true}
+<TouchableOpacity
+  activeOpacity={0.7}
   hitSlop={
     Object {
-      "bottom": 7,
-      "left": 7,
-      "right": 7,
-      "top": 7,
+      "bottom": [Function],
+      "left": [Function],
+      "right": [Function],
+      "top": [Function],
     }
   }
-  onLayout={undefined}
-  onResponderGrant={[Function]}
-  onResponderMove={[Function]}
-  onResponderRelease={[Function]}
-  onResponderTerminate={[Function]}
-  onResponderTerminationRequest={[Function]}
-  onStartShouldSetResponder={[Function]}
+  onPress={[Function]}
   style={
     Object {
       "left": 20,
-      "opacity": 1,
       "top": 4,
     }
-  }
-  testID={undefined}>
+  }>
   <Text
     accessible={true}
     allowFontScaling={false}
@@ -35,17 +24,19 @@ exports[`test Navbar left button renders correcly 1`] = `
       Array [
         Object {
           "color": "#FFF",
-          "fontFamily": "Ionicons",
           "fontSize": 36,
+        },
+        undefined,
+        Object {
+          "fontFamily": "Ionicons",
           "fontStyle": "normal",
           "fontWeight": "normal",
         },
-        undefined,
       ]
     }>
     
   </Text>
-</View>
+</TouchableOpacity>
 `;
 
 exports[`test Navbar title renders correcly 1`] = `

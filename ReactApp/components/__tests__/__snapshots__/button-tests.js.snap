@@ -1,29 +1,24 @@
 exports[`test Button renders correcly 1`] = `
-<View
-  accessibilityComponentType={undefined}
-  accessibilityLabel={undefined}
-  accessibilityTraits={undefined}
-  accessible={true}
-  hitSlop={undefined}
-  onLayout={undefined}
-  onResponderGrant={[Function]}
-  onResponderMove={[Function]}
-  onResponderRelease={[Function]}
-  onResponderTerminate={[Function]}
-  onResponderTerminationRequest={[Function]}
-  onStartShouldSetResponder={[Function]}
+<TouchableOpacity
+  activeOpacity={0.7}
+  disabled={false}
+  onPress={[Function]}
   style={
-    Object {
-      "backgroundColor": "#4099FF",
-      "borderRadius": 3,
-      "height": 50,
-      "justifyContent": "center",
-      "marginBottom": 10,
-      "opacity": 1,
-      "paddingHorizontal": 10,
-    }
-  }
-  testID={undefined}>
+    Array [
+      Object {
+        "backgroundColor": "#4099FF",
+        "borderRadius": 3,
+        "height": 50,
+        "justifyContent": "center",
+        "marginBottom": 10,
+        "paddingHorizontal": 10,
+      },
+      false,
+      false,
+      false,
+      false,
+    ]
+  }>
   <Text
     accessible={true}
     allowFontScaling={true}
@@ -52,5 +47,5 @@ exports[`test Button renders correcly 1`] = `
     }>
     Click Here
   </Text>
-</View>
+</TouchableOpacity>
 `;

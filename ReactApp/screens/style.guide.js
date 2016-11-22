@@ -6,7 +6,7 @@
  */
 
 /* Setup ==================================================================== */
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import {
   View,
   Text,
@@ -31,10 +31,17 @@ import AppConfig from '../config';
 
 // Components
 import Alerts from '../components/alerts';
+import ComingSoon from '../components/soon';
 
 /* Component ==================================================================== */
 class StyleGuide extends Component {
   static componentName = 'StyleGuide';
+
+  static propTypes = {
+    navigator: PropTypes.shape({
+      push: PropTypes.func.isRequired,
+    }).isRequired,
+  }
 
   constructor(props) {
     super(props);
@@ -49,6 +56,17 @@ class StyleGuide extends Component {
     */
   changeTab = (selectedTab) => {
     this.setState({ selectedTab });
+  }
+
+  /**
+    * Go to new Screen
+    */
+  navigateTo = () => {
+    this.props.navigator.push({
+      title: 'Coming Soon',
+      component: ComingSoon,
+      index: 2,
+    });
   }
 
   render = () => (
@@ -92,7 +110,7 @@ class StyleGuide extends Component {
                   <Button
                     title={'Default'}
                     {...AppConfig.buttonDefaults}
-                    onPress={() => Alert.alert(AppConfig.appName, 'This can do what you want.')}
+                    onPress={this.navigateTo}
                   />
                 </View>
 
@@ -102,7 +120,7 @@ class StyleGuide extends Component {
                     icon={{ name: 'code' }}
                     {...AppConfig.buttonDefaults}
                     backgroundColor={'#FB6567'}
-                    onPress={() => Alert.alert(AppConfig.appName, 'This can do what you want.')}
+                    onPress={this.navigateTo}
                   />
                 </View>
               </View>
@@ -114,7 +132,7 @@ class StyleGuide extends Component {
                   <Button
                     title={'Small'}
                     {...AppConfig.smlButtonDefaults}
-                    onPress={() => Alert.alert(AppConfig.appName, 'This can do what you want.')}
+                    onPress={this.navigateTo}
                   />
                 </View>
 
@@ -124,8 +142,8 @@ class StyleGuide extends Component {
                     title={'Small'}
                     icon={{ name: 'cached' }}
                     {...AppConfig.smlButtonDefaults}
-                    backgroundColor={'#31E04A'}
-                    onPress={() => Alert.alert(AppConfig.appName, 'This can do what you want.')}
+                    backgroundColor={'#59DC9A'}
+                    onPress={this.navigateTo}
                   />
                 </View>
               </View>
@@ -160,7 +178,7 @@ class StyleGuide extends Component {
 
           <TouchableOpacity
             activeOpacity={0.8}
-            onPress={() => Alert.alert('Go to Post', 'Maybe someday')}
+            onPress={this.navigateTo}
           >
             <Card
               {...AppConfig.cardDefaults}
@@ -177,7 +195,7 @@ class StyleGuide extends Component {
 
           <TouchableOpacity
             activeOpacity={0.8}
-            onPress={() => Alert.alert('Go to Post', 'Maybe someday')}
+            onPress={this.navigateTo}
           >
             <Card
               {...AppConfig.cardDefaults}
@@ -215,17 +233,17 @@ class StyleGuide extends Component {
             <ListItem
               title={'John Smith'}
               subtitle={'CEO'}
-              onPress={() => Alert.alert(AppConfig.appName, 'Tapped on John Smith')}
+              onPress={this.navigateTo}
             />
             <ListItem
               title={'Jane Doe'}
               subtitle={'COO'}
-              onPress={() => Alert.alert(AppConfig.appName, 'Tapped on John Smith')}
+              onPress={this.navigateTo}
             />
             <ListItem
               title={'Sam Smith'}
               subtitle={'CFO'}
-              onPress={() => Alert.alert(AppConfig.appName, 'Tapped on Sam Smith')}
+              onPress={this.navigateTo}
             />
           </List>
         </ScrollView>

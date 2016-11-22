@@ -1,9 +1,0 @@
-exports[`test Alerts renders correcly 1`] = `
-<View
-  style={
-    Object {
-      "left": 0,
-      "right": 0,
-    }
-  } />
-`;

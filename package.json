@@ -8,9 +8,9 @@
   },
   "jest": {
     "preset": "jest-react-native",
-   "transformIgnorePatterns": [
-     "node_modules/(?!react-native|tcomb-form-native|apsl-react-native-button,react-native-device-info)"
-   ],
+    "transformIgnorePatterns": [
+      "node_modules/(?!react-native|tcomb-form-native|apsl-react-native-button,react-native-device-info)"
+    ],
     "collectCoverage": true,
     "verbose": true
   },
@@ -19,10 +19,11 @@
     "jwt-decode": "^2.1.0",
     "qs": "^6.3.0",
     "react": "15.3.1",
+    "react-addons-shallow-compare": "^15.4.0",
     "react-native": "^0.37.0",
-    "react-native-google-analytics-bridge": "^4.0.1",
     "react-native-device-info": "^0.9.6",
     "react-native-elements": "^0.6.0",
+    "react-native-google-analytics-bridge": "^4.0.1",
     "react-native-navbar": "^1.5.4",
     "react-native-tab-view": "0.0.40",
     "react-native-vector-icons": "^3.0.0",

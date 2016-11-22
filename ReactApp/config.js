@@ -67,7 +67,7 @@ const AppConfig = {
   baseFontSize: 14,
 
   // Colors
-  primaryColor: '#0069FF',
+  primaryColor: '#0E4EF8',
   secondaryColor: '#17233D',
   textColor: '#222222',
   borderColor: '#D0D1D5',

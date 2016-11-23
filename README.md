@@ -1,10 +1,12 @@
+![alt text](https://dl.dropboxusercontent.com/u/46690444/GITHUB/rnsk-logo.jpg "React Native Starter Kit")
+
 React Native Starter Kit
 =======
 
-| | | | |
+React Native Starter Kit helps you get started with React Native. It contains a bunch of helpful components, building blocks and basic structure to allow you to jump straight into building an app.
+
 |---|---|---|---|
 | ![alt text](https://dl.dropboxusercontent.com/u/46690444/GITHUB/react-native.png "React Native") | ![alt text](https://dl.dropboxusercontent.com/u/46690444/GITHUB/redux-logo.png "Redux") | ![alt text](https://dl.dropboxusercontent.com/u/46690444/GITHUB/apple-logo.jpg "iOS Ready") | ![alt text](https://dl.dropboxusercontent.com/u/46690444/GITHUB/android-logo.jpg "Android Ready") |
-| | | | |
 
 ### Features
 
@@ -37,7 +39,7 @@ React Native Starter Kit
 3. Run `npm install` from root directory
 
 ### Testing
-1. `npm run test`
+- `npm run test`
 
 ### Quick Tips
 
@@ -47,7 +49,7 @@ React Native Starter Kit
 | **Running on Device** | [iOS Guide](https://facebook.github.io/react-native/docs/running-on-device-ios.html) | [Android Guide](https://facebook.github.io/react-native/docs/running-on-device-android.html) |
 | **Opening the Debug Menu** | CMD + D | CMD + M |
 | **Reload** | CMD + R | Double tap R on your keyboard |
-| **App Icons** [I use this tool to generate](https://makeappicon.com/) | /ios/StarterKit/Images.xcassets/AppIcon.appiconset | /android/app/src/main/res/mipmap-*/ic_launcher.png |
+| **App Icons** | <ol><li>[Generate an Icon](https://makeappicon.com/)</li><li>Place the contents into: `/ios/StarterKit/Images.xcassets/AppIcon.appiconset` | Or `/android/app/src/main/res/mipmap-*/ic_launcher.png` for Android |
 
 ### Any advice?
 

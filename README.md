@@ -8,13 +8,13 @@ React Native Starter Kit helps you get started with React Native. It contains a 
 
 ## TOC
 
-1. [Features](#features)
-2. [Screenshots](#screenshots)
-3. [Getting Started / Installation](#getting-started)
-4. [Testing](#testing)
-5. [React Native Quick Tips](#quick-tips)
-6. [Licence](#license)
-7. [Contributing](#contributing)
+1. [Features](#10-features)
+2. [Screenshots](#20-screenshots)
+3. [Getting Started / Installation](#30-getting-started)
+4. [Testing](#40-testing)
+5. [React Native Quick Tips](#50-quick-tips)
+6. [Licence](#60-license)
+7. [Contributing](#70-contributing)
 
 ---
 
@@ -31,6 +31,7 @@ React Native Starter Kit helps you get started with React Native. It contains a 
 | [Icons](https://github.com/oblador/react-native-vector-icons) | Easily use icons from a wide range of icon libraries, it's as simple as importing the icon font and then `<Icon name={'ios-alert-outline'} size={50} color={"#CCC"} />`. |
 | [Form Validation](https://github.com/gcanti/tcomb-form-native) | An exmaple on how to create forms with validation. |
 | Style Guide | A bunch of elements and components to get you started - styled headings, buttons, list rows, alerts etc. |
+| Code Linting / Style Guide | We're using [Airbnb's](https://github.com/airbnb/javascript) JS/React Style Guide with ESLint linting. |
 | An example directory/file structure I've found useful for scaling apps | ... |
 
 ---

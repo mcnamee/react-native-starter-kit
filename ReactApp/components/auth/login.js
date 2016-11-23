@@ -14,7 +14,6 @@ import {
   AsyncStorage,
   TouchableOpacity,
 } from 'react-native';
-import { connect } from 'react-redux';
 import FormValidation from 'tcomb-form-native';
 
 import {
@@ -22,19 +21,14 @@ import {
   Button,
 } from 'react-native-elements';
 
-// Actions
-import * as UserActions from '../../actions/user';
-
 // App Globals
-import AppAPI from '../../api';
-import AppConfig from '../../config';
-import AppStyles from '../../styles';
+import AppAPI from '../../utils/api';
+import AppConfig from '../../utils/config';
+import AppStyles from '../../utils/styles';
 
 // Components
-import Alerts from '../../components/alerts';
-
-// Screens
-import Index from '../recipes/tabs';
+import Alerts from '../alerts';
+import Index from '../../containers/Recipes';
 import AuthWebView from './webview';
 
 /* Component ==================================================================== */
@@ -238,14 +232,4 @@ class Login extends Component {
 }
 
 /* Export Component ==================================================================== */
-// Define which part of the state we're passing to this component
-const mapStateToProps = state => ({
-  user: state.user,
-});
-
-// Define the actions this component may dispatch
-const mapDispatchToProps = {
-  login: UserActions.login,
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Login);
+export default Login;

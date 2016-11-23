@@ -16,7 +16,7 @@ import {
 import Icon from 'react-native-vector-icons/Ionicons';
 
 // App Globals
-import AppStyles from '../styles';
+import AppStyles from '../utils/styles';
 
 /* Component ==================================================================== */
 const Error = ({ text }) => (

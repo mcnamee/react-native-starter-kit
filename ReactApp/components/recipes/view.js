@@ -18,8 +18,8 @@ import {
 import { Card } from 'react-native-elements';
 
 // App Globals
-import AppStyles from '../../styles';
-import AppConfig from '../../config';
+import AppStyles from '../../utils/styles';
+import AppConfig from '../../utils/config';
 
 /* Styles ==================================================================== */
 const styles = StyleSheet.create({

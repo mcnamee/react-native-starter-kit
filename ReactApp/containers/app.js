@@ -21,16 +21,16 @@ import { GoogleAnalyticsTracker } from 'react-native-google-analytics-bridge';
 import * as SideMenuActions from '../actions/sidemenu';
 
 // App Globals
-import AppStyles from '../styles';
-import AppConfig from '../config';
-import AppUtil from '../util';
+import AppStyles from '../utils/styles';
+import AppConfig from '../utils/config';
+import AppUtil from '../utils/util';
 
 // Components
 import Menu from '../components/menu';
 import NavbarElements from '../components/navbar.elements';
 
 // Screens
-import Index from '../screens/first.load';
+import Index from '../containers/FirstLoad';
 
 // Google Analytics
 const GoogleAnalytics = new GoogleAnalyticsTracker(AppConfig.gaTrackingId);

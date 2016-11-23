@@ -21,13 +21,13 @@ import { Button } from 'react-native-elements';
 import * as UserActions from '../actions/user';
 
 // App Globals
-import AppStyles from '../styles';
-import AppConfig from '../config';
+import AppStyles from '../utils/styles';
+import AppConfig from '../utils/config';
 
 // Screens
-import StyleGuide from '../screens/style.guide';
-import Login from '../screens/auth/login';
-import Tabs from '../screens/recipes/tabs';
+import StyleGuide from './style.guide';
+import Login from '../containers/Login';
+import Tabs from '../containers/Recipes';
 
 /* Styles ==================================================================== */
 const MENU_BG_COLOR = '#2E3234';

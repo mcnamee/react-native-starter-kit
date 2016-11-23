@@ -18,12 +18,12 @@ import {
 import { Button } from 'react-native-elements';
 
 // App Globals
-import AppStyles from '../../styles';
-import AppConfig from '../../config';
+import AppStyles from '../../utils/styles';
+import AppConfig from '../../utils/config';
 
 // Screens
 import Login from './login';
-import Index from '../recipes/tabs';
+import Index from '../../containers/Recipes';
 import AuthWebView from './webview';
 
 /* Styles ==================================================================== */

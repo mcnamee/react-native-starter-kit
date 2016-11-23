@@ -18,16 +18,14 @@ import {
 import { Card } from 'react-native-elements';
 
 // App Globals
-import AppStyles from '../../styles';
-import AppConfig from '../../config';
-import AppUtil from '../../util';
-import AppAPI from '../../api';
+import AppStyles from '../../utils/styles';
+import AppConfig from '../../utils/config';
+import AppUtil from '../../utils/util';
+import AppAPI from '../../utils/api';
 
 // Components
-import Error from '../../components/error';
-import Loading from '../../components/loading';
-
-// Screens
+import Error from '../error';
+import Loading from '../loading';
 import RecipeView from './view';
 
 /* Component ==================================================================== */

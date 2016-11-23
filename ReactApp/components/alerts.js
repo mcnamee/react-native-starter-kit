@@ -20,7 +20,7 @@ import {
 } from 'react-native';
 
 // App Globals
-import AppStyles from '../styles';
+import AppStyles from '../utils/styles';
 
 /* Styles ==================================================================== */
 const styles = StyleSheet.create({

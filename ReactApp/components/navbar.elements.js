@@ -15,9 +15,9 @@ import {
 import Icon from 'react-native-vector-icons/Ionicons';
 
 // App Globals
-import AppStyles from '../styles';
-import AppConfig from '../config';
-import AppUtil from '../util';
+import AppStyles from '../utils/styles';
+import AppConfig from '../utils/config';
+import AppUtil from '../utils/util';
 
 /* Styles ==================================================================== */
 const styles = StyleSheet.create({

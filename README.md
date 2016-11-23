@@ -1,7 +1,6 @@
 ![alt text](https://dl.dropboxusercontent.com/u/46690444/GITHUB/rnsk-logo.jpg "React Native Starter Kit")
 
-React Native Starter Kit
-=======
+# React Native Starter Kit
 
 React Native Starter Kit helps you get started with React Native. It contains a bunch of helpful components, building blocks and basic structure to allow you to jump straight into building an app.
 
@@ -15,10 +14,11 @@ React Native Starter Kit helps you get started with React Native. It contains a 
 4. [Testing](#testing)
 5. [React Native Quick Tips](#quick-tips)
 6. [Licence](#license)
+7. [Contributing](#contributing)
 
 ---
 
-### Features
+## 1.0 Features
 
 | Feature | Summary |
 |---|---|
@@ -35,7 +35,7 @@ React Native Starter Kit helps you get started with React Native. It contains a 
 
 ---
 
-### Screenshots
+## 2.0 Screenshots
 
 | | | |
 |---|---|---|
@@ -45,20 +45,39 @@ React Native Starter Kit helps you get started with React Native. It contains a 
 
 ---
 
-### Getting Started
+## 3.0 Getting Started
+
+### 3.1 Installation
 
 1. Ensure you've followed the [React Native - Get Started Guide](https://facebook.github.io/react-native/docs/getting-started.html) for the platform/s of choice
 2. Clone this project
 3. Run `npm install` from root directory
 
+### 3.2 Working with the structure
+
+```
+  /ReactApp  <-- Where the magic happens
+    /actions  <-- Redux Actions - http://redux.js.org/docs/basics/Actions.html
+    /components  <-- Screens, components - stuff that renders
+    /containers  <-- Redux containers - these components map redux actions and state to our components
+    /images  <-- Self explanatory right?
+    /reducers  <-- Redux Reducers - http://redux.js.org/docs/basics/Reducers.html
+    /utils  <-- App-wide config, styles, functionality etc
+  /android  <-- The native Android stuff
+  /ios  <-- The native iOS stuff
+```
+
 ---
 
-### Testing
+## 4.0 Testing
+
 - `npm run test`
 
+*More testing coming soon...*
+
 ---
 
-### Quick Tips
+## 5.0 Quick Tips
 
 | Function | iOS | Android |
 |---|---|---|
@@ -70,12 +89,12 @@ React Native Starter Kit helps you get started with React Native. It contains a 
 
 ---
 
-### License
+## 6.0 License
 
 [MIT License](LICENSE)
 
 ---
 
-### Any advice?
+## 7.0 Contributing
 
-Love to hear any feedback or tips to improve - submit an issue or PR.
+Love to hear any feedback or tips to improve - submit an issue or a fix via a pull request.

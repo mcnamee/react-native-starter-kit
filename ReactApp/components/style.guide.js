@@ -10,7 +10,6 @@ import React, { Component, PropTypes } from 'react';
 import {
   View,
   Text,
-  Alert,
   ScrollView,
   TouchableOpacity,
 } from 'react-native';
@@ -26,12 +25,12 @@ import {
 } from 'react-native-elements';
 
 // App Globals
-import AppStyles from '../styles';
-import AppConfig from '../config';
+import AppStyles from '../utils/styles';
+import AppConfig from '../utils/config';
 
 // Components
-import Alerts from '../components/alerts';
-import ComingSoon from '../components/soon';
+import Alerts from './alerts';
+import ComingSoon from './soon';
 
 /* Component ==================================================================== */
 class StyleGuide extends Component {

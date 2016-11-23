@@ -1,6 +1,6 @@
 /**
  * First Load Screen
- *  - Shows a nice loading screen whilst
+ *  - Shows a nice loading screen whilst:
  *  - Checking if user is logged in, and redirects from there
  *
  * React Native Starter App
@@ -15,18 +15,14 @@ import {
   StyleSheet,
   ActivityIndicator,
 } from 'react-native';
-import { connect } from 'react-redux';
-
-// Actions
-import * as UserActions from '../actions/user';
 
 // App Globals
-import AppStyles from '../styles';
-import AppConfig from '../config';
+import AppStyles from '../utils/styles';
+import AppConfig from '../utils/config';
 
 // Screens
-import Index from '../screens/recipes/tabs';
-import Authenticate from '../screens/auth/authenticate';
+import Index from '../containers/Recipes';
+import Authenticate from './auth/authenticate';
 
 /* Styles ==================================================================== */
 const styles = StyleSheet.create({
@@ -88,13 +84,4 @@ class FirstLoad extends Component {
 }
 
 /* Export Component ==================================================================== */
-// Define which part of the state we're passing to this component
-const mapStateToProps = () => ({
-});
-
-// Define the actions this component may dispatch
-const mapDispatchToProps = {
-  login: UserActions.login,
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(FirstLoad);
+export default FirstLoad;

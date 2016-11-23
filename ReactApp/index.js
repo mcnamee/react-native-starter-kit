@@ -5,6 +5,7 @@
  * React Native Starter App
  * https://github.com/mcnamee/react-native-starter-app
  */
+/* global __DEV__ */
 
 import React from 'react';
 import { applyMiddleware, compose, createStore } from 'redux';
@@ -12,10 +13,10 @@ import { Provider } from 'react-redux';
 import logger from 'redux-logger';
 import thunk from 'redux-thunk';
 
-import App from './app';
+import App from './containers/App';
 
 // All redux reducers (rolled into one mega-reducer)
-import rootReducer from '../reducers/index';
+import rootReducer from './reducers/index';
 
 // Load middleware
 let middleware = [

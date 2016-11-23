@@ -14,22 +14,16 @@ import {
   StyleSheet,
   InteractionManager,
 } from 'react-native';
-import { connect } from 'react-redux';
 import { TabViewAnimated, TabBarTop } from 'react-native-tab-view';
 
-// Actions
-import * as RecipeActions from '../../actions/recipe';
-
 // App Globals
-import AppStyles from '../../styles';
-import AppConfig from '../../config';
-import AppAPI from '../../api';
+import AppStyles from '../../utils/styles';
+import AppConfig from '../../utils/config';
+import AppAPI from '../../utils/api';
 
 // Components
-import Loading from '../../components/loading';
-import Error from '../../components/error';
-
-// Screens
+import Loading from '../loading';
+import Error from '../error';
 import RecipeListing from './listing';
 
 /* Styles ==================================================================== */
@@ -50,8 +44,8 @@ const styles = StyleSheet.create({
 });
 
 /* Component ==================================================================== */
-class Tabs extends Component {
-  static componentName = 'Tabs';
+class RecipeTabs extends Component {
+  static componentName = 'RecipeTabs';
 
   static propTypes = {
     navigator: PropTypes.object.isRequired,
@@ -191,14 +185,4 @@ class Tabs extends Component {
 }
 
 /* Export Component ==================================================================== */
-// Define which part of the state we're passing to this component
-const mapStateToProps = state => ({
-  meals: state.recipe.meals,
-});
-
-// Define the actions this component may dispatch
-const mapDispatchToProps = {
-  getMeals: RecipeActions.getMeals,
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Tabs);
+export default RecipeTabs;

@@ -16,8 +16,8 @@ import {
 } from 'react-native';
 
 // App Globals
-import AppStyles from '../styles';
-import AppConfig from '../config';
+import AppStyles from '../utils/styles';
+import AppConfig from '../utils/config';
 
 // Screens
 import Loading from './loading';
@@ -48,9 +48,6 @@ class AppWebView extends Component {
     };
   }
 
-  /**
-    * On Load
-    */
   componentDidMount = () => {
     // Wait until interaction has finished before loading the webview in
     InteractionManager.runAfterInteractions(() => {
@@ -66,7 +63,6 @@ class AppWebView extends Component {
     */
   onNavigationStateChange = (navState) => {
     this.state.webViewURL = navState.url;
-
     if (this.props.onNavigationStateChange) this.props.onNavigationStateChange(navState.url);
   }
 

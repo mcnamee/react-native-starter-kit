@@ -14,11 +14,7 @@ import {
   StyleSheet,
   TouchableOpacity,
 } from 'react-native';
-import { connect } from 'react-redux';
 import { Button } from 'react-native-elements';
-
-// Actions
-import * as UserActions from '../actions/user';
 
 // App Globals
 import AppStyles from '../utils/styles';
@@ -194,14 +190,4 @@ class Menu extends Component {
 }
 
 /* Export Component ==================================================================== */
-// Define which part of the state we're passing to this component
-const mapStateToProps = state => ({
-  user: state.user,
-});
-
-// Define the actions this component may dispatch
-const mapDispatchToProps = {
-  logout: UserActions.logout,
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Menu);
+export default Menu;

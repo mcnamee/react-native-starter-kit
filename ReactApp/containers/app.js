@@ -26,7 +26,7 @@ import AppConfig from '../utils/config';
 import AppUtil from '../utils/util';
 
 // Components
-import Menu from '../components/menu';
+import Menu from '../containers/Menu';
 import NavbarElements from '../components/navbar.elements';
 
 // Screens

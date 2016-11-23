@@ -24,15 +24,15 @@ React Native Starter Kit helps you get started with React Native. It contains a 
 |---|---|
 | [Redux](https://github.com/reactjs/react-redux) | A predictable state container - Helping you write applications that behave consistently and run in different environments. |
 | API Example | A basic example showing how you can interact with a RESTful API with user authentication (JWT). |
-| [Sidebar/Hamburger Menu](https://github.com/react-native-community/react-native-elements#sidemenu) | ... |
+| [Sidebar / Hamburger Menu](https://github.com/react-native-community/react-native-side-menu) | ... |
 | [React Native Elements](https://github.com/react-native-community/react-native-elements) | Cross Platform React Native UI Toolkit. |
 | [Google Analytics](https://github.com/idehub/react-native-google-analytics-bridge) | Shows how to track screen views (includes both a 'debug' mode tracker as well as 'release' mode so that data doesn't get obfuscated). |
 | [Custom Navbar](https://github.com/react-native-community/react-native-navbar) | ... |
 | [Icons](https://github.com/oblador/react-native-vector-icons) | Easily use icons from a wide range of icon libraries, it's as simple as importing the icon font and then `<Icon name={'ios-alert-outline'} size={50} color={"#CCC"} />`. |
 | [Form Validation](https://github.com/gcanti/tcomb-form-native) | An exmaple on how to create forms with validation. |
 | Style Guide | A bunch of elements and components to get you started - styled headings, buttons, list rows, alerts etc. |
-| Code Linting / Style Guide | We're using [Airbnb's](https://github.com/airbnb/javascript) JS/React Style Guide with ESLint linting. |
-| An example directory/file structure I've found useful for scaling apps | ... |
+| Code Linting / Style Guide | We're using [Airbnb's](https://github.com/airbnb/javascript) JS/React Style Guide with ESLint linting. [Get started with linting for React Native .](https://github.com/react-native-community/react-native-side-menu) |
+| An example directory/file structure I've found useful for scaling apps | [Learn more](#32-working-with-the-structure) |
 
 ---
 
@@ -57,12 +57,11 @@ React Native Starter Kit helps you get started with React Native. It contains a 
 ### 3.2 Working with the structure
 
 ```
-  /ReactApp  <-- Where the magic happens
-    /actions  <-- Redux Actions - http://redux.js.org/docs/basics/Actions.html
-    /components  <-- Screens, components - stuff that renders
-    /containers  <-- Redux containers - these components map redux actions and state to our components
+  /src  <-- Contains the full React Native App codebase
+    /components  <-- Screens, components - stuff that you view
+    /containers  <-- Redux containers - these components map redux actions and data to our components
     /images  <-- Self explanatory right?
-    /reducers  <-- Redux Reducers - http://redux.js.org/docs/basics/Reducers.html
+    /reducers  <-- Redux Reducers & Actions grouped by type
     /utils  <-- App-wide config, styles, functionality etc
   /android  <-- The native Android stuff
   /ios  <-- The native iOS stuff

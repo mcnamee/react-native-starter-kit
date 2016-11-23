@@ -12,13 +12,9 @@ import {
   Navigator,
   StatusBar,
 } from 'react-native';
-import { connect } from 'react-redux';
 import NavigationBar from 'react-native-navbar';
-import { SideMenu } from 'react-native-elements';
+import SideMenu from 'react-native-side-menu';
 import { GoogleAnalyticsTracker } from 'react-native-google-analytics-bridge';
-
-// Actions
-import * as SideMenuActions from '../actions/sidemenu';
 
 // App Globals
 import AppStyles from '../utils/styles';
@@ -27,10 +23,8 @@ import AppUtil from '../utils/util';
 
 // Components
 import Menu from '../containers/Menu';
-import NavbarElements from '../components/navbar.elements';
-
-// Screens
 import Index from '../containers/FirstLoad';
+import NavbarElements from '../components/navbar.elements';
 
 // Google Analytics
 const GoogleAnalytics = new GoogleAnalyticsTracker(AppConfig.gaTrackingId);
@@ -41,7 +35,6 @@ class AppContainer extends Component {
     sideMenuIsOpen: PropTypes.bool.isRequired,
     closeSideMenu: PropTypes.func.isRequired,
     toggleSideMenu: PropTypes.func.isRequired,
-    sideMenuGesturesDisabled: PropTypes.bool,
   }
 
   /**
@@ -129,13 +122,13 @@ class AppContainer extends Component {
     return (
       <SideMenu
         ref={(a) => { this.rootSidebarMenu = a; }}
-        MenuComponent={
+        menu={
           <Menu
             navigate={this.onSideMenuPress}
             ref={(b) => { this.rootSidebarMenuMenu = b; }}
           />
         }
-        toggled={this.props.sideMenuIsOpen}
+        isOpen={this.props.sideMenuIsOpen}
         onChange={this.onSideMenuChange}
       >
 
@@ -162,15 +155,5 @@ class AppContainer extends Component {
   }
 }
 
-// Define which part of the state we're passing to this component
-const mapStateToProps = state => ({
-  sideMenuIsOpen: state.sideMenu.isOpen,
-});
-
-// Define the actions this component may dispatch
-const mapDispatchToProps = {
-  toggleSideMenu: SideMenuActions.toggle,
-  closeSideMenu: SideMenuActions.close,
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(AppContainer);
+/* Export Component ==================================================================== */
+export default AppContainer;

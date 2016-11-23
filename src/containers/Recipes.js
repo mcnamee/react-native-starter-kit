@@ -7,15 +7,17 @@
 import { connect } from 'react-redux';
 
 // Actions
-import * as RecipeActions from '../actions/recipe';
+import * as RecipeActions from '../reducers/recipes/actions';
 
 // The component we're mapping to
 import RecipeTabs from '../components/recipes/tabs';
 
+// What data from the store shall we send to the component?
 const mapStateToProps = state => ({
   meals: state.recipe.meals,
 });
 
+// Any actions to map to the component?
 const mapDispatchToProps = {
   getMeals: RecipeActions.getMeals,
 };

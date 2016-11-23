@@ -19,7 +19,7 @@ import {
 import AppStyles from '../utils/styles';
 import AppConfig from '../utils/config';
 
-// Screens
+// Components
 import Loading from './loading';
 import Error from './error';
 

@@ -9,9 +9,9 @@ import { combineReducers } from 'redux';
 
 // Our custom reducers
 // We need to import each one here and add them to the combiner at the bottom
-import sideMenu from './sidemenu';
-import user from './user';
-import recipe from './recipe';
+import sideMenu from './sidemenu/reducer';
+import user from './user/reducer';
+import recipe from './recipes/reducer';
 
 // Combine all
 const appReducer = combineReducers({

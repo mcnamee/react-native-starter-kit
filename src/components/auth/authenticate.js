@@ -21,7 +21,7 @@ import { Button } from 'react-native-elements';
 import AppStyles from '../../utils/styles';
 import AppConfig from '../../utils/config';
 
-// Screens
+// Components
 import Login from './login';
 import Index from '../../containers/Recipes';
 import AuthWebView from './webview';

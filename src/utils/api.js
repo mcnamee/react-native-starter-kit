@@ -4,7 +4,8 @@
  * React Native Starter App
  * https://github.com/mcnamee/react-native-starter-app
  */
- /* global fetch */
+ /* global fetch console */
+
 /* Setup ==================================================================== */
 import {
   AsyncStorage,
@@ -18,8 +19,6 @@ import AppUtil from './util';
 
 // Config
 const HOSTNAME = AppConfig.hostname;
-
-// Add each endpoint here
 const ENDPOINTS = AppConfig.endpoints;
 
 // Build user agent string

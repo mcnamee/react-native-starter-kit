@@ -10,7 +10,7 @@
 /* Setup ==================================================================== */
 import React, { Component, PropTypes } from 'react';
 
-// Screens
+// Components
 import WebView from '../webview';
 
 let timeout;

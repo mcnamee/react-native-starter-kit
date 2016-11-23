@@ -20,7 +20,7 @@ import { Button } from 'react-native-elements';
 import AppStyles from '../utils/styles';
 import AppConfig from '../utils/config';
 
-// Screens
+// Components
 import StyleGuide from './style.guide';
 import Login from '../containers/Login';
 import Tabs from '../containers/Recipes';

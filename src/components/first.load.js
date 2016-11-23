@@ -20,7 +20,7 @@ import {
 import AppStyles from '../utils/styles';
 import AppConfig from '../utils/config';
 
-// Screens
+// Components
 import Index from '../containers/Recipes';
 import Authenticate from './auth/authenticate';
 

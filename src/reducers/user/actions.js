@@ -7,7 +7,7 @@
 
 import jwtDecode from 'jwt-decode';
 
-import AppAPI from '../utils/api';
+import AppAPI from '../../utils/api';
 
 export function login(credentials) {
   return (dispatch) => {

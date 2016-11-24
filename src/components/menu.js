@@ -22,8 +22,8 @@ import AppConfig from '../utils/config';
 
 // Components
 import StyleGuide from './style.guide';
-import Login from '../containers/Login';
-import Tabs from '../containers/Recipes';
+import Login from '../containers/login';
+import Tabs from '../containers/recipes';
 
 /* Styles ==================================================================== */
 const MENU_BG_COLOR = '#2E3234';

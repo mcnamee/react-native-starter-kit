@@ -21,7 +21,7 @@ import AppStyles from '../utils/styles';
 import AppConfig from '../utils/config';
 
 // Components
-import Index from '../containers/Recipes';
+import Index from '../containers/recipes';
 import Authenticate from './auth/authenticate';
 
 /* Styles ==================================================================== */

@@ -23,7 +23,7 @@ import AppConfig from '../../utils/config';
 
 // Components
 import Login from './login';
-import Index from '../../containers/Recipes';
+import Index from '../../containers/recipes';
 import AuthWebView from './webview';
 
 /* Styles ==================================================================== */

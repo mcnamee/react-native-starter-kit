@@ -13,8 +13,8 @@ React Native Starter Kit helps you get started with React Native. It contains a 
 3. [Getting Started / Installation](#30-getting-started)
 4. [Testing](#40-testing)
 5. [React Native Quick Tips](#50-quick-tips)
-6. [Licence](#60-license)
-7. [Contributing](#70-contributing)
+6. [Contributing](#60-contributing)
+7. [Licence](#70-license)
 
 ---
 
@@ -30,8 +30,8 @@ React Native Starter Kit helps you get started with React Native. It contains a 
 | [Custom Navbar](https://github.com/react-native-community/react-native-navbar) | ... |
 | [Icons](https://github.com/oblador/react-native-vector-icons) | Easily use icons from a wide range of icon libraries, it's as simple as importing the icon font and then `<Icon name={'ios-alert-outline'} size={50} color={"#CCC"} />`. |
 | [Form Validation](https://github.com/gcanti/tcomb-form-native) | An exmaple on how to create forms with validation. |
-| Style Guide | A bunch of elements and components to get you started - styled headings, buttons, list rows, alerts etc. |
-| Code Linting / Style Guide | We're using [Airbnb's](https://github.com/airbnb/javascript) JS/React Style Guide with ESLint linting. [Get started with linting for React Native .](https://github.com/react-native-community/react-native-side-menu) |
+| Component Style Guide | A bunch of elements and components to get you started - styled headings, buttons, list rows, alerts etc. |
+| Code Linting / Code Style Guide | We're using [Airbnb's](https://github.com/airbnb/javascript) JS/React Style Guide with ESLint linting. [Get started with linting for React Native .](https://medium.com/pvtl/linting-for-react-native-bdbb586ff694) |
 | An example directory/file structure I've found useful for scaling apps | [Learn more](#32-working-with-the-structure) |
 
 ---
@@ -54,7 +54,7 @@ React Native Starter Kit helps you get started with React Native. It contains a 
 2. Clone this project
 3. Run `npm install` from root directory
 
-### 3.2 Working with the structure
+### 3.2 File Structure
 
 ```
   /src  <-- Contains the full React Native App codebase
@@ -89,12 +89,35 @@ React Native Starter Kit helps you get started with React Native. It contains a 
 
 ---
 
-## 6.0 License
+## 6.0 Contributing
 
-[MIT License](LICENSE)
+Love to hear any feedback or tips to improve - submit an issue or a fix via a pull request.
+
+Please ensure you're following the below rules before submitting a PR:
+
+### 6.1 Naming Conventions
+
+Please follow [Airbnb's Name Conventions](https://github.com/airbnb/javascript#naming-conventions) from the style guide.
+
+### 6.2 File Structure
+
+- Follow the file structure [outlined above](#32-file-structure)
+- All files should be lowercase, with words separated by a fullstop - eg. `style.guide.js`
+- All folder names should be lowercase, with words separated by a hyphen - eg. `/components/case-studies`
+- Folders and files can be named singlular or plural - do what sounds right
+- If there's more than 1 file in a directory that are related, group them within their own directory
+ - eg. if I have 2 components: `/components/recipe.listing.js` and `/components/recipe.view.js`, create a new directory within components called `recipes` and put the 2 files within (removing `recipe.`). The result would be: `/components/recipes/listing.js` and `/components/recipes/view.js`
+
+### 6.3 Linting
+
+Please ensure you're code is passing the built in linter.
+
+### 6.4 Tests
+
+Please include tests with your code and ensure your code is passing the existing tests.
 
 ---
 
-## 7.0 Contributing
+## 7.0 License
 
-Love to hear any feedback or tips to improve - submit an issue or a fix via a pull request.
+[MIT License](LICENSE)

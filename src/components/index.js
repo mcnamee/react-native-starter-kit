@@ -22,8 +22,8 @@ import AppConfig from '../utils/config';
 import AppUtil from '../utils/util';
 
 // Components
-import Menu from '../containers/Menu';
-import Index from '../containers/FirstLoad';
+import Menu from '../containers/menu';
+import Index from '../containers/first.load';
 import NavbarElements from '../components/navbar.elements';
 
 // Google Analytics

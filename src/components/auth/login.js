@@ -28,7 +28,7 @@ import AppStyles from '../../utils/styles';
 
 // Components
 import Alerts from '../alerts';
-import Index from '../../containers/Recipes';
+import Index from '../../containers/recipes';
 import AuthWebView from './webview';
 
 /* Component ==================================================================== */

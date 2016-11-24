@@ -13,7 +13,7 @@ import { Provider } from 'react-redux';
 import logger from 'redux-logger';
 import thunk from 'redux-thunk';
 
-import App from './containers/App';
+import App from './containers/app';
 
 // All redux reducers (rolled into one mega-reducer)
 import rootReducer from './reducers/index';

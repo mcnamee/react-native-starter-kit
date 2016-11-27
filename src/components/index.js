@@ -45,7 +45,10 @@ class AppContainer extends Component {
     this.props.closeSideMenu();
 
     let passProps = extraProps;
-    if (AppUtil.objIsEmpty(extraProps)) passProps = {};
+
+    if (AppUtil.objIsEmpty(extraProps)) {
+      passProps = {};
+    }
 
     // Change Scene
     this.rootNavigator.replace({
@@ -70,22 +73,26 @@ class AppContainer extends Component {
     */
   renderScene = (route, navigator) => {
     // Default Navbar Title
-    const title = route.title || AppConfig.appName;
+    let screenName = route.title || AppConfig.appName;
+    let leftButtonIcon = 'ios-menu';
+    let leftButtonAction = this.props.toggleSideMenu;
+
+    if (route.component.componentName) {
+      screenName = `${route.component.componentName} - ${screenName}`;
+    }
 
     // Google Analytics
-    const screenName = route.component.componentName
-      ? `${route.component.componentName} - ${title}`
-      : title;
     GoogleAnalytics.trackScreenView(screenName);
 
     // Show Hamburger Icon when index is 0, and Back Arrow Icon when index is > 0
+    if (route.index > 0) {
+      leftButtonIcon = 'ios-arrow-back-outline';
+      leftButtonAction = this.rootNavigator.pop;
+    }
+
     const leftButton = {
-      onPress: (route.index > 0)
-        ? this.rootNavigator.pop
-        : this.props.toggleSideMenu,
-      icon: (route.index > 0)
-        ? 'ios-arrow-back-outline'
-        : 'ios-menu',
+      onPress: leftButtonAction,
+      icon: leftButtonIcon,
     };
 
     // Show a cross icon when transition pops from bottom
@@ -100,7 +107,7 @@ class AppContainer extends Component {
       <View style={[AppStyles.appContainer, AppStyles.container]}>
         {!route.hideNavbar &&
           <NavigationBar
-            title={<NavbarElements.Title title={title || null} />}
+            title={<NavbarElements.Title title={screenName || null} />}
             statusBar={{ style: 'light-content', hidden: false }}
             style={[AppStyles.navbar]}
             tintColor={AppConfig.primaryColor}

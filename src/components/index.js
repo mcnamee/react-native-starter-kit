@@ -102,6 +102,9 @@ class AppContainer extends Component {
 
     // If Navbar hidden, don't show status bar
     if (route.hideNavbar) StatusBar.setHidden(true);
+    
+    // Set the title back
+    screenName = route.title || AppConfig.appName;
 
     return (
       <View style={[AppStyles.appContainer, AppStyles.container]}>

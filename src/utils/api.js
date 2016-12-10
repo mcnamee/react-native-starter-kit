@@ -198,7 +198,15 @@ const Internal = {
           // API got back to us, clear the timeout
           clearTimeout(apiTimedOut);
 
-          const jsonRes = await rawRes.json();
+          const rawResponse = await rawRes;
+
+          try {
+            JSON.parse(rawResponse);
+          } catch(error) {
+            throw 'Response returned is not valid JSON';
+          }
+
+          const jsonRes = rawResponse.json();
 
           // Only continue if the header is successful
           if (rawRes && rawRes.status === 200) { return jsonRes; }

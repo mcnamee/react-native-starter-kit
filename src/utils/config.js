@@ -45,6 +45,7 @@ const AppConfig = {
   // use them like AppAPI.recipes.get() or AppAPI.users.post() for example
   endpoints: new Map([
     ['login', '/wp-json/jwt-auth/v1/token'],
+    ['validateToken', '/wp-json/jwt-auth/v1/token/validate'],
     ['users', '/wp-json/wp/v2/users'],
     ['recipes', '/wp-json/wp/v2/recipes'],
     ['meals', '/wp-json/wp/v2/recipe_meal'],

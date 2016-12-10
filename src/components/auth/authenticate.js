@@ -22,7 +22,7 @@ import AppStyles from '../../utils/styles';
 import AppConfig from '../../utils/config';
 
 // Components
-import Login from './login';
+import Login from '../../containers/login';
 import Index from '../../containers/recipes';
 import AuthWebView from './webview';
 

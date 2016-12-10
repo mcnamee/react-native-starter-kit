@@ -9,10 +9,13 @@ import jwtDecode from 'jwt-decode';
 
 import AppAPI from '../../utils/api';
 
-export function login(credentials) {
+export function login(credentials, freshLogin) {
   return (dispatch) => {
-    return new Promise((resolve, reject) => {
+    return new Promise(async (resolve, reject) => {
       const userCreds = credentials || null;
+
+      // Force logout, before logging in
+      if (freshLogin) await AppAPI.logout();
 
       AppAPI.authenticate(userCreds)
         .then((token) => {

@@ -21,11 +21,16 @@ import AppUtil from './util';
 const HOSTNAME = AppConfig.hostname;
 const ENDPOINTS = AppConfig.endpoints;
 
-// Build user agent string
-const USER_AGENT = `${AppConfig.appName} ` +
-  `${DeviceInfo.getVersion()}; ${DeviceInfo.getSystemName()}  ` +
-  `${DeviceInfo.getSystemVersion()}; ${DeviceInfo.getBrand()} ` +
-  `${DeviceInfo.getDeviceId()}`;
+let USER_AGENT;
+try {
+  // Build user agent string
+  USER_AGENT = `${AppConfig.appName} ` +
+    `${DeviceInfo.getVersion()}; ${DeviceInfo.getSystemName()}  ` +
+    `${DeviceInfo.getSystemVersion()}; ${DeviceInfo.getBrand()} ` +
+    `${DeviceInfo.getDeviceId()}`;
+} catch (e) {
+  USER_AGENT = `${AppConfig.appName}`;
+}
 
 // In memory to make it quicker
 let apiToken = '';
@@ -95,7 +100,9 @@ const Internal = {
     */
   getToken: async () => {
     if (!apiToken) apiToken = await AsyncStorage.getItem('api/token');
-    if (apiToken && !Internal.tokenIsValid(apiToken)) apiToken = null;
+
+    const tokenIsValid = await Internal.tokenIsValid(apiToken);
+    if (apiToken && !tokenIsValid) apiToken = null;
 
     return apiToken;
   },
@@ -133,6 +140,13 @@ const Internal = {
       return false; // Token is for another user
     }
 
+    // Finally, check if token is valid against API
+    /* return AppAPI.validateToken.post()
+      .then((res) => {
+        if (res && res.data && res.data.status === 200) return true;
+        else throw res;
+      }).catch((err) => false); */
+
     return true;
   },
 
@@ -146,9 +160,9 @@ const Internal = {
 
       // After x seconds, let's call it a day!
       const timeoutAfter = 7;
-      const apiTimedOut = setTimeout(() => {
-        return reject(AppConfig.errors.timeout);
-      }, timeoutAfter * 1000);
+      const apiTimedOut = setTimeout(() => (
+        reject(AppConfig.errors.timeout)
+      ), timeoutAfter * 1000);
 
       if (!method || !endpoint) return reject('Missing params (AppAPI.fetcher).');
 
@@ -163,9 +177,11 @@ const Internal = {
       };
 
       // Add Token
-      apiToken = await Internal.getToken();
-      if (apiToken) {
-        req.headers.Authorization = `Bearer ${apiToken}`;
+      if (endpoint !== AppConfig.endpoints.get('login')) {
+        apiToken = await Internal.getToken();
+        if (apiToken) {
+          req.headers.Authorization = `Bearer ${apiToken}`;
+        }
       }
 
       // Add Endpoint Params
@@ -203,7 +219,8 @@ const Internal = {
           try {
             jsonRes = await rawRes.json();
           } catch (error) {
-            throw 'Response returned is not valid JSON';
+            const err = { message: 'Response returned is not valid JSON' };
+            throw err;
           }
 
           // Only continue if the header is successful
@@ -224,8 +241,8 @@ const Internal = {
             err &&
             err.data &&
             err.data.status.toString().charAt(0) === 4 &&
-            err.code !== 'jwt_auth_failed')
-          {
+            err.code !== 'jwt_auth_failed'
+          ) {
             return AppAPI.authenticate()
               .then(() => { Internal.fetcher(method, endpoint, params, body); })
               .catch(error => reject(error));
@@ -259,7 +276,9 @@ AppAPI.authenticate = (credentials) => {
   return new Promise(async (resolve, reject) => {
     // Check any existing tokens - if still valid, use it, otherwise login
     apiToken = await Internal.getToken();
-    if (apiToken && Internal.tokenIsValid(apiToken)) return resolve(apiToken);
+
+    const tokenIsValid = await Internal.tokenIsValid(apiToken);
+    if (apiToken && tokenIsValid) return resolve(apiToken);
 
     // Use credentials or AsyncStore Creds?
     if (credentials && typeof credentials === 'object' && credentials.username && credentials.password) {
@@ -301,7 +320,8 @@ AppAPI.authenticate = (credentials) => {
         return reject(res);
       }
 
-      if (!Internal.tokenIsValid(res.token)) {
+      const tokenIsNowValid = await Internal.tokenIsValid(res.token);
+      if (!tokenIsNowValid) {
         return reject(res);
       }
 

@@ -157,7 +157,7 @@ class Login extends Component {
         this.props.login({
           username: credentials.Email,
           password: credentials.Password,
-        }).then(() => {
+        }, true).then(() => {
           this.setState({
             resultMsg: { success: 'Awesome, you\'re now logged in!' },
           }, () => {

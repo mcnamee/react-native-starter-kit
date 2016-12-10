@@ -73,16 +73,16 @@ class AppContainer extends Component {
     */
   renderScene = (route, navigator) => {
     // Default Navbar Title
-    let screenName = route.title || AppConfig.appName;
+    const navbarTitle = route.title || AppConfig.appName;
     let leftButtonIcon = 'ios-menu';
     let leftButtonAction = this.props.toggleSideMenu;
 
-    if (route.component.componentName) {
-      screenName = `${route.component.componentName} - ${screenName}`;
-    }
-
     // Google Analytics
-    GoogleAnalytics.trackScreenView(screenName);
+    let trackingScreenName = navbarTitle;
+    if (route.component.componentName) {
+      trackingScreenName = `${route.component.componentName} - ${trackingScreenName}`;
+    }
+    GoogleAnalytics.trackScreenView(trackingScreenName);
 
     // Show Hamburger Icon when index is 0, and Back Arrow Icon when index is > 0
     if (route.index > 0) {
@@ -101,16 +101,15 @@ class AppContainer extends Component {
     }
 
     // If Navbar hidden, don't show status bar
-    if (route.hideNavbar) StatusBar.setHidden(true);
-    
-    // Set the title back
-    screenName = route.title || AppConfig.appName;
+    if (route.hideNavbar) {
+      StatusBar.setHidden(true);
+    }
 
     return (
       <View style={[AppStyles.appContainer, AppStyles.container]}>
         {!route.hideNavbar &&
           <NavigationBar
-            title={<NavbarElements.Title title={screenName || null} />}
+            title={<NavbarElements.Title title={navbarTitle || null} />}
             statusBar={{ style: 'light-content', hidden: false }}
             style={[AppStyles.navbar]}
             tintColor={AppConfig.primaryColor}

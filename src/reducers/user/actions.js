@@ -10,54 +10,52 @@ import jwtDecode from 'jwt-decode';
 import AppAPI from '../../utils/api';
 
 export function login(credentials, freshLogin) {
-  return (dispatch) => {
-    return new Promise(async (resolve, reject) => {
-      const userCreds = credentials || null;
+  return dispatch => new Promise(async (resolve, reject) => {
+    const userCreds = credentials || null;
 
-      // Force logout, before logging in
-      if (freshLogin) await AppAPI.logout();
+    // Force logout, before logging in
+    if (freshLogin && AppAPI.deleteToken) await AppAPI.deleteToken();
 
-      AppAPI.authenticate(userCreds)
-        .then((token) => {
-          let decodedToken = '';
+    if (!AppAPI.getToken) return resolve();
 
-          try {
-            decodedToken = jwtDecode(token);
-          } catch (err) {
-            return reject('Token decode failed.');
-          }
+    // Get a new token from API
+    return AppAPI.getToken(userCreds)
+      .then((token) => {
+        let decodedToken = '';
 
-          if (
-            !decodedToken || !decodedToken.data ||
-            !decodedToken.data.user || !decodedToken.data.user.id
-          ) {
-            return reject('Token decode failed.');
-          }
+        try {
+          decodedToken = jwtDecode(token);
+        } catch (err) {
+          return reject('Token decode failed.');
+        }
 
-          return AppAPI.users.get(decodedToken.data.user.id)
-            .then((userData) => {
-              dispatch({
-                type: 'USER_REPLACE',
-                data: userData,
-              });
+        if (
+          !decodedToken || !decodedToken.data ||
+          !decodedToken.data.user || !decodedToken.data.user.id
+        ) {
+          return reject('Token decode failed.');
+        }
 
-              resolve(userData);
-            }).catch((err) => {
-              reject(err);
+        // Get user details from API, using my token
+        return AppAPI.users.get(decodedToken.data.user.id)
+          .then((userData) => {
+            dispatch({
+              type: 'USER_REPLACE',
+              data: userData,
             });
-        }).catch(err => reject(err));
-    });
-  };
+
+            return resolve(userData);
+          }).catch(err => reject(err));
+      }).catch(err => reject(err));
+  });
 }
 
 export function logout() {
-  return (dispatch) => {
-    return AppAPI.logout()
-      .then(() => {
-        dispatch({
-          type: 'USER_REPLACE',
-          data: {},
-        });
+  return dispatch => AppAPI.deleteToken()
+    .then(() => {
+      dispatch({
+        type: 'USER_REPLACE',
+        data: {},
       });
-  };
+    });
 }

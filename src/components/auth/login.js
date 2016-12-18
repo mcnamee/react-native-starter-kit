@@ -16,11 +16,6 @@ import {
 } from 'react-native';
 import FormValidation from 'tcomb-form-native';
 
-import {
-  Card,
-  Button,
-} from 'react-native-elements';
-
 // App Globals
 import AppAPI from '../../utils/api';
 import AppConfig from '../../utils/config';
@@ -28,8 +23,10 @@ import AppStyles from '../../utils/styles';
 
 // Components
 import Alerts from '../alerts';
-import Index from '../../containers/recipes';
+import Button from '../button';
+import Card from '../card';
 import AuthWebView from './webview';
+import Index from '../../containers/recipes';
 
 /* Component ==================================================================== */
 class Login extends Component {
@@ -203,7 +200,6 @@ class Login extends Component {
           <Button
             title={'Login'}
             onPress={this.login}
-            {...AppConfig.buttonDefaults}
           />
 
           <View style={AppStyles.spacer_10} />
@@ -223,7 +219,6 @@ class Login extends Component {
           <Button
             title={'Sign Up'}
             onPress={this.onPressSignUp}
-            {...AppConfig.buttonDefaults}
           />
         </Card>
       </ScrollView>

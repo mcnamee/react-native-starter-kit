@@ -131,6 +131,7 @@ class AppContainer extends Component {
     return (
       <SideMenu
         ref={(a) => { this.rootSidebarMenu = a; }}
+        openMenuOffset={AppConfig.windowWidth * 0.75}
         menu={
           <Menu
             navigate={this.onSideMenuPress}

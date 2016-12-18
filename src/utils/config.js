@@ -5,15 +5,11 @@
  * https://github.com/mcnamee/react-native-starter-app
  */
 /* global __DEV__ */
-import {
-  Dimensions,
-} from 'react-native';
+import { Dimensions } from 'react-native';
 
 const window = Dimensions.get('window');
 
 /* Setup ==================================================================== */
-exports.title = 'GlobalConfig';
-
 const AppConfig = {
   // App Details
   appName: 'Starter Kit',
@@ -45,7 +41,6 @@ const AppConfig = {
   // use them like AppAPI.recipes.get() or AppAPI.users.post() for example
   endpoints: new Map([
     ['login', '/wp-json/jwt-auth/v1/token'],
-    ['validateToken', '/wp-json/jwt-auth/v1/token/validate'],
     ['users', '/wp-json/wp/v2/users'],
     ['recipes', '/wp-json/wp/v2/recipes'],
     ['meals', '/wp-json/wp/v2/recipe_meal'],
@@ -61,6 +56,7 @@ const AppConfig = {
   errors: {
     default: 'Hmm, an unknown error occured.',
     timeout: 'Server Timed Out. Check your internet connection.',
+    invalidJson: 'Response returned is not valid JSON',
   },
 
   // Fonts
@@ -76,37 +72,6 @@ const AppConfig = {
 
   // Other Styles
   borderRadius: 2,
-};
-
-/* react-native-elements Default Props ================================== */
-// Button - default
-AppConfig.buttonDefaults = {
-  backgroundColor: AppConfig.primaryColor,
-  fontFamily: AppConfig.baseFont,
-  fontSize: 16,
-  borderRadius: AppConfig.borderRadius,
-  buttonStyle: {
-    padding: 12,
-    marginLeft: 0,
-    marginRight: 0,
-  },
-};
-
-// Button - Small
-AppConfig.smlButtonDefaults = {
-  ...AppConfig.buttonDefaults,
-  fontSize: 14,
-  buttonStyle: {
-    ...AppConfig.buttonDefaults.buttonStyle,
-    padding: 8,
-  },
-};
-
-// Card
-AppConfig.cardDefaults = {
-  containerStyle: {
-    borderRadius: AppConfig.borderRadius,
-  },
 };
 
 /* Export ==================================================================== */

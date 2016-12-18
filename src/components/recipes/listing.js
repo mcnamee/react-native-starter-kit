@@ -9,13 +9,10 @@
 /* Setup ==================================================================== */
 import React, { Component, PropTypes } from 'react';
 import {
-  Text,
   View,
   ListView,
   RefreshControl,
-  TouchableOpacity,
 } from 'react-native';
-import { Card } from 'react-native-elements';
 
 // App Globals
 import AppStyles from '../../utils/styles';
@@ -27,6 +24,7 @@ import AppAPI from '../../utils/api';
 import Error from '../error';
 import Loading from '../loading';
 import RecipeView from './view';
+import RecipeCard from './card';
 
 /* Component ==================================================================== */
 class RecipeListing extends Component {
@@ -130,20 +128,12 @@ class RecipeListing extends Component {
       featuredImg.media_details.sizes.medium.source_url : '';
 
     return (
-      <TouchableOpacity
-        activeOpacity={0.8}
+      <RecipeCard
+        content={summary}
         onPress={() => this.onPressRow(title.rendered, recipe)}
-      >
-        <Card
-          {...AppConfig.cardDefaults}
-          image={recipe.featured_image && { uri: recipe.featured_image }}
-        >
-          <View style={[AppStyles.paddingBottomSml]}>
-            <Text style={[AppStyles.h3]}>{title.rendered.toString()}</Text>
-            <Text style={[AppStyles.baseText]}>{summary.toString()}</Text>
-          </View>
-        </Card>
-      </TouchableOpacity>
+        title={title.rendered}
+        image={recipe.featured_image}
+      />
     );
   }
 

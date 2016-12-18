@@ -145,15 +145,15 @@ class RecipeTabs extends Component {
     */
   renderScene = ({ route }) => {
     // For performance, only render if it's this route, or I've visited before
-    // if (
-    //   this.state.navigation.index !== route.key &&
-    //   this.state.visitedRoutes.indexOf(route.key) < 0
-    // ) {
-    //   return null;
-    // }
+    if (
+      parseInt(route.key, 0) !== parseInt(this.state.navigation.index, 0) &&
+      this.state.visitedRoutes.indexOf(route.key) < 0
+    ) {
+      return null;
+    }
 
     // And Add this index to visited routes
-    if (this.state.visitedRoutes.indexOf(route.key) < 0) {
+    if (this.state.visitedRoutes.indexOf(this.state.navigation.index) < 0) {
       this.state.visitedRoutes.push(route.key);
     }
 

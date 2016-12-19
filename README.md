@@ -15,7 +15,7 @@ React Native Starter Kit
 | [Google Analytics](https://github.com/idehub/react-native-google-analytics-bridge) | Shows how to track screen views (includes both a 'debug' mode tracker as well as 'release' mode so that data doesn't get obfuscated). |
 | [Custom Navbar](https://github.com/Kureev/react-native-navbar) | ... |
 | [Icons](https://github.com/oblador/react-native-vector-icons) | Easily use icons from a wide range of icon libraries, it's as simple as importing the icon font and then `<Icon name={'ios-alert-outline'} size={50} color={"#CCC"} />`. |
-| [Form Validation](https://github.com/gcanti/tcomb-form-native) | An exmaple on how to create forms with validation. |
+| [Form Validation](https://github.com/gcanti/tcomb-form-native) | An example on how to create forms with validation. |
 | Data persistence | Shows how to persist data, even after closing/reopening the app. |
 | Style Guide | A bunch of elements and components to get you started - styled headings, buttons, list rows, alerts etc. |
 | An example directory/file structure I've found useful for scaling apps | ... |

@@ -39,7 +39,7 @@ class RecipeCard extends Component {
     content: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     image: PropTypes.string.isRequired,
-    onPress: PropTypes.function,
+    onPress: PropTypes.func,
   }
 
   render = () => {

@@ -17,10 +17,8 @@ import {
 import {
   Tab,
   Tabs,
-  Card,
   List,
   Icon,
-  Button,
   ListItem,
 } from 'react-native-elements';
 
@@ -31,6 +29,8 @@ import AppConfig from '../utils/config';
 // Components
 import Alerts from './alerts';
 import ComingSoon from './soon';
+import Button from './button';
+import Card from './card';
 
 /* Component ==================================================================== */
 class StyleGuide extends Component {
@@ -81,7 +81,7 @@ class StyleGuide extends Component {
           automaticallyAdjustContentInsets={false}
           style={[AppStyles.container]}
         >
-          <Card title={'Typography'} {...AppConfig.cardDefaults}>
+          <Card title={'Typography'}>
             <View>
               <Text style={[AppStyles.h1]}>Heading 1</Text>
               <Text style={[AppStyles.h2]}>Heading 2</Text>
@@ -102,22 +102,40 @@ class StyleGuide extends Component {
             </View>
           </Card>
 
-          <Card title={'Buttons'} {...AppConfig.cardDefaults}>
+          <Card title={'Buttons'}>
             <View>
               <View style={[AppStyles.row]}>
                 <View style={[AppStyles.flex1, AppStyles.paddingRightSml]}>
                   <Button
-                    title={'Default'}
-                    {...AppConfig.buttonDefaults}
+                    large
+                    title={'Large'}
                     onPress={this.navigateTo}
                   />
                 </View>
 
                 <View style={[AppStyles.flex1, AppStyles.paddingLeftSml]}>
                   <Button
-                    title={'Default'}
+                    large
+                    title={'W/ Icon'}
                     icon={{ name: 'code' }}
-                    {...AppConfig.buttonDefaults}
+                    onPress={this.navigateTo}
+                  />
+                </View>
+              </View>
+
+              <View style={[AppStyles.spacer_10]} />
+
+              <View style={[AppStyles.row]}>
+                <View style={[AppStyles.flex1, AppStyles.paddingRightSml]}>
+                  <Button
+                    title={'Default'}
+                    onPress={this.navigateTo}
+                  />
+                </View>
+
+                <View style={[AppStyles.flex1, AppStyles.paddingLeftSml]}>
+                  <Button
+                    title={'Colored'}
                     backgroundColor={'#FB6567'}
                     onPress={this.navigateTo}
                   />
@@ -130,18 +148,18 @@ class StyleGuide extends Component {
                 <View style={[AppStyles.flex1, AppStyles.paddingRightSml]}>
                   <Button
                     title={'Small'}
-                    {...AppConfig.smlButtonDefaults}
+                    small
                     onPress={this.navigateTo}
                   />
                 </View>
 
                 <View style={[AppStyles.flex1, AppStyles.paddingLeftSml]}>
                   <Button
+                    small
+                    outlined
                     iconRight
-                    title={'Small'}
+                    title={'Outlined'}
                     icon={{ name: 'cached' }}
-                    {...AppConfig.smlButtonDefaults}
-                    backgroundColor={'#59DC9A'}
                     onPress={this.navigateTo}
                   />
                 </View>
@@ -149,7 +167,7 @@ class StyleGuide extends Component {
             </View>
           </Card>
 
-          <Card title={'Alerts'} {...AppConfig.cardDefaults}>
+          <Card title={'Alerts'}>
             <Alerts
               status={'Something\'s happening...'}
               success={'Hello Success'}
@@ -180,7 +198,6 @@ class StyleGuide extends Component {
             onPress={this.navigateTo}
           >
             <Card
-              {...AppConfig.cardDefaults}
               image={{ uri: 'http://wp-api.mcnam.ee/wp-content/uploads/2016/10/brekkie-crumble-33651_l.jpeg' }}
             >
               <View style={[AppStyles.paddingLeftSml, AppStyles.paddingBottomSml]}>
@@ -197,7 +214,6 @@ class StyleGuide extends Component {
             onPress={this.navigateTo}
           >
             <Card
-              {...AppConfig.cardDefaults}
               image={{ uri: 'http://wp-api.mcnam.ee/wp-content/uploads/2016/10/brekkie-crumble-33651_l.jpeg' }}
             >
               <View style={[AppStyles.paddingLeftSml, AppStyles.paddingBottomSml]}>

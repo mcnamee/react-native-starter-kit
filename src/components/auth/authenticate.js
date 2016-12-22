@@ -15,16 +15,16 @@ import {
   Image,
   StyleSheet,
 } from 'react-native';
-import { Button } from 'react-native-elements';
 
 // App Globals
 import AppStyles from '../../utils/styles';
 import AppConfig from '../../utils/config';
 
 // Components
-import Login from './login';
-import Index from '../../containers/recipes';
+import Button from '../button';
 import AuthWebView from './webview';
+import Login from '../../containers/login';
+import Index from '../../containers/recipes';
 
 /* Styles ==================================================================== */
 const styles = StyleSheet.create({
@@ -102,14 +102,8 @@ class Authenticate extends Component {
         <View style={[AppStyles.flex1]}>
           <Button
             title={'Login'}
-            icon={{ name: 'lock', color: AppConfig.primaryColor }}
+            icon={{ name: 'lock' }}
             onPress={this.onPressLogin}
-            {...AppConfig.buttonDefaults}
-            color={AppConfig.primaryColor}
-            buttonStyle={{
-              ...AppConfig.buttonDefaults.buttonStyle,
-              backgroundColor: '#fff',
-            }}
           />
         </View>
       </View>
@@ -120,14 +114,8 @@ class Authenticate extends Component {
         <View style={[AppStyles.flex1]}>
           <Button
             title={'Sign up'}
-            icon={{ name: 'face', color: AppConfig.primaryColor }}
+            icon={{ name: 'face' }}
             onPress={this.onPressSignUp}
-            {...AppConfig.buttonDefaults}
-            color={AppConfig.primaryColor}
-            buttonStyle={{
-              ...AppConfig.buttonDefaults.buttonStyle,
-              backgroundColor: '#fff',
-            }}
           />
         </View>
       </View>
@@ -144,15 +132,11 @@ class Authenticate extends Component {
         <View style={[AppStyles.flex1]} />
         <View style={[AppStyles.flex2]}>
           <Button
+            small
             title={'Skip'}
-            {...AppConfig.smlButtonDefaults}
-            buttonStyle={{
-              ...AppConfig.smlButtonDefaults.buttonStyle,
-              backgroundColor: 'transparent',
-              borderColor: '#fff',
-              borderWidth: 1,
-            }}
             onPress={this.onPressSkip}
+            backgroundColor={'#CB009E'}
+            raised={false}
           />
         </View>
         <View style={[AppStyles.flex1]} />

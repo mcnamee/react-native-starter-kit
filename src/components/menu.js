@@ -14,7 +14,6 @@ import {
   StyleSheet,
   TouchableOpacity,
 } from 'react-native';
-import { Button } from 'react-native-elements';
 
 // App Globals
 import AppStyles from '../utils/styles';
@@ -22,6 +21,7 @@ import AppConfig from '../utils/config';
 
 // Components
 import StyleGuide from './style.guide';
+import Button from './button';
 import Login from '../containers/login';
 import Tabs from '../containers/recipes';
 
@@ -167,18 +167,18 @@ class Menu extends Component {
 
                 <View style={[AppStyles.paddingHorizontal, AppStyles.paddingVerticalSml]}>
                   <Button
+                    small
                     title={'Log Out'}
                     onPress={this.logout}
-                    {...AppConfig.smlButtonDefaults}
                   />
                 </View>
               </View>
             :
               <View style={[AppStyles.paddingHorizontal, AppStyles.paddingVerticalSml]}>
                 <Button
+                  small
                   title={'Log In'}
                   onPress={this.login}
-                  {...AppConfig.smlButtonDefaults}
                 />
               </View>
             }

@@ -8,7 +8,7 @@
  */
 
 /* Setup ==================================================================== */
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
 import { Card } from 'react-native-elements';
 
 // App Globals

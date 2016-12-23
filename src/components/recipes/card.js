@@ -40,10 +40,20 @@ class RecipeCard extends Component {
     title: PropTypes.string.isRequired,
     image: PropTypes.string.isRequired,
     onPress: PropTypes.func,
+    onFavourite: PropTypes.func,
+    isFavourited: PropTypes.bool.isRequired,
   }
 
   render = () => {
-    const { title, content, image, onPress } = this.props;
+    const { title, content, image, onPress, onFavourite, isFavourited } = this.props;
+
+    let color = '#FDC12D';
+    let backgroundColor = { backgroundColor: '#FFFFFF' };
+
+    if (isFavourited) {
+      color = '#FFFFFF';
+      backgroundColor = { backgroundColor: '#FDC12D' };
+    }
 
     return (
       <TouchableOpacity activeOpacity={0.8} onPress={onPress}>
@@ -52,8 +62,8 @@ class RecipeCard extends Component {
             <Text style={[AppStyles.h3]}>{title}</Text>
             <Text style={[AppStyles.baseText]}>{content}</Text>
 
-            <TouchableOpacity activeOpacity={0.8} style={[styles.favourite]}>
-              <Icon name={'star-border'} raised color={'#FDC12D'} />
+            <TouchableOpacity activeOpacity={0.8} onPress={onFavourite} style={[styles.favourite]}>
+              <Icon name={'star-border'} containerStyle={backgroundColor} raised color={color} />
             </TouchableOpacity>
           </View>
         </Card>

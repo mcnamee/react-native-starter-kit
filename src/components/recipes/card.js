@@ -18,7 +18,6 @@ import { Icon } from 'react-native-elements';
 
 // App Globals
 import AppStyles from '../../utils/styles';
-import AppAPI from '../../utils/api';
 
 // Components
 import Card from '../card';
@@ -40,7 +39,7 @@ class RecipeCard extends Component {
     content: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     image: PropTypes.string.isRequired,
-    onPress: PropTypes.function,
+    onPress: PropTypes.func,
   }
 
   render = () => {

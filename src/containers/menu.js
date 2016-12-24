@@ -10,7 +10,7 @@ import { connect } from 'react-redux';
 import * as UserActions from '../reducers/user/actions';
 
 // The component we're mapping to
-import Menu from '../components/menu';
+import Menu from '../components/ui/menu';
 
 // What data from the store shall we send to the component?
 const mapStateToProps = state => ({

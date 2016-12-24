@@ -7,8 +7,11 @@
 
 import jwtDecode from 'jwt-decode';
 
-import AppAPI from '../../utils/api';
+import AppAPI from '../../lib/api';
 
+/**
+  * Login to API and receive Token
+  */
 export function login(credentials, freshLogin) {
   return dispatch => new Promise(async (resolve, reject) => {
     const userCreds = credentials || null;
@@ -50,6 +53,9 @@ export function login(credentials, freshLogin) {
   });
 }
 
+/**
+  * Logout
+  */
 export function logout() {
   return dispatch => AppAPI.deleteToken()
     .then(() => {
@@ -57,5 +63,36 @@ export function logout() {
         type: 'USER_REPLACE',
         data: {},
       });
+    });
+}
+
+/**
+  * Get My User Data
+  */
+export function getMe() {
+  return dispatch => AppAPI.me.get()
+    .then((userData) => {
+      dispatch({
+        type: 'USER_REPLACE',
+        data: userData,
+      });
+
+      return userData;
+    });
+}
+
+/**
+  * Update My User Data
+  * - Receives complete user data in return
+  */
+export function updateMe(payload) {
+  return dispatch => AppAPI.me.post(payload)
+    .then((userData) => {
+      dispatch({
+        type: 'USER_REPLACE',
+        data: userData,
+      });
+
+      return userData;
     });
 }

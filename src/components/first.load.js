@@ -17,11 +17,11 @@ import {
 } from 'react-native';
 
 // App Globals
-import AppStyles from '../utils/styles';
-import AppConfig from '../utils/config';
+import AppStyles from '../config/styles';
+import AppConfig from '../config/';
 
 // Components
-import Index from '../containers/recipes';
+import Index from './home';
 import Authenticate from './auth/authenticate';
 
 /* Styles ==================================================================== */

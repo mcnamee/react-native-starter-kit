@@ -16,14 +16,14 @@ import {
 } from 'react-native';
 
 // App Globals
-import AppStyles from '../utils/styles';
-import AppConfig from '../utils/config';
+import AppStyles from '../../config/styles';
+import AppConfig from '../../config/';
 
 // Components
-import StyleGuide from './style.guide';
+import ComingSoon from '../general/soon';
 import Button from './button';
-import Login from '../containers/login';
-import Tabs from '../containers/recipes';
+import Login from '../../containers/login';
+import Tabs from '../home';
 
 /* Styles ==================================================================== */
 const MENU_BG_COLOR = '#2E3234';
@@ -99,7 +99,7 @@ class Menu extends Component {
     this.state = {
       menu: [
         { title: 'Recipes', component: Tabs },
-        { title: 'Style Guide', component: StyleGuide },
+        { title: 'Example Link', component: ComingSoon },
       ],
     };
   }

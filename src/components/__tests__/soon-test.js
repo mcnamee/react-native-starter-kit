@@ -7,7 +7,7 @@ import 'react-native';
 import React from 'react';
 import renderer from 'react-test-renderer';
 
-import Soon from '../soon';
+import Soon from '../general/soon';
 
 /**
  * Check if alerts renders correcly

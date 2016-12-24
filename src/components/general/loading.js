@@ -16,7 +16,7 @@ import {
 } from 'react-native';
 
 // App Globals
-import AppStyles from '../utils/styles';
+import AppStyles from '../../config/styles';
 
 /* Component ==================================================================== */
 const Loading = ({ text, transparent }) => (

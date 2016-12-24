@@ -12,21 +12,15 @@ import React, { Component } from 'react';
 import { Card } from 'react-native-elements';
 
 // App Globals
-import AppConfig from '../utils/config';
+import AppConfig from '../../config/';
 
 /* Component ==================================================================== */
 class CustomCard extends Component {
-  static propTypes = {
-  }
-
-  static defaultProps = {
-  }
-
   cardProps = () => {
     // Defaults
     const props = {
       containerStyle: {
-        borderRadius: AppConfig.borderRadius,
+        borderRadius: AppConfig.theme.borderRadius,
       },
       ...this.props,
     };

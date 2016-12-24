@@ -16,8 +16,8 @@ import {
 } from 'react-native';
 
 // App Globals
-import AppStyles from '../utils/styles';
-import AppConfig from '../utils/config';
+import AppStyles from '../../config/styles';
+import AppConfig from '../../config/';
 
 // Components
 import Loading from './loading';
@@ -26,7 +26,7 @@ import Error from './error';
 /* Styles ==================================================================== */
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: AppConfig.backgroundColor,
+    backgroundColor: AppConfig.theme.backgroundColor,
   },
 });
 

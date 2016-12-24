@@ -7,10 +7,18 @@
 /* global __DEV__ */
 import { Dimensions } from 'react-native';
 
+import ErrorMessages from './errors';
+import AppTheme from './theme';
+
 const window = Dimensions.get('window');
 
 /* Setup ==================================================================== */
 const AppConfig = {
+  // Import other config =========================================
+  errors: { ...ErrorMessages },
+  theme: { ...AppTheme },
+
+  // Generic Configuration =======================================
   // App Details
   appName: 'Starter Kit',
 
@@ -42,7 +50,7 @@ const AppConfig = {
   endpoints: new Map([
     ['login', '/wp-json/jwt-auth/v1/token'],
     ['users', '/wp-json/wp/v2/users'],
-    ['favourites', '/wp-json/wp/v2/users/me'],
+    ['me', '/wp-json/wp/v2/users/me'],
     ['recipes', '/wp-json/wp/v2/recipes'],
     ['meals', '/wp-json/wp/v2/recipe_meal'],
   ]),
@@ -52,27 +60,6 @@ const AppConfig = {
     resetPassword: 'http://wp-api.mcnam.ee/wp-login.php?action=lostpassword',
     signUp: 'http://wp-api.mcnam.ee/wp-login.php?action=register',
   },
-
-  // Default Error Messages
-  errors: {
-    default: 'Hmm, an unknown error occured.',
-    timeout: 'Server Timed Out. Check your internet connection.',
-    invalidJson: 'Response returned is not valid JSON',
-  },
-
-  // Fonts
-  baseFont: 'Avenir',
-  baseFontSize: 14,
-
-  // Colors
-  primaryColor: '#0E4EF8',
-  secondaryColor: '#17233D',
-  textColor: '#222222',
-  borderColor: '#D0D1D5',
-  backgroundColor: '#E9EBEE',
-
-  // Other Styles
-  borderRadius: 2,
 };
 
 /* Export ==================================================================== */

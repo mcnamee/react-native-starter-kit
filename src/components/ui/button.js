@@ -13,7 +13,7 @@ import { Alert } from 'react-native';
 import { Button } from 'react-native-elements';
 
 // App Globals
-import AppConfig from '../utils/config';
+import AppConfig from '../../config/';
 
 /* Component ==================================================================== */
 class CustomButton extends Component {
@@ -39,12 +39,12 @@ class CustomButton extends Component {
     const props = {
       title: 'Coming Soon...',
       onPress: () => Alert.alert('Coming soon...'),
-      backgroundColor: AppConfig.primaryColor,
+      backgroundColor: AppConfig.theme.primaryColor,
       color: '#fff',
       fontWeight: 'bold',
-      fontFamily: AppConfig.baseFont,
-      fontSize: AppConfig.baseFontSize,
-      borderRadius: AppConfig.borderRadius,
+      fontFamily: AppConfig.theme.baseFont,
+      fontSize: AppConfig.theme.baseFontSize,
+      borderRadius: AppConfig.theme.borderRadius,
       raised: true,
       buttonStyle: {
         padding: 12,
@@ -90,14 +90,14 @@ class CustomButton extends Component {
     if (this.props.outlined) {
       props.raised = false;
       props.backgroundColor = this.props.backgroundColor || 'transparent';
-      props.color = AppConfig.primaryColor;
+      props.color = AppConfig.theme.primaryColor;
       props.buttonStyle.borderWidth = 1;
-      props.buttonStyle.borderColor = AppConfig.primaryColor;
+      props.buttonStyle.borderColor = AppConfig.theme.primaryColor;
 
       if (props.icon && props.icon.name) {
         props.icon = {
           ...props.icon,
-          color: AppConfig.primaryColor,
+          color: AppConfig.theme.primaryColor,
         };
       }
     }

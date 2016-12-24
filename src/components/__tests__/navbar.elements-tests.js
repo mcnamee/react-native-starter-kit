@@ -7,7 +7,7 @@ import 'react-native';
 import React from 'react';
 import renderer from 'react-test-renderer';
 
-import NavbarElements from '../navbar.elements';
+import NavbarElements from '../ui/navbar.elements';
 
 /*
  * Check if alerts renders correcly

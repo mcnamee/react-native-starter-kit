@@ -16,7 +16,7 @@ import {
 import Icon from 'react-native-vector-icons/Ionicons';
 
 // App Globals
-import AppStyles from '../utils/styles';
+import AppStyles from '../../config/styles';
 
 /* Component ==================================================================== */
 const Error = ({ text }) => (
@@ -31,6 +31,7 @@ const Error = ({ text }) => (
 
 Error.propTypes = { text: PropTypes.string };
 Error.defaultProps = { text: 'Woops, Something went wrong.' };
+Error.componentName = 'Error';
 
 /* Export Component ==================================================================== */
 export default Error;

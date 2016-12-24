@@ -57,14 +57,15 @@ React Native Starter Kit helps you get started with React Native. It contains a 
 ### 3.2 File Structure
 
 ```
-  /src  <-- Contains the full React Native App codebase
-    /components  <-- Screens, components - stuff that you view
-    /containers  <-- Redux containers - these components map redux actions and data to our components
-    /images  <-- Self explanatory right?
-    /reducers  <-- Redux Reducers & Actions grouped by type
-    /utils  <-- App-wide config, styles, functionality etc
-  /android  <-- The native Android stuff
-  /ios  <-- The native iOS stuff
+  /android       <-- The native Android stuff
+  /ios           <-- The native iOS stuff
+  /src           <-- Contains the full React Native App codebase
+    /components  <-- Presentational, state-less, 'dumb-components'
+    /config      <-- App-wide config
+    /containers  <-- The business logic, provides data to presentation
+    /images      <-- Self explanatory right?
+    /reducers    <-- Redux Reducers & Actions grouped by type
+    /lib         <-- Utils, custom libraries, functions
 ```
 
 ---
@@ -81,7 +82,7 @@ React Native Starter Kit helps you get started with React Native. It contains a 
 
 | Function | iOS | Android |
 |---|---|---|
-| **Testing project in an emulator** | <ol><li>Open the /ios/StarterKit.xcodeproj file in Xcode</li><li>Select the iOS simulator then press the Play (triangle) icon at the top left</li></ul> | <ol><li>From terminal, run `android avd`. This will open the Android Virtual Device Manager. Select a device to open. </li><li>In a new terminal window, enter the root directory of the project, then run: `react-native run-android`</li></ul> |
+| **Running in an Emulator** | <ol><li>Open the /ios/StarterKit.xcodeproj file in Xcode</li><li>Select the iOS simulator then press the Play (triangle) icon at the top left</li></ul> | <ol><li>From terminal, run `android avd`. This will open the Android Virtual Device Manager. Select a device to open. </li><li>In a new terminal window, enter the root directory of the project, then run: `react-native run-android`</li></ul> |
 | **Running on Device** | [iOS Guide](https://facebook.github.io/react-native/docs/running-on-device-ios.html) | [Android Guide](https://facebook.github.io/react-native/docs/running-on-device-android.html) |
 | **Opening the Debug Menu** | CMD + D | CMD + M |
 | **Reload** | CMD + R | Double tap R on your keyboard |

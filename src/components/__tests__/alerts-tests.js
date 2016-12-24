@@ -7,7 +7,7 @@ import 'react-native';
 import React from 'react';
 import renderer from 'react-test-renderer';
 
-import Alerts from '../alerts';
+import Alerts from '../ui/alerts';
 
 /**
  * Check if alerts renders correcly

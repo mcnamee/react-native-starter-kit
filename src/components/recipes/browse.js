@@ -17,14 +17,13 @@ import {
 import { TabViewAnimated, TabBarTop } from 'react-native-tab-view';
 
 // App Globals
-import AppStyles from '../../utils/styles';
-import AppConfig from '../../utils/config';
-import AppAPI from '../../utils/api';
+import AppConfig from '../../config/';
+import AppAPI from '../../lib/api';
 
 // Components
-import Loading from '../loading';
-import Error from '../error';
-import RecipeListing from './listing';
+import Loading from '../general/loading';
+import Error from '../general/error';
+import RecipeListing from '../../containers/recipes/meal.listing';
 
 /* Styles ==================================================================== */
 const styles = StyleSheet.create({
@@ -33,7 +32,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   tabbar: {
-    backgroundColor: AppConfig.primaryColor,
+    backgroundColor: AppConfig.theme.primaryColor,
   },
   tabbarIndicator: {
     backgroundColor: '#FFF',
@@ -159,7 +158,7 @@ class RecipeTabs extends Component {
 
     // Which component should be loaded?
     return (
-      <View style={AppStyles.windowSize}>
+      <View style={styles.tabContainer}>
         <RecipeListing
           meal={route.id}
           navigator={this.props.navigator}

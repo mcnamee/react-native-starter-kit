@@ -12,7 +12,7 @@ import DeviceInfo from 'react-native-device-info';
 import JWT from './api.jwt';
 
 // App Globals
-import AppConfig from './config';
+import AppConfig from '../config/';
 import AppUtil from './util';
 
 // We'll use JWT for API Authentication

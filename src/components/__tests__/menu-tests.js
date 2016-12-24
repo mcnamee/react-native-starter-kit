@@ -5,7 +5,7 @@
 
 import 'react-native'
 import React    from 'react'
-import NavMenu  from '../menu'
+import NavMenu  from '../ui/menu'
 import renderer from 'react-test-renderer'
 
 /**

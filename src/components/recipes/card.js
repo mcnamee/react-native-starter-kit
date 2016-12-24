@@ -17,10 +17,10 @@ import {
 import { Icon } from 'react-native-elements';
 
 // App Globals
-import AppStyles from '../../utils/styles';
+import AppStyles from '../../config/styles';
 
 // Components
-import Card from '../card';
+import Card from '../ui/card';
 
 /* Styles ==================================================================== */
 const styles = StyleSheet.create({
@@ -36,24 +36,16 @@ class RecipeCard extends Component {
   static componentName = 'RecipeCard';
 
   static propTypes = {
-    content: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired,
     image: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    content: PropTypes.string.isRequired,
     onPress: PropTypes.func,
-    onFavourite: PropTypes.func,
-    isFavourited: PropTypes.bool.isRequired,
+    onPressFavourite: PropTypes.func,
+    isFavourite: PropTypes.bool,
   }
 
   render = () => {
-    const { title, content, image, onPress, onFavourite, isFavourited } = this.props;
-
-    let color = '#FDC12D';
-    let backgroundColor = { backgroundColor: '#FFFFFF' };
-
-    if (isFavourited) {
-      color = '#FFFFFF';
-      backgroundColor = { backgroundColor: '#FDC12D' };
-    }
+    const { title, content, image, onPress, onPressFavourite, isFavourite } = this.props;
 
     return (
       <TouchableOpacity activeOpacity={0.8} onPress={onPress}>
@@ -62,9 +54,22 @@ class RecipeCard extends Component {
             <Text style={[AppStyles.h3]}>{title}</Text>
             <Text style={[AppStyles.baseText]}>{content}</Text>
 
-            <TouchableOpacity activeOpacity={0.8} onPress={onFavourite} style={[styles.favourite]}>
-              <Icon name={'star-border'} containerStyle={backgroundColor} raised color={color} />
-            </TouchableOpacity>
+            {!!onPressFavourite &&
+              <TouchableOpacity
+                activeOpacity={0.8}
+                onPress={onPressFavourite}
+                style={[styles.favourite]}
+              >
+                <Icon
+                  raised
+                  name={'star-border'}
+                  color={isFavourite ? '#FFFFFF' : '#FDC12D'}
+                  containerStyle={{
+                    backgroundColor: isFavourite ? '#FDC12D' : '#FFFFFF',
+                  }}
+                />
+              </TouchableOpacity>
+            }
           </View>
         </Card>
       </TouchableOpacity>

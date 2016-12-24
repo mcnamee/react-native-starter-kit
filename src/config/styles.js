@@ -10,7 +10,7 @@ import {
 } from 'react-native';
 
 // App Globals
-import AppConfig from './config';
+import AppConfig from './index';
 
 /* Styles ==================================================================== */
 module.exports = StyleSheet.create({
@@ -23,7 +23,7 @@ module.exports = StyleSheet.create({
     position: 'relative',
     flex: 1,
     flexDirection: 'column',
-    backgroundColor: AppConfig.backgroundColor,
+    backgroundColor: AppConfig.theme.backgroundColor,
   },
   containerCentered: {
     justifyContent: 'center',
@@ -34,7 +34,6 @@ module.exports = StyleSheet.create({
     width: AppConfig.windowWidth,
   },
   listView: {
-    paddingBottom: AppConfig.navbarHeight + AppConfig.statusBarHeight,
   },
 
   // Aligning items
@@ -44,17 +43,17 @@ module.exports = StyleSheet.create({
 
   // Text Styles
   baseText: {
-    fontFamily: AppConfig.baseFont,
+    fontFamily: AppConfig.theme.baseFont,
     fontWeight: '500',
-    color: AppConfig.textColor,
-    fontSize: AppConfig.baseFontSize,
-    lineHeight: parseInt(AppConfig.baseFontSize + (AppConfig.baseFontSize * 0.5), 10),
+    color: AppConfig.theme.textColor,
+    fontSize: AppConfig.theme.baseFontSize,
+    lineHeight: parseInt(AppConfig.theme.baseFontSize + (AppConfig.theme.baseFontSize * 0.5), 10),
   },
   h1: {
-    fontFamily: AppConfig.baseFont,
-    fontSize: AppConfig.baseFontSize * 2,
-    lineHeight: parseInt((AppConfig.baseFontSize * 2) + (AppConfig.baseFontSize * 0.5), 10),
-    color: AppConfig.primaryColor,
+    fontFamily: AppConfig.theme.baseFont,
+    fontSize: AppConfig.theme.baseFontSize * 2,
+    lineHeight: parseInt((AppConfig.theme.baseFontSize * 2) + (AppConfig.theme.baseFontSize * 0.5), 10),
+    color: AppConfig.theme.primaryColor,
     fontWeight: '800',
     margin: 0,
     marginTop: 4,
@@ -63,10 +62,10 @@ module.exports = StyleSheet.create({
     right: 0,
   },
   h2: {
-    fontFamily: AppConfig.baseFont,
-    color: AppConfig.primaryColor,
-    fontSize: AppConfig.baseFontSize * 1.5,
-    lineHeight: parseInt((AppConfig.baseFontSize * 1.5) + (AppConfig.baseFontSize * 0.5), 10),
+    fontFamily: AppConfig.theme.baseFont,
+    color: AppConfig.theme.primaryColor,
+    fontSize: AppConfig.theme.baseFontSize * 1.5,
+    lineHeight: parseInt((AppConfig.theme.baseFontSize * 1.5) + (AppConfig.theme.baseFontSize * 0.5), 10),
     margin: 0,
     marginTop: 4,
     marginBottom: 4,
@@ -74,11 +73,11 @@ module.exports = StyleSheet.create({
     right: 0,
   },
   h3: {
-    fontFamily: AppConfig.baseFont,
+    fontFamily: AppConfig.theme.baseFont,
     fontWeight: '500',
-    color: AppConfig.primaryColor,
-    fontSize: AppConfig.baseFontSize * 1.25,
-    lineHeight: parseInt((AppConfig.baseFontSize * 1.25) + (AppConfig.baseFontSize * 0.5), 10),
+    color: AppConfig.theme.primaryColor,
+    fontSize: AppConfig.theme.baseFontSize * 1.25,
+    lineHeight: parseInt((AppConfig.theme.baseFontSize * 1.25) + (AppConfig.theme.baseFontSize * 0.5), 10),
     margin: 0,
     marginTop: 4,
     marginBottom: 4,
@@ -86,11 +85,11 @@ module.exports = StyleSheet.create({
     right: 0,
   },
   h4: {
-    fontFamily: AppConfig.baseFont,
+    fontFamily: AppConfig.theme.baseFont,
     fontWeight: '800',
-    color: AppConfig.primaryColor,
-    fontSize: AppConfig.baseFontSize * 1.1,
-    lineHeight: parseInt((AppConfig.baseFontSize * 1.1) + (AppConfig.baseFontSize * 0.5), 10),
+    color: AppConfig.theme.primaryColor,
+    fontSize: AppConfig.theme.baseFontSize * 1.1,
+    lineHeight: parseInt((AppConfig.theme.baseFontSize * 1.1) + (AppConfig.theme.baseFontSize * 0.5), 10),
     margin: 0,
     marginTop: 4,
     marginBottom: 4,
@@ -98,19 +97,19 @@ module.exports = StyleSheet.create({
     right: 0,
   },
   p: {
-    fontFamily: AppConfig.baseFont,
+    fontFamily: AppConfig.theme.baseFont,
     marginBottom: 8,
     fontWeight: '500',
-    color: AppConfig.textColor,
-    fontSize: AppConfig.baseFontSize,
-    lineHeight: parseInt(AppConfig.baseFontSize + (AppConfig.baseFontSize * 0.5), 10),
+    color: AppConfig.theme.textColor,
+    fontSize: AppConfig.theme.baseFontSize,
+    lineHeight: parseInt(AppConfig.theme.baseFontSize + (AppConfig.theme.baseFontSize * 0.5), 10),
   },
   strong: {
     fontWeight: '900',
   },
   link: {
     textDecorationLine: 'underline',
-    color: AppConfig.primaryColor,
+    color: AppConfig.theme.primaryColor,
   },
 
   // Helper Text Styles
@@ -172,7 +171,7 @@ module.exports = StyleSheet.create({
     left: 0,
     right: 0,
     borderBottomWidth: 1,
-    borderBottomColor: AppConfig.borderColor,
+    borderBottomColor: AppConfig.theme.borderColor,
     height: 1,
     backgroundColor: 'transparent',
     marginTop: 20,

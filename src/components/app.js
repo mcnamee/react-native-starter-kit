@@ -17,14 +17,14 @@ import SideMenu from 'react-native-side-menu';
 import { GoogleAnalyticsTracker } from 'react-native-google-analytics-bridge';
 
 // App Globals
-import AppStyles from '../utils/styles';
-import AppConfig from '../utils/config';
-import AppUtil from '../utils/util';
+import AppStyles from '../config/styles';
+import AppConfig from '../config/';
+import AppUtil from '../lib/util';
 
 // Components
 import Menu from '../containers/menu';
 import Index from '../containers/first.load';
-import NavbarElements from '../components/navbar.elements';
+import NavbarElements from '../components/ui/navbar.elements';
 
 // Google Analytics
 const GoogleAnalytics = new GoogleAnalyticsTracker(AppConfig.gaTrackingId);
@@ -112,7 +112,7 @@ class AppContainer extends Component {
             title={<NavbarElements.Title title={navbarTitle || null} />}
             statusBar={{ style: 'light-content', hidden: false }}
             style={[AppStyles.navbar]}
-            tintColor={AppConfig.primaryColor}
+            tintColor={AppConfig.theme.primaryColor}
             leftButton={
               <NavbarElements.LeftButton
                 onPress={leftButton.onPress}

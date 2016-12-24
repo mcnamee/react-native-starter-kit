@@ -15,216 +15,79 @@ import {
 } from 'react-native';
 
 // App Globals
-import AppStyles from '../../utils/styles';
-import AppConfig from '../../utils/config';
-import AppUtil from '../../utils/util';
-import AppAPI from '../../utils/api';
+import AppStyles from '../../config/styles';
+import AppConfig from '../../config/';
 
 // Components
-import Error from '../error';
-import Loading from '../loading';
-import RecipeView from './view';
-import RecipeCard from './card';
+import Error from '../general/error';
+import RecipeCard from '../../containers/recipes/card';
 
 /* Component ==================================================================== */
 class RecipeListing extends Component {
   static componentName = 'RecipeListing';
 
   static propTypes = {
-    navigator: PropTypes.shape({
-      push: PropTypes.func.isRequired,
-    }).isRequired,
-    meal: PropTypes.string.isRequired,
+    navigator: PropTypes.shape({}).isRequired,
+    recipes: PropTypes.arrayOf(PropTypes.object).isRequired,
+    reFetch: PropTypes.func,
   }
 
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
 
     this.state = {
-      loading: true,
-      isRefreshing: false,
-      data: [],
+      isRefreshing: true,
       dataSource: new ListView.DataSource({
         rowHasChanged: (row1, row2) => row1 !== row2,
       }),
-      favourites: [],
     };
   }
 
-  componentDidMount = () => {
-    this.fetchData();
-  }
-
-  /**
-    * Each Row Item
-    */
-  onPressRow = (title, data) => {
-    this.props.navigator.push({
-      title: title || '',
-      component: RecipeView,
-      index: 2,
-      transition: 'FloatFromBottom',
-      passProps: {
-        recipe: data,
-      },
+  componentWillReceiveProps(props) {
+    this.setState({
+      dataSource: this.state.dataSource.cloneWithRows(props.recipes),
+      isRefreshing: false,
     });
   }
 
-  onPressFavourite = (recipe) => {
-    let favouriteExists = false;
-    const newFavourites = this.state.favourites;
-
-    newFavourites.forEach((newFavourite, key) => {
-      if (String(recipe.id) === String(newFavourite.recipe_id)) {
-        favouriteExists = true;
-
-        newFavourites.splice(key, 1);
-      }
-    });
-
-    if (favouriteExists) {
-      this.applyFavourites(newFavourites);
-
-      return;
-    }
-
-    newFavourites.push({ recipe_id: recipe.id });
-
-    this.applyFavourites(newFavourites);
-  }
-
-  applyFavourites = (recipes) => {
-    const payload = {
-      fields: {
-        favourite_recipes: recipes,
-      },
-    };
-
-    AppAPI.favourites.post(payload)
-      .then((res) => {
-        if (res.acf && res.acf.favourite_recipes) {
-          this.setState({
-            favourites: res.acf.favourite_recipes,
-          });
-        }
-      }).catch((err) => {
-        const error = AppAPI.handleError(err);
-        this.setState({ error });
-      });
-  }
-
   /**
-    * Fetch Data from API
+    * Refetch Data (Pull to Refresh)
     */
-  fetchData = () => {
-    const { meal } = this.props;
+  reFetch = () => {
+    if (this.props.reFetch) {
+      this.setState({ isRefreshing: true });
 
-    // Forgot to pass in a category?
-    if (!meal) {
-      this.setState({
-        error: 'Missing meal definition',
-      });
-    }
-
-    this.setState({ isRefreshing: true });
-
-    AppAPI.recipes.get({ recipe_meal: meal })
-      .then((res) => {
-        this.setState({
-          data: res,
-          dataSource: this.state.dataSource.cloneWithRows(res),
-          isRefreshing: false,
-          loading: false,
+      this.props.reFetch()
+        .then(() => {
+          this.setState({ isRefreshing: false });
         });
-      }).catch((err) => {
-        const error = AppAPI.handleError(err);
-        this.setState({
-          data: [],
-          error,
-          loading: false,
-          isRefreshing: false,
-        });
-      });
-
-    AppAPI.favourites.get()
-      .then((res) => {
-        if (res.acf && res.acf.favourite_recipes) {
-          this.setState({
-            favourites: res.acf.favourite_recipes,
-          });
-        }
-      }).catch(() => {
-        // Do nothing
-      });
-  }
-
-  /**
-    * Each Row Item
-    */
-  renderRow = (data) => {
-    const recipe = data;
-    const { title, content } = data;
-    const featuredImg = data.better_featured_image;
-    title.rendered = AppUtil.htmlEntitiesDecode(title.rendered);
-
-    // Produce a summary
-    content.rendered = AppUtil.htmlEntitiesDecode(content.rendered);
-    content.rendered = AppUtil.stripTags(content.rendered);
-    const summary = AppUtil.limitChars(content.rendered, 60);
-
-    // Is there a better way to test this?
-    recipe.featured_image = (
-      featuredImg &&
-      featuredImg.media_details &&
-      featuredImg.media_details.sizes &&
-      featuredImg.media_details.sizes.medium &&
-      featuredImg.media_details.sizes.medium.source_url
-    ) ?
-      featuredImg.media_details.sizes.medium.source_url : '';
-
-    let favourited = false;
-
-    this.state.favourites.forEach((favourite) => {
-      if (String(favourite.recipe_id) === String(recipe.id)) {
-        favourited = true;
-      }
-    });
-
-    return (
-      <RecipeCard
-        content={summary}
-        isFavourited={favourited}
-        onFavourite={() => this.onPressFavourite(recipe)}
-        onPress={() => this.onPressRow(title.rendered, recipe)}
-        title={title.rendered}
-        image={recipe.featured_image}
-      />
-    );
+    }
   }
 
   render = () => {
-    if (this.state.loading) return <Loading />;
-    if (this.state.error) return <Error text={this.state.error} />;
+    const { recipes } = this.props;
+    const { isRefreshing, dataSource } = this.state;
 
-    if (!this.state.data || this.state.data.length < 1) {
-      return <Error text={'Nothing found'} />;
+    if (!isRefreshing && (!recipes || recipes.length < 1)) {
+      return <Error text={AppConfig.errors.recipe404} />;
     }
 
     return (
       <View style={[AppStyles.container]}>
         <ListView
           initialListSize={8}
-          renderRow={this.renderRow}
-          dataSource={this.state.dataSource}
+          renderRow={recipe => <RecipeCard navigator={this.props.navigator} recipe={recipe} />}
+          dataSource={dataSource}
           contentContainerStyle={[AppStyles.listView]}
-          style={[{ marginBottom: 20 }]}
           automaticallyAdjustContentInsets={false}
           refreshControl={
-            <RefreshControl
-              refreshing={this.state.isRefreshing}
-              onRefresh={this.fetchData}
-              tintColor={AppConfig.primaryColor}
-            />
+            this.props.reFetch ?
+              <RefreshControl
+                refreshing={isRefreshing}
+                onRefresh={this.reFetch}
+                tintColor={AppConfig.theme.primaryColor}
+              />
+            : null
           }
         />
       </View>

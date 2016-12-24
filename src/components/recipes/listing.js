@@ -47,6 +47,7 @@ class RecipeListing extends Component {
       dataSource: new ListView.DataSource({
         rowHasChanged: (row1, row2) => row1 !== row2,
       }),
+      favourites: [],
     };
   }
 
@@ -67,6 +68,49 @@ class RecipeListing extends Component {
         recipe: data,
       },
     });
+  }
+
+  onPressFavourite = (recipe) => {
+    let favouriteExists = false;
+    const newFavourites = this.state.favourites;
+
+    newFavourites.forEach((newFavourite, key) => {
+      if (String(recipe.id) === String(newFavourite.recipe_id)) {
+        favouriteExists = true;
+
+        newFavourites.splice(key, 1);
+      }
+    });
+
+    if (favouriteExists) {
+      this.applyFavourites(newFavourites);
+
+      return;
+    }
+
+    newFavourites.push({ recipe_id: recipe.id });
+
+    this.applyFavourites(newFavourites);
+  }
+
+  applyFavourites = (recipes) => {
+    const payload = {
+      fields: {
+        favourite_recipes: recipes,
+      },
+    };
+
+    AppAPI.favourites.post(payload)
+      .then((res) => {
+        if (res.acf && res.acf.favourite_recipes) {
+          this.setState({
+            favourites: res.acf.favourite_recipes,
+          });
+        }
+      }).catch((err) => {
+        const error = AppAPI.handleError(err);
+        this.setState({ error });
+      });
   }
 
   /**
@@ -101,6 +145,17 @@ class RecipeListing extends Component {
           isRefreshing: false,
         });
       });
+
+    AppAPI.favourites.get()
+      .then((res) => {
+        if (res.acf && res.acf.favourite_recipes) {
+          this.setState({
+            favourites: res.acf.favourite_recipes,
+          });
+        }
+      }).catch(() => {
+        // Do nothing
+      });
   }
 
   /**
@@ -127,9 +182,19 @@ class RecipeListing extends Component {
     ) ?
       featuredImg.media_details.sizes.medium.source_url : '';
 
+    let favourited = false;
+
+    this.state.favourites.forEach((favourite) => {
+      if (String(favourite.recipe_id) === String(recipe.id)) {
+        favourited = true;
+      }
+    });
+
     return (
       <RecipeCard
         content={summary}
+        isFavourited={favourited}
+        onFavourite={() => this.onPressFavourite(recipe)}
         onPress={() => this.onPressRow(title.rendered, recipe)}
         title={title.rendered}
         image={recipe.featured_image}

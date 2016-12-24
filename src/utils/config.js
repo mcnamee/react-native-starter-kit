@@ -42,6 +42,7 @@ const AppConfig = {
   endpoints: new Map([
     ['login', '/wp-json/jwt-auth/v1/token'],
     ['users', '/wp-json/wp/v2/users'],
+    ['favourites', '/wp-json/wp/v2/users/me'],
     ['recipes', '/wp-json/wp/v2/recipes'],
     ['meals', '/wp-json/wp/v2/recipe_meal'],
   ]),

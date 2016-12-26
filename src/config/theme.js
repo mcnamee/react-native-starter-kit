@@ -17,6 +17,15 @@ export default {
   borderColor: '#D0D1D5',
   backgroundColor: '#E9EBEE',
 
+  // NavBar
+  navbar: {
+    backgroundColor: '#0E4EF8',
+    border: 0,
+  },
+  navbarTitle: {
+    color: '#fff',
+  },
+
   // Other Styles
   borderRadius: 2,
 };

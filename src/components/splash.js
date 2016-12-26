@@ -15,6 +15,7 @@ import {
   StyleSheet,
   ActivityIndicator,
 } from 'react-native';
+import { Actions } from 'react-native-router-flux';
 
 // App Globals
 import AppStyles from '@config/styles';
@@ -51,19 +52,21 @@ class FirstLoad extends Component {
     this.props.login()
       .then(() => {
         // Logged in, show index screen
-        this.props.navigator.replace({
+        /*this.props.navigator.replace({
           title: AppConfig.appName,
           component: Index,
           index: 0,
-        });
+        });*/
+        Actions.home();
       }).catch(() => {
         // Not Logged in, show Login screen
-        this.props.navigator.replace({
+        /*this.props.navigator.replace({
           title: 'Login',
           component: Authenticate,
           index: 0,
           hideNavbar: true,
-        });
+        });*/
+        Actions.authenticate();
       });
   }
 

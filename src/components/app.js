@@ -15,10 +15,12 @@ import {
 import NavigationBar from 'react-native-navbar';
 import SideMenu from 'react-native-side-menu';
 import { GoogleAnalyticsTracker } from 'react-native-google-analytics-bridge';
+import { Router, Actions } from 'react-native-router-flux';
 
 // App Globals
 import AppUtil from '@lib/util';
 import AppConfig from '@config/';
+import AppRoutes from '@config/routes';
 import AppStyles from '@config/styles';
 
 // Containers
@@ -47,18 +49,18 @@ class AppContainer extends Component {
     this.props.closeSideMenu();
 
     let passProps = extraProps;
-
     if (AppUtil.objIsEmpty(extraProps)) {
       passProps = {};
     }
 
     // Change Scene
-    this.rootNavigator.replace({
+    Actions.styleguide();
+    /*this.rootNavigator.replace({
       title,
       component,
       index: 0,
       ...passProps,
-    });
+    });*/
   }
 
   /**
@@ -123,7 +125,6 @@ class AppContainer extends Component {
             }
           />
         }
-
         <route.component navigator={navigator} route={route} {...route.passProps} />
       </View>
     );
@@ -143,8 +144,8 @@ class AppContainer extends Component {
         isOpen={this.props.sideMenuIsOpen}
         onChange={this.onSideMenuChange}
       >
-
-        <Navigator
+        <Router scenes={AppRoutes} />
+        {/*<Navigator
           ref={(c) => { this.rootNavigator = c; }}
           style={[AppStyles.container, AppStyles.appContainer]}
           renderScene={this.renderScene}
@@ -160,7 +161,7 @@ class AppContainer extends Component {
             navigator: this.rootNavigator,
             hideNavbar: true,
           }}
-        />
+        />*/}
 
       </SideMenu>
     );

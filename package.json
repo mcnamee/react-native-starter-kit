@@ -25,6 +25,7 @@
     "react-native-elements": "^0.8.2",
     "react-native-google-analytics-bridge": "^4.0.1",
     "react-native-navbar": "^1.5.4",
+    "react-native-router-flux": "^3.37.0",
     "react-native-side-menu": "^0.20.1",
     "react-native-tab-view": "0.0.42",
     "react-native-vector-icons": "^3.0.0",

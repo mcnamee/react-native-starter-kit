@@ -17,12 +17,12 @@ import {
 } from 'react-native';
 
 // App Globals
-import AppStyles from '../config/styles';
-import AppConfig from '../config/';
+import AppStyles from '@config/styles';
+import AppConfig from '@config/';
 
 // Components
-import Index from './home';
-import Authenticate from './auth/authenticate';
+import Index from '@components/home';
+import Authenticate from '@components/auth/authenticate';
 
 /* Styles ==================================================================== */
 const styles = StyleSheet.create({
@@ -70,7 +70,7 @@ class FirstLoad extends Component {
   render = () => (
     <View style={[AppStyles.container]}>
       <Image
-        source={require('../images/launch.jpg')}
+        source={require('@images/launch.jpg')}
         style={[styles.launchImage, AppStyles.containerCentered]}
       >
         <ActivityIndicator

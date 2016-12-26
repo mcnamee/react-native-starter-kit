@@ -11,7 +11,7 @@
 import React, { Component, PropTypes } from 'react';
 
 // Components
-import WebView from '../general/webview';
+import WebView from '@components/general/webview';
 
 let timeout;
 

@@ -15,12 +15,14 @@ import {
 } from 'react-native';
 
 // App Globals
-import AppStyles from '../../config/styles';
-import AppConfig from '../../config/';
+import AppStyles from '@config/styles';
+import AppConfig from '@config/';
+
+// Containers
+import RecipeCard from '@containers/recipes/card';
 
 // Components
-import Error from '../general/error';
-import RecipeCard from '../../containers/recipes/card';
+import Error from '@components/general/error';
 
 /* Component ==================================================================== */
 class RecipeListing extends Component {

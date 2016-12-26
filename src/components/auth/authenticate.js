@@ -17,14 +17,16 @@ import {
 } from 'react-native';
 
 // App Globals
-import AppStyles from '../../config/styles';
-import AppConfig from '../../config/';
+import AppConfig from '@config/';
+import AppStyles from '@config/styles';
+
+// Container
+import Login from '@containers/login';
 
 // Components
-import Button from '../ui/button';
-import AuthWebView from './webview';
-import Login from '../../containers/login';
-import Index from '../home';
+import Index from '@components/home';
+import Button from '@components/ui/button';
+import AuthWebView from '@components/general/webview';
 
 /* Styles ==================================================================== */
 const styles = StyleSheet.create({
@@ -90,11 +92,11 @@ class Authenticate extends Component {
 
   render = () => (
     <Image
-      source={require('../../images/login.jpg')}
+      source={require('@images/login.jpg')}
       style={[AppStyles.containerCentered, AppStyles.container, styles.background]}
     >
       <Image
-        source={require('../../images/logo.png')}
+        source={require('@images/logo.png')}
         style={[styles.logo]}
       />
 

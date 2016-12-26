@@ -7,16 +7,15 @@
 
 /* Setup ==================================================================== */
 import React, { Component, PropTypes } from 'react';
-// import { View } from 'react-native';
 import { Icon, Tab, Tabs } from 'react-native-elements';
 
 // App Globals
-import AppConfig from '../config/';
+import AppConfig from '@config/';
 
 // Components
-import Browse from '../containers/recipes/browse';
-import StyleGuide from './style.guide';
-import ComingSoon from './general/soon';
+import Browse from '@containers/recipes/browse';
+import StyleGuide from '@components/style.guide';
+import ComingSoon from '@components/general/soon';
 
 /* Component ==================================================================== */
 class Home extends Component {

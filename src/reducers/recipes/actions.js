@@ -5,7 +5,7 @@
  * https://github.com/mcnamee/react-native-starter-app
  */
 
-import AppAPI from '../../lib/api';
+import AppAPI from '@lib/api';
 
 export function getMeals() {
   return (dispatch) => {

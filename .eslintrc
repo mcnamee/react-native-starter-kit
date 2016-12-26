@@ -6,9 +6,16 @@
   "ecmaFeatures": {
   	"classes": true,
   },
-  rules: {
-  	'react/jsx-filename-extension': ['error', { extensions: ['.js', '.jsx'] }],
-  	'global-require': 'off',
-    'no-console': 'off',
+  "rules": {
+  	"react/jsx-filename-extension": ["error", { extensions: [".js", ".jsx"] }],
+  	"global-require": "off",
+
+    // Used for debugging
+    "no-console": "off",
+
+    // Because we're using directory aliases eg. @component, @config
+    "import/no-extraneous-dependencies": "off",
+    "import/extensions": "off",
+    "import/no-unresolved": "off"
 	},
 }

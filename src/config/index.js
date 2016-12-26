@@ -7,8 +7,8 @@
 /* global __DEV__ */
 import { Dimensions } from 'react-native';
 
-import ErrorMessages from './errors';
-import AppTheme from './theme';
+import ErrorMessages from '@config/errors';
+import AppTheme from '@config/theme';
 
 const window = Dimensions.get('window');
 

@@ -38,11 +38,7 @@ React Native Starter Kit helps you get started with React Native. It contains a 
 
 ## 2.0 Screenshots
 
-| | | |
-|---|---|---|
-| ![alt text](https://dl.dropboxusercontent.com/u/46690444/GITHUB/react-native-starter-app.png "Default Screen w/ tabs") | ![alt text](https://dl.dropboxusercontent.com/u/46690444/GITHUB/react-native-starter-app-open-menu.png "Sidebar Menu open") | ![alt text](https://dl.dropboxusercontent.com/u/46690444/GITHUB/react-native-starter-app-forms.png "Data validation and persistence") |
-| ![alt text](https://dl.dropboxusercontent.com/u/46690444/GITHUB/react-native-starter-app-listview.png "List View Example") | ![alt text](https://dl.dropboxusercontent.com/u/46690444/GITHUB/react-native-starter-app-listview2.png "List View Example 2") | ![alt text](https://dl.dropboxusercontent.com/u/46690444/GITHUB/react-native-starter-app-style-guide.png "Style Guide") |
-| | | |
+Coming soon...
 
 ---
 
@@ -64,8 +60,8 @@ React Native Starter Kit helps you get started with React Native. It contains a 
     /config      <-- App-wide config
     /containers  <-- The business logic, provides data to presentation
     /images      <-- Self explanatory right?
-    /reducers    <-- Redux Reducers & Actions grouped by type
     /lib         <-- Utils, custom libraries, functions
+    /reducers    <-- Redux Reducers & Actions grouped by type
 ```
 
 ---

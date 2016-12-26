@@ -17,11 +17,11 @@ import {
 } from 'react-native';
 
 // App Globals
-import AppStyles from '../../config/styles';
-import AppConfig from '../../config/';
+import AppStyles from '@config/styles';
+import AppConfig from '@config/';
 
 // Components
-import Card from '../ui/card';
+import Card from '@components/ui/card';
 
 /* Styles ==================================================================== */
 const styles = StyleSheet.create({

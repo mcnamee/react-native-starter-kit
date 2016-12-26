@@ -7,10 +7,10 @@
 import { connect } from 'react-redux';
 
 // Actions
-import * as UserActions from '../reducers/user/actions';
+import * as UserActions from '@reducers/user/actions';
 
 // The component we're mapping to
-import FirstLoad from '../components/first.load';
+import FirstLoad from '@components/splash';
 
 // What data from the store shall we send to the component?
 const mapStateToProps = state => ({

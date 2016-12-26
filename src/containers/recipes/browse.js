@@ -7,10 +7,10 @@
 import { connect } from 'react-redux';
 
 // Actions
-import * as RecipeActions from '../../reducers/recipes/actions';
+import * as RecipeActions from '@reducers/recipes/actions';
 
 // The component we're mapping to
-import RecipeTabs from '../../components/recipes/browse';
+import RecipeTabs from '@components/recipes/browse';
 
 // What data from the store shall we send to the component?
 const mapStateToProps = state => ({

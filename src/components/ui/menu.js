@@ -16,14 +16,16 @@ import {
 } from 'react-native';
 
 // App Globals
-import AppStyles from '../../config/styles';
-import AppConfig from '../../config/';
+import AppStyles from '@config/styles';
+import AppConfig from '@config/';
+
+// Containers
+import Login from '@containers/login';
 
 // Components
-import ComingSoon from '../general/soon';
-import Button from './button';
-import Login from '../../containers/login';
-import Tabs from '../home';
+import ComingSoon from '@components/general/soon';
+import Button from '@components/ui/button';
+import Tabs from '@components/home';
 
 /* Styles ==================================================================== */
 const MENU_BG_COLOR = '#2E3234';

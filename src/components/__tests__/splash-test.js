@@ -7,7 +7,7 @@ import 'react-native';
 import React from 'react';
 import renderer from 'react-test-renderer';
 
-import FirstLoad from '../first.load';
+import FirstLoad from '../splash';
 
 /**
  * Check if alerts renders correcly

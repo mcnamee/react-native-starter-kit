@@ -17,16 +17,16 @@ import {
 import FormValidation from 'tcomb-form-native';
 
 // App Globals
-import AppAPI from '../../lib/api';
-import AppConfig from '../../config/';
-import AppStyles from '../../config/styles';
+import AppAPI from '@lib/api';
+import AppConfig from '@config/';
+import AppStyles from '@config/styles';
 
 // Components
-import Alerts from '../ui/alerts';
-import Button from '../ui/button';
-import Card from '../ui/card';
-import AuthWebView from './webview';
-import Index from '../home';
+import AuthWebView from '@components/auth/webview';
+import Alerts from '@components/ui/alerts';
+import Button from '@components/ui/button';
+import Card from '@components/ui/card';
+import Index from '@components/home';
 
 /* Component ==================================================================== */
 class Login extends Component {

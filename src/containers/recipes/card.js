@@ -10,15 +10,15 @@ import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 
 // App Globals
-import AppUtil from '../../lib/util';
+import AppUtil from '@lib/util';
 
 // Components
-import RecipeCardRender from '../../components/recipes/card';
-import RecipeView from '../../components/recipes/view';
+import RecipeCardRender from '@components/recipes/card';
+import RecipeView from '@components/recipes/view';
 
 /* Redux ==================================================================== */
 // Actions
-import * as UserActions from '../../reducers/user/actions';
+import * as UserActions from '@reducers/user/actions';
 
 // What data from the store shall we send to the component?
 const mapStateToProps = state => ({
@@ -176,8 +176,8 @@ class RecipeCard extends Component {
         title={recipe.title}
         content={recipe.content}
         onPress={this.onPressCard}
-        onPressFavourite={user ? this.onPressFavourite : null}
-        isFavourite={(user && this.isFavourite()) && true}
+        onPressFavourite={(user && user.id) ? this.onPressFavourite : null}
+        isFavourite={(user && user.id && this.isFavourite()) && true}
       />
     );
   }

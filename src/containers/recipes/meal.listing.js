@@ -10,17 +10,17 @@ import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 
 // App Globals
-import AppAPI from '../../lib/api';
-import AppConfig from '../../config/';
+import AppAPI from '@lib/api';
+import AppConfig from '@config/';
 
 // Components
-import Error from '../../components/general/error';
-import Loading from '../../components/general/loading';
-import RecipeListing from '../../components/recipes/listing';
+import Error from '@components/general/error';
+import Loading from '@components/general/loading';
+import RecipeListing from '@components/recipes/listing';
 
 /* Redux ==================================================================== */
 // Actions
-// import * as UserActions from '../../reducers/user/actions';
+// import * as UserActions from '@reducers/user/actions';
 
 // What data from the store shall we send to the component?
 const mapStateToProps = () => ({

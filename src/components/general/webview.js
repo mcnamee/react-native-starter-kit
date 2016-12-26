@@ -16,12 +16,12 @@ import {
 } from 'react-native';
 
 // App Globals
-import AppStyles from '../../config/styles';
-import AppConfig from '../../config/';
+import AppStyles from '@config/styles';
+import AppConfig from '@config/';
 
 // Components
-import Loading from './loading';
-import Error from './error';
+import Loading from '@components/general/loading';
+import Error from '@components/general/error';
 
 /* Styles ==================================================================== */
 const styles = StyleSheet.create({

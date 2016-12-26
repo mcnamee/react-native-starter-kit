@@ -17,13 +17,15 @@ import {
 import { TabViewAnimated, TabBarTop } from 'react-native-tab-view';
 
 // App Globals
-import AppConfig from '../../config/';
-import AppAPI from '../../lib/api';
+import AppConfig from '@config/';
+import AppAPI from '@lib/api';
+
+// Containers
+import RecipeListing from '@containers/recipes/meal.listing';
 
 // Components
-import Loading from '../general/loading';
-import Error from '../general/error';
-import RecipeListing from '../../containers/recipes/meal.listing';
+import Loading from '@components/general/loading';
+import Error from '@components/general/error';
 
 /* Styles ==================================================================== */
 const styles = StyleSheet.create({

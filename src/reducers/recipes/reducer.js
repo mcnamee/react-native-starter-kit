@@ -5,7 +5,7 @@
  * https://github.com/mcnamee/react-native-starter-app
  */
 
-import AppUtil from '../../lib/util';
+import AppUtil from '@lib/util';
 
 // Set initial state
 const initialState = {

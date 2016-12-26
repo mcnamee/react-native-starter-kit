@@ -13,8 +13,8 @@ import {
 import jwtDecode from 'jwt-decode';
 
 // App Globals
-import AppAPI from './api';
-import AppConfig from '../config/';
+import AppAPI from '@lib/api';
+import AppConfig from '@config/';
 
 export default class JWT {
   static apiToken = ''

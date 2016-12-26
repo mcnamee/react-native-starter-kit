@@ -7,10 +7,10 @@
 import { connect } from 'react-redux';
 
 // Actions
-import * as SideMenuActions from '../reducers/sidemenu/actions';
+import * as SideMenuActions from '@reducers/sidemenu/actions';
 
 // The component we're mapping to
-import App from '../components/app';
+import App from '@components/app';
 
 // What data from the store shall we send to the component?
 const mapStateToProps = state => ({

@@ -18,14 +18,14 @@ import { TabViewAnimated, TabBarTop } from 'react-native-tab-view';
 import { List, ListItem } from 'react-native-elements';
 
 // App Globals
-import AppStyles from '../config/styles';
-import AppConfig from '../config/';
+import AppStyles from '@config/styles';
+import AppConfig from '@config/';
 
 // Components
-import Alerts from './ui/alerts';
-import ComingSoon from './general/soon';
-import Button from './ui/button';
-import Card from './ui/card';
+import Alerts from '@components/ui/alerts';
+import ComingSoon from '@components/general/soon';
+import Button from '@components/ui/button';
+import Card from '@components/ui/card';
 
 /* Styles ==================================================================== */
 const styles = StyleSheet.create({

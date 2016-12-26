@@ -17,10 +17,10 @@ import {
 import { Icon } from 'react-native-elements';
 
 // App Globals
-import AppStyles from '../../config/styles';
+import AppStyles from '@config/styles';
 
 // Components
-import Card from '../ui/card';
+import Card from '@components/ui/card';
 
 /* Styles ==================================================================== */
 const styles = StyleSheet.create({

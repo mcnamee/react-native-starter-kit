@@ -7,7 +7,7 @@
 
 import jwtDecode from 'jwt-decode';
 
-import AppAPI from '../../lib/api';
+import AppAPI from '@lib/api';
 
 /**
   * Login to API and receive Token

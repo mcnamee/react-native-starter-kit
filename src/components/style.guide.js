@@ -6,7 +6,7 @@
  */
 
 /* Setup ==================================================================== */
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
 import {
   View,
   Text,
@@ -16,14 +16,14 @@ import {
 } from 'react-native';
 import { TabViewAnimated, TabBarTop } from 'react-native-tab-view';
 import { List, ListItem } from 'react-native-elements';
+import { Actions } from 'react-native-router-flux';
 
 // App Globals
-import AppStyles from '@config/styles';
-import AppConfig from '@config/';
+import AppStyles from '@constants/styles';
+import AppConfig from '@constants/config';
 
 // Components
 import Alerts from '@components/ui/alerts';
-import ComingSoon from '@components/general/soon';
 import Button from '@components/ui/button';
 import Card from '@components/ui/card';
 
@@ -48,12 +48,6 @@ const styles = StyleSheet.create({
 class StyleGuide extends Component {
   static componentName = 'StyleGuide';
 
-  static propTypes = {
-    navigator: PropTypes.shape({
-      push: PropTypes.func.isRequired,
-    }).isRequired,
-  }
-
   constructor(props) {
     super(props);
 
@@ -67,17 +61,6 @@ class StyleGuide extends Component {
         ],
       },
     };
-  }
-
-  /**
-    * Go to new Screen
-    */
-  navigateTo = () => {
-    this.props.navigator.push({
-      title: 'Coming Soon',
-      component: ComingSoon,
-      index: 2,
-    });
   }
 
   /**
@@ -129,7 +112,7 @@ class StyleGuide extends Component {
                       <Button
                         large
                         title={'Large'}
-                        onPress={this.navigateTo}
+                        onPress={Actions.comingSoon}
                       />
                     </View>
 
@@ -138,7 +121,7 @@ class StyleGuide extends Component {
                         large
                         title={'W/ Icon'}
                         icon={{ name: 'code' }}
-                        onPress={this.navigateTo}
+                        onPress={Actions.comingSoon}
                       />
                     </View>
                   </View>
@@ -149,7 +132,7 @@ class StyleGuide extends Component {
                     <View style={[AppStyles.flex1, AppStyles.paddingRightSml]}>
                       <Button
                         title={'Default'}
-                        onPress={this.navigateTo}
+                        onPress={Actions.comingSoon}
                       />
                     </View>
 
@@ -157,7 +140,7 @@ class StyleGuide extends Component {
                       <Button
                         title={'Colored'}
                         backgroundColor={'#FB6567'}
-                        onPress={this.navigateTo}
+                        onPress={Actions.comingSoon}
                       />
                     </View>
                   </View>
@@ -169,7 +152,7 @@ class StyleGuide extends Component {
                       <Button
                         title={'Small'}
                         small
-                        onPress={this.navigateTo}
+                        onPress={Actions.comingSoon}
                       />
                     </View>
 
@@ -180,7 +163,7 @@ class StyleGuide extends Component {
                         iconRight
                         title={'Outlined'}
                         icon={{ name: 'cached' }}
-                        onPress={this.navigateTo}
+                        onPress={Actions.comingSoon}
                       />
                     </View>
                   </View>
@@ -211,7 +194,7 @@ class StyleGuide extends Component {
 
               <TouchableOpacity
                 activeOpacity={0.8}
-                onPress={this.navigateTo}
+                onPress={Actions.comingSoon}
               >
                 <Card
                   image={{ uri: 'http://wp-api.mcnam.ee/wp-content/uploads/2016/10/brekkie-crumble-33651_l.jpeg' }}
@@ -227,7 +210,7 @@ class StyleGuide extends Component {
 
               <TouchableOpacity
                 activeOpacity={0.8}
-                onPress={this.navigateTo}
+                onPress={Actions.comingSoon}
               >
                 <Card
                   image={{ uri: 'http://wp-api.mcnam.ee/wp-content/uploads/2016/10/brekkie-crumble-33651_l.jpeg' }}
@@ -258,17 +241,17 @@ class StyleGuide extends Component {
                 <ListItem
                   title={'John Smith'}
                   subtitle={'CEO'}
-                  onPress={this.navigateTo}
+                  onPress={Actions.comingSoon}
                 />
                 <ListItem
                   title={'Jane Doe'}
                   subtitle={'COO'}
-                  onPress={this.navigateTo}
+                  onPress={Actions.comingSoon}
                 />
                 <ListItem
                   title={'Sam Smith'}
                   subtitle={'CFO'}
-                  onPress={this.navigateTo}
+                  onPress={Actions.comingSoon}
                 />
               </List>
             </ScrollView>

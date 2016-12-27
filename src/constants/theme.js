@@ -20,10 +20,16 @@ export default {
   // NavBar
   navbar: {
     backgroundColor: '#0E4EF8',
-    border: 0,
+    borderBottomWidth: 0,
   },
   navbarTitle: {
     color: '#fff',
+    fontWeight: 'bold',
+    fontFamily: 'Avenir',
+    fontSize: 14,
+  },
+  navbarButton: {
+    tintColor: '#fff',
   },
 
   // Other Styles

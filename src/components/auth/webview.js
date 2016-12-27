@@ -9,6 +9,7 @@
 
 /* Setup ==================================================================== */
 import React, { Component, PropTypes } from 'react';
+import { Actions } from 'react-native-router-flux';
 
 // Components
 import WebView from '@components/general/webview';
@@ -20,9 +21,6 @@ class AuthWebView extends Component {
   static componentName = 'AuthWebView';
 
   static propTypes = {
-    navigator: PropTypes.shape({
-      pop: PropTypes.func.isRequired,
-    }).isRequired,
     url: PropTypes.string.isRequired,
   }
 
@@ -41,7 +39,7 @@ class AuthWebView extends Component {
     if (newUrl !== this.props.url) {
       timeout = setTimeout(() => {
         clearTimeout(timeout);
-        this.props.navigator.pop();
+        Actions.pop();
       }, 2000);
     }
   }

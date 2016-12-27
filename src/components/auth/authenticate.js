@@ -8,25 +8,21 @@
  */
 
 /* Setup ==================================================================== */
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
 import {
   View,
   Text,
   Image,
   StyleSheet,
 } from 'react-native';
+import { Actions } from 'react-native-router-flux';
 
 // App Globals
-import AppConfig from '@config/';
-import AppStyles from '@config/styles';
-
-// Container
-import Login from '@containers/login';
+import AppConfig from '@constants/config';
+import AppStyles from '@constants/styles';
 
 // Components
-import Index from '@components/home';
 import Button from '@components/ui/button';
-import AuthWebView from '@components/general/webview';
 
 /* Styles ==================================================================== */
 const styles = StyleSheet.create({
@@ -48,46 +44,25 @@ const styles = StyleSheet.create({
 class Authenticate extends Component {
   static componentName = 'Authenticate';
 
-  static propTypes = {
-    navigator: PropTypes.shape({
-      push: PropTypes.func.isRequired,
-      resetTo: PropTypes.func.isRequired,
-    }).isRequired,
-  }
-
   /**
     * Navigates to Login
     */
   onPressLogin = () => {
-    this.props.navigator.push({
-      title: 'Login',
-      component: Login,
-      index: 2,
-    });
+    Actions.login();
   }
 
   /**
     * Navigates to Sign Up
     */
   onPressSignUp = () => {
-    this.props.navigator.push({
-      title: 'Sign Up',
-      component: AuthWebView,
-      index: 2,
-      passProps: {
-        url: AppConfig.urls.signUp,
-      },
-    });
+    Actions.signUp();
   }
 
   /**
     * Skips Auth
     */
   onPressSkip = () => {
-    this.props.navigator.resetTo({
-      title: AppConfig.appName,
-      component: Index,
-    });
+    Actions.home();
   }
 
   render = () => (

@@ -18,12 +18,8 @@ import {
 import { Actions } from 'react-native-router-flux';
 
 // App Globals
-import AppStyles from '@config/styles';
-import AppConfig from '@config/';
-
-// Components
-import Index from '@components/home';
-import Authenticate from '@components/auth/authenticate';
+import AppStyles from '@constants/styles';
+import AppConfig from '@constants/config';
 
 /* Styles ==================================================================== */
 const styles = StyleSheet.create({
@@ -38,9 +34,6 @@ class FirstLoad extends Component {
   static componentName = 'FirstLoad';
 
   static propTypes = {
-    navigator: PropTypes.shape({
-      replace: PropTypes.func.isRequired,
-    }).isRequired,
     login: PropTypes.func.isRequired,
   }
 
@@ -52,20 +45,9 @@ class FirstLoad extends Component {
     this.props.login()
       .then(() => {
         // Logged in, show index screen
-        /*this.props.navigator.replace({
-          title: AppConfig.appName,
-          component: Index,
-          index: 0,
-        });*/
         Actions.home();
       }).catch(() => {
         // Not Logged in, show Login screen
-        /*this.props.navigator.replace({
-          title: 'Login',
-          component: Authenticate,
-          index: 0,
-          hideNavbar: true,
-        });*/
         Actions.authenticate();
       });
   }

@@ -6,11 +6,11 @@
  */
 
 /* Setup ==================================================================== */
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
 import { Icon, Tab, Tabs } from 'react-native-elements';
 
 // App Globals
-import AppConfig from '@config/';
+import AppConfig from '@constants/config';
 
 // Components
 import Browse from '@containers/recipes/browse';
@@ -20,10 +20,6 @@ import ComingSoon from '@components/general/soon';
 /* Component ==================================================================== */
 class Home extends Component {
   static componentName = 'Home';
-
-  static propTypes = {
-    navigator: PropTypes.shape({}).isRequired,
-  }
 
   constructor(props) {
     super(props);
@@ -49,7 +45,7 @@ class Home extends Component {
         renderIcon={() => <Icon name={'timeline'} size={26} color={'#BABDC2'} />}
         renderSelectedIcon={() => <Icon name={'timeline'} size={26} color={AppConfig.theme.primaryColor} />}
       >
-        <ComingSoon navigator={this.props.navigator} />
+        <ComingSoon />
       </Tab>
 
       <Tab
@@ -59,7 +55,7 @@ class Home extends Component {
         renderIcon={() => <Icon name={'search'} size={26} color={'#BABDC2'} />}
         renderSelectedIcon={() => <Icon name={'search'} size={26} color={AppConfig.theme.primaryColor} />}
       >
-        <Browse navigator={this.props.navigator} />
+        <Browse />
       </Tab>
 
 
@@ -70,7 +66,7 @@ class Home extends Component {
         renderIcon={() => <Icon name={'speaker-notes'} size={26} color={'#BABDC2'} />}
         renderSelectedIcon={() => <Icon name={'speaker-notes'} size={26} color={AppConfig.theme.primaryColor} />}
       >
-        <StyleGuide navigator={this.props.navigator} />
+        <StyleGuide />
       </Tab>
     </Tabs>
   )

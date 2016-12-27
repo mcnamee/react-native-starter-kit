@@ -13,7 +13,7 @@ import { Alert } from 'react-native';
 import { Button } from 'react-native-elements';
 
 // App Globals
-import AppConfig from '@config/';
+import AppConfig from '@constants/config';
 
 /* Component ==================================================================== */
 class CustomButton extends Component {

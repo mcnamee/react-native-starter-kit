@@ -15,28 +15,22 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import FormValidation from 'tcomb-form-native';
+import { Actions } from 'react-native-router-flux';
 
 // App Globals
 import AppAPI from '@lib/api';
-import AppConfig from '@config/';
-import AppStyles from '@config/styles';
+import AppStyles from '@constants/styles';
 
 // Components
-import AuthWebView from '@components/auth/webview';
 import Alerts from '@components/ui/alerts';
 import Button from '@components/ui/button';
 import Card from '@components/ui/card';
-import Index from '@components/home';
 
 /* Component ==================================================================== */
 class Login extends Component {
   static componentName = 'Login';
 
   static propTypes = {
-    navigator: PropTypes.shape({
-      push: PropTypes.func.isRequired,
-      resetTo: PropTypes.func.isRequired,
-    }).isRequired,
     login: PropTypes.func.isRequired,
   }
 
@@ -49,7 +43,7 @@ class Login extends Component {
         const regularExpression = /^.+@.+\..+$/i;
 
         return regularExpression.test(email);
-      }
+      },
     );
 
     // Password Validation - Must be 6 chars long
@@ -57,7 +51,7 @@ class Login extends Component {
       FormValidation.String, (password) => {
         if (password.length < 6) return false;
         return true;
-      }
+      },
     );
 
     this.state = {
@@ -108,34 +102,6 @@ class Login extends Component {
   }
 
   /**
-    * Sign Up
-    */
-  onPressSignUp = () => {
-    this.props.navigator.push({
-      title: 'Sign Up',
-      component: AuthWebView,
-      index: 2,
-      passProps: {
-        url: AppConfig.urls.signUp,
-      },
-    });
-  }
-
-  /**
-    * Password Reset
-    */
-  onPressReset = () => {
-    this.props.navigator.push({
-      title: 'Reset Password',
-      component: AuthWebView,
-      index: 2,
-      passProps: {
-        url: AppConfig.urls.resetPassword,
-      },
-    });
-  }
-
-  /**
     * Login
     */
   login = () => {
@@ -160,10 +126,7 @@ class Login extends Component {
             resultMsg: { success: 'Awesome, you\'re now logged in!' },
           }, () => {
             setTimeout(() => {
-              this.props.navigator.resetTo({
-                title: AppConfig.appName,
-                component: Index,
-              });
+              Actions.home();
             }, 1000);
           });
         }).catch((err) => {
@@ -205,7 +168,7 @@ class Login extends Component {
 
           <View style={AppStyles.spacer_10} />
 
-          <TouchableOpacity onPress={this.onPressReset}>
+          <TouchableOpacity onPress={Actions.passwordReset}>
             <Text style={[AppStyles.baseText, AppStyles.centered, AppStyles.link]}>
               Forgot Password
             </Text>
@@ -219,7 +182,7 @@ class Login extends Component {
 
           <Button
             title={'Sign Up'}
-            onPress={this.onPressSignUp}
+            onPress={Actions.signUp}
           />
         </Card>
       </ScrollView>

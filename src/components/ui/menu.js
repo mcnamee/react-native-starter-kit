@@ -14,18 +14,14 @@ import {
   StyleSheet,
   TouchableOpacity,
 } from 'react-native';
+import { Actions } from 'react-native-router-flux';
 
 // App Globals
-import AppStyles from '@config/styles';
-import AppConfig from '@config/';
-
-// Containers
-import Login from '@containers/login';
+import AppStyles from '@constants/styles';
+import AppConfig from '@constants/config';
 
 // Components
-import ComingSoon from '@components/general/soon';
 import Button from '@components/ui/button';
-import Tabs from '@components/home';
 
 /* Styles ==================================================================== */
 const MENU_BG_COLOR = '#2E3234';
@@ -88,8 +84,8 @@ const styles = StyleSheet.create({
 /* Component ==================================================================== */
 class Menu extends Component {
   static propTypes = {
-    navigate: PropTypes.func.isRequired,
     logout: PropTypes.func.isRequired,
+    closeSideMenu: PropTypes.func.isRequired,
     user: PropTypes.shape({
       name: PropTypes.string,
     }),
@@ -100,21 +96,29 @@ class Menu extends Component {
 
     this.state = {
       menu: [
-        { title: 'Recipes', component: Tabs },
-        { title: 'Example Link', component: ComingSoon },
+        {
+          title: 'Recipes',
+          onPress: () => { this.props.closeSideMenu(); Actions.home(); },
+        },
+        {
+          title: 'Example Link',
+          onPress: () => { this.props.closeSideMenu(); Actions.comingSoon(); },
+        },
       ],
     };
   }
 
   login = () => {
-    if (this.props.navigate) this.props.navigate('Login', Login);
+    this.props.closeSideMenu();
+    Actions.login();
   }
 
   logout = () => {
     if (this.props.logout) {
       this.props.logout()
         .then(() => {
-          if (this.props.navigate) this.props.navigate('Login', Login);
+          this.props.closeSideMenu();
+          Actions.login();
         }).catch(() => {
           Alert.alert('Oh uh!', 'Something went wrong.');
         });
@@ -122,25 +126,24 @@ class Menu extends Component {
   }
 
   render = () => {
-    const { navigate } = this.props;
     const { menu } = this.state;
 
     // Build the actual Menu Items
     const menuItems = [];
     menu.map((item) => {
-      const { title, component, props } = item;
+      const { title, onPress } = item;
 
       return menuItems.push(
         <TouchableOpacity
           key={`menu-item-${title}`}
-          onPress={() => navigate(title, component, props)}
+          onPress={onPress}
         >
           <View style={[styles.menuItem]}>
             <Text style={[AppStyles.baseText, styles.menuItem_text]}>
               {title}
             </Text>
           </View>
-        </TouchableOpacity>
+        </TouchableOpacity>,
       );
     });
 

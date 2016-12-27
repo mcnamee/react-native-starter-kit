@@ -12,7 +12,7 @@ import React, { Component } from 'react';
 import { Card } from 'react-native-elements';
 
 // App Globals
-import AppConfig from '@config/';
+import AppConfig from '@constants/config';
 
 /* Component ==================================================================== */
 class CustomCard extends Component {

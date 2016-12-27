@@ -7,16 +7,22 @@
  */
 /* global __DEV__ */
 
+/* Setup ==================================================================== */
 import React from 'react';
 import { applyMiddleware, compose, createStore } from 'redux';
-import { Provider } from 'react-redux';
+import { connect, Provider } from 'react-redux';
 import logger from 'redux-logger';
 import thunk from 'redux-thunk';
+import { Router } from 'react-native-router-flux';
 
-import App from './containers/app';
+// App Globals
+import AppRoutes from '@constants/routes';
 
 // All redux reducers (rolled into one mega-reducer)
-import rootReducer from './reducers/index';
+import rootReducer from '@reducers/index';
+
+// Connect RNRF with Redux
+const RouterWithRedux = connect()(Router);
 
 // Load middleware
 let middleware = [
@@ -33,14 +39,15 @@ if (__DEV__) {
 
 // Init redux store (using the given reducer & middleware)
 const store = compose(
-  applyMiddleware(...middleware)
+  applyMiddleware(...middleware),
 )(createStore)(rootReducer);
 
+/* Component ==================================================================== */
 // Wrap App in Redux provider (makes Redux available to all sub-components)
 export default function AppContainer() {
   return (
     <Provider store={store}>
-      <App />
+      <RouterWithRedux scenes={AppRoutes} />
     </Provider>
   );
 }

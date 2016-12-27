@@ -15,8 +15,8 @@ import {
 } from 'react-native';
 
 // App Globals
-import AppStyles from '@config/styles';
-import AppConfig from '@config/';
+import AppStyles from '@constants/styles';
+import AppConfig from '@constants/config';
 
 // Containers
 import RecipeCard from '@containers/recipes/card';
@@ -29,7 +29,6 @@ class RecipeListing extends Component {
   static componentName = 'RecipeListing';
 
   static propTypes = {
-    navigator: PropTypes.shape({}).isRequired,
     recipes: PropTypes.arrayOf(PropTypes.object).isRequired,
     reFetch: PropTypes.func,
   }
@@ -78,7 +77,7 @@ class RecipeListing extends Component {
       <View style={[AppStyles.container]}>
         <ListView
           initialListSize={8}
-          renderRow={recipe => <RecipeCard navigator={this.props.navigator} recipe={recipe} />}
+          renderRow={recipe => <RecipeCard recipe={recipe} />}
           dataSource={dataSource}
           contentContainerStyle={[AppStyles.listView]}
           automaticallyAdjustContentInsets={false}

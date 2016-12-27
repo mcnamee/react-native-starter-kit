@@ -11,7 +11,7 @@ import { connect } from 'react-redux';
 
 // App Globals
 import AppAPI from '@lib/api';
-import AppConfig from '@config/';
+import AppConfig from '@constants/config';
 
 // Components
 import Error from '@components/general/error';
@@ -35,7 +35,6 @@ class MealListing extends Component {
   static componentName = 'MealListing';
 
   static propTypes = {
-    navigator: PropTypes.shape({}).isRequired,
     meal: PropTypes.string.isRequired,
   }
 
@@ -94,7 +93,6 @@ class MealListing extends Component {
       <RecipeListing
         recipes={recipes}
         reFetch={this.fetchRecipes}
-        navigator={this.props.navigator}
       />
     );
   }

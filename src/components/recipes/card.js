@@ -17,7 +17,7 @@ import {
 import { Icon } from 'react-native-elements';
 
 // App Globals
-import AppStyles from '@config/styles';
+import AppStyles from '@constants/styles';
 
 // Components
 import Card from '@components/ui/card';

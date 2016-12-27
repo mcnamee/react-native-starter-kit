@@ -16,8 +16,8 @@ import {
 } from 'react-native';
 
 // App Globals
-import AppStyles from '@config/styles';
-import AppConfig from '@config/';
+import AppStyles from '@constants/styles';
+import AppConfig from '@constants/config';
 
 // Components
 import Loading from '@components/general/loading';

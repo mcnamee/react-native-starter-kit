@@ -17,7 +17,7 @@ import {
 import { TabViewAnimated, TabBarTop } from 'react-native-tab-view';
 
 // App Globals
-import AppConfig from '@config/';
+import AppConfig from '@constants/config';
 import AppAPI from '@lib/api';
 
 // Containers
@@ -49,7 +49,6 @@ class RecipeTabs extends Component {
   static componentName = 'RecipeTabs';
 
   static propTypes = {
-    navigator: PropTypes.object.isRequired,
     meals: PropTypes.arrayOf(PropTypes.object),
     getMeals: PropTypes.func.isRequired,
   }
@@ -163,7 +162,6 @@ class RecipeTabs extends Component {
       <View style={styles.tabContainer}>
         <RecipeListing
           meal={route.id}
-          navigator={this.props.navigator}
         />
       </View>
     );

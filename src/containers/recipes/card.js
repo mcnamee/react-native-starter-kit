@@ -8,13 +8,13 @@
 /* Setup ==================================================================== */
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
+import { Actions } from 'react-native-router-flux';
 
 // App Globals
 import AppUtil from '@lib/util';
 
 // Components
 import RecipeCardRender from '@components/recipes/card';
-import RecipeView from '@components/recipes/view';
 
 /* Redux ==================================================================== */
 // Actions
@@ -35,11 +35,11 @@ class RecipeCard extends Component {
   static componentName = 'RecipeCard';
 
   static propTypes = {
-    navigator: PropTypes.shape({
-      push: PropTypes.func,
-    }).isRequired,
     recipe: PropTypes.shape({
       id: PropTypes.number,
+      title: PropTypes.shape({
+        rendered: PropTypes.string,
+      }),
     }).isRequired,
     updateFavourites: PropTypes.func.isRequired,
     user: PropTypes.shape({
@@ -69,14 +69,9 @@ class RecipeCard extends Component {
     * On Press of Card
     */
   onPressCard = () => {
-    this.props.navigator.push({
-      title: this.state.title || '',
-      component: RecipeView,
-      index: 2,
-      transition: 'FloatFromBottom',
-      passProps: {
-        recipe: this.props.recipe,
-      },
+    Actions.recipeView({
+      title: this.props.recipe.title.rendered,
+      recipe: this.props.recipe,
     });
   }
 
@@ -183,4 +178,5 @@ class RecipeCard extends Component {
   }
 }
 
+/* Export Component ==================================================================== */
 export default connect(mapStateToProps, mapDispatchToProps)(RecipeCard);

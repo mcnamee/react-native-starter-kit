@@ -15,7 +15,7 @@ import {
 } from 'react-native';
 
 // App Globals
-import AppStyles from '@config/styles';
+import AppStyles from '@constants/styles';
 
 /* Component ==================================================================== */
 const ComingSoon = ({ text }) => (

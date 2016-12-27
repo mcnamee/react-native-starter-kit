@@ -10,7 +10,7 @@ import {
 } from 'react-native';
 
 // App Globals
-import AppConfig from '@config/index';
+import AppConfig from '@constants/config';
 
 /* Styles ==================================================================== */
 module.exports = StyleSheet.create({

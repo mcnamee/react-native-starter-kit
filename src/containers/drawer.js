@@ -6,6 +6,7 @@
  */
 /* Setup ==================================================================== */
 import React, { Component, PropTypes } from 'react';
+import { View } from 'react-native';
 import { connect } from 'react-redux';
 import SideMenu from 'react-native-side-menu';
 import { DefaultRenderer } from 'react-native-router-flux';
@@ -38,7 +39,7 @@ class Drawer extends Component {
   static propTypes = {
     navigationState: PropTypes.shape({}),
     onNavigate: PropTypes.func,
-    sideMenuIsOpen: PropTypes.bool.isRequired,
+    sideMenuIsOpen: PropTypes.bool,
     closeSideMenu: PropTypes.func.isRequired,
     toggleSideMenu: PropTypes.func.isRequired,
   }
@@ -68,9 +69,11 @@ class Drawer extends Component {
         }
         isOpen={this.props.sideMenuIsOpen}
         onChange={this.onSideMenuChange}
-        disableGestures={false}
+        disableGestures={true}
       >
-        <DefaultRenderer navigationState={children[0]} onNavigate={this.props.onNavigate} />
+        <View style={{ backgroundColor: '#000', flex: 1 }}>
+          <DefaultRenderer navigationState={children[0]} onNavigate={this.props.onNavigate} />
+        </View>
       </SideMenu>
     );
   }

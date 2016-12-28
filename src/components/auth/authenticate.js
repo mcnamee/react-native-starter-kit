@@ -62,7 +62,7 @@ class Authenticate extends Component {
     * Skips Auth
     */
   onPressSkip = () => {
-    Actions.home();
+    Actions.app();
   }
 
   render = () => (

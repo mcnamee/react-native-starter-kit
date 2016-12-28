@@ -126,7 +126,7 @@ class Login extends Component {
             resultMsg: { success: 'Awesome, you\'re now logged in!' },
           }, () => {
             setTimeout(() => {
-              Actions.home();
+              Actions.app({ type: 'reset' });
             }, 1000);
           });
         }).catch((err) => {

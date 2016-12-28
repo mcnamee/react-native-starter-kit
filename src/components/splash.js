@@ -45,10 +45,10 @@ class FirstLoad extends Component {
     this.props.login()
       .then(() => {
         // Logged in, show index screen
-        Actions.home();
+        return Actions.app({ type: 'reset' });
       }).catch(() => {
         // Not Logged in, show Login screen
-        Actions.authenticate();
+        return Actions.authenticate({ type: 'reset' });
       });
   }
 

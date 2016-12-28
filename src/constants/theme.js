@@ -32,6 +32,17 @@ export default {
     tintColor: '#fff',
   },
 
+  // TabBar
+  tabbar: {
+    backgroundColor: '#fff',
+    borderTopWidth: 1,
+    borderTopColor: '#ddd',
+  },
+  tabbarIcon: {
+    default: '#BABDC2',
+    selected: '#0E4EF8',
+  },
+
   // Other Styles
   borderRadius: 2,
 };

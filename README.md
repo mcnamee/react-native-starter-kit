@@ -6,6 +6,15 @@ React Native Starter Kit helps you get started with React Native. It contains a 
 
 ---
 
+## Todo
+
+- Google Analytics
+- Text components - eg. `<Text h1>Heading</Text>`
+- import { Button } from '@ui/';
+
+
+---
+
 ## TOC
 
 1. [Features](#10-features)

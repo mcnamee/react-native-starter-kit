@@ -16,12 +16,15 @@ import Icon from 'react-native-vector-icons/Ionicons';
 // Consts and Libs
 import { AppStyles } from '@theme/';
 
+// Components
+import Spacer from '@components/ui/spacer';
+
 /* Component ==================================================================== */
 const Error = ({ text }) => (
   <View style={[AppStyles.container, AppStyles.containerCentered]}>
     <Icon name={'ios-alert-outline'} size={50} color={'#CCC'} />
 
-    <View style={[AppStyles.spacer_10]} />
+    <Spacer size={10} />
 
     <Text style={[AppStyles.baseText]}>{text}</Text>
   </View>

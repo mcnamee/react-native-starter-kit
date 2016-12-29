@@ -19,6 +19,7 @@ import {
 
 // Consts and Libs
 import { AppStyles } from '@theme/';
+import Spacer from '@components/ui/spacer';
 
 /* Styles ==================================================================== */
 const styles = StyleSheet.create({
@@ -70,7 +71,7 @@ const Alerts = ({ status, success, error }) => (
         <View style={[styles.msg]}>
           <Text style={[AppStyles.baseText, styles.msg_text]}>{success}</Text>
         </View>
-        <View style={AppStyles.spacer_20} />
+        <Spacer size={20} />
       </View>
     }
 
@@ -87,7 +88,7 @@ const Alerts = ({ status, success, error }) => (
             {status}
           </Text>
         </View>
-        <View style={AppStyles.spacer_20} />
+        <Spacer size={20} />
       </View>
     }
 
@@ -104,7 +105,7 @@ const Alerts = ({ status, success, error }) => (
             {error}
           </Text>
         </View>
-        <View style={AppStyles.spacer_20} />
+        <Spacer size={20} />
       </View>
     }
   </View>

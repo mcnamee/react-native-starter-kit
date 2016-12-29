@@ -6,7 +6,6 @@
  */
 import React, { Component, PropTypes } from 'react';
 import {
-  View,
   Text,
   ScrollView,
   AsyncStorage,
@@ -23,6 +22,7 @@ import { AppStyles } from '@theme/';
 import Alerts from '@components/ui/alerts';
 import Button from '@components/ui/button';
 import Card from '@components/ui/card';
+import Spacer from '@components/ui/spacer';
 
 /* Component ==================================================================== */
 class Login extends Component {
@@ -164,7 +164,7 @@ class Login extends Component {
             onPress={this.login}
           />
 
-          <View style={AppStyles.spacer_10} />
+          <Spacer size={10} />
 
           <TouchableOpacity onPress={Actions.passwordReset}>
             <Text style={[AppStyles.baseText, AppStyles.centered, AppStyles.link]}>
@@ -172,7 +172,7 @@ class Login extends Component {
             </Text>
           </TouchableOpacity>
 
-          <View style={AppStyles.spacer_10} />
+          <Spacer size={10} />
 
           <Text style={[AppStyles.baseText, AppStyles.p, AppStyles.centered]}>
             - or -

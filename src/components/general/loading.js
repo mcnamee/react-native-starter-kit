@@ -16,6 +16,9 @@ import {
 // Consts and Libs
 import { AppStyles } from '@theme/';
 
+// Components
+import Spacer from '@components/ui/spacer';
+
 /* Component ==================================================================== */
 const Loading = ({ text, transparent }) => (
   <View
@@ -31,7 +34,7 @@ const Loading = ({ text, transparent }) => (
       color={transparent ? '#000' : '#AAA'}
     />
 
-    <View style={[AppStyles.spacer_10]} />
+    <Spacer size={10} />
 
     {text &&
       <Text style={[AppStyles.baseText]}>

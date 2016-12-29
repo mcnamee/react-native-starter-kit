@@ -19,6 +19,7 @@ import { AppStyles, AppSizes } from '@theme/';
 
 // Components
 import Card from '@components/ui/card';
+import Spacer from '@components/ui/spacer';
 
 /* Styles ==================================================================== */
 const styles = StyleSheet.create({
@@ -119,7 +120,7 @@ class RecipeView extends Component {
           </Card>
         : null}
 
-        <View style={[AppStyles.spacer_20]} />
+        <Spacer size={20} />
       </ScrollView>
     );
   }

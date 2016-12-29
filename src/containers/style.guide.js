@@ -23,6 +23,7 @@ import { AppColors, AppStyles } from '@theme/';
 import Alerts from '@components/ui/alerts';
 import Button from '@components/ui/button';
 import Card from '@components/ui/card';
+import Spacer from '@components/ui/spacer';
 
 /* Styles ==================================================================== */
 const styles = StyleSheet.create({
@@ -123,7 +124,7 @@ class StyleGuide extends Component {
                     </View>
                   </View>
 
-                  <View style={[AppStyles.spacer_10]} />
+                  <Spacer size={10} />
 
                   <View style={[AppStyles.row]}>
                     <View style={[AppStyles.flex1, AppStyles.paddingRightSml]}>
@@ -142,13 +143,13 @@ class StyleGuide extends Component {
                     </View>
                   </View>
 
-                  <View style={[AppStyles.spacer_10]} />
+                  <Spacer size={10} />
 
                   <View style={[AppStyles.row]}>
                     <View style={[AppStyles.flex1, AppStyles.paddingRightSml]}>
                       <Button
-                        title={'Small'}
                         small
+                        title={'Small'}
                         onPress={Actions.comingSoon}
                       />
                     </View>
@@ -185,7 +186,7 @@ class StyleGuide extends Component {
               style={[AppStyles.container]}
             >
               <View style={[AppStyles.paddingHorizontal]}>
-                <View style={[AppStyles.spacer_15]} />
+                <Spacer size={15} />
                 <Text style={[AppStyles.h2]}>Cards</Text>
               </View>
 
@@ -231,7 +232,7 @@ class StyleGuide extends Component {
               style={[AppStyles.container]}
             >
               <View style={[AppStyles.paddingHorizontal]}>
-                <View style={[AppStyles.spacer_15]} />
+                <Spacer size={15} />
                 <Text style={[AppStyles.h2]}>List Rows</Text>
               </View>
               <List>

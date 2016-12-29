@@ -176,7 +176,7 @@ export default {
     paddingBottom: 10,
   },
 
-  // General Spacing
+  // General HTML-like Elements
   hr: {
     left: 0,
     right: 0,
@@ -186,48 +186,6 @@ export default {
     backgroundColor: 'transparent',
     marginTop: 20,
     marginBottom: 20,
-  },
-  spacer_5: {
-    left: 0,
-    right: 0,
-    height: 1,
-    marginTop: 5,
-  },
-  spacer_10: {
-    left: 0,
-    right: 0,
-    height: 1,
-    marginTop: 10,
-  },
-  spacer_15: {
-    left: 0,
-    right: 0,
-    height: 1,
-    marginTop: 15,
-  },
-  spacer_20: {
-    left: 0,
-    right: 0,
-    height: 1,
-    marginTop: 20,
-  },
-  spacer_25: {
-    left: 0,
-    right: 0,
-    height: 1,
-    marginTop: 25,
-  },
-  spacer_30: {
-    left: 0,
-    right: 0,
-    height: 1,
-    marginTop: 30,
-  },
-  spacer_40: {
-    left: 0,
-    right: 0,
-    height: 1,
-    marginTop: 40,
   },
 
   // Grid

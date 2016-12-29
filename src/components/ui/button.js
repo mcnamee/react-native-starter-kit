@@ -103,11 +103,7 @@ class CustomButton extends Component {
     return props;
   }
 
-  render = () => (
-    <Button
-      {...this.buttonProps()}
-    />
-  )
+  render = () => <Button {...this.buttonProps()} />;
 }
 
 /* Export Component ==================================================================== */

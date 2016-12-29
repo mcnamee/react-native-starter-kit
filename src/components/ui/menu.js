@@ -19,6 +19,7 @@ import { AppStyles, AppSizes } from '@theme/';
 
 // Components
 import Button from '@components/ui/button';
+import Spacer from '@components/ui/spacer';
 
 /* Styles ==================================================================== */
 const MENU_BG_COLOR = '#2E3234';
@@ -165,7 +166,7 @@ class Menu extends Component {
                   {this.props.user.name}
                 </Text>
 
-                <View style={[AppStyles.spacer_10]} />
+                <Spacer size={10} />
 
                 <View style={[AppStyles.paddingHorizontal, AppStyles.paddingVerticalSml]}>
                   <Button

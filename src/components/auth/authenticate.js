@@ -20,6 +20,7 @@ import { AppStyles, AppSizes } from '@theme/';
 
 // Components
 import Button from '@components/ui/button';
+import Spacer from '@components/ui/spacer';
 
 /* Styles ==================================================================== */
 const styles = StyleSheet.create({
@@ -61,7 +62,7 @@ class Authenticate extends Component {
         </View>
       </View>
 
-      <View style={AppStyles.spacer_10} />
+      <Spacer size={10} />
 
       <View style={[AppStyles.row, AppStyles.paddingHorizontal]}>
         <View style={[AppStyles.flex1]}>
@@ -73,13 +74,13 @@ class Authenticate extends Component {
         </View>
       </View>
 
-      <View style={AppStyles.spacer_15} />
+      <Spacer size={15} />
 
       <Text style={[AppStyles.baseText, AppStyles.p, AppStyles.centered, styles.whiteText]}>
         - or -
       </Text>
 
-      <View style={AppStyles.spacer_10} />
+      <Spacer size={10} />
 
       <View style={[AppStyles.row, AppStyles.paddingHorizontal]}>
         <View style={[AppStyles.flex1]} />
@@ -95,7 +96,7 @@ class Authenticate extends Component {
         <View style={[AppStyles.flex1]} />
       </View>
 
-      <View style={AppStyles.spacer_40} />
+      <Spacer size={40} />
     </Image>
   )
 }

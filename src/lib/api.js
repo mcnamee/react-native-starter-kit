@@ -5,22 +5,20 @@
  * https://github.com/mcnamee/react-native-starter-app
  */
  /* global fetch console */
-
-/* Setup ==================================================================== */
 import DeviceInfo from 'react-native-device-info';
 
 import JWT from '@lib/api.jwt';
 
-// App Globals
-import AppConfig from '@constants/config';
+// Consts and Libs
+import { AppConfig, ErrorMessages, APIConfig } from '@constants/';
 import AppUtil from '@lib/util';
 
 // We'll use JWT for API Authentication
 const Token = new JWT();
 
 // Config
-const HOSTNAME = AppConfig.hostname;
-const ENDPOINTS = AppConfig.endpoints;
+const HOSTNAME = APIConfig.hostname;
+const ENDPOINTS = APIConfig.endpoints;
 
 let USER_AGENT;
 try {
@@ -64,7 +62,7 @@ function handleError(err) {
   if (typeof err === 'string') error = err;
   else if (err.message) error = err.message;
 
-  if (!err) error = AppConfig.errors.default;
+  if (!err) error = ErrorMessages.default;
   return error;
 }
 
@@ -100,7 +98,7 @@ function fetcher(method, endpoint, params, body) {
     // After x seconds, let's call it a day!
     const timeoutAfter = 7;
     const apiTimedOut = setTimeout(() => (
-      reject(AppConfig.errors.timeout)
+      reject(ErrorMessages.timeout)
     ), timeoutAfter * 1000);
 
     if (!method || !endpoint) return reject('Missing params (AppAPI.fetcher).');
@@ -117,7 +115,7 @@ function fetcher(method, endpoint, params, body) {
 
     // Add Token
     // Don't add on the login endpoint
-    if (Token.getStoredToken && endpoint !== AppConfig.endpoints.get('login')) {
+    if (Token.getStoredToken && endpoint !== APIConfig.endpoints.get('login')) {
       const apiToken = await Token.getStoredToken();
       if (apiToken) {
         req.headers.Authorization = `Bearer ${apiToken}`;
@@ -159,7 +157,7 @@ function fetcher(method, endpoint, params, body) {
         try {
           jsonRes = await rawRes.json();
         } catch (error) {
-          const err = { message: AppConfig.errors.invalidJson };
+          const err = { message: ErrorMessages.invalidJson };
           throw err;
         }
 

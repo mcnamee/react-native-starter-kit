@@ -6,8 +6,6 @@
  * https://github.com/mcnamee/react-native-starter-app
  */
 /* global __DEV__ */
-
-/* Setup ==================================================================== */
 import React from 'react';
 import { applyMiddleware, compose, createStore } from 'redux';
 import { connect, Provider } from 'react-redux';
@@ -15,11 +13,11 @@ import logger from 'redux-logger';
 import thunk from 'redux-thunk';
 import { Router } from 'react-native-router-flux';
 
-// App Globals
-import AppRoutes from '@constants/routes';
+// Consts and Libs
+import AppRoutes from '@navigation/';
 
 // All redux reducers (rolled into one mega-reducer)
-import rootReducer from '@reducers/index';
+import rootReducer from '@redux/index';
 
 // Connect RNRF with Redux
 const RouterWithRedux = connect()(Router);

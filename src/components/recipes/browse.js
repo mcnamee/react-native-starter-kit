@@ -5,8 +5,6 @@
  * React Native Starter App
  * https://github.com/mcnamee/react-native-starter-app
  */
-
-/* Setup ==================================================================== */
 import React, { Component, PropTypes } from 'react';
 import {
   View,
@@ -16,8 +14,8 @@ import {
 } from 'react-native';
 import { TabViewAnimated, TabBarTop } from 'react-native-tab-view';
 
-// App Globals
-import AppConfig from '@constants/config';
+// Consts and Libs
+import { AppColors } from '@theme/';
 import AppAPI from '@lib/api';
 
 // Containers
@@ -34,7 +32,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   tabbar: {
-    backgroundColor: AppConfig.theme.primaryColor,
+    backgroundColor: AppColors.brand.primary,
   },
   tabbarIndicator: {
     backgroundColor: '#FFF',

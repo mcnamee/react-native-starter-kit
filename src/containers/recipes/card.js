@@ -4,13 +4,11 @@
  * React Native Starter App
  * https://github.com/mcnamee/react-native-starter-app
  */
-
-/* Setup ==================================================================== */
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { Actions } from 'react-native-router-flux';
 
-// App Globals
+// Consts and Libs
 import AppUtil from '@lib/util';
 
 // Components
@@ -18,7 +16,7 @@ import RecipeCardRender from '@components/recipes/card';
 
 /* Redux ==================================================================== */
 // Actions
-import * as UserActions from '@reducers/user/actions';
+import * as UserActions from '@redux/user/actions';
 
 // What data from the store shall we send to the component?
 const mapStateToProps = state => ({

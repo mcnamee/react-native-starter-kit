@@ -6,8 +6,6 @@
  * React Native Starter App
  * https://github.com/mcnamee/react-native-starter-app
  */
-
-/* Setup ==================================================================== */
 import React, { PropTypes } from 'react';
 import {
   View,
@@ -15,8 +13,8 @@ import {
 } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 
-// App Globals
-import AppStyles from '@constants/styles';
+// Consts and Libs
+import { AppStyles } from '@theme/';
 
 /* Component ==================================================================== */
 const Error = ({ text }) => (

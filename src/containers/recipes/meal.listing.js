@@ -4,14 +4,12 @@
  * React Native Starter App
  * https://github.com/mcnamee/react-native-starter-app
  */
-
-/* Setup ==================================================================== */
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 
-// App Globals
+// Consts and Libs
 import AppAPI from '@lib/api';
-import AppConfig from '@constants/config';
+import { ErrorMessages } from '@constants/';
 
 // Components
 import Error from '@components/general/error';
@@ -20,7 +18,7 @@ import RecipeListing from '@components/recipes/listing';
 
 /* Redux ==================================================================== */
 // Actions
-// import * as UserActions from '@reducers/user/actions';
+// import * as UserActions from '@redux/user/actions';
 
 // What data from the store shall we send to the component?
 const mapStateToProps = () => ({
@@ -61,7 +59,7 @@ class MealListing extends Component {
     // Forgot to pass in a category?
     if (!meal) {
       this.setState({
-        error: AppConfig.errors.missingMealId,
+        error: ErrorMessages.missingMealId,
       });
     }
 

@@ -1,19 +1,15 @@
 /**
- * Global App Styles
+ * App Styles
  *
  * React Native Starter App
  * https://github.com/mcnamee/react-native-starter-app
  */
 
-import {
-  StyleSheet,
-} from 'react-native';
+import Colors from './colors';
+import Fonts from './fonts';
+import Sizes from './sizes';
 
-// App Globals
-import AppConfig from '@constants/config';
-
-/* Styles ==================================================================== */
-module.exports = StyleSheet.create({
+export default {
   appContainer: {
     backgroundColor: '#000',
   },
@@ -23,37 +19,46 @@ module.exports = StyleSheet.create({
     position: 'relative',
     flex: 1,
     flexDirection: 'column',
-    backgroundColor: AppConfig.theme.backgroundColor,
+    backgroundColor: Colors.background,
   },
   containerCentered: {
     justifyContent: 'center',
     alignItems: 'center',
   },
   windowSize: {
-    height: AppConfig.windowHeight,
-    width: AppConfig.windowWidth,
-  },
-  listView: {
+    height: Sizes.screen.height,
+    width: Sizes.screen.width,
   },
 
   // Aligning items
+  leftAligned: {
+    alignItems: 'flex-start',
+  },
   rightAligned: {
     alignItems: 'flex-end',
   },
 
   // Text Styles
   baseText: {
-    fontFamily: AppConfig.theme.baseFont,
+    fontFamily: Fonts.base.family,
+    fontSize: Fonts.base.size,
+    lineHeight: Fonts.base.lineHeight,
+    color: Colors.textPrimary,
     fontWeight: '500',
-    color: AppConfig.theme.textColor,
-    fontSize: AppConfig.theme.baseFontSize,
-    lineHeight: parseInt(AppConfig.theme.baseFontSize + (AppConfig.theme.baseFontSize * 0.5), 10),
+  },
+  p: {
+    fontFamily: Fonts.base.family,
+    fontSize: Fonts.base.size,
+    lineHeight: Fonts.base.lineHeight,
+    color: Colors.textPrimary,
+    fontWeight: '500',
+    marginBottom: 8,
   },
   h1: {
-    fontFamily: AppConfig.theme.baseFont,
-    fontSize: AppConfig.theme.baseFontSize * 2,
-    lineHeight: parseInt((AppConfig.theme.baseFontSize * 2) + (AppConfig.theme.baseFontSize * 0.5), 10),
-    color: AppConfig.theme.primaryColor,
+    fontFamily: Fonts.h1.family,
+    fontSize: Fonts.h1.size,
+    lineHeight: Fonts.h1.lineHeight,
+    color: Colors.headingPrimary,
     fontWeight: '800',
     margin: 0,
     marginTop: 4,
@@ -62,10 +67,11 @@ module.exports = StyleSheet.create({
     right: 0,
   },
   h2: {
-    fontFamily: AppConfig.theme.baseFont,
-    color: AppConfig.theme.primaryColor,
-    fontSize: AppConfig.theme.baseFontSize * 1.5,
-    lineHeight: parseInt((AppConfig.theme.baseFontSize * 1.5) + (AppConfig.theme.baseFontSize * 0.5), 10),
+    fontFamily: Fonts.h2.family,
+    fontSize: Fonts.h2.size,
+    lineHeight: Fonts.h2.lineHeight,
+    color: Colors.headingPrimary,
+    fontWeight: '800',
     margin: 0,
     marginTop: 4,
     marginBottom: 4,
@@ -73,11 +79,11 @@ module.exports = StyleSheet.create({
     right: 0,
   },
   h3: {
-    fontFamily: AppConfig.theme.baseFont,
+    fontFamily: Fonts.h3.family,
+    fontSize: Fonts.h3.size,
+    lineHeight: Fonts.h3.lineHeight,
+    color: Colors.headingPrimary,
     fontWeight: '500',
-    color: AppConfig.theme.primaryColor,
-    fontSize: AppConfig.theme.baseFontSize * 1.25,
-    lineHeight: parseInt((AppConfig.theme.baseFontSize * 1.25) + (AppConfig.theme.baseFontSize * 0.5), 10),
     margin: 0,
     marginTop: 4,
     marginBottom: 4,
@@ -85,31 +91,35 @@ module.exports = StyleSheet.create({
     right: 0,
   },
   h4: {
-    fontFamily: AppConfig.theme.baseFont,
+    fontFamily: Fonts.h4.family,
+    fontSize: Fonts.h4.size,
+    lineHeight: Fonts.h4.lineHeight,
+    color: Colors.headingPrimary,
     fontWeight: '800',
-    color: AppConfig.theme.primaryColor,
-    fontSize: AppConfig.theme.baseFontSize * 1.1,
-    lineHeight: parseInt((AppConfig.theme.baseFontSize * 1.1) + (AppConfig.theme.baseFontSize * 0.5), 10),
     margin: 0,
     marginTop: 4,
     marginBottom: 4,
     left: 0,
     right: 0,
   },
-  p: {
-    fontFamily: AppConfig.theme.baseFont,
-    marginBottom: 8,
-    fontWeight: '500',
-    color: AppConfig.theme.textColor,
-    fontSize: AppConfig.theme.baseFontSize,
-    lineHeight: parseInt(AppConfig.theme.baseFontSize + (AppConfig.theme.baseFontSize * 0.5), 10),
+  h5: {
+    fontFamily: Fonts.h5.family,
+    fontSize: Fonts.h5.size,
+    lineHeight: Fonts.h5.lineHeight,
+    color: Colors.headingPrimary,
+    fontWeight: '800',
+    margin: 0,
+    marginTop: 4,
+    marginBottom: 4,
+    left: 0,
+    right: 0,
   },
   strong: {
     fontWeight: '900',
   },
   link: {
     textDecorationLine: 'underline',
-    color: AppConfig.theme.primaryColor,
+    color: Colors.brand.primary,
   },
 
   // Helper Text Styles
@@ -171,7 +181,7 @@ module.exports = StyleSheet.create({
     left: 0,
     right: 0,
     borderBottomWidth: 1,
-    borderBottomColor: AppConfig.theme.borderColor,
+    borderBottomColor: Colors.border,
     height: 1,
     backgroundColor: 'transparent',
     marginTop: 20,
@@ -252,7 +262,7 @@ module.exports = StyleSheet.create({
   },
   formInputText: {
     height: 36,
-    borderColor: '#cccccc',
+    borderColor: Colors.border,
     borderWidth: 0.75,
     borderRadius: 3,
     paddingVertical: 4,
@@ -260,4 +270,26 @@ module.exports = StyleSheet.create({
     marginBottom: 10,
     backgroundColor: '#fff',
   },
-});
+
+  // Navbar
+  navbar: {
+    backgroundColor: Colors.brand.primary,
+    borderBottomWidth: 0,
+  },
+  navbarTitle: {
+    color: '#ffffff',
+    fontWeight: 'bold',
+    fontFamily: Fonts.base.family,
+    fontSize: Fonts.base.size,
+  },
+  navbarButton: {
+    tintColor: '#ffffff',
+  },
+
+  // TabBar
+  tabbar: {
+    backgroundColor: '#ffffff',
+    borderTopColor: Colors.border,
+    borderTopWidth: 1,
+  },
+};

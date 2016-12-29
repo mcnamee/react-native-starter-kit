@@ -10,8 +10,6 @@
  * React Native Starter App
  * https://github.com/mcnamee/react-native-starter-app
  */
-
-/* Setup ==================================================================== */
 import React, { PropTypes } from 'react';
 import {
   StyleSheet,
@@ -19,8 +17,8 @@ import {
   Text,
 } from 'react-native';
 
-// App Globals
-import AppStyles from '@constants/styles';
+// Consts and Libs
+import { AppStyles } from '@theme/';
 
 /* Styles ==================================================================== */
 const styles = StyleSheet.create({

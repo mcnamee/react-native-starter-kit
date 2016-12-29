@@ -6,8 +6,6 @@
  * React Native Starter App
  * https://github.com/mcnamee/react-native-starter-app
  */
-
-/* Setup ==================================================================== */
 import React, { Component } from 'react';
 import {
   View,
@@ -17,9 +15,8 @@ import {
 } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 
-// App Globals
-import AppConfig from '@constants/config';
-import AppStyles from '@constants/styles';
+// Consts and Libs
+import { AppStyles, AppSizes } from '@theme/';
 
 // Components
 import Button from '@components/ui/button';
@@ -28,11 +25,11 @@ import Button from '@components/ui/button';
 const styles = StyleSheet.create({
   background: {
     backgroundColor: 'transparent',
-    height: AppConfig.windowHeight,
-    width: AppConfig.windowWidth,
+    height: AppSizes.screen.height,
+    width: AppSizes.screen.width,
   },
   logo: {
-    width: AppConfig.windowWidth * 0.85,
+    width: AppSizes.screen.width * 0.85,
     resizeMode: 'contain',
   },
   whiteText: {
@@ -43,27 +40,6 @@ const styles = StyleSheet.create({
 /* Component ==================================================================== */
 class Authenticate extends Component {
   static componentName = 'Authenticate';
-
-  /**
-    * Navigates to Login
-    */
-  onPressLogin = () => {
-    Actions.login();
-  }
-
-  /**
-    * Navigates to Sign Up
-    */
-  onPressSignUp = () => {
-    Actions.signUp();
-  }
-
-  /**
-    * Skips Auth
-    */
-  onPressSkip = () => {
-    Actions.app();
-  }
 
   render = () => (
     <Image
@@ -80,7 +56,7 @@ class Authenticate extends Component {
           <Button
             title={'Login'}
             icon={{ name: 'lock' }}
-            onPress={this.onPressLogin}
+            onPress={Actions.login}
           />
         </View>
       </View>
@@ -92,7 +68,7 @@ class Authenticate extends Component {
           <Button
             title={'Sign up'}
             icon={{ name: 'face' }}
-            onPress={this.onPressSignUp}
+            onPress={Actions.signUp}
           />
         </View>
       </View>
@@ -111,7 +87,7 @@ class Authenticate extends Component {
           <Button
             small
             title={'Skip'}
-            onPress={this.onPressSkip}
+            onPress={Actions.app}
             backgroundColor={'#CB009E'}
             raised={false}
           />

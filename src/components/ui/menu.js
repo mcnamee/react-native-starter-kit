@@ -4,8 +4,6 @@
  * React Native Starter App
  * https://github.com/mcnamee/react-native-starter-app
  */
-
-/* Setup ==================================================================== */
 import React, { Component, PropTypes } from 'react';
 import {
   View,
@@ -16,9 +14,8 @@ import {
 } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 
-// App Globals
-import AppStyles from '@constants/styles';
-import AppConfig from '@constants/config';
+// Consts and Libs
+import { AppStyles, AppSizes } from '@theme/';
 
 // Components
 import Button from '@components/ui/button';
@@ -29,8 +26,8 @@ const MENU_BG_COLOR = '#2E3234';
 const styles = StyleSheet.create({
   backgroundFill: {
     backgroundColor: MENU_BG_COLOR,
-    height: AppConfig.windowHeight,
-    width: AppConfig.windowWidth,
+    height: AppSizes.screen.height,
+    width: AppSizes.screen.width,
     position: 'absolute',
     top: 0,
     left: 0,
@@ -53,7 +50,7 @@ const styles = StyleSheet.create({
     right: 0,
     backgroundColor: MENU_BG_COLOR,
     padding: 20,
-    paddingTop: AppConfig.statusBarHeight,
+    paddingTop: AppSizes.statusBarHeight,
   },
   menuItem: {
     borderBottomWidth: 2,

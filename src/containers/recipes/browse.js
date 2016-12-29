@@ -7,7 +7,7 @@
 import { connect } from 'react-redux';
 
 // Actions
-import * as RecipeActions from '@reducers/recipes/actions';
+import * as RecipeActions from '@redux/recipes/actions';
 
 // The component we're mapping to
 import RecipeTabs from '@components/recipes/browse';

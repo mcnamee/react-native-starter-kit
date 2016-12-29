@@ -56,12 +56,14 @@ Coming soon...
   /android       <-- The native Android stuff
   /ios           <-- The native iOS stuff
   /src           <-- Contains the full React Native App codebase
-    /components  <-- Presentational, state-less, 'dumb-components'
-    /config      <-- App-wide config
-    /containers  <-- The business logic, provides data to presentation
+    /components  <-- 'Dumb-components' / presentational / state-less
+    /constants   <-- App-wide variables and config
+    /containers  <-- 'Smart-components' / the business logic - provides data to presentation
     /images      <-- Self explanatory right?
     /lib         <-- Utils, custom libraries, functions
-    /reducers    <-- Redux Reducers & Actions grouped by type
+    /navigation  <-- Routes - wire up the router with any & all screens
+    /redux       <-- Redux Reducers & Actions grouped by type
+    /theme       <-- Theme specific variables
 ```
 
 ---

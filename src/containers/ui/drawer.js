@@ -4,22 +4,21 @@
  * React Native Starter App
  * https://github.com/mcnamee/react-native-starter-app
  */
-/* Setup ==================================================================== */
 import React, { Component, PropTypes } from 'react';
 import { View } from 'react-native';
 import { connect } from 'react-redux';
 import SideMenu from 'react-native-side-menu';
 import { DefaultRenderer } from 'react-native-router-flux';
 
-// App Globals
-import AppConfig from '@constants/config';
+// Consts and Libs
+import { AppSizes } from '@theme/';
 
 // Containers
-import Menu from '@containers/menu';
+import Menu from '@containers/ui/menu';
 
 /* Redux ==================================================================== */
 // Actions
-import * as SideMenuActions from '@reducers/sidemenu/actions';
+import * as SideMenuActions from '@redux/sidemenu/actions';
 
 // What data from the store shall we send to the component?
 const mapStateToProps = state => ({
@@ -60,7 +59,7 @@ class Drawer extends Component {
     return (
       <SideMenu
         ref={(a) => { this.rootSidebarMenu = a; }}
-        openMenuOffset={AppConfig.windowWidth * 0.75}
+        openMenuOffset={AppSizes.screen.width * 0.75}
         menu={
           <Menu
             closeSideMenu={this.props.closeSideMenu}
@@ -69,7 +68,7 @@ class Drawer extends Component {
         }
         isOpen={this.props.sideMenuIsOpen}
         onChange={this.onSideMenuChange}
-        disableGestures={true}
+        disableGestures
       >
         <View style={{ backgroundColor: '#000', flex: 1 }}>
           <DefaultRenderer navigationState={children[0]} onNavigate={this.props.onNavigate} />

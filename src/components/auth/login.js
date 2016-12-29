@@ -4,8 +4,6 @@
  * React Native Starter App
  * https://github.com/mcnamee/react-native-starter-app
  */
-
-/* Setup ==================================================================== */
 import React, { Component, PropTypes } from 'react';
 import {
   View,
@@ -17,9 +15,9 @@ import {
 import FormValidation from 'tcomb-form-native';
 import { Actions } from 'react-native-router-flux';
 
-// App Globals
+// Consts and Libs
 import AppAPI from '@lib/api';
-import AppStyles from '@constants/styles';
+import { AppStyles } from '@theme/';
 
 // Components
 import Alerts from '@components/ui/alerts';

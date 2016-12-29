@@ -5,8 +5,6 @@
  * React Native Starter App
  * https://github.com/mcnamee/react-native-starter-app
  */
-
-/* Setup ==================================================================== */
 import React, { Component, PropTypes } from 'react';
 import {
   Text,
@@ -16,8 +14,8 @@ import {
 } from 'react-native';
 import { Icon } from 'react-native-elements';
 
-// App Globals
-import AppStyles from '@constants/styles';
+// Consts and Libs
+import { AppStyles } from '@theme/';
 
 // Components
 import Card from '@components/ui/card';

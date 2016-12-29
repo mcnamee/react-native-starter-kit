@@ -6,8 +6,6 @@
  * React Native Starter App
  * https://github.com/mcnamee/react-native-starter-app
  */
-
-/* Setup ==================================================================== */
 import React, { Component, PropTypes } from 'react';
 import {
   WebView,
@@ -15,9 +13,8 @@ import {
   InteractionManager,
 } from 'react-native';
 
-// App Globals
-import AppStyles from '@constants/styles';
-import AppConfig from '@constants/config';
+// Consts and Libs
+import { AppColors, AppStyles } from '@theme/';
 
 // Components
 import Loading from '@components/general/loading';
@@ -26,7 +23,7 @@ import Error from '@components/general/error';
 /* Styles ==================================================================== */
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: AppConfig.theme.backgroundColor,
+    backgroundColor: AppColors.background,
   },
 });
 

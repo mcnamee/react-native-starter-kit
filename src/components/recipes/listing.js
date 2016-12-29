@@ -5,8 +5,6 @@
  * React Native Starter App
  * https://github.com/mcnamee/react-native-starter-app
  */
-
-/* Setup ==================================================================== */
 import React, { Component, PropTypes } from 'react';
 import {
   View,
@@ -14,9 +12,9 @@ import {
   RefreshControl,
 } from 'react-native';
 
-// App Globals
-import AppStyles from '@constants/styles';
-import AppConfig from '@constants/config';
+// Consts and Libs
+import { AppColors, AppStyles } from '@theme/';
+import { ErrorMessages } from '@constants/';
 
 // Containers
 import RecipeCard from '@containers/recipes/card';
@@ -70,7 +68,7 @@ class RecipeListing extends Component {
     const { isRefreshing, dataSource } = this.state;
 
     if (!isRefreshing && (!recipes || recipes.length < 1)) {
-      return <Error text={AppConfig.errors.recipe404} />;
+      return <Error text={ErrorMessages.recipe404} />;
     }
 
     return (
@@ -79,14 +77,13 @@ class RecipeListing extends Component {
           initialListSize={8}
           renderRow={recipe => <RecipeCard recipe={recipe} />}
           dataSource={dataSource}
-          contentContainerStyle={[AppStyles.listView]}
           automaticallyAdjustContentInsets={false}
           refreshControl={
             this.props.reFetch ?
               <RefreshControl
                 refreshing={isRefreshing}
                 onRefresh={this.reFetch}
-                tintColor={AppConfig.theme.primaryColor}
+                tintColor={AppColors.brand.primary}
               />
             : null
           }

@@ -6,14 +6,12 @@
  * React Native Starter App
  * https://github.com/mcnamee/react-native-starter-app
  */
-
-/* Setup ==================================================================== */
 import React, { Component, PropTypes } from 'react';
 import { Alert } from 'react-native';
 import { Button } from 'react-native-elements';
 
-// App Globals
-import AppConfig from '@constants/config';
+// Consts and Libs
+import { AppColors, AppFonts, AppSizes } from '@theme/';
 
 /* Component ==================================================================== */
 class CustomButton extends Component {
@@ -39,12 +37,12 @@ class CustomButton extends Component {
     const props = {
       title: 'Coming Soon...',
       onPress: () => Alert.alert('Coming soon...'),
-      backgroundColor: AppConfig.theme.primaryColor,
+      backgroundColor: AppColors.brand.primary,
       color: '#fff',
       fontWeight: 'bold',
-      fontFamily: AppConfig.theme.baseFont,
-      fontSize: AppConfig.theme.baseFontSize,
-      borderRadius: AppConfig.theme.borderRadius,
+      fontFamily: AppFonts.base.family,
+      fontSize: AppFonts.base.size,
+      borderRadius: AppSizes.borderRadius,
       raised: true,
       buttonStyle: {
         padding: 12,
@@ -90,14 +88,14 @@ class CustomButton extends Component {
     if (this.props.outlined) {
       props.raised = false;
       props.backgroundColor = this.props.backgroundColor || 'transparent';
-      props.color = AppConfig.theme.primaryColor;
+      props.color = AppColors.brand.primary;
       props.buttonStyle.borderWidth = 1;
-      props.buttonStyle.borderColor = AppConfig.theme.primaryColor;
+      props.buttonStyle.borderColor = AppColors.brand.primary;
 
       if (props.icon && props.icon.name) {
         props.icon = {
           ...props.icon,
-          color: AppConfig.theme.primaryColor,
+          color: AppColors.brand.primary,
         };
       }
     }

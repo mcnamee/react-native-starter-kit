@@ -5,8 +5,6 @@
  * React Native Starter App
  * https://github.com/mcnamee/react-native-starter-app
  */
-
-/* Setup ==================================================================== */
 import React, { Component, PropTypes } from 'react';
 import {
   View,
@@ -16,9 +14,8 @@ import {
   StyleSheet,
 } from 'react-native';
 
-// App Globals
-import AppStyles from '@constants/styles';
-import AppConfig from '@constants/config';
+// Consts and Libs
+import { AppStyles, AppSizes } from '@theme/';
 
 // Components
 import Card from '@components/ui/card';
@@ -28,7 +25,7 @@ const styles = StyleSheet.create({
   featuredImage: {
     left: 0,
     right: 0,
-    height: AppConfig.windowHeight * 0.15,
+    height: AppSizes.screen.height * 0.15,
     resizeMode: 'cover',
   },
 });
@@ -60,7 +57,7 @@ class RecipeView extends Component {
           <View style={[AppStyles.paddingLeftSml, AppStyles.flex1]}>
             <Text style={[AppStyles.baseText]}>{item.ingredient.toString()}</Text>
           </View>
-        </View>
+        </View>,
       );
       iterator += 1;
     });
@@ -82,7 +79,7 @@ class RecipeView extends Component {
           <View style={[AppStyles.paddingBottomSml, AppStyles.paddingLeftSml, AppStyles.flex1]}>
             <Text style={[AppStyles.baseText]}>{item.method.toString()}</Text>
           </View>
-        </View>
+        </View>,
       );
       iterator += 1;
     });

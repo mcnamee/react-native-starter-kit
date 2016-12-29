@@ -1,67 +1,52 @@
 /**
- * App Routes
+ * App Navigation
  *
  * React Native Starter App
  * https://github.com/mcnamee/react-native-starter-app
  */
-import React, { PropTypes } from 'react';
-import { Text, TouchableOpacity } from 'react-native';
+import React from 'react';
 import { Actions, Scene, ActionConst } from 'react-native-router-flux';
-import { Icon } from 'react-native-elements';
 
-// App Globals
-import AppConfig from '@constants/config';
+// Consts and Libs
+import { AppConfig } from '@constants/';
+import { AppColors, AppStyles } from '@theme/';
 
 // Components
-import Drawer from '@containers/drawer';
-import { NavbarMenu } from '@components/ui/navbar.buttons';
+import Drawer from '@containers/ui/drawer';
+import TabIcon from '@components/ui/tab.icon';
+import { NavbarMenuButton } from '@containers/ui/navbar.buttons';
 
-// Routes
+// Scenes
 import SplashScreen from '@containers/splash';
-import StyleGuide from '@components/style.guide';
+import StyleGuide from '@containers/style.guide';
 import ComingSoon from '@components/general/soon';
-
-// Auth
 import Authenticate from '@components/auth/authenticate';
 import AuthWebView from '@components/auth/webview';
 import AuthLogin from '@containers/login';
-
-// Recipes
 import Recipes from '@containers/recipes/browse';
 import RecipeView from '@components/recipes/view';
 
 const navBarProps = {
   hideNavBar: false,
-  titleStyle: AppConfig.theme.navbarTitle,
-  navigationBarStyle: AppConfig.theme.navbar,
-  leftButtonIconStyle: AppConfig.theme.navbarButton,
-  rightButtonIconStyle: AppConfig.theme.navbarButton,
+  titleStyle: AppStyles.navbarTitle,
+  navigationBarStyle: AppStyles.navbar,
+  leftButtonIconStyle: AppStyles.navbarButton,
+  rightButtonIconStyle: AppStyles.navbarButton,
   sceneStyle: {
-    backgroundColor: AppConfig.theme.backgroundColor,
+    backgroundColor: AppColors.background,
     paddingTop: 60,
   },
 };
 
 const navBarPropsTabs = {
   ...navBarProps,
-  renderLeftButton: () => <NavbarMenu />,
+  renderLeftButton: () => <NavbarMenuButton />,
   sceneStyle: {
-    backgroundColor: AppConfig.theme.backgroundColor,
+    backgroundColor: AppColors.background,
     paddingTop: 60,
     paddingBottom: 50,
   },
 };
-
-/* Components ==================================================================== */
-const TabIcon = ({ icon, selected }) => (
-  <Icon
-    name={icon}
-    size={26}
-    color={selected ? AppConfig.theme.tabbarIcon.selected : AppConfig.theme.tabbarIcon.default }
-  />
-);
-TabIcon.propTypes = { icon: PropTypes.string.isRequired, selected: PropTypes.bool };
-TabIcon.defaultProps = { icon: 'search', selected: false };
 
 /* Routes ==================================================================== */
 export default Actions.create(
@@ -79,12 +64,12 @@ export default Actions.create(
       {/* Drawer Side Menu */}
       <Scene key={'home'} component={Drawer}>
         {/* Tabbar */}
-        <Scene key={'tabBar'} tabs={true} tabBarStyle={AppConfig.theme.tabbar} pressOpacity={0.8}>
+        <Scene key={'tabBar'} tabs tabBarStyle={AppStyles.tabbar} pressOpacity={0.8}>
           <Scene
             {...navBarPropsTabs}
             key={'recipes'}
             title={'Recipes'}
-            icon={(props) => TabIcon({...props, icon: 'search'})}
+            icon={props => TabIcon({ ...props, icon: 'search' })}
           >
             <Scene
               {...navBarPropsTabs}
@@ -105,7 +90,7 @@ export default Actions.create(
             {...navBarPropsTabs}
             title={'Coming Soon'}
             component={ComingSoon}
-            icon={(props) => TabIcon({...props, icon: 'timeline'})}
+            icon={props => TabIcon({ ...props, icon: 'timeline' })}
           />
 
           <Scene
@@ -113,7 +98,7 @@ export default Actions.create(
             {...navBarPropsTabs}
             title={'Style Guide'}
             component={StyleGuide}
-            icon={(props) => TabIcon({...props, icon: 'speaker-notes'})}
+            icon={props => TabIcon({ ...props, icon: 'speaker-notes' })}
           />
         </Scene>
       </Scene>

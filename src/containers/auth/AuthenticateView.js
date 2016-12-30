@@ -9,7 +9,6 @@
 import React, { Component } from 'react';
 import {
   View,
-  Text,
   Image,
   StyleSheet,
 } from 'react-native';
@@ -19,8 +18,7 @@ import { Actions } from 'react-native-router-flux';
 import { AppStyles, AppSizes } from '@theme/';
 
 // Components
-import Button from '@components/ui/button';
-import Spacer from '@components/ui/spacer';
+import { Spacer, Text, Button } from '@ui/';
 
 /* Styles ==================================================================== */
 const styles = StyleSheet.create({
@@ -76,7 +74,7 @@ class Authenticate extends Component {
 
       <Spacer size={15} />
 
-      <Text style={[AppStyles.baseText, AppStyles.p, AppStyles.centered, styles.whiteText]}>
+      <Text p style={[AppStyles.centered, styles.whiteText]}>
         - or -
       </Text>
 

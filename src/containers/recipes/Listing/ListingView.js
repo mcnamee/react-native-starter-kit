@@ -17,10 +17,10 @@ import { AppColors, AppStyles } from '@theme/';
 import { ErrorMessages } from '@constants/';
 
 // Containers
-import RecipeCard from '@containers/recipes/card';
+import RecipeCard from '@containers/recipes/Card/CardContainer';
 
 // Components
-import Error from '@components/general/error';
+import Error from '@components/general/Error';
 
 /* Component ==================================================================== */
 class RecipeListing extends Component {

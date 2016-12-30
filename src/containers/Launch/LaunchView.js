@@ -1,5 +1,5 @@
 /**
- * First Load Screen
+ * Launch Screen
  *  - Shows a nice loading screen whilst:
  *  - Checking if user is logged in, and redirects from there
  *
@@ -27,16 +27,13 @@ const styles = StyleSheet.create({
 });
 
 /* Component ==================================================================== */
-class FirstLoad extends Component {
-  static componentName = 'FirstLoad';
+class AppLaunch extends Component {
+  static componentName = 'AppLaunch';
 
   static propTypes = {
     login: PropTypes.func.isRequired,
   }
 
-  /**
-    * On first load
-    */
   componentDidMount = () => {
     // Try to authenticate based on existing token
     this.props.login()
@@ -63,4 +60,4 @@ class FirstLoad extends Component {
 }
 
 /* Export Component ==================================================================== */
-export default FirstLoad;
+export default AppLaunch;

@@ -7,7 +7,6 @@
 import React, { Component, PropTypes } from 'react';
 import {
   View,
-  Text,
   Alert,
   StyleSheet,
   TouchableOpacity,
@@ -18,8 +17,7 @@ import { Actions } from 'react-native-router-flux';
 import { AppStyles, AppSizes } from '@theme/';
 
 // Components
-import Button from '@components/ui/button';
-import Spacer from '@components/ui/spacer';
+import { Spacer, Text, Button } from '@ui/';
 
 /* Styles ==================================================================== */
 const MENU_BG_COLOR = '#2E3234';
@@ -137,7 +135,7 @@ class Menu extends Component {
           onPress={onPress}
         >
           <View style={[styles.menuItem]}>
-            <Text style={[AppStyles.baseText, styles.menuItem_text]}>
+            <Text style={[styles.menuItem_text]}>
               {title}
             </Text>
           </View>
@@ -157,7 +155,6 @@ class Menu extends Component {
               <View>
                 <Text
                   style={[
-                    AppStyles.baseText,
                     styles.menuBottom_text,
                     AppStyles.centered,
                   ]}

@@ -7,7 +7,6 @@
 import React, { Component } from 'react';
 import {
   View,
-  Text,
   ScrollView,
   StyleSheet,
   TouchableOpacity,
@@ -20,10 +19,11 @@ import { Actions } from 'react-native-router-flux';
 import { AppColors, AppStyles } from '@theme/';
 
 // Components
-import Alerts from '@components/ui/alerts';
-import Button from '@components/ui/button';
-import Card from '@components/ui/card';
-import Spacer from '@components/ui/spacer';
+import Alerts from '@components/ui/Alerts';
+import Button from '@components/ui/Button';
+import Card from '@components/ui/Card';
+import Spacer from '@components/ui/Spacer';
+import Text from '@components/ui/Text';
 
 /* Styles ==================================================================== */
 const styles = StyleSheet.create({
@@ -84,17 +84,17 @@ class StyleGuide extends Component {
             >
               <Card title={'Typography'}>
                 <View>
-                  <Text style={[AppStyles.h1]}>Heading 1</Text>
-                  <Text style={[AppStyles.h2]}>Heading 2</Text>
-                  <Text style={[AppStyles.h3]}>Heading 3</Text>
-                  <Text style={[AppStyles.h4]}>Heading 4</Text>
-                  <Text style={[AppStyles.p]}>
+                  <Text h1>Heading 1</Text>
+                  <Text h2>Heading 2</Text>
+                  <Text h3>Heading 3</Text>
+                  <Text h4>Heading 4</Text>
+                  <Text p>
                     Mus ac nostra lobortis sapien a erat in risus purus odio
                     egestas a donec fringilla scelerisque congue parturient
                     condimentum penatibus neque urna magna. Leo dictumst
                     senectus inceptos parturient pharetra.
                   </Text>
-                  <Text style={[AppStyles.p]}>
+                  <Text p>
                     Mus ac nostra lobortis sapien a erat in risus purus odio
                     egestas a donec fringilla scelerisque congue parturient
                     condimentum penatibus neque urna magna. Leo dictumst
@@ -187,7 +187,7 @@ class StyleGuide extends Component {
             >
               <View style={[AppStyles.paddingHorizontal]}>
                 <Spacer size={15} />
-                <Text style={[AppStyles.h2]}>Cards</Text>
+                <Text h2>Cards</Text>
               </View>
 
               <TouchableOpacity
@@ -198,8 +198,8 @@ class StyleGuide extends Component {
                   image={{ uri: 'http://wp-api.mcnam.ee/wp-content/uploads/2016/10/brekkie-crumble-33651_l.jpeg' }}
                 >
                   <View style={[AppStyles.paddingLeftSml, AppStyles.paddingBottomSml]}>
-                    <Text style={[AppStyles.h3]}>Title of post</Text>
-                    <Text style={[AppStyles.baseText]}>
+                    <Text h3>Title of post</Text>
+                    <Text>
                       Lorem ipsum diem or seckt original de pingdo of the lespec.
                     </Text>
                   </View>
@@ -214,8 +214,8 @@ class StyleGuide extends Component {
                   image={{ uri: 'http://wp-api.mcnam.ee/wp-content/uploads/2016/10/brekkie-crumble-33651_l.jpeg' }}
                 >
                   <View style={[AppStyles.paddingLeftSml, AppStyles.paddingBottomSml]}>
-                    <Text style={[AppStyles.h3]}>Another Post</Text>
-                    <Text style={[AppStyles.baseText]}>
+                    <Text h3>Another Post</Text>
+                    <Text>
                       Lorem ipsum diem or seckt original de pingdo of the lespec.
                     </Text>
                   </View>
@@ -233,7 +233,7 @@ class StyleGuide extends Component {
             >
               <View style={[AppStyles.paddingHorizontal]}>
                 <Spacer size={15} />
-                <Text style={[AppStyles.h2]}>List Rows</Text>
+                <Text h2>List Rows</Text>
               </View>
               <List>
                 <ListItem

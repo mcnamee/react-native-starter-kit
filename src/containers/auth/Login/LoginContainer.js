@@ -1,5 +1,5 @@
 /**
- * Menu Container
+ * Login Container
  *
  * React Native Starter App
  * https://github.com/mcnamee/react-native-starter-app
@@ -10,7 +10,7 @@ import { connect } from 'react-redux';
 import * as UserActions from '@redux/user/actions';
 
 // The component we're mapping to
-import Menu from '@components/ui/menu';
+import LoginRender from './LoginView';
 
 // What data from the store shall we send to the component?
 const mapStateToProps = state => ({
@@ -19,7 +19,7 @@ const mapStateToProps = state => ({
 
 // Any actions to map to the component?
 const mapDispatchToProps = {
-  logout: UserActions.logout,
+  login: UserActions.login,
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Menu);
+export default connect(mapStateToProps, mapDispatchToProps)(LoginRender);

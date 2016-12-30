@@ -7,7 +7,7 @@ import 'react-native';
 import React from 'react';
 import renderer from 'react-test-renderer';
 
-import Error from '../general/error';
+import Error from '../general/Error';
 
 /**
  * Check if alerts renders correcly

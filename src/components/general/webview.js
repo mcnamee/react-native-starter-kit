@@ -17,8 +17,8 @@ import {
 import { AppColors, AppStyles } from '@theme/';
 
 // Components
-import Loading from '@components/general/loading';
-import Error from '@components/general/error';
+import Loading from '@components/general/Loading';
+import Error from '@components/general/Error';
 
 /* Styles ==================================================================== */
 const styles = StyleSheet.create({

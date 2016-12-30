@@ -7,20 +7,18 @@
  * https://github.com/mcnamee/react-native-starter-app
  */
 import React, { PropTypes } from 'react';
-import {
-  View,
-  Text,
-} from 'react-native';
+import { View } from 'react-native';
 
 // Consts and Libs
 import { AppStyles } from '@theme/';
 
+// Components
+import { Text } from '@ui/';
+
 /* Component ==================================================================== */
 const ComingSoon = ({ text }) => (
   <View style={[AppStyles.container, AppStyles.containerCentered]}>
-    <Text style={[AppStyles.baseText]}>
-      {text}
-    </Text>
+    <Text>{text}</Text>
   </View>
 );
 

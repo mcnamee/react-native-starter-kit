@@ -8,7 +8,6 @@
 import React, { Component, PropTypes } from 'react';
 import {
   View,
-  Text,
   StyleSheet,
   InteractionManager,
 } from 'react-native';
@@ -19,11 +18,12 @@ import { AppColors } from '@theme/';
 import AppAPI from '@lib/api';
 
 // Containers
-import RecipeListing from '@containers/recipes/meal.listing';
+import RecipeListing from '@containers/recipes/Listing/ListingContainer';
 
 // Components
-import Loading from '@components/general/loading';
-import Error from '@components/general/error';
+import { Text } from '@ui/';
+import Loading from '@components/general/Loading';
+import Error from '@components/general/Error';
 
 /* Styles ==================================================================== */
 const styles = StyleSheet.create({
@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
   tabbarIndicator: {
     backgroundColor: '#FFF',
   },
-  tabbar_text: {
+  tabbarText: {
     color: '#FFF',
   },
 });
@@ -133,7 +133,7 @@ class RecipeTabs extends Component {
       style={styles.tabbar}
       indicatorStyle={styles.tabbarIndicator}
       renderLabel={scene => (
-        <Text style={[styles.tabbar_text]}>{scene.route.title}</Text>
+        <Text style={[styles.tabbarText]}>{scene.route.title}</Text>
       )}
     />
   )

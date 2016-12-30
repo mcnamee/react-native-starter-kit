@@ -12,19 +12,19 @@ import { AppConfig } from '@constants/';
 import { AppColors, AppStyles } from '@theme/';
 
 // Components
-import Drawer from '@containers/ui/drawer';
-import TabIcon from '@components/ui/tab.icon';
-import { NavbarMenuButton } from '@containers/ui/navbar.buttons';
+import { TabIcon } from '@ui/';
+import Drawer from '@containers/ui/DrawerContainer';
+import { NavbarMenuButton } from '@containers/ui/NavbarMenuButton/NavbarMenuButtonContainer';
 
 // Scenes
-import SplashScreen from '@containers/splash';
-import StyleGuide from '@containers/style.guide';
-import ComingSoon from '@components/general/soon';
-import Authenticate from '@components/auth/authenticate';
-import AuthWebView from '@components/auth/webview';
-import AuthLogin from '@containers/login';
-import Recipes from '@containers/recipes/browse';
-import RecipeView from '@components/recipes/view';
+import AppLaunch from '@containers/Launch/LaunchContainer';
+import StyleGuide from '@containers/StyleGuideView';
+import ComingSoon from '@components/general/Soon';
+import Authenticate from '@containers/auth/AuthenticateView';
+import AuthWebView from '@containers/auth/WebView';
+import AuthLogin from '@containers/auth/Login/LoginContainer';
+import Recipes from '@containers/recipes/Browse/BrowseContainer';
+import RecipeView from '@containers/recipes/RecipeView';
 
 const navBarProps = {
   hideNavBar: false,
@@ -51,7 +51,7 @@ const navBarPropsTabs = {
 /* Routes ==================================================================== */
 export default Actions.create(
   <Scene key={'root'} {...navBarProps}>
-    <Scene key="splash" component={SplashScreen} hideNavBar />
+    <Scene key="splash" component={AppLaunch} hideNavBar />
 
     {/* Auth */}
     <Scene key={'authenticate'} hideNavBar component={Authenticate} type={ActionConst.RESET} />

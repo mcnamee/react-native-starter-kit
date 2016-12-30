@@ -7,7 +7,6 @@
  */
 import React, { Component, PropTypes } from 'react';
 import {
-  Text,
   View,
   StyleSheet,
   TouchableOpacity,
@@ -18,7 +17,7 @@ import { Icon } from 'react-native-elements';
 import { AppStyles } from '@theme/';
 
 // Components
-import Card from '@components/ui/card';
+import { Card, Text } from '@ui/';
 
 /* Styles ==================================================================== */
 const styles = StyleSheet.create({
@@ -49,8 +48,8 @@ class RecipeCard extends Component {
       <TouchableOpacity activeOpacity={0.8} onPress={onPress}>
         <Card image={image && { uri: image }}>
           <View style={[AppStyles.paddingBottomSml]}>
-            <Text style={[AppStyles.h3]}>{title}</Text>
-            <Text style={[AppStyles.baseText]}>{content}</Text>
+            <Text h3>{title}</Text>
+            <Text>{content}</Text>
 
             {!!onPressFavourite &&
               <TouchableOpacity

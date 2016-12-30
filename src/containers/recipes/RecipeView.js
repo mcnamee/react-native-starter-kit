@@ -8,7 +8,6 @@
 import React, { Component, PropTypes } from 'react';
 import {
   View,
-  Text,
   Image,
   ScrollView,
   StyleSheet,
@@ -18,8 +17,7 @@ import {
 import { AppStyles, AppSizes } from '@theme/';
 
 // Components
-import Card from '@components/ui/card';
-import Spacer from '@components/ui/spacer';
+import { Card, Spacer, Text } from '@ui/';
 
 /* Styles ==================================================================== */
 const styles = StyleSheet.create({
@@ -56,7 +54,7 @@ class RecipeView extends Component {
         <View key={`ingredient-${iterator}`} style={[AppStyles.row]}>
           <View><Text> - </Text></View>
           <View style={[AppStyles.paddingLeftSml, AppStyles.flex1]}>
-            <Text style={[AppStyles.baseText]}>{item.ingredient.toString()}</Text>
+            <Text>{item.ingredient.toString()}</Text>
           </View>
         </View>,
       );
@@ -78,7 +76,7 @@ class RecipeView extends Component {
         <View key={`method-${iterator}`} style={[AppStyles.row]}>
           <View><Text> {iterator}. </Text></View>
           <View style={[AppStyles.paddingBottomSml, AppStyles.paddingLeftSml, AppStyles.flex1]}>
-            <Text style={[AppStyles.baseText]}>{item.method.toString()}</Text>
+            <Text>{item.method.toString()}</Text>
           </View>
         </View>,
       );
@@ -102,20 +100,20 @@ class RecipeView extends Component {
         }
 
         <Card>
-          <Text style={[AppStyles.baseText, AppStyles.h2]}>{title.rendered}</Text>
-          <Text style={[AppStyles.baseText]}>{content.rendered}</Text>
+          <Text h2>{title.rendered}</Text>
+          <Text>{content.rendered}</Text>
         </Card>
 
         {acf.ingredients ?
           <Card>
-            <Text style={[AppStyles.baseText, AppStyles.h2]}>Ingredients</Text>
+            <Text h2>Ingredients</Text>
             {this.renderIngredients(acf.ingredients)}
           </Card>
         : null}
 
         {acf.methods ?
           <Card>
-            <Text style={[AppStyles.baseText, AppStyles.h2]}>Method</Text>
+            <Text h2>Method</Text>
             {this.renderMethod(acf.methods)}
           </Card>
         : null}

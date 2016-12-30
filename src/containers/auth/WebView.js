@@ -10,7 +10,7 @@ import React, { Component, PropTypes } from 'react';
 import { Actions } from 'react-native-router-flux';
 
 // Components
-import WebView from '@components/general/webview';
+import WebView from '@components/general/WebView';
 
 let timeout;
 

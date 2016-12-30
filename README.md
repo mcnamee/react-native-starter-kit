@@ -9,8 +9,6 @@ React Native Starter Kit helps you get started with React Native. It contains a 
 ## Todo
 
 - Google Analytics
-- Text components - eg. `<Text h1>Heading</Text>`
-- import { Button } from '@ui/';
 
 
 ---
@@ -65,13 +63,13 @@ Coming soon...
   /android       <-- The native Android stuff
   /ios           <-- The native iOS stuff
   /src           <-- Contains the full React Native App codebase
-    /components  <-- 'Dumb-components' / presentational / state-less
+    [/components](/src/components)  <-- 'Dumb-components' / presentational. [Read More](/src/components)
     /constants   <-- App-wide variables and config
-    /containers  <-- 'Smart-components' / the business logic - provides data to presentation
+    [/containers](/src/containers)  <-- 'Smart-components' / the business logic. [Read More](/src/containers)
     /images      <-- Self explanatory right?
     /lib         <-- Utils, custom libraries, functions
     /navigation  <-- Routes - wire up the router with any & all screens
-    /redux       <-- Redux Reducers & Actions grouped by type
+    [/redux](/src/redux)       <-- Redux Reducers & Actions grouped by type. [Read More](/src/redux)
     /theme       <-- Theme specific variables
 ```
 
@@ -107,14 +105,18 @@ Please ensure you're following the below rules before submitting a PR:
 
 Please follow [Airbnb's Name Conventions](https://github.com/airbnb/javascript#naming-conventions) from the style guide.
 
-### 6.2 File Structure
+### 6.2 File Structure & Naming Conventions
 
-- Follow the file structure [outlined above](#32-file-structure)
-- All files should be lowercase, with words separated by a fullstop - eg. `style.guide.js`
-- All folder names should be lowercase, with words separated by a hyphen - eg. `/components/case-studies`
+- __Structure__
+  - Follow the file structure [outlined above](#32-file-structure)
+- __Files__
+  - Should be `lowercase`, with words separated by hyphens (`-`) eg. `logo-cropped.jpg`
+  - With the exception of Containers and Components, which should be `PascalCase` - eg. `RecipeView.js`
+- __Directories__
+  - Folder names should be `lowercase,` with words separated by a hyphen (`-`) - eg. `/components/case-studies`
 - Folders and files can be named singlular or plural - do what sounds right
 - If there's more than 1 file in a directory that are related, group them within their own directory
- - eg. if I have 2 components: `/components/recipe.listing.js` and `/components/recipe.view.js`, create a new directory within components called `recipes` and put the 2 files within (removing `recipe.`). The result would be: `/components/recipes/listing.js` and `/components/recipes/view.js`
+  - eg. if I have 2 components: `/components/RecipeListing.js` and `/components/RecipeView.js`, create a new directory within components called `recipes` and put the 2 files within (removing `Recipes`). The result would be: `/components/recipes/Listing.js` and `/components/recipes/View.js`
 
 ### 6.3 Linting
 

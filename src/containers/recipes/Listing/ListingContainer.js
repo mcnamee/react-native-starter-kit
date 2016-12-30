@@ -7,19 +7,19 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 
+// Actions
+// import * as UserActions from '@redux/user/actions';
+
 // Consts and Libs
 import AppAPI from '@lib/api';
 import { ErrorMessages } from '@constants/';
 
 // Components
-import Error from '@components/general/error';
-import Loading from '@components/general/loading';
-import RecipeListing from '@components/recipes/listing';
+import Error from '@components/general/Error';
+import Loading from '@components/general/Loading';
+import RecipeListingRender from './ListingView';
 
 /* Redux ==================================================================== */
-// Actions
-// import * as UserActions from '@redux/user/actions';
-
 // What data from the store shall we send to the component?
 const mapStateToProps = () => ({
 });
@@ -88,7 +88,7 @@ class MealListing extends Component {
     if (error) return <Error text={error} />;
 
     return (
-      <RecipeListing
+      <RecipeListingRender
         recipes={recipes}
         reFetch={this.fetchRecipes}
       />

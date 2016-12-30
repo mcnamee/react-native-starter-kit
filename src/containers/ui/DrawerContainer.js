@@ -14,7 +14,7 @@ import { DefaultRenderer } from 'react-native-router-flux';
 import { AppSizes } from '@theme/';
 
 // Containers
-import Menu from '@containers/ui/menu';
+import Menu from '@containers/ui/Menu/MenuContainer';
 
 /* Redux ==================================================================== */
 // Actions

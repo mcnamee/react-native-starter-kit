@@ -7,17 +7,14 @@
  * https://github.com/mcnamee/react-native-starter-app
  */
 import React, { PropTypes } from 'react';
-import {
-  View,
-  Text,
-} from 'react-native';
+import { View } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 // Consts and Libs
 import { AppStyles } from '@theme/';
 
 // Components
-import Spacer from '@components/ui/spacer';
+import { Spacer, Text } from '@ui/';
 
 /* Component ==================================================================== */
 const Error = ({ text }) => (
@@ -26,7 +23,7 @@ const Error = ({ text }) => (
 
     <Spacer size={10} />
 
-    <Text style={[AppStyles.baseText]}>{text}</Text>
+    <Text>{text}</Text>
   </View>
 );
 

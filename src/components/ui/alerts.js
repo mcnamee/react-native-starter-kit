@@ -12,14 +12,12 @@
  */
 import React, { PropTypes } from 'react';
 import {
-  StyleSheet,
   View,
-  Text,
+  StyleSheet,
 } from 'react-native';
 
-// Consts and Libs
-import { AppStyles } from '@theme/';
-import Spacer from '@components/ui/spacer';
+// Components
+import { Spacer, Text } from '@ui/';
 
 /* Styles ==================================================================== */
 const styles = StyleSheet.create({
@@ -69,7 +67,7 @@ const Alerts = ({ status, success, error }) => (
     {success !== '' &&
       <View>
         <View style={[styles.msg]}>
-          <Text style={[AppStyles.baseText, styles.msg_text]}>{success}</Text>
+          <Text style={[styles.msg_text]}>{success}</Text>
         </View>
         <Spacer size={20} />
       </View>
@@ -78,13 +76,7 @@ const Alerts = ({ status, success, error }) => (
     {status !== '' &&
       <View>
         <View style={[styles.msg, styles.msgStatus]}>
-          <Text
-            style={[
-              AppStyles.baseText,
-              styles.msg_text,
-              styles.msgStatus_text,
-            ]}
-          >
+          <Text style={[styles.msg_text, styles.msgStatus_text]}>
             {status}
           </Text>
         </View>
@@ -97,7 +89,6 @@ const Alerts = ({ status, success, error }) => (
         <View style={[styles.msg, styles.msgError]}>
           <Text
             style={[
-              AppStyles.baseText,
               styles.msg_text,
               styles.msgError_text,
             ]}

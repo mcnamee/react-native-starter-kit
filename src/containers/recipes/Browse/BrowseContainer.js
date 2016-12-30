@@ -1,5 +1,5 @@
 /**
- * First Load Container
+ * Recipe Tabs Container
  *
  * React Native Starter App
  * https://github.com/mcnamee/react-native-starter-app
@@ -7,18 +7,19 @@
 import { connect } from 'react-redux';
 
 // Actions
-import * as UserActions from '@redux/user/actions';
+import * as RecipeActions from '@redux/recipes/actions';
 
 // The component we're mapping to
-import FirstLoad from '@components/splash';
+import RecipeTabsRender from './BrowseView';
 
 // What data from the store shall we send to the component?
 const mapStateToProps = state => ({
+  meals: state.recipe.meals,
 });
 
 // Any actions to map to the component?
 const mapDispatchToProps = {
-  login: UserActions.login,
+  getMeals: RecipeActions.getMeals,
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(FirstLoad);
+export default connect(mapStateToProps, mapDispatchToProps)(RecipeTabsRender);

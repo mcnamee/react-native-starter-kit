@@ -6,7 +6,6 @@
  */
 import React, { Component, PropTypes } from 'react';
 import {
-  Text,
   ScrollView,
   AsyncStorage,
   TouchableOpacity,
@@ -19,10 +18,7 @@ import AppAPI from '@lib/api';
 import { AppStyles } from '@theme/';
 
 // Components
-import Alerts from '@components/ui/alerts';
-import Button from '@components/ui/button';
-import Card from '@components/ui/card';
-import Spacer from '@components/ui/spacer';
+import { Alerts, Card, Spacer, Text, Button } from '@ui/';
 
 /* Component ==================================================================== */
 class Login extends Component {
@@ -167,14 +163,14 @@ class Login extends Component {
           <Spacer size={10} />
 
           <TouchableOpacity onPress={Actions.passwordReset}>
-            <Text style={[AppStyles.baseText, AppStyles.centered, AppStyles.link]}>
+            <Text p style={[AppStyles.centered, AppStyles.link]}>
               Forgot Password
             </Text>
           </TouchableOpacity>
 
           <Spacer size={10} />
 
-          <Text style={[AppStyles.baseText, AppStyles.p, AppStyles.centered]}>
+          <Text p style={[AppStyles.centered]}>
             - or -
           </Text>
 

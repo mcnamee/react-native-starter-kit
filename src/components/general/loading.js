@@ -9,7 +9,6 @@
 import React, { PropTypes } from 'react';
 import {
   View,
-  Text,
   ActivityIndicator,
 } from 'react-native';
 
@@ -17,7 +16,7 @@ import {
 import { AppStyles } from '@theme/';
 
 // Components
-import Spacer from '@components/ui/spacer';
+import { Spacer, Text } from '@ui/';
 
 /* Component ==================================================================== */
 const Loading = ({ text, transparent }) => (
@@ -37,9 +36,7 @@ const Loading = ({ text, transparent }) => (
     <Spacer size={10} />
 
     {text &&
-      <Text style={[AppStyles.baseText]}>
-        {text}
-      </Text>
+      <Text>{text}</Text>
     }
   </View>
 );

@@ -23,6 +23,7 @@
 - **Android** - CMD + M
 
 ## Reload
+
 - **iOS** - CMD + R
 - **Android** - Double tap R on your keyboard 
 

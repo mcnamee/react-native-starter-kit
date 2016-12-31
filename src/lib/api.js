@@ -14,6 +14,7 @@ import { AppConfig, ErrorMessages, APIConfig } from '@constants/';
 import AppUtil from '@lib/util';
 
 // We'll use JWT for API Authentication
+// const Token = {};
 const Token = new JWT();
 
 // Config
@@ -115,7 +116,7 @@ function fetcher(method, endpoint, params, body) {
 
     // Add Token
     // Don't add on the login endpoint
-    if (Token.getStoredToken && endpoint !== APIConfig.endpoints.get('login')) {
+    if (Token.getStoredToken && endpoint !== APIConfig.endpoints.get(APIConfig.tokenKey)) {
       const apiToken = await Token.getStoredToken();
       if (apiToken) {
         req.headers.Authorization = `Bearer ${apiToken}`;

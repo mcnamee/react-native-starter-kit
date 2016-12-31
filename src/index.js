@@ -14,6 +14,7 @@ import thunk from 'redux-thunk';
 import { Router } from 'react-native-router-flux';
 
 // Consts and Libs
+import { AppStyles } from '@theme/';
 import AppRoutes from '@navigation/';
 import Analytics from '@lib/analytics';
 
@@ -47,7 +48,7 @@ const store = compose(
 export default function AppContainer() {
   return (
     <Provider store={store}>
-      <RouterWithRedux scenes={AppRoutes} />
+      <RouterWithRedux scenes={AppRoutes} style={AppStyles.appContainer} />
     </Provider>
   );
 }

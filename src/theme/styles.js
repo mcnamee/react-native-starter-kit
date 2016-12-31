@@ -136,48 +136,48 @@ export default {
 
   // Give me padding
   padding: {
-    paddingVertical: 20,
-    paddingHorizontal: 20,
+    paddingVertical: Sizes.padding,
+    paddingHorizontal: Sizes.padding,
   },
   paddingHorizontal: {
-    paddingHorizontal: 20,
+    paddingHorizontal: Sizes.padding,
   },
   paddingLeft: {
-    paddingLeft: 20,
+    paddingLeft: Sizes.padding,
   },
   paddingRight: {
-    paddingRight: 20,
+    paddingRight: Sizes.padding,
   },
   paddingVertical: {
-    paddingVertical: 20,
+    paddingVertical: Sizes.padding,
   },
   paddingTop: {
-    paddingTop: 20,
+    paddingTop: Sizes.padding,
   },
   paddingBottom: {
-    paddingBottom: 20,
+    paddingBottom: Sizes.padding,
   },
   paddingSml: {
-    paddingVertical: 10,
-    paddingHorizontal: 10,
+    paddingVertical: Sizes.paddingSml,
+    paddingHorizontal: Sizes.paddingSml,
   },
   paddingHorizontalSml: {
-    paddingHorizontal: 10,
+    paddingHorizontal: Sizes.paddingSml,
   },
   paddingLeftSml: {
-    paddingLeft: 10,
+    paddingLeft: Sizes.paddingSml,
   },
   paddingRightSml: {
-    paddingRight: 10,
+    paddingRight: Sizes.paddingSml,
   },
   paddingVerticalSml: {
-    paddingVertical: 10,
+    paddingVertical: Sizes.paddingSml,
   },
   paddingTopSml: {
-    paddingTop: 10,
+    paddingTop: Sizes.paddingSml,
   },
   paddingBottomSml: {
-    paddingBottom: 10,
+    paddingBottom: Sizes.paddingSml,
   },
 
   // General HTML-like Elements
@@ -188,8 +188,8 @@ export default {
     borderBottomColor: Colors.border,
     height: 1,
     backgroundColor: 'transparent',
-    marginTop: 20,
-    marginBottom: 20,
+    marginTop: Sizes.padding,
+    marginBottom: Sizes.padding,
   },
 
   // Grid
@@ -215,22 +215,6 @@ export default {
   },
   flex6: {
     flex: 6,
-  },
-
-  // Forms
-  formLabel: {
-    textAlign: 'left',
-    marginBottom: 10,
-  },
-  formInputText: {
-    height: 36,
-    borderColor: Colors.border,
-    borderWidth: 0.75,
-    borderRadius: 3,
-    paddingVertical: 4,
-    paddingHorizontal: 10,
-    marginBottom: 10,
-    backgroundColor: '#fff',
   },
 
   // Navbar

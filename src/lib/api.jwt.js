@@ -46,7 +46,7 @@ export default class JWT {
     }
 
     // Let's try logging in
-    return AppAPI.login.post(null, {
+    return AppAPI[APIConfig.tokenKey].post(null, {
       username: this.apiCredentials.username,
       password: this.apiCredentials.password,
     }).then(async (res) => {

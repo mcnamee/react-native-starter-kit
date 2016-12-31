@@ -2,7 +2,7 @@
 
 The app routing runs through React Native Router Flux. We've applied a middleware to Redux to track each screen view, and send the data to Google Analytics.
 
-You could also extend the `/src/lib/analytics.js` middleware to include other tracking codes too.
+You could also extend the `/src/lib/analytics.js` middleware to include other tracking codes too. By default we've just included Google Analytics.
 
 ## Usage
 

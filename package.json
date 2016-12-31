@@ -8,39 +8,47 @@
   },
   "jest": {
     "preset": "jest-react-native",
-    "moduleNameMapper": {
-     "\\./datepicker$": "<rootDir>/node_modules/tcomb-form-native/lib/templates/bootstrap/datepicker.ios.js",
-      "\\./select$": "<rootDir>/node_modules/tcomb-form-native/lib/templates/bootstrap/select.ios.js"
-   },
-   "transformIgnorePatterns": [
-     "node_modules/(?!react-native|tcomb-form-native|apsl-react-native-button)"
-   ],
+    "transformIgnorePatterns": [
+      "node_modules/(?!react-native|tcomb-form-native|apsl-react-native-button,react-native-device-info)"
+    ],
     "collectCoverage": true,
     "verbose": true
   },
   "dependencies": {
-    "react": "15.3.2",
-    "react-addons-shallow-compare": "^15.3.2",
-    "react-native": "^0.37.0",
+    "html-entities": "^1.2.0",
+    "jwt-decode": "^2.1.0",
+    "qs": "^6.3.0",
+    "react": "15.4.1",
+    "react-addons-shallow-compare": "^15.4.0",
+    "react-native": "^0.39.0",
+    "react-native-device-info": "^0.9.6",
+    "react-native-elements": "^0.8.2",
     "react-native-google-analytics-bridge": "^4.0.1",
-    "react-native-navbar": "^1.5.4",
+    "react-native-router-flux": "^3.37.0",
     "react-native-side-menu": "^0.20.1",
-    "react-native-tab-view": "0.0.40",
+    "react-native-tab-view": "0.0.42",
     "react-native-vector-icons": "^3.0.0",
-    "react-redux": "^4.4.5",
+    "react-redux": "^5.0.1",
     "redux": "^3.6.0",
     "redux-logger": "^2.7.0",
     "redux-thunk": "^2.1.0",
+    "striptags": "^2.1.1",
     "tcomb-form-native": "^0.6.1"
   },
   "devDependencies": {
     "babel-core": "^6.17.0",
-    "babel-jest": "^17.0.2",
+    "babel-eslint": "^7.1.0",
+    "babel-jest": "^18.0.0",
     "babel-preset-es2015": "^6.18.0",
     "babel-preset-react-native": "^1.9.0",
     "babel-register": "^6.16.3",
-    "jest": "^17.0.3",
-    "jest-react-native": "^17.0.3",
+    "eslint": "^3.9.1",
+    "eslint-config-airbnb": "^13.0.0",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^2.2.3",
+    "eslint-plugin-react": "^6.4.1",
+    "jest": "^18.0.0",
+    "jest-react-native": "^18.0.0",
     "react-test-renderer": "^15.3.2"
   }
 }

@@ -1,0 +1,170 @@
+
+
+
+
+
+
+
+
+'use strict';
+
+
+
+
+
+
+
+
+
+
+
+
+jest.
+mock('npmlog');
+
+
+
+
+jest.
+mock('ReactNativeDefaultInjection').
+mock('Image',function(){return mockComponent('Image');}).
+mock('Text',function(){return mockComponent('Text');}).
+mock('TextInput',function(){return mockComponent('TextInput');}).
+mock('Modal',function(){return mockComponent('Modal');}).
+mock('View',function(){return mockComponent('View');}).
+mock('ScrollView',function(){return mockComponent('ScrollView');}).
+mock(
+'ActivityIndicator',
+function(){return mockComponent('ActivityIndicator');}).
+
+mock('ListView',function(){
+var RealListView=require.requireActual('ListView');
+var ListView=mockComponent('ListView');
+ListView.prototype.render=RealListView.prototype.render;
+return ListView;
+}).
+mock('ListViewDataSource',function(){
+var DataSource=require.requireActual('ListViewDataSource');
+DataSource.prototype.toJSON=function(){
+function ListViewDataSource(dataBlob){var _this=this;
+this.items=0;
+
+try{
+Object.keys(dataBlob).forEach(function(key){
+_this.items+=dataBlob[key]&&dataBlob[key].length;
+});
+}catch(e){
+this.items='unknown';
+}
+}
+
+return new ListViewDataSource(this._dataBlob);
+};
+return DataSource;
+}).
+mock('ensureComponentIsNative',function(){return function(){return true;};});var mockComponent=require.requireActual('./mockComponent');require.requireActual('../packager/react-packager/src/Resolver/polyfills/babelHelpers.js');require.requireActual('../packager/react-packager/src/Resolver/polyfills/Object.es7.js');require.requireActual('../packager/react-packager/src/Resolver/polyfills/error-guard');global.__DEV__=true;global.Promise=require.requireActual('promise');global.regeneratorRuntime=require.requireActual('regenerator-runtime/runtime');jest.setMock('ErrorUtils',require('ErrorUtils'));
+
+var mockEmptyObject={};
+var mockNativeModules={
+AlertManager:{
+alertWithArgs:jest.fn()},
+
+AsyncLocalStorage:{
+clear:jest.fn(),
+getItem:jest.fn(),
+removeItem:jest.fn(),
+setItem:jest.fn()},
+
+BuildInfo:{
+appVersion:'0',
+buildVersion:'0'},
+
+Clipboard:{
+setString:jest.fn()},
+
+DataManager:{
+queryData:jest.fn()},
+
+FacebookSDK:{
+login:jest.fn(),
+logout:jest.fn(),
+queryGraphPath:jest.fn(function(path,method,params,callback){return callback();})},
+
+FbRelayNativeAdapter:{
+updateCLC:jest.fn()},
+
+GraphPhotoUpload:{
+upload:jest.fn()},
+
+I18n:{
+translationsDictionary:JSON.stringify({
+'Good bye, {name}!|Bye message':'\xA1Adi\xF3s {name}!'})},
+
+
+ImageLoader:{
+getSize:jest.fn(
+function(uri,success){return process.nextTick(function(){return success(320,240);});}),
+
+prefetchImage:jest.fn()},
+
+ImageViewManager:{
+getSize:jest.fn(
+function(uri,success){return process.nextTick(function(){return success(320,240);});}),
+
+prefetchImage:jest.fn()},
+
+ModalFullscreenViewManager:{},
+SourceCode:{
+scriptURL:null},
+
+Timing:{
+createTimer:jest.fn(),
+deleteTimer:jest.fn()},
+
+UIManager:{
+customBubblingEventTypes:{},
+customDirectEventTypes:{},
+Dimensions:{
+window:{
+fontScale:2,
+height:1334,
+scale:2,
+width:750}},
+
+
+RCTModalFullscreenView:{
+Constants:{}},
+
+RCTScrollView:{
+Constants:{}},
+
+RCTView:{
+Constants:{}}}};
+
+
+
+
+Object.keys(mockNativeModules).forEach(function(module){
+try{
+jest.doMock(module,function(){return mockNativeModules[module];});
+}catch(e){
+jest.doMock(module,function(){return mockNativeModules[module];},{virtual:true});
+}
+});
+
+jest.
+doMock('NativeModules',function(){return mockNativeModules;}).
+doMock('ReactNativePropRegistry',function(){return{
+register:function register(id){return id;},
+getByID:function getByID(){return mockEmptyObject;}};});
+
+
+jest.doMock('requireNativeComponent',function(){
+var React=require('react');
+
+return function(viewName){return function(props){return React.createElement(
+viewName,
+props,
+props.children);};};
+
+});

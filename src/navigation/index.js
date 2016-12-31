@@ -9,7 +9,7 @@ import { Actions, Scene, ActionConst } from 'react-native-router-flux';
 
 // Consts and Libs
 import { AppConfig } from '@constants/';
-import { AppColors, AppStyles } from '@theme/';
+import { AppColors, AppStyles, AppSizes } from '@theme/';
 
 // Components
 import { TabIcon } from '@ui/';
@@ -34,7 +34,7 @@ const navBarProps = {
   rightButtonIconStyle: AppStyles.navbarButton,
   sceneStyle: {
     backgroundColor: AppColors.background,
-    paddingTop: 60,
+    paddingTop: AppSizes.navbarHeight,
   },
 };
 
@@ -43,21 +43,53 @@ const navBarPropsTabs = {
   renderLeftButton: () => <NavbarMenuButton />,
   sceneStyle: {
     backgroundColor: AppColors.background,
-    paddingTop: 60,
-    paddingBottom: 50,
+    paddingTop: AppSizes.navbarHeight,
+    paddingBottom: AppSizes.tabbarHeight,
   },
 };
 
 /* Routes ==================================================================== */
 export default Actions.create(
   <Scene key={'root'} {...navBarProps}>
-    <Scene key="splash" component={AppLaunch} hideNavBar />
+    <Scene
+      hideNavBar
+      key={'splash'}
+      component={AppLaunch}
+      analyticsDesc={'AppLaunch: Launching App'}
+    />
 
     {/* Auth */}
-    <Scene key={'authenticate'} hideNavBar component={Authenticate} type={ActionConst.RESET} />
-    <Scene {...navBarProps} key={'login'} title={'Login'} component={AuthLogin} />
-    <Scene {...navBarProps} key={'signUp'} title={'Sign Up'} component={AuthWebView} url={AppConfig.urls.signUp} />
-    <Scene {...navBarProps} key={'passwordReset'} title={'Password Reset'} component={AuthWebView} url={AppConfig.urls.resetPassword} />
+    <Scene
+      hideNavBar
+      key={'authenticate'}
+      component={Authenticate}
+      type={ActionConst.RESET}
+      analyticsDesc={'Authenticate: Authentication'}
+    />
+    <Scene
+      {...navBarProps}
+      key={'login'}
+      title={'Login'}
+      component={AuthLogin}
+      analyticsDesc={'AuthLogin: Login'}
+    />
+    <Scene
+      {...navBarProps}
+      key={'signUp'}
+      title={'Sign Up'}
+      component={AuthWebView}
+      url={AppConfig.urls.signUp}
+      analyticsDesc={'AuthWebView: Sign Up'}
+    />
+
+    <Scene
+      {...navBarProps}
+      key={'passwordReset'}
+      title={'Password Reset'}
+      component={AuthWebView}
+      url={AppConfig.urls.resetPassword}
+      analyticsDesc={'AuthWebView: Password Reset'}
+    />
 
     {/* Main App */}
     <Scene key={'app'} {...navBarProps} title={AppConfig.appName} hideNavBar={false} type={ActionConst.RESET}>
@@ -76,12 +108,14 @@ export default Actions.create(
               key={'recipesListing'}
               component={Recipes}
               title={AppConfig.appName}
+              analyticsDesc={'Recipes: Browse Recipes'}
             />
             <Scene
               {...navBarProps}
               key={'recipeView'}
               component={RecipeView}
               getTitle={props => ((props.title) ? props.title : 'View Recipe')}
+              analyticsDesc={'RecipeView: View Recipe'}
             />
           </Scene>
 
@@ -91,6 +125,7 @@ export default Actions.create(
             title={'Coming Soon'}
             component={ComingSoon}
             icon={props => TabIcon({ ...props, icon: 'timeline' })}
+            analyticsDesc={'ComingSoon: Coming Soon'}
           />
 
           <Scene
@@ -99,12 +134,18 @@ export default Actions.create(
             title={'Style Guide'}
             component={StyleGuide}
             icon={props => TabIcon({ ...props, icon: 'speaker-notes' })}
+            analyticsDesc={'StyleGuide: Style Guide'}
           />
         </Scene>
       </Scene>
 
       {/* General */}
-      <Scene key={'comingSoon'} title={'Coming Soon'} component={ComingSoon} />
+      <Scene
+        key={'comingSoon'}
+        title={'Coming Soon'}
+        component={ComingSoon}
+        analyticsDesc={'ComingSoon: Coming Soon'}
+      />
     </Scene>
   </Scene>,
 );

@@ -34,6 +34,10 @@ export default {
   leftAligned: {
     alignItems: 'flex-start',
   },
+  centerAligned: {
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
   rightAligned: {
     alignItems: 'flex-end',
   },
@@ -123,7 +127,7 @@ export default {
   },
 
   // Helper Text Styles
-  centered: {
+  textCenterAligned: {
     textAlign: 'center',
   },
   textRightAligned: {

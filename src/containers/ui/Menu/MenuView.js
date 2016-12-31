@@ -156,7 +156,7 @@ class Menu extends Component {
                 <Text
                   style={[
                     styles.menuBottom_text,
-                    AppStyles.centered,
+                    AppStyles.textCenterAligned,
                   ]}
                 >
                   Logged in as:{'\n'}

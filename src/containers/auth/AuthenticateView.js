@@ -74,7 +74,7 @@ class Authenticate extends Component {
 
       <Spacer size={15} />
 
-      <Text p style={[AppStyles.centered, styles.whiteText]}>
+      <Text p style={[AppStyles.textCenterAligned, styles.whiteText]}>
         - or -
       </Text>
 

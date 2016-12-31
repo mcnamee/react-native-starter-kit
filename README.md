@@ -6,35 +6,37 @@ React Native Starter Kit helps you get started with React Native. It contains a 
 
 ---
 
-## Todo
+## Screenshots
 
-- Google Analytics
-
-
----
-
-## TOC
-
-1. [Features](#10-features)
-2. [Screenshots](#20-screenshots)
-3. [Getting Started / Installation](#30-getting-started)
-4. [Testing](#40-testing)
-5. [React Native Quick Tips](#50-quick-tips)
-6. [Contributing](#60-contributing)
-7. [Licence](#70-license)
+Coming soon...
 
 ---
 
-## 1.0 Features
+## Docs
+
+1. [Features](#features)
+1. [Getting Started / Installation](#getting-started)
+1. [React Native Quick Tips](/docs/quick-tips.md)
+1. [Understanding the File Structure](#understanding-the-file-structure)
+1. [Routing / Navigating](/src/navigation)
+1. [Using Google Analytics](/docs/google-analytics.md)
+1. [Interacting with a REST API](/docs/api.md)
+1. [Testing](/docs/testing.md)
+1. [Contributing](/docs/contributing.md)
+1. [Licence](#license)
+
+---
+
+## Features
 
 | Feature | Summary |
-|---|---|
+| --- | --- |
 | [Redux](https://github.com/reactjs/react-redux) | A predictable state container - Helping you write applications that behave consistently and run in different environments. |
-| API Example | A basic example showing how you can interact with a RESTful API with user authentication (JWT). |
+| [React Native Router Flux](https://github.com/aksonov/react-native-router-flux) | Router for React Native based on new React Native Navigation API. [How to](/src/navigation)|
+| [API Example](/docs/api.md) | A basic example showing how you can interact with a RESTful API with user authentication (JWT). |
 | [Sidebar / Hamburger Menu](https://github.com/react-native-community/react-native-side-menu) | ... |
 | [React Native Elements](https://github.com/react-native-community/react-native-elements) | Cross Platform React Native UI Toolkit. |
-| [Google Analytics](https://github.com/idehub/react-native-google-analytics-bridge) | Shows how to track screen views (includes both a 'debug' mode tracker as well as 'release' mode so that data doesn't get obfuscated). |
-| [Custom Navbar](https://github.com/react-native-community/react-native-navbar) | ... |
+| [Google Analytics](https://github.com/idehub/react-native-google-analytics-bridge) | Shows how to track screen views (includes both a 'debug' mode tracker as well as 'release' mode so that data doesn't get obfuscated). [Setup](/docs/google-analytics.md) |
 | [Icons](https://github.com/oblador/react-native-vector-icons) | Easily use icons from a wide range of icon libraries, it's as simple as importing the icon font and then `<Icon name={'ios-alert-outline'} size={50} color={"#CCC"} />`. |
 | [Form Validation](https://github.com/gcanti/tcomb-form-native) | An exmaple on how to create forms with validation. |
 | Component Style Guide | A bunch of elements and components to get you started - styled headings, buttons, list rows, alerts etc. |
@@ -43,91 +45,31 @@ React Native Starter Kit helps you get started with React Native. It contains a 
 
 ---
 
-## 2.0 Screenshots
-
-Coming soon...
-
----
-
-## 3.0 Getting Started
-
-### 3.1 Installation
+## Getting Started
 
 1. Ensure you've followed the [React Native - Get Started Guide](https://facebook.github.io/react-native/docs/getting-started.html) for the platform/s of choice
 2. Clone this project
 3. Run `npm install` from root directory
 
-### 3.2 File Structure
+---
 
-```
-  /android       <-- The native Android stuff
-  /ios           <-- The native iOS stuff
-  /src           <-- Contains the full React Native App codebase
-    [/components](/src/components)  <-- 'Dumb-components' / presentational. [Read More](/src/components)
-    /constants   <-- App-wide variables and config
-    [/containers](/src/containers)  <-- 'Smart-components' / the business logic. [Read More](/src/containers)
-    /images      <-- Self explanatory right?
-    /lib         <-- Utils, custom libraries, functions
-    /navigation  <-- Routes - wire up the router with any & all screens
-    [/redux](/src/redux)       <-- Redux Reducers & Actions grouped by type. [Read More](/src/redux)
-    /theme       <-- Theme specific variables
-```
+## Understanding the File Structure
+
+- `/android`       <-- The native Android stuff
+- `/ios`           <-- The native iOS stuff
+- `/src`           <-- Contains the full React Native App codebase
+  - `/components`  <-- 'Dumb-components' / presentational. [Read More](/src/components)
+  - `/constants`   <-- App-wide variables and config
+  - `/containers`  <-- 'Smart-components' / the business logic. [Read More](/src/containers)
+  - `/images`      <-- Self explanatory right?
+  - `/lib`         <-- Utils, custom libraries, functions
+  - `/navigation`  <-- Routes - wire up the router with any & all screens. [Read More](/src/navigation)
+  - `/redux`       <-- Redux Reducers & Actions grouped by type. [Read More](/src/redux)
+  - `/theme`       <-- Theme specific variables
+
 
 ---
 
-## 4.0 Testing
-
-- `npm run test`
-
-*More testing coming soon...*
-
----
-
-## 5.0 Quick Tips
-
-| Function | iOS | Android |
-|---|---|---|
-| **Running in an Emulator** | <ol><li>Open the /ios/StarterKit.xcodeproj file in Xcode</li><li>Select the iOS simulator then press the Play (triangle) icon at the top left</li></ul> | <ol><li>From terminal, run `android avd`. This will open the Android Virtual Device Manager. Select a device to open. </li><li>In a new terminal window, enter the root directory of the project, then run: `react-native run-android`</li></ul> |
-| **Running on Device** | [iOS Guide](https://facebook.github.io/react-native/docs/running-on-device-ios.html) | [Android Guide](https://facebook.github.io/react-native/docs/running-on-device-android.html) |
-| **Opening the Debug Menu** | CMD + D | CMD + M |
-| **Reload** | CMD + R | Double tap R on your keyboard |
-| **App Icons** | <ol><li>[Generate an Icon](https://makeappicon.com/)</li><li>Place the contents into: `/ios/StarterKit/Images.xcassets/AppIcon.appiconset`</li></ol> | <ol><li>[Generate an Icon](https://makeappicon.com/)</li><li>Place the contents into: `/android/app/src/main/res/mipmap-*/ic_launcher.png`</li></ol> |
-
----
-
-## 6.0 Contributing
-
-Love to hear any feedback or tips to improve - submit an issue or a fix via a pull request.
-
-Please ensure you're following the below rules before submitting a PR:
-
-### 6.1 Naming Conventions
-
-Please follow [Airbnb's Name Conventions](https://github.com/airbnb/javascript#naming-conventions) from the style guide.
-
-### 6.2 File Structure & Naming Conventions
-
-- __Structure__
-  - Follow the file structure [outlined above](#32-file-structure)
-- __Files__
-  - Should be `lowercase`, with words separated by hyphens (`-`) eg. `logo-cropped.jpg`
-  - With the exception of Containers and Components, which should be `PascalCase` - eg. `RecipeView.js`
-- __Directories__
-  - Folder names should be `lowercase,` with words separated by a hyphen (`-`) - eg. `/components/case-studies`
-- Folders and files can be named singlular or plural - do what sounds right
-- If there's more than 1 file in a directory that are related, group them within their own directory
-  - eg. if I have 2 components: `/components/RecipeListing.js` and `/components/RecipeView.js`, create a new directory within components called `recipes` and put the 2 files within (removing `Recipes`). The result would be: `/components/recipes/Listing.js` and `/components/recipes/View.js`
-
-### 6.3 Linting
-
-Please ensure you're code is passing the built in linter.
-
-### 6.4 Tests
-
-Please include tests with your code and ensure your code is passing the existing tests.
-
----
-
-## 7.0 License
+## License
 
 [MIT License](LICENSE)

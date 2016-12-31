@@ -163,14 +163,14 @@ class Login extends Component {
           <Spacer size={10} />
 
           <TouchableOpacity onPress={Actions.passwordReset}>
-            <Text p style={[AppStyles.centered, AppStyles.link]}>
+            <Text p style={[AppStyles.textCenterAligned, AppStyles.link]}>
               Forgot Password
             </Text>
           </TouchableOpacity>
 
           <Spacer size={10} />
 
-          <Text p style={[AppStyles.centered]}>
+          <Text p style={[AppStyles.textCenterAligned]}>
             - or -
           </Text>
 

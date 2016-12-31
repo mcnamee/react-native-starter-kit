@@ -5,16 +5,12 @@
  * https://github.com/mcnamee/react-native-starter-app
  */
  /* global fetch console */
-
- /* Setup ==================================================================== */
-import {
-  AsyncStorage,
-} from 'react-native';
+import { AsyncStorage } from 'react-native';
 import jwtDecode from 'jwt-decode';
 
-// App Globals
+// Consts and Libs
 import AppAPI from '@lib/api';
-import AppConfig from '@config/';
+import { APIConfig } from '@constants/';
 
 export default class JWT {
   static apiToken = ''
@@ -50,7 +46,7 @@ export default class JWT {
     }
 
     // Let's try logging in
-    return AppAPI.login.post(null, {
+    return AppAPI[APIConfig.tokenKey].post(null, {
       username: this.apiCredentials.username,
       password: this.apiCredentials.password,
     }).then(async (res) => {
@@ -132,7 +128,7 @@ export default class JWT {
     if (NOW < decodedToken.nbf - 300) return false; // Not yet valid (too early!)
 
     // Don't worry about http vs https - strip it out
-    const thisHostname = AppConfig.hostname.replace(/.*?:\/\//g, '');
+    const thisHostname = APIConfig.hostname.replace(/.*?:\/\//g, '');
     const tokenHostname = decodedToken.iss.replace(/.*?:\/\//g, '').substr(0, thisHostname.length);
     if (thisHostname !== tokenHostname) {
       return false; // Issuing server is different

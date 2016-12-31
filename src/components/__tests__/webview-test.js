@@ -7,7 +7,7 @@ import 'react-native';
 import React from 'react';
 import renderer from 'react-test-renderer';
 
-import WebView from '../general/webview';
+import WebView from '../general/WebView';
 
 /**
  * Check if alerts renders correcly

@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
   featuredImage: {
     left: 0,
     right: 0,
-    height: AppSizes.screen.height * 0.15,
+    height: AppSizes.screen.height * 0.2,
     resizeMode: 'cover',
   },
 });

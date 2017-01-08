@@ -6,7 +6,7 @@ We hope to explain our opinions here - but keep in mind they may change over tim
 
 ## Create wrapper components
 
-You'll notice in `/src/components/ui/` that we have various UI element - some of them don't do much more than call the default React Native component and pass in a style.
+You'll notice in `/src/components/ui/` that we have various UI elements - some of them don't do much more than call the default React Native component and pass in a style.
 
 We do this:
 

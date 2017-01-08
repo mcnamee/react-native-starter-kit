@@ -11,7 +11,7 @@ We've found grouping Components by their type (eg. `recipes`) is a great approac
 ## Naming conventions
 
 __Directories__
-All directories are lowercase.
+All directories are lowercase, except for each Container's directory - which are Pascal Case.
 
 __Files__
 Components should be `Pascal Case`.

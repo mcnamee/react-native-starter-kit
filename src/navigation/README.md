@@ -31,7 +31,7 @@ Props explained:
 - `key` - the unique reference we'll use to link to that scene
 - `title` - the text that'll appear in the navbar when we're on that scene
 - `component` - the component to show
-- `analyticsDesc` - [see Google Analytics](/src/docs/google-analytics.md)
+- `analyticsDesc` - [see Google Analytics](../../docs/google-analytics.md)
 
 ### 2. Linking to the Scene
 

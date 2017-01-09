@@ -10,6 +10,7 @@ import React, { Component, PropTypes } from 'react';
 import {
   View,
   Image,
+  StatusBar,
   StyleSheet,
   ActivityIndicator,
 } from 'react-native';
@@ -35,6 +36,9 @@ class AppLaunch extends Component {
   }
 
   componentDidMount = () => {
+    // Show status bar on app launch
+    StatusBar.setHidden(false, true);
+
     // Try to authenticate based on existing token
     this.props.login()
       // Logged in, show index screen

@@ -55,5 +55,5 @@ fastlane/screenshots
 # Test
 #
 coverage/*
-jest
+jest/*
 

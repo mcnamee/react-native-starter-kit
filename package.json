@@ -7,7 +7,12 @@
     "test": "jest"
   },
   "jest": {
-    "preset": "react-native"
+    "preset": "jest-react-native",
+    "transformIgnorePatterns": [
+      "node_modules/(?!react-native|tcomb-form-native|apsl-react-native-button,react-native-device-info)"
+    ],
+    "collectCoverage": true,
+    "verbose": true
   },
   "dependencies": {
     "html-entities": "^1.2.0",

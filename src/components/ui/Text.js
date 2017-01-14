@@ -3,8 +3,8 @@
  *
      <Text h1>Hello World</Text>
  *
- * React Native Starter App
- * https://github.com/mcnamee/react-native-starter-app
+ * Whisky Journal
+ * https://bitbucket.org/mcnamee/whisky-journal-app-v2/
  */
 import React, { Component, PropTypes } from 'react';
 import { Text } from 'react-native';
@@ -21,6 +21,14 @@ class CustomText extends Component {
     h4: PropTypes.bool,
     h5: PropTypes.bool,
     p: PropTypes.bool,
+    style: PropTypes.oneOfType([
+      PropTypes.array,
+      PropTypes.shape({}),
+    ]),
+    children: PropTypes.oneOfType([
+      PropTypes.element,
+      PropTypes.string,
+    ]),
   }
 
   static defaultProps = {
@@ -30,21 +38,23 @@ class CustomText extends Component {
     h4: false,
     h5: false,
     p: false,
+    style: [],
+    children: '',
   }
 
   textProps = () => {
     // Defaults
     const props = {
       ...this.props,
-      style: AppStyles.baseText,
+      style: [AppStyles.baseText],
     };
 
-    if (this.props.p) props.style = AppStyles.p;
-    if (this.props.h1) props.style = AppStyles.h1;
-    if (this.props.h2) props.style = AppStyles.h2;
-    if (this.props.h3) props.style = AppStyles.h3;
-    if (this.props.h4) props.style = AppStyles.h4;
-    if (this.props.h5) props.style = AppStyles.h5;
+    if (this.props.p) props.style = [AppStyles.p];
+    if (this.props.h1) props.style = [AppStyles.h1];
+    if (this.props.h2) props.style = [AppStyles.h2];
+    if (this.props.h3) props.style = [AppStyles.h3];
+    if (this.props.h4) props.style = [AppStyles.h4];
+    if (this.props.h5) props.style = [AppStyles.h5];
 
     if (this.props.style) {
       props.style = [

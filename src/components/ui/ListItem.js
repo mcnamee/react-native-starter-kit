@@ -1,19 +1,19 @@
 /**
- * Cards
+ * List Items
  *
-     <Card></Card>
+     <ListItem title={'Hello World'} />
  *
  * React Native Starter App
  * https://github.com/mcnamee/react-native-starter-app
  */
 import React, { Component, PropTypes } from 'react';
-import { Card } from 'react-native-elements';
+import { ListItem } from 'react-native-elements';
 
 // Consts and Libs
-import { AppSizes, AppColors, AppStyles } from '@theme/';
+import { AppColors, AppStyles } from '@theme/';
 
 /* Component ==================================================================== */
-class CustomCard extends Component {
+class CustomListItem extends Component {
   static propTypes = {
     containerStyle: PropTypes.oneOfType([
       PropTypes.array,
@@ -30,22 +30,19 @@ class CustomCard extends Component {
     titleStyle: [],
   }
 
-  cardProps = () => {
+  listItemProps = () => {
     // Defaults
     const props = {
-      dividerStyle: [{
-        backgroundColor: AppColors.border,
-      }],
+      title: 'Coming Soon...',
+      chevronColor: AppColors.textPrimary,
+      underlayColor: AppColors.border,
       ...this.props,
       containerStyle: [{
-        backgroundColor: AppColors.cardBackground,
-        borderRadius: AppSizes.borderRadius,
-        borderColor: AppColors.border,
+        backgroundColor: AppColors.listItemBackground,
+        borderTopColor: AppColors.border,
+        borderBottomColor: AppColors.border,
       }],
-      titleStyle: [
-        AppStyles.h2,
-        { marginBottom: 15 },
-      ],
+      titleStyle: [AppStyles.baseText],
     };
 
     if (this.props.containerStyle) {
@@ -59,8 +56,8 @@ class CustomCard extends Component {
     return props;
   }
 
-  render = () => <Card {...this.cardProps()} />
+  render = () => <ListItem {...this.listItemProps()} />;
 }
 
 /* Export Component ==================================================================== */
-export default CustomCard;
+export default CustomListItem;

@@ -30,6 +30,7 @@ class CustomButton extends Component {
     large: false,
     outlined: false,
     icon: {},
+    backgroundColor: null,
   }
 
   buttonProps = () => {
@@ -37,7 +38,6 @@ class CustomButton extends Component {
     const props = {
       title: 'Coming Soon...',
       onPress: () => Alert.alert('Coming soon...'),
-      backgroundColor: AppColors.brand.primary,
       color: '#fff',
       fontWeight: 'bold',
       fontFamily: AppFonts.base.family,
@@ -50,6 +50,7 @@ class CustomButton extends Component {
         marginRight: 0,
       },
       ...this.props,
+      backgroundColor: this.props.backgroundColor || AppColors.brand.primary,
       small: false,
       large: false,
       icon: (this.props.icon && this.props.icon.name)

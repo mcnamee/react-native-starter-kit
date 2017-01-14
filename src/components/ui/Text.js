@@ -3,8 +3,8 @@
  *
      <Text h1>Hello World</Text>
  *
- * Whisky Journal
- * https://bitbucket.org/mcnamee/whisky-journal-app-v2/
+ * React Native Starter App
+ * https://github.com/mcnamee/react-native-starter-app
  */
 import React, { Component, PropTypes } from 'react';
 import { Text } from 'react-native';
@@ -25,10 +25,7 @@ class CustomText extends Component {
       PropTypes.array,
       PropTypes.shape({}),
     ]),
-    children: PropTypes.oneOfType([
-      PropTypes.element,
-      PropTypes.string,
-    ]),
+    children: PropTypes.node,
   }
 
   static defaultProps = {
@@ -38,8 +35,8 @@ class CustomText extends Component {
     h4: false,
     h5: false,
     p: false,
-    style: [],
-    children: '',
+    style: null,
+    children: null,
   }
 
   textProps = () => {
@@ -57,10 +54,7 @@ class CustomText extends Component {
     if (this.props.h5) props.style = [AppStyles.h5];
 
     if (this.props.style) {
-      props.style = [
-        ...props.style,
-        ...this.props.style,
-      ];
+      props.style.push(this.props.style);
     }
 
     return props;

@@ -11,5 +11,7 @@ import Card from './Card';
 import Spacer from './Spacer';
 import TabIcon from './TabIcon';
 import Text from './Text';
+import List from './List';
+import ListItem from './ListItem';
 
-export { Alerts, Button, Card, Spacer, TabIcon, Text };
+export { Alerts, Button, Card, Spacer, TabIcon, Text, List, ListItem };

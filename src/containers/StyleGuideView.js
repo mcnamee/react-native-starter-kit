@@ -13,14 +13,22 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import { TabViewAnimated, TabBarTop } from 'react-native-tab-view';
-import { List, ListItem, SocialIcon } from 'react-native-elements';
+import { SocialIcon } from 'react-native-elements';
 import { Actions } from 'react-native-router-flux';
 
 // Consts and Libs
 import { AppColors, AppStyles } from '@theme/';
 
 // Components
-import { Alerts, Button, Card, Spacer, Text } from '@components/ui/';
+import {
+  Alerts,
+  Button,
+  Card,
+  Spacer,
+  Text,
+  List,
+  ListItem,
+} from '@components/ui/';
 
 // Example Data
 const dummyData1 = [

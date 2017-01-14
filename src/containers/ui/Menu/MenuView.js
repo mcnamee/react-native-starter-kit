@@ -14,7 +14,7 @@ import {
 import { Actions } from 'react-native-router-flux';
 
 // Consts and Libs
-import { AppStyles, AppSizes } from '@theme/';
+import { AppStyles, AppSizes, AppColors } from '@theme/';
 
 // Components
 import { Spacer, Text, Button } from '@ui/';
@@ -52,8 +52,8 @@ const styles = StyleSheet.create({
     paddingTop: AppSizes.statusBarHeight,
   },
   menuItem: {
-    borderBottomWidth: 2,
-    borderBottomColor: '#3D4346',
+    borderBottomWidth: 1,
+    borderBottomColor: AppColors.border,
     paddingBottom: 10,
   },
   menuItem_text: {

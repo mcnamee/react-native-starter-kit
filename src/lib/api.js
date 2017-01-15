@@ -128,6 +128,15 @@ function fetcher(method, endpoint, params, body) {
     if (params) {
       // Object - eg. /recipes?title=this&cat=2
       if (typeof params === 'object') {
+        // If there's an 'id' prop, /{id}?
+        if (params.id !== undefined) {
+          if (typeof params.id === 'string' || typeof params.id === 'number') {
+            urlParams = `/${params.id}`;
+            delete params.id;
+          }
+        }
+
+        // The rest of the params
         urlParams = `?${serialize(params)}`;
 
       // String or Number - eg. /recipes/23

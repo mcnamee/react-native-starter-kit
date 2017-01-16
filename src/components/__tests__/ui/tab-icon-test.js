@@ -1,21 +1,21 @@
 /**
- * Test to check if the component renderes correctly
+ * Test to check if the component renders correctly
  */
- /* global it expect */
+/* global it expect */
 
 import 'react-native';
 import React from 'react';
 import renderer from 'react-test-renderer';
 
-import WebView from '../general/WebView';
+import TabIcon from '@ui/TabIcon';
 
 /**
- * Check if alerts renders correcly
+ * Check if loader renders correctly
  * and asserting it to the matching snapshot
  */
-it('WebView renders correcly', () => {
+it('TabIcon renders correctly', () => {
   const tree = renderer.create(
-    <WebView url={'http://google.com'} />
+    <TabIcon icon={'help'} selected />,
   ).toJSON();
 
   expect(tree).toMatchSnapshot();

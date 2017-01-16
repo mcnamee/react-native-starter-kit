@@ -1,0 +1,336 @@
+exports[`test RecipeView renders correctly 1`] = `
+<ScrollView
+  style={
+    Array [
+      Object {
+        "backgroundColor": "#E9EBEE",
+        "flex": 1,
+        "flexDirection": "column",
+        "position": "relative",
+      },
+    ]
+  }>
+  <Image
+    source={
+      Object {
+        "uri": "http://placehold.it/300x100",
+      }
+    }
+    style={
+      Array [
+        Object {
+          "height": 266.8,
+          "left": 0,
+          "resizeMode": "cover",
+          "right": 0,
+        },
+      ]
+    } />
+  <View
+    style={
+      Array [
+        Object {
+          "backgroundColor": "white",
+          "borderColor": "#e1e8ee",
+          "borderWidth": 1,
+          "margin": 15,
+          "marginBottom": 0,
+          "padding": 15,
+          "shadowColor": "rgba(0,0,0, .2)",
+          "shadowOffset": Object {
+            "height": 0,
+            "width": 0,
+          },
+          "shadowOpacity": 1,
+          "shadowRadius": 1,
+        },
+        undefined,
+        Array [
+          Object {
+            "backgroundColor": "#FFFFFF",
+            "borderColor": "#D0D1D5",
+            "borderRadius": 2,
+          },
+          Array [],
+        ],
+      ]
+    }>
+    <View
+      style={
+        Array [
+          Object {
+            "backgroundColor": "transparent",
+          },
+          undefined,
+          undefined,
+        ]
+      }>
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        h1={false}
+        h2={true}
+        h3={false}
+        h4={false}
+        h5={false}
+        p={false}
+        style={
+          Array [
+            Object {
+              "color": "#0E4EF8",
+              "fontFamily": "HelveticaNeue",
+              "fontSize": 21,
+              "fontWeight": "800",
+              "left": 0,
+              "lineHeight": 26,
+              "margin": 0,
+              "marginBottom": 4,
+              "right": 0,
+            },
+          ]
+        } />
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        h1={false}
+        h2={false}
+        h3={false}
+        h4={false}
+        h5={false}
+        p={false}
+        style={
+          Array [
+            Object {
+              "color": "#222222",
+              "fontFamily": "HelveticaNeue",
+              "fontSize": 14,
+              "fontWeight": "500",
+              "lineHeight": 18,
+            },
+          ]
+        } />
+    </View>
+  </View>
+  <View
+    style={
+      Array [
+        Object {
+          "backgroundColor": "white",
+          "borderColor": "#e1e8ee",
+          "borderWidth": 1,
+          "margin": 15,
+          "marginBottom": 0,
+          "padding": 15,
+          "shadowColor": "rgba(0,0,0, .2)",
+          "shadowOffset": Object {
+            "height": 0,
+            "width": 0,
+          },
+          "shadowOpacity": 1,
+          "shadowRadius": 1,
+        },
+        undefined,
+        Array [
+          Object {
+            "backgroundColor": "#FFFFFF",
+            "borderColor": "#D0D1D5",
+            "borderRadius": 2,
+          },
+          Array [],
+        ],
+      ]
+    }>
+    <View
+      style={
+        Array [
+          Object {
+            "backgroundColor": "transparent",
+          },
+          undefined,
+          undefined,
+        ]
+      }>
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        h1={false}
+        h2={true}
+        h3={false}
+        h4={false}
+        h5={false}
+        p={false}
+        style={
+          Array [
+            Object {
+              "color": "#0E4EF8",
+              "fontFamily": "HelveticaNeue",
+              "fontSize": 21,
+              "fontWeight": "800",
+              "left": 0,
+              "lineHeight": 26,
+              "margin": 0,
+              "marginBottom": 4,
+              "right": 0,
+            },
+          ]
+        }>
+        Ingredients
+      </Text>
+      <View
+        style={
+          Array [
+            Object {
+              "flexDirection": "row",
+              "left": 0,
+              "right": 0,
+            },
+          ]
+        }>
+        <View>
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            h1={false}
+            h2={false}
+            h3={false}
+            h4={false}
+            h5={false}
+            p={false}
+            style={
+              Array [
+                Object {
+                  "color": "#222222",
+                  "fontFamily": "HelveticaNeue",
+                  "fontSize": 14,
+                  "fontWeight": "500",
+                  "lineHeight": 18,
+                },
+              ]
+            }>
+             - 
+          </Text>
+        </View>
+        <View
+          style={
+            Array [
+              Object {
+                "paddingLeft": 10,
+              },
+              Object {
+                "flex": 1,
+              },
+            ]
+          }>
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            h1={false}
+            h2={false}
+            h3={false}
+            h4={false}
+            h5={false}
+            p={false}
+            style={
+              Array [
+                Object {
+                  "color": "#222222",
+                  "fontFamily": "HelveticaNeue",
+                  "fontSize": 14,
+                  "fontWeight": "500",
+                  "lineHeight": 18,
+                },
+              ]
+            }>
+            Eggs
+          </Text>
+        </View>
+      </View>
+      <View
+        style={
+          Array [
+            Object {
+              "flexDirection": "row",
+              "left": 0,
+              "right": 0,
+            },
+          ]
+        }>
+        <View>
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            h1={false}
+            h2={false}
+            h3={false}
+            h4={false}
+            h5={false}
+            p={false}
+            style={
+              Array [
+                Object {
+                  "color": "#222222",
+                  "fontFamily": "HelveticaNeue",
+                  "fontSize": 14,
+                  "fontWeight": "500",
+                  "lineHeight": 18,
+                },
+              ]
+            }>
+             - 
+          </Text>
+        </View>
+        <View
+          style={
+            Array [
+              Object {
+                "paddingLeft": 10,
+              },
+              Object {
+                "flex": 1,
+              },
+            ]
+          }>
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            h1={false}
+            h2={false}
+            h3={false}
+            h4={false}
+            h5={false}
+            p={false}
+            style={
+              Array [
+                Object {
+                  "color": "#222222",
+                  "fontFamily": "HelveticaNeue",
+                  "fontSize": 14,
+                  "fontWeight": "500",
+                  "lineHeight": 18,
+                },
+              ]
+            }>
+            Milk
+          </Text>
+        </View>
+      </View>
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "height": 1,
+        "left": 0,
+        "marginTop": 19,
+        "right": 0,
+      }
+    } />
+</ScrollView>
+`;

@@ -1,0 +1,23 @@
+exports[`test List renders correctly 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "backgroundColor": "#ffffff",
+        "borderBottomWidth": 1,
+        "borderColor": "#cbd2d9",
+        "borderTopWidth": 1,
+        "marginTop": 20,
+      },
+      Array [
+        Object {
+          "backgroundColor": "#E9EBEE",
+          "borderBottomWidth": 0,
+          "borderTopColor": "#D0D1D5",
+          "margin": 0,
+        },
+        Array [],
+      ],
+    ]
+  } />
+`;

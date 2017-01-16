@@ -7,9 +7,10 @@
     "test": "jest"
   },
   "jest": {
-    "preset": "jest-react-native",
+    "preset": "react-native",
+    "setupFiles": ["<rootDir>/jest.setup.js"],
     "transformIgnorePatterns": [
-      "node_modules/(?!react-native|tcomb-form-native|apsl-react-native-button,react-native-device-info)"
+      "node_modules/(?!react-native|tcomb-form-native|apsl-react-native-button,react-native-device-info|react-clone-referenced-element)"
     ],
     "collectCoverage": true,
     "verbose": true

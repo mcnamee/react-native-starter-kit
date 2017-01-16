@@ -1,0 +1,42 @@
+exports[`test Card renders correctly 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "backgroundColor": "white",
+        "borderColor": "#e1e8ee",
+        "borderWidth": 1,
+        "margin": 15,
+        "marginBottom": 0,
+        "padding": 15,
+        "shadowColor": "rgba(0,0,0, .2)",
+        "shadowOffset": Object {
+          "height": 0,
+          "width": 0,
+        },
+        "shadowOpacity": 1,
+        "shadowRadius": 1,
+      },
+      undefined,
+      Array [
+        Object {
+          "backgroundColor": "#FFFFFF",
+          "borderColor": "#D0D1D5",
+          "borderRadius": 2,
+        },
+        Array [],
+      ],
+    ]
+  }>
+  <View
+    style={
+      Array [
+        Object {
+          "backgroundColor": "transparent",
+        },
+        undefined,
+        undefined,
+      ]
+    } />
+</View>
+`;

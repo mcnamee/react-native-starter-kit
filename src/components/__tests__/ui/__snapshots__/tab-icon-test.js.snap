@@ -1,0 +1,45 @@
+exports[`test TabIcon renders correctly 1`] = `
+<View
+  onLongPress={undefined}
+  onPress={undefined}
+  style={
+    Array [
+      false,
+      false,
+      false,
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "transparent",
+        "justifyContent": "center",
+      },
+      undefined,
+    ]
+  }
+  underlayColor="white">
+  <Text
+    accessible={true}
+    allowFontScaling={false}
+    ellipsizeMode="tail"
+    style={
+      Array [
+        Object {
+          "color": "#0E4EF8",
+          "fontSize": 26,
+        },
+        Array [
+          Object {
+            "backgroundColor": "transparent",
+          },
+          undefined,
+        ],
+        Object {
+          "fontFamily": "Material Icons",
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+        },
+      ]
+    }>
+    
+  </Text>
+</View>
+`;

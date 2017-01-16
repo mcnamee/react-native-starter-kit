@@ -1,0 +1,113 @@
+exports[`test Button renders correctly 1`] = `
+<View
+  accessibilityComponentType={undefined}
+  accessibilityLabel={undefined}
+  accessibilityTraits={undefined}
+  accessible={true}
+  hitSlop={undefined}
+  onLayout={undefined}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Array [
+      Object {
+        "backgroundColor": "transparent",
+      },
+      undefined,
+    ]
+  }
+  testID={undefined}>
+  <View
+    style={
+      Array [
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#9E9E9E",
+          "flexDirection": "row",
+          "justifyContent": "center",
+          "marginLeft": 15,
+          "marginRight": 15,
+          "padding": 19,
+        },
+        undefined,
+        undefined,
+        undefined,
+        undefined,
+        undefined,
+        Object {
+          "backgroundColor": "#0E4EF8",
+        },
+        Object {
+          "borderRadius": 2,
+        },
+        Object {
+          "shadowColor": "rgba(0,0,0, .4)",
+          "shadowOffset": Object {
+            "height": 1,
+            "width": 1,
+          },
+          "shadowOpacity": 1,
+          "shadowRadius": 1,
+        },
+        Object {
+          "padding": 12,
+        },
+        Object {
+          "marginLeft": 0,
+          "marginRight": 0,
+          "padding": 12,
+        },
+        undefined,
+      ]
+    }>
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Array [
+          Object {
+            "fontFamily": undefined,
+          },
+          undefined,
+          undefined,
+          undefined,
+          undefined,
+          undefined,
+          undefined,
+          undefined,
+          undefined,
+          undefined,
+          Array [
+            Object {
+              "color": "white",
+              "fontSize": 20,
+            },
+            Object {
+              "color": "#fff",
+            },
+            Object {
+              "fontSize": 17.5,
+            },
+            Object {
+              "fontSize": 14,
+            },
+            undefined,
+            Object {
+              "fontWeight": "bold",
+            },
+            Object {
+              "fontFamily": "HelveticaNeue",
+            },
+          ],
+        ]
+      }>
+      Coming Soon...
+    </Text>
+  </View>
+</View>
+`;

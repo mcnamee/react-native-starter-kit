@@ -1,5 +1,5 @@
 /**
- * Test to check if the component renderes correctly
+ * Test to check if the component renders correctly
  */
 /* global it expect */
 
@@ -7,15 +7,15 @@ import 'react-native';
 import React from 'react';
 import renderer from 'react-test-renderer';
 
-import Loading from '../general/Loading';
+import Error from '@general/Error';
 
 /**
- * Check if alerts renders correcly
+ * Check if error renders correctly
  * and asserting it to the matching snapshot
  */
-it('Loading renders correcly', () => {
+it('Error renders correctly', () => {
   const tree = renderer.create(
-    <Loading />
+    <Error />,
   ).toJSON();
 
   expect(tree).toMatchSnapshot();

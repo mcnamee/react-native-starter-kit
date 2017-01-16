@@ -1,5 +1,5 @@
 /**
- * Test to check if the component renderes correctly
+ * Test to check if the component renders correctly
  */
 /* global it expect */
 
@@ -7,15 +7,15 @@ import 'react-native';
 import React from 'react';
 import renderer from 'react-test-renderer';
 
-import Soon from '../general/Placeholder';
+import Alerts from '@ui/Alerts';
 
 /**
- * Check if alerts renders correcly
+ * Check if alerts renders correctly
  * and asserting it to the matching snapshot
  */
-it('Soon renders correcly', () => {
+it('Alerts renders correctly', () => {
   const tree = renderer.create(
-    <Soon navigator={{ push: () => {} }} />
+    <Alerts />,
   ).toJSON();
 
   expect(tree).toMatchSnapshot();

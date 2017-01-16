@@ -15,8 +15,13 @@ import BrowseView from '@containers/recipes/Browse/BrowseView';
  */
 
 it('BrowseView renders correctly', () => {
+  // getMeals prop expects a promise
+  const mockPromise = new Promise((resolve) => {
+    resolve();
+  });
+
   const tree = renderer.create(
-    <BrowseView getMeals={jest.fn()} />,
+    <BrowseView getMeals={() => mockPromise} />,
   ).toJSON();
 
   expect(tree).toMatchSnapshot();

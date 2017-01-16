@@ -1,4 +1,4 @@
-exports[`test ListItem renders correcly 1`] = `
+exports[`test ListItem renders correctly 1`] = `
 <View
   onLongPress={undefined}
   onPress={undefined}

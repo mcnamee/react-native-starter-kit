@@ -1,4 +1,4 @@
-exports[`test CardView renders correcly 1`] = `
+exports[`test CardView renders correctly 1`] = `
 <View
   accessibilityComponentType={undefined}
   accessibilityLabel={undefined}

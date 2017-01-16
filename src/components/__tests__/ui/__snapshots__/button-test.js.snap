@@ -1,4 +1,4 @@
-exports[`test Button renders correcly 1`] = `
+exports[`test Button renders correctly 1`] = `
 <View
   accessibilityComponentType={undefined}
   accessibilityLabel={undefined}

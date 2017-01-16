@@ -1,4 +1,4 @@
-exports[`test TabIcon renders correcly 1`] = `
+exports[`test TabIcon renders correctly 1`] = `
 <View
   onLongPress={undefined}
   onPress={undefined}

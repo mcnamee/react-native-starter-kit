@@ -1,4 +1,4 @@
-exports[`test AuthenticateView renders correcly 1`] = `
+exports[`test AuthenticateView renders correctly 1`] = `
 <Image
   source={1}
   style={

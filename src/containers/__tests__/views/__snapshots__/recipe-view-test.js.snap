@@ -1,4 +1,4 @@
-exports[`test RecipeView renders correcly 1`] = `
+exports[`test RecipeView renders correctly 1`] = `
 <ScrollView
   style={
     Array [

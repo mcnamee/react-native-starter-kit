@@ -42,11 +42,11 @@ class Authenticate extends Component {
 
   render = () => (
     <Image
-      source={require('@images/login.jpg')}
+      source={require('../../images/login.jpg')}
       style={[AppStyles.containerCentered, AppStyles.container, styles.background]}
     >
       <Image
-        source={require('@images/logo.png')}
+        source={require('../../images/logo.png')}
         style={[styles.logo]}
       />
 

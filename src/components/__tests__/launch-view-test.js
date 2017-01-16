@@ -1,21 +1,27 @@
 /**
  * Test to check if the component renderes correctly
  */
- /* global it expect */
- 
+/* global it expect jest */
+
 import 'react-native';
 import React from 'react';
 import renderer from 'react-test-renderer';
 
-import FirstLoad from '../splash';
+import LaunchView from '@containers/Launch/LaunchView';
 
 /**
  * Check if alerts renders correcly
  * and asserting it to the matching snapshot
  */
-it('FirstLoad renders correcly', () => {
+
+// Login prop expects a promise
+const mockPromise = new Promise((resolve) => {
+  resolve();
+});
+
+it('LaunchView renders correcly', () => {
   const tree = renderer.create(
-    <FirstLoad navigator={{ replace: () => {} }} login={() => {}} />
+    <LaunchView navigator={jest.fn()} login={() => mockPromise} />,
   ).toJSON();
 
   expect(tree).toMatchSnapshot();

@@ -15,7 +15,7 @@ import Error from '../general/Error';
  */
 it('Error renders correcly', () => {
   const tree = renderer.create(
-    <Error />
+    <Error />,
   ).toJSON();
 
   expect(tree).toMatchSnapshot();

@@ -15,7 +15,7 @@ import Soon from '../general/Placeholder';
  */
 it('Soon renders correcly', () => {
   const tree = renderer.create(
-    <Soon navigator={{ push: () => {} }} />
+    <Soon navigator={{ push: () => {} }} />,
   ).toJSON();
 
   expect(tree).toMatchSnapshot();

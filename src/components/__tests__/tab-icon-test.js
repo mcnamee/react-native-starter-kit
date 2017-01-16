@@ -7,15 +7,15 @@ import 'react-native';
 import React from 'react';
 import renderer from 'react-test-renderer';
 
-import Loading from '@general/Loading';
+import TabIcon from '@ui/TabIcon';
 
 /**
  * Check if loader renders correcly
  * and asserting it to the matching snapshot
  */
-it('Loading renders correcly', () => {
+it('TabIcon renders correcly', () => {
   const tree = renderer.create(
-    <Loading />
+    <TabIcon icon={'help'} selected />,
   ).toJSON();
 
   expect(tree).toMatchSnapshot();

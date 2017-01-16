@@ -56,4 +56,3 @@ fastlane/screenshots
 #
 coverage/*
 jest/*
-src/components/__tests__/__snapshots__

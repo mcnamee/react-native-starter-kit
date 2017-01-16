@@ -21,7 +21,7 @@ const mockPromise = new Promise((resolve) => {
 
 it('LaunchView renders correctly', () => {
   const tree = renderer.create(
-    <LaunchView navigator={jest.fn()} login={() => mockPromise} />,
+    <LaunchView login={() => mockPromise} />,
   ).toJSON();
 
   expect(tree).toMatchSnapshot();

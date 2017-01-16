@@ -7,7 +7,7 @@ import 'react-native';
 import React from 'react';
 import renderer from 'react-test-renderer';
 
-import Soon from '@general/Placeholder';
+import Soon from '@components/general/Placeholder';
 
 /**
  * Check if placeholder renders correctly
@@ -15,7 +15,7 @@ import Soon from '@general/Placeholder';
  */
 it('Soon renders correctly', () => {
   const tree = renderer.create(
-    <Soon navigator={{ push: () => {} }} />,
+    <Soon />,
   ).toJSON();
 
   expect(tree).toMatchSnapshot();

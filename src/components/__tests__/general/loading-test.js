@@ -7,7 +7,7 @@ import 'react-native';
 import React from 'react';
 import renderer from 'react-test-renderer';
 
-import Loading from '@general/Loading';
+import Loading from '@components/general/Loading';
 
 /**
  * Check if loader renders correctly

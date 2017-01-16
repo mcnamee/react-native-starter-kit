@@ -15,13 +15,11 @@ import LoginView from '@containers/auth/Login/LoginView';
  */
 
 // Login prop expects a promise
-const mockPromise = new Promise((resolve) => {
-  resolve();
-});
+const mockPromise = new Promise(resolve => resolve());
 
 it('LoginView renders correctly', () => {
   const tree = renderer.create(
-    <LoginView navigator={jest.fn()} login={() => mockPromise} />,
+    <LoginView login={() => mockPromise} />,
   ).toJSON();
 
   expect(tree).toMatchSnapshot();

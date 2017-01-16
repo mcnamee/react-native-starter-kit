@@ -7,15 +7,15 @@ import 'react-native';
 import React from 'react';
 import renderer from 'react-test-renderer';
 
-import Alerts from '../ui/Alerts';
+import ListItem from '@ui/ListItem';
 
 /**
- * Check if alerts renders correcly
+ * Check if ListItem renders correcly
  * and asserting it to the matching snapshot
  */
-it('Alerts renders correcly', () => {
+it('ListItem renders correcly', () => {
   const tree = renderer.create(
-    <Alerts />
+    <ListItem />,
   ).toJSON();
 
   expect(tree).toMatchSnapshot();

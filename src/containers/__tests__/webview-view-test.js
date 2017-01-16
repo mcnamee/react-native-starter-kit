@@ -7,21 +7,16 @@ import 'react-native';
 import React from 'react';
 import renderer from 'react-test-renderer';
 
-import LaunchView from '@containers/Launch/LaunchView';
+import WebView from '@containers/auth/WebView';
 
 /**
- * Check if alerts renders correcly
+ * Check if WebView renders correcly
  * and asserting it to the matching snapshot
  */
 
-// Login prop expects a promise
-const mockPromise = new Promise((resolve) => {
-  resolve();
-});
-
-it('LaunchView renders correcly', () => {
+it('WebView renders correcly', () => {
   const tree = renderer.create(
-    <LaunchView navigator={jest.fn()} login={() => mockPromise} />,
+    <WebView url={'http://google.com'} />,
   ).toJSON();
 
   expect(tree).toMatchSnapshot();

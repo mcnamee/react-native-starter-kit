@@ -7,15 +7,15 @@ import 'react-native';
 import React from 'react';
 import renderer from 'react-test-renderer';
 
-import Error from '../general/Error';
+import List from '@ui/List';
 
 /**
- * Check if alerts renders correcly
+ * Check if list renders correcly
  * and asserting it to the matching snapshot
  */
-it('Error renders correcly', () => {
+it('List renders correcly', () => {
   const tree = renderer.create(
-    <Error />,
+    <List />,
   ).toJSON();
 
   expect(tree).toMatchSnapshot();

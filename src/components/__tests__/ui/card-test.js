@@ -10,10 +10,10 @@ import renderer from 'react-test-renderer';
 import Card from '@ui/Card';
 
 /**
- * Check if card renders correcly
+ * Check if card renders correctly
  * and asserting it to the matching snapshot
  */
-it('Card renders correcly', () => {
+it('Card renders correctly', () => {
   const tree = renderer.create(
     <Card />,
   ).toJSON();

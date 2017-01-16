@@ -10,10 +10,10 @@ import renderer from 'react-test-renderer';
 import Button from '@ui/Button';
 
 /**
- * Check if button renders correcly
+ * Check if button renders correctly
  * and asserting it to the matching snapshot
  */
-it('Button renders correcly', () => {
+it('Button renders correctly', () => {
   const tree = renderer.create(
     <Button />,
   ).toJSON();

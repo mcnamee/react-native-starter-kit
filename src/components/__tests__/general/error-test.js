@@ -10,10 +10,10 @@ import renderer from 'react-test-renderer';
 import Error from '@general/Error';
 
 /**
- * Check if error renders correcly
+ * Check if error renders correctly
  * and asserting it to the matching snapshot
  */
-it('Error renders correcly', () => {
+it('Error renders correctly', () => {
   const tree = renderer.create(
     <Error />,
   ).toJSON();

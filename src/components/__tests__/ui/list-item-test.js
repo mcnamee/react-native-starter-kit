@@ -10,10 +10,10 @@ import renderer from 'react-test-renderer';
 import ListItem from '@ui/ListItem';
 
 /**
- * Check if ListItem renders correcly
+ * Check if ListItem renders correctly
  * and asserting it to the matching snapshot
  */
-it('ListItem renders correcly', () => {
+it('ListItem renders correctly', () => {
   const tree = renderer.create(
     <ListItem />,
   ).toJSON();

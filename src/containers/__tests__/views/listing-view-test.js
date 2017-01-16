@@ -10,11 +10,11 @@ import renderer from 'react-test-renderer';
 import ListingView from '@containers/recipes/Listing/ListingView';
 
 /**
- * Check if ListingView renders correcly
+ * Check if ListingView renders correctly
  * and asserting it to the matching snapshot
  */
 
-it('ListingView renders correcly', () => {
+it('ListingView renders correctly', () => {
   const theseRecipes = [
     { image: 'http://placehold.it/300x100', title: 'A Cake', content: 'Lorem ipsum' },
     { image: 'http://placehold.it/300x100', title: 'A Muffin', content: 'Lorem ipsum' },

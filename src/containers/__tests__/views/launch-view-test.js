@@ -10,7 +10,7 @@ import renderer from 'react-test-renderer';
 import LaunchView from '@containers/Launch/LaunchView';
 
 /**
- * Check if LaunchView renders correcly
+ * Check if LaunchView renders correctly
  * and asserting it to the matching snapshot
  */
 
@@ -19,7 +19,7 @@ const mockPromise = new Promise((resolve) => {
   resolve();
 });
 
-it('LaunchView renders correcly', () => {
+it('LaunchView renders correctly', () => {
   const tree = renderer.create(
     <LaunchView navigator={jest.fn()} login={() => mockPromise} />,
   ).toJSON();

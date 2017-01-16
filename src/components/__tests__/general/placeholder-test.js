@@ -10,10 +10,10 @@ import renderer from 'react-test-renderer';
 import Soon from '@general/Placeholder';
 
 /**
- * Check if placeholder renders correcly
+ * Check if placeholder renders correctly
  * and asserting it to the matching snapshot
  */
-it('Soon renders correcly', () => {
+it('Soon renders correctly', () => {
   const tree = renderer.create(
     <Soon navigator={{ push: () => {} }} />,
   ).toJSON();

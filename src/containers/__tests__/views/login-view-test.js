@@ -10,7 +10,7 @@ import renderer from 'react-test-renderer';
 import LoginView from '@containers/auth/Login/LoginView';
 
 /**
- * Check if LoginView renders correcly
+ * Check if LoginView renders correctly
  * and asserting it to the matching snapshot
  */
 
@@ -19,7 +19,7 @@ const mockPromise = new Promise((resolve) => {
   resolve();
 });
 
-it('LoginView renders correcly', () => {
+it('LoginView renders correctly', () => {
   const tree = renderer.create(
     <LoginView navigator={jest.fn()} login={() => mockPromise} />,
   ).toJSON();

@@ -10,11 +10,11 @@ import renderer from 'react-test-renderer';
 import AuthenticateView from '@containers/auth/AuthenticateView';
 
 /**
- * Check if AuthenticateView renders correcly
+ * Check if AuthenticateView renders correctly
  * and asserting it to the matching snapshot
  */
 
-it('AuthenticateView renders correcly', () => {
+it('AuthenticateView renders correctly', () => {
   const tree = renderer.create(
     <AuthenticateView />,
   ).toJSON();

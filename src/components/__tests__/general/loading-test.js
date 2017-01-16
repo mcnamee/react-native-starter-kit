@@ -10,10 +10,10 @@ import renderer from 'react-test-renderer';
 import Loading from '@general/Loading';
 
 /**
- * Check if loader renders correcly
+ * Check if loader renders correctly
  * and asserting it to the matching snapshot
  */
-it('Loading renders correcly', () => {
+it('Loading renders correctly', () => {
   const tree = renderer.create(
     <Loading />,
   ).toJSON();

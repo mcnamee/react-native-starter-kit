@@ -10,11 +10,11 @@ import renderer from 'react-test-renderer';
 import RecipeView from '@containers/recipes/RecipeView';
 
 /**
- * Check if RecipeView renders correcly
+ * Check if RecipeView renders correctly
  * and asserting it to the matching snapshot
  */
 
-it('RecipeView renders correcly', () => {
+it('RecipeView renders correctly', () => {
   const thisRecipe = {
     title: 'A Recipe',
     content: 'Lorem ipsum',

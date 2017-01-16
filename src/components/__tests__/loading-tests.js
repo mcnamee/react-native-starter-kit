@@ -7,10 +7,10 @@ import 'react-native';
 import React from 'react';
 import renderer from 'react-test-renderer';
 
-import Loading from '../general/Loading';
+import Loading from '@general/Loading';
 
 /**
- * Check if alerts renders correcly
+ * Check if loader renders correcly
  * and asserting it to the matching snapshot
  */
 it('Loading renders correcly', () => {

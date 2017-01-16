@@ -1,0 +1,33 @@
+exports[`test BrowseView renders correcly 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "backgroundColor": "#E9EBEE",
+        "flex": 1,
+        "flexDirection": "column",
+        "position": "relative",
+      },
+      Object {
+        "alignItems": "center",
+        "justifyContent": "center",
+      },
+      undefined,
+    ]
+  }>
+  <ActivityIndicator
+    animating={true}
+    color="#AAA"
+    hidesWhenStopped={true}
+    size="large" />
+  <View
+    style={
+      Object {
+        "height": 1,
+        "left": 0,
+        "marginTop": 9,
+        "right": 0,
+      }
+    } />
+</View>
+`;

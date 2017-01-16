@@ -1,0 +1,536 @@
+exports[`test LoginView renders correcly 1`] = `
+<ScrollView
+  automaticallyAdjustContentInsets={false}
+  contentContainerStyle={
+    Array [
+      Object {
+        "backgroundColor": "#E9EBEE",
+        "flex": 1,
+        "flexDirection": "column",
+        "position": "relative",
+      },
+    ]
+  }
+  style={
+    Array [
+      Object {
+        "backgroundColor": "#E9EBEE",
+        "flex": 1,
+        "flexDirection": "column",
+        "position": "relative",
+      },
+    ]
+  }>
+  <View
+    style={
+      Array [
+        Object {
+          "backgroundColor": "white",
+          "borderColor": "#e1e8ee",
+          "borderWidth": 1,
+          "margin": 15,
+          "marginBottom": 0,
+          "padding": 15,
+          "shadowColor": "rgba(0,0,0, .2)",
+          "shadowOffset": Object {
+            "height": 0,
+            "width": 0,
+          },
+          "shadowOpacity": 1,
+          "shadowRadius": 1,
+        },
+        undefined,
+        Array [
+          Object {
+            "backgroundColor": "#FFFFFF",
+            "borderColor": "#D0D1D5",
+            "borderRadius": 2,
+          },
+          Array [],
+        ],
+      ]
+    }>
+    <View
+      style={
+        Array [
+          Object {
+            "backgroundColor": "transparent",
+          },
+          undefined,
+          undefined,
+        ]
+      }>
+      <View
+        style={
+          Object {
+            "left": 0,
+            "right": 0,
+          }
+        } />
+      <View
+        style={Object {}}>
+        <View
+          style={
+            Object {
+              "marginBottom": 10,
+            }
+          }>
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "color": "#000000",
+                "fontSize": 17,
+                "fontWeight": "500",
+                "marginBottom": 7,
+              }
+            }>
+            Email
+          </Text>
+          <View
+            style={Object {}}>
+            <TextInput
+              accessibilityLabel="Email"
+              autoCapitalize="none"
+              autoCorrect={undefined}
+              autoFocus={undefined}
+              blurOnSubmit={undefined}
+              clearButtonMode="while-editing"
+              clearTextOnFocus={undefined}
+              editable={undefined}
+              enablesReturnKeyAutomatically={undefined}
+              keyboardAppearance={undefined}
+              keyboardType={undefined}
+              maxLength={undefined}
+              multiline={undefined}
+              numberOfLines={undefined}
+              onBlur={undefined}
+              onChange={undefined}
+              onChangeText={[Function]}
+              onEndEditing={undefined}
+              onFocus={undefined}
+              onKeyPress={undefined}
+              onLayout={undefined}
+              onSelectionChange={undefined}
+              onSubmitEditing={undefined}
+              placeholder={undefined}
+              placeholderTextColor={undefined}
+              returnKeyType={undefined}
+              secureTextEntry={undefined}
+              selectTextOnFocus={undefined}
+              selectionColor={undefined}
+              selectionState={undefined}
+              style={
+                Object {
+                  "borderColor": "#cccccc",
+                  "borderRadius": 4,
+                  "borderWidth": 1,
+                  "color": "#000000",
+                  "fontSize": 17,
+                  "height": 36,
+                  "marginBottom": 5,
+                  "padding": 7,
+                }
+              }
+              underlineColorAndroid="transparent"
+              value="" />
+          </View>
+        </View>
+        <View
+          style={
+            Object {
+              "marginBottom": 10,
+            }
+          }>
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "color": "#000000",
+                "fontSize": 17,
+                "fontWeight": "500",
+                "marginBottom": 7,
+              }
+            }>
+            Password
+          </Text>
+          <View
+            style={Object {}}>
+            <TextInput
+              accessibilityLabel="Password"
+              autoCapitalize={undefined}
+              autoCorrect={undefined}
+              autoFocus={undefined}
+              blurOnSubmit={undefined}
+              clearButtonMode="while-editing"
+              clearTextOnFocus={undefined}
+              editable={undefined}
+              enablesReturnKeyAutomatically={undefined}
+              keyboardAppearance={undefined}
+              keyboardType={undefined}
+              maxLength={undefined}
+              multiline={undefined}
+              numberOfLines={undefined}
+              onBlur={undefined}
+              onChange={undefined}
+              onChangeText={[Function]}
+              onEndEditing={undefined}
+              onFocus={undefined}
+              onKeyPress={undefined}
+              onLayout={undefined}
+              onSelectionChange={undefined}
+              onSubmitEditing={undefined}
+              placeholder={undefined}
+              placeholderTextColor={undefined}
+              returnKeyType={undefined}
+              secureTextEntry={true}
+              selectTextOnFocus={undefined}
+              selectionColor={undefined}
+              selectionState={undefined}
+              style={
+                Object {
+                  "borderColor": "#cccccc",
+                  "borderRadius": 4,
+                  "borderWidth": 1,
+                  "color": "#000000",
+                  "fontSize": 17,
+                  "height": 36,
+                  "marginBottom": 5,
+                  "padding": 7,
+                }
+              }
+              underlineColorAndroid="transparent"
+              value="" />
+          </View>
+        </View>
+      </View>
+      <View
+        accessibilityComponentType={undefined}
+        accessibilityLabel={undefined}
+        accessibilityTraits={undefined}
+        accessible={true}
+        hitSlop={undefined}
+        onLayout={undefined}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Array [
+            Object {
+              "backgroundColor": "transparent",
+            },
+            undefined,
+          ]
+        }
+        testID={undefined}>
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#9E9E9E",
+                "flexDirection": "row",
+                "justifyContent": "center",
+                "marginLeft": 15,
+                "marginRight": 15,
+                "padding": 19,
+              },
+              undefined,
+              undefined,
+              undefined,
+              undefined,
+              undefined,
+              Object {
+                "backgroundColor": "#0E4EF8",
+              },
+              Object {
+                "borderRadius": 2,
+              },
+              Object {
+                "shadowColor": "rgba(0,0,0, .4)",
+                "shadowOffset": Object {
+                  "height": 1,
+                  "width": 1,
+                },
+                "shadowOpacity": 1,
+                "shadowRadius": 1,
+              },
+              Object {
+                "padding": 12,
+              },
+              Object {
+                "marginLeft": 0,
+                "marginRight": 0,
+                "padding": 12,
+              },
+              undefined,
+            ]
+          }>
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Array [
+                Object {
+                  "fontFamily": undefined,
+                },
+                undefined,
+                undefined,
+                undefined,
+                undefined,
+                undefined,
+                undefined,
+                undefined,
+                undefined,
+                undefined,
+                Array [
+                  Object {
+                    "color": "white",
+                    "fontSize": 20,
+                  },
+                  Object {
+                    "color": "#fff",
+                  },
+                  Object {
+                    "fontSize": 17.5,
+                  },
+                  Object {
+                    "fontSize": 14,
+                  },
+                  undefined,
+                  Object {
+                    "fontWeight": "bold",
+                  },
+                  Object {
+                    "fontFamily": "HelveticaNeue",
+                  },
+                ],
+              ]
+            }>
+            Login
+          </Text>
+        </View>
+      </View>
+      <View
+        style={
+          Object {
+            "height": 1,
+            "left": 0,
+            "marginTop": 9,
+            "right": 0,
+          }
+        } />
+      <View
+        accessibilityComponentType={undefined}
+        accessibilityLabel={undefined}
+        accessibilityTraits={undefined}
+        accessible={true}
+        hitSlop={undefined}
+        onLayout={undefined}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+        testID={undefined}>
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          h1={false}
+          h2={false}
+          h3={false}
+          h4={false}
+          h5={false}
+          p={true}
+          style={
+            Array [
+              Object {
+                "color": "#222222",
+                "fontFamily": "HelveticaNeue",
+                "fontSize": 14,
+                "fontWeight": "500",
+                "lineHeight": 18,
+                "marginBottom": 8,
+              },
+              Array [
+                Object {
+                  "textAlign": "center",
+                },
+                Object {
+                  "color": "#0E4EF8",
+                  "textDecorationLine": "underline",
+                },
+              ],
+            ]
+          }>
+          Forgot Password
+        </Text>
+      </View>
+      <View
+        style={
+          Object {
+            "height": 1,
+            "left": 0,
+            "marginTop": 9,
+            "right": 0,
+          }
+        } />
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        h1={false}
+        h2={false}
+        h3={false}
+        h4={false}
+        h5={false}
+        p={true}
+        style={
+          Array [
+            Object {
+              "color": "#222222",
+              "fontFamily": "HelveticaNeue",
+              "fontSize": 14,
+              "fontWeight": "500",
+              "lineHeight": 18,
+              "marginBottom": 8,
+            },
+            Array [
+              Object {
+                "textAlign": "center",
+              },
+            ],
+          ]
+        }>
+        - or -
+      </Text>
+      <View
+        accessibilityComponentType={undefined}
+        accessibilityLabel={undefined}
+        accessibilityTraits={undefined}
+        accessible={true}
+        hitSlop={undefined}
+        onLayout={undefined}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Array [
+            Object {
+              "backgroundColor": "transparent",
+            },
+            undefined,
+          ]
+        }
+        testID={undefined}>
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#9E9E9E",
+                "flexDirection": "row",
+                "justifyContent": "center",
+                "marginLeft": 15,
+                "marginRight": 15,
+                "padding": 19,
+              },
+              undefined,
+              undefined,
+              undefined,
+              undefined,
+              undefined,
+              Object {
+                "backgroundColor": "#0E4EF8",
+              },
+              Object {
+                "borderRadius": 2,
+              },
+              Object {
+                "shadowColor": "rgba(0,0,0, .4)",
+                "shadowOffset": Object {
+                  "height": 1,
+                  "width": 1,
+                },
+                "shadowOpacity": 1,
+                "shadowRadius": 1,
+              },
+              Object {
+                "padding": 12,
+              },
+              Object {
+                "marginLeft": 0,
+                "marginRight": 0,
+                "padding": 12,
+              },
+              undefined,
+            ]
+          }>
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Array [
+                Object {
+                  "fontFamily": undefined,
+                },
+                undefined,
+                undefined,
+                undefined,
+                undefined,
+                undefined,
+                undefined,
+                undefined,
+                undefined,
+                undefined,
+                Array [
+                  Object {
+                    "color": "white",
+                    "fontSize": 20,
+                  },
+                  Object {
+                    "color": "#fff",
+                  },
+                  Object {
+                    "fontSize": 17.5,
+                  },
+                  Object {
+                    "fontSize": 14,
+                  },
+                  undefined,
+                  Object {
+                    "fontWeight": "bold",
+                  },
+                  Object {
+                    "fontFamily": "HelveticaNeue",
+                  },
+                ],
+              ]
+            }>
+            Sign Up
+          </Text>
+        </View>
+      </View>
+    </View>
+  </View>
+</ScrollView>
+`;

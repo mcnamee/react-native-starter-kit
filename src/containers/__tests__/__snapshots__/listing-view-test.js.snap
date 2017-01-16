@@ -1,0 +1,42 @@
+exports[`test ListingView renders correcly 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "backgroundColor": "#E9EBEE",
+        "flex": 1,
+        "flexDirection": "column",
+        "position": "relative",
+      },
+    ]
+  }>
+  <ScrollView
+    automaticallyAdjustContentInsets={false}
+    dataSource={
+      ListViewDataSource {
+        "items": "unknown",
+      }
+    }
+    initialListSize={8}
+    onContentSizeChange={[Function]}
+    onEndReachedThreshold={1000}
+    onKeyboardDidHide={undefined}
+    onKeyboardDidShow={undefined}
+    onKeyboardWillHide={undefined}
+    onKeyboardWillShow={undefined}
+    onLayout={[Function]}
+    onScroll={[Function]}
+    pageSize={1}
+    refreshControl={
+      <RefreshControl
+        onRefresh={[Function]}
+        refreshing={true}
+        tintColor="#0E4EF8" />
+    }
+    removeClippedSubviews={true}
+    renderRow={[Function]}
+    scrollEventThrottle={50}
+    scrollRenderAheadDistance={1000}
+    stickyHeaderIndices={Array []} />
+</View>
+`;

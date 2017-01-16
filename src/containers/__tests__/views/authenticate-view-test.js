@@ -1,5 +1,5 @@
 /**
- * Test to check if the component renderes correctly
+ * Test to check if the component renders correctly
  */
 /* global it expect jest */
 

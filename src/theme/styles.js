@@ -121,6 +121,13 @@ export default {
     textDecorationLine: 'underline',
     color: Colors.brand.primary,
   },
+  subtext: {
+    fontFamily: Fonts.base.family,
+    fontSize: Fonts.base.size * 0.8,
+    lineHeight: Fonts.base.lineHeight * 0.8,
+    color: Colors.textSecondary,
+    fontWeight: '500',
+  },
 
   // Helper Text Styles
   textCenterAligned: {

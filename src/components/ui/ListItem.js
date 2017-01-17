@@ -23,18 +23,23 @@ class CustomListItem extends Component {
       PropTypes.array,
       PropTypes.shape({}),
     ]),
+    subtitleStyle: PropTypes.oneOfType([
+      PropTypes.array,
+      PropTypes.shape({}),
+    ]),
   }
 
   static defaultProps = {
     containerStyle: [],
     titleStyle: [],
+    subtitleStyle: [],
   }
 
   listItemProps = () => {
     // Defaults
     const props = {
       title: 'Coming Soon...',
-      chevronColor: AppColors.textPrimary,
+      chevronColor: AppColors.textSecondary,
       underlayColor: AppColors.border,
       ...this.props,
       containerStyle: [{
@@ -43,6 +48,7 @@ class CustomListItem extends Component {
         borderBottomColor: AppColors.border,
       }],
       titleStyle: [AppStyles.baseText],
+      subtitleStyle: [AppStyles.subtext],
     };
 
     if (this.props.containerStyle) {
@@ -51,6 +57,10 @@ class CustomListItem extends Component {
 
     if (this.props.titleStyle) {
       props.titleStyle.push(this.props.titleStyle);
+    }
+
+    if (this.props.subtitleStyle) {
+      props.subtitleStyle.push(this.props.subtitleStyle);
     }
 
     return props;

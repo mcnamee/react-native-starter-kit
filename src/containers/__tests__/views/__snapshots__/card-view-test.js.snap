@@ -108,6 +108,7 @@ exports[`test CardView renders correctly 1`] = `
               h3={true}
               h4={false}
               h5={false}
+              onPress={null}
               p={false}
               style={
                 Array [
@@ -135,6 +136,7 @@ exports[`test CardView renders correctly 1`] = `
               h3={false}
               h4={false}
               h5={false}
+              onPress={null}
               p={false}
               style={
                 Array [

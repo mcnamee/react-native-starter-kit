@@ -7,7 +7,6 @@
  * https://github.com/mcnamee/react-native-starter-app
  */
 import React, { Component, PropTypes } from 'react';
-import { Alert } from 'react-native';
 import { Button } from 'react-native-elements';
 
 // Consts and Libs
@@ -20,6 +19,7 @@ class CustomButton extends Component {
     large: PropTypes.bool,
     outlined: PropTypes.bool,
     backgroundColor: PropTypes.string,
+    onPress: PropTypes.func.isRequired,
     icon: PropTypes.shape({
       name: PropTypes.string,
     }),
@@ -37,9 +37,9 @@ class CustomButton extends Component {
     // Defaults
     const props = {
       title: 'Coming Soon...',
-      onPress: () => Alert.alert('Coming soon...'),
       color: '#fff',
       fontWeight: 'bold',
+      onPress: this.props.onPress,
       fontFamily: AppFonts.base.family,
       fontSize: AppFonts.base.size,
       borderRadius: AppSizes.borderRadius,

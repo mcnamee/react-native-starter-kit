@@ -19,5 +19,286 @@ exports[`test List renders correctly 1`] = `
         Array [],
       ],
     ]
-  } />
+  }>
+  <View
+    onLongPress={undefined}
+    onPress={undefined}
+    style={
+      Array [
+        Object {
+          "backgroundColor": "transparent",
+          "borderBottomColor": "#ededed",
+          "borderBottomWidth": 1,
+          "paddingBottom": 10,
+          "paddingRight": 10,
+          "paddingTop": 10,
+        },
+        Array [
+          Object {
+            "backgroundColor": "#FFFFFF",
+            "borderBottomColor": "#D0D1D5",
+            "borderTopColor": "#D0D1D5",
+          },
+          Array [],
+        ],
+      ]
+    }
+    underlayColor="#D0D1D5">
+    <View
+      style={
+        Array [
+          Object {
+            "flexDirection": "row",
+            "marginLeft": 10,
+          },
+          undefined,
+        ]
+      }>
+      <View
+        style={
+          Object {
+            "flex": 1,
+            "justifyContent": "center",
+          }
+        }>
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Array [
+              Object {
+                "fontFamily": undefined,
+              },
+              undefined,
+              undefined,
+              undefined,
+              undefined,
+              undefined,
+              undefined,
+              undefined,
+              undefined,
+              undefined,
+              Array [
+                Object {
+                  "color": "#43484d",
+                  "fontSize": 17.5,
+                },
+                Array [
+                  Object {
+                    "color": "#222222",
+                    "fontFamily": "HelveticaNeue",
+                    "fontSize": 14,
+                    "fontWeight": "500",
+                    "lineHeight": 18,
+                  },
+                  Array [],
+                ],
+                Object {
+                  "marginLeft": 10,
+                },
+                undefined,
+              ],
+            ]
+          }>
+          Hello
+        </Text>
+        <View
+          style={undefined} />
+      </View>
+      <View
+        style={
+          Object {
+            "alignItems": "flex-end",
+            "flex": 0.15,
+            "justifyContent": "center",
+          }
+        }>
+        <View
+          onLongPress={undefined}
+          onPress={undefined}
+          style={
+            Array [
+              false,
+              false,
+              false,
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "transparent",
+                "justifyContent": "center",
+              },
+              undefined,
+            ]
+          }
+          underlayColor="white">
+          <Text
+            accessible={true}
+            allowFontScaling={false}
+            ellipsizeMode="tail"
+            style={
+              Array [
+                Object {
+                  "color": "#777777",
+                  "fontSize": 28,
+                },
+                Array [
+                  Object {
+                    "backgroundColor": "transparent",
+                  },
+                  undefined,
+                ],
+                Object {
+                  "fontFamily": "Material Icons",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                },
+              ]
+            }>
+            
+          </Text>
+        </View>
+      </View>
+    </View>
+  </View>
+  <View
+    onLongPress={undefined}
+    onPress={undefined}
+    style={
+      Array [
+        Object {
+          "backgroundColor": "transparent",
+          "borderBottomColor": "#ededed",
+          "borderBottomWidth": 1,
+          "paddingBottom": 10,
+          "paddingRight": 10,
+          "paddingTop": 10,
+        },
+        Array [
+          Object {
+            "backgroundColor": "#FFFFFF",
+            "borderBottomColor": "#D0D1D5",
+            "borderTopColor": "#D0D1D5",
+          },
+          Array [],
+        ],
+      ]
+    }
+    underlayColor="#D0D1D5">
+    <View
+      style={
+        Array [
+          Object {
+            "flexDirection": "row",
+            "marginLeft": 10,
+          },
+          undefined,
+        ]
+      }>
+      <View
+        style={
+          Object {
+            "flex": 1,
+            "justifyContent": "center",
+          }
+        }>
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Array [
+              Object {
+                "fontFamily": undefined,
+              },
+              undefined,
+              undefined,
+              undefined,
+              undefined,
+              undefined,
+              undefined,
+              undefined,
+              undefined,
+              undefined,
+              Array [
+                Object {
+                  "color": "#43484d",
+                  "fontSize": 17.5,
+                },
+                Array [
+                  Object {
+                    "color": "#222222",
+                    "fontFamily": "HelveticaNeue",
+                    "fontSize": 14,
+                    "fontWeight": "500",
+                    "lineHeight": 18,
+                  },
+                  Array [],
+                ],
+                Object {
+                  "marginLeft": 10,
+                },
+                undefined,
+              ],
+            ]
+          }>
+          Second
+        </Text>
+        <View
+          style={undefined} />
+      </View>
+      <View
+        style={
+          Object {
+            "alignItems": "flex-end",
+            "flex": 0.15,
+            "justifyContent": "center",
+          }
+        }>
+        <View
+          onLongPress={undefined}
+          onPress={undefined}
+          style={
+            Array [
+              false,
+              false,
+              false,
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "transparent",
+                "justifyContent": "center",
+              },
+              undefined,
+            ]
+          }
+          underlayColor="white">
+          <Text
+            accessible={true}
+            allowFontScaling={false}
+            ellipsizeMode="tail"
+            style={
+              Array [
+                Object {
+                  "color": "#777777",
+                  "fontSize": 28,
+                },
+                Array [
+                  Object {
+                    "backgroundColor": "transparent",
+                  },
+                  undefined,
+                ],
+                Object {
+                  "fontFamily": "Material Icons",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                },
+              ]
+            }>
+            
+          </Text>
+        </View>
+      </View>
+    </View>
+  </View>
+</View>
 `;

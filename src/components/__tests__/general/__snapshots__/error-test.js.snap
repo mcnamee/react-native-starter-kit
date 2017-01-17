@@ -64,6 +64,86 @@ exports[`test Error renders correctly 1`] = `
         },
       ]
     }>
+    We can\'t find that
+  </Text>
+  <View
+    style={
+      Object {
+        "height": 1,
+        "left": 0,
+        "marginTop": 19,
+        "right": 0,
+      }
+    } />
+</View>
+`;
+
+exports[`test Error w/ Try Again Button renders correctly 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "backgroundColor": "#E9EBEE",
+        "flex": 1,
+        "flexDirection": "column",
+        "position": "relative",
+      },
+      Object {
+        "alignItems": "center",
+        "justifyContent": "center",
+      },
+    ]
+  }>
+  <Text
+    accessible={true}
+    allowFontScaling={false}
+    ellipsizeMode="tail"
+    style={
+      Array [
+        Object {
+          "color": "#CCC",
+          "fontSize": 50,
+        },
+        undefined,
+        Object {
+          "fontFamily": "Ionicons",
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+        },
+      ]
+    }>
+    
+  </Text>
+  <View
+    style={
+      Object {
+        "height": 1,
+        "left": 0,
+        "marginTop": 9,
+        "right": 0,
+      }
+    } />
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    h1={false}
+    h2={false}
+    h3={false}
+    h4={false}
+    h5={false}
+    p={false}
+    style={
+      Array [
+        Object {
+          "color": "#222222",
+          "fontFamily": "HelveticaNeue",
+          "fontSize": 14,
+          "fontWeight": "500",
+          "lineHeight": 18,
+        },
+      ]
+    }>
     Woops, Something went wrong.
   </Text>
   <View
@@ -75,5 +155,110 @@ exports[`test Error renders correctly 1`] = `
         "right": 0,
       }
     } />
+  <View
+    accessibilityComponentType={undefined}
+    accessibilityLabel={undefined}
+    accessibilityTraits={undefined}
+    accessible={true}
+    hitSlop={undefined}
+    onLayout={undefined}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Array [
+        Object {
+          "backgroundColor": "transparent",
+        },
+        undefined,
+      ]
+    }
+    testID={undefined}>
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#9E9E9E",
+            "flexDirection": "row",
+            "justifyContent": "center",
+            "marginLeft": 15,
+            "marginRight": 15,
+            "padding": 19,
+          },
+          undefined,
+          undefined,
+          undefined,
+          undefined,
+          undefined,
+          Object {
+            "backgroundColor": "transparent",
+          },
+          Object {
+            "borderRadius": 2,
+          },
+          false,
+          Object {
+            "padding": 12,
+          },
+          Object {
+            "borderColor": "#0E4EF8",
+            "borderWidth": 1,
+            "marginLeft": 0,
+            "marginRight": 0,
+            "padding": 8,
+          },
+          undefined,
+        ]
+      }>
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Array [
+            Object {
+              "fontFamily": undefined,
+            },
+            undefined,
+            undefined,
+            undefined,
+            undefined,
+            undefined,
+            undefined,
+            undefined,
+            undefined,
+            undefined,
+            Array [
+              Object {
+                "color": "white",
+                "fontSize": 20,
+              },
+              Object {
+                "color": "#0E4EF8",
+              },
+              Object {
+                "fontSize": 17.5,
+              },
+              Object {
+                "fontSize": 12,
+              },
+              undefined,
+              Object {
+                "fontWeight": "bold",
+              },
+              Object {
+                "fontFamily": "HelveticaNeue",
+              },
+            ],
+          ]
+        }>
+        Try again
+      </Text>
+    </View>
+  </View>
 </View>
 `;

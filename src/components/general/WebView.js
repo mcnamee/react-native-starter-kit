@@ -36,22 +36,23 @@ class AppWebView extends Component {
     onNavigationStateChange: PropTypes.func,
   }
 
+  static defaultProps = {
+    onNavigationStateChange: null,
+  }
+
   constructor(props) {
     super(props);
 
     this.state = {
       loading: true,
-      webViewURL: null,
+      webViewURL: props.url || null,
     };
   }
 
   componentDidMount = () => {
     // Wait until interaction has finished before loading the webview in
     InteractionManager.runAfterInteractions(() => {
-      this.setState({
-        loading: false,
-        webViewURL: this.props.url || null,
-      });
+      this.setState({ loading: false });
     });
   }
 
@@ -66,8 +67,8 @@ class AppWebView extends Component {
   render = () => {
     const { webViewURL, loading } = this.state;
 
-    if (loading) return (<Loading />);
-    if (!webViewURL) return (<Error type={'URL not defined.'} />);
+    if (loading) return <Loading />;
+    if (!webViewURL) return <Error type={'URL not defined.'} />;
 
     return (
       <WebView

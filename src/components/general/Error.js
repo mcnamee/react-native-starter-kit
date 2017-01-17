@@ -32,14 +32,14 @@ const Error = ({ text, tryAgain }) => (
         small
         outlined
         title={'Try again'}
-        onPress={() => tryAgain()}
+        onPress={tryAgain}
       />
     }
   </View>
 );
 
 Error.propTypes = { text: PropTypes.string, tryAgain: PropTypes.func };
-Error.defaultProps = { text: 'Woops, Something went wrong.' };
+Error.defaultProps = { text: 'Woops, Something went wrong.', tryAgain: null };
 Error.componentName = 'Error';
 
 /* Export Component ==================================================================== */

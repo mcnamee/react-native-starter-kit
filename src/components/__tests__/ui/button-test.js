@@ -1,8 +1,8 @@
 /**
  * Test to check if the component renders correctly
  */
-/* global it expect alert */
-import 'react-native';
+/* global it expect */
+import { Alert } from 'react-native';
 import React from 'react';
 import renderer from 'react-test-renderer';
 
@@ -18,7 +18,7 @@ it('Button renders correctly', () => {
 
 it('Button with onPress renders correctly', () => {
   const tree = renderer.create(
-    <Button onPress={() => alert('Hey Tester')} />,
+    <Button onPress={() => Alert.alert('Hey Tester')} />,
   ).toJSON();
 
   expect(tree).toMatchSnapshot();

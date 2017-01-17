@@ -2,7 +2,6 @@
  * Test to check if the container is created correctly
  */
 /* global it expect jest */
-
 import 'react-native';
 
 import LoginContainer from '@containers/auth/Login/LoginContainer';

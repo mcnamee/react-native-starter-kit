@@ -2,17 +2,11 @@
  * Test to check if the component renders correctly
  */
 /* global it expect jest */
-
 import 'react-native';
 import React from 'react';
 import renderer from 'react-test-renderer';
 
 import RecipeView from '@containers/recipes/RecipeView';
-
-/**
- * Check if RecipeView renders correctly
- * and asserting it to the matching snapshot
- */
 
 it('RecipeView renders correctly', () => {
   const thisRecipe = {

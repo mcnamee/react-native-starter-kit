@@ -124,7 +124,7 @@ export default {
   subtext: {
     fontFamily: Fonts.base.family,
     fontSize: Fonts.base.size * 0.8,
-    lineHeight: Fonts.base.lineHeight * 0.8,
+    lineHeight: parseInt(Fonts.base.lineHeight * 0.8, 10),
     color: Colors.textSecondary,
     fontWeight: '500',
   },

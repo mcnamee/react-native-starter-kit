@@ -2,20 +2,23 @@
  * Test to check if the component renders correctly
  */
 /* global it expect */
-
 import 'react-native';
 import React from 'react';
 import renderer from 'react-test-renderer';
 
-import Soon from '@components/general/Placeholder';
+import Placeholder from '@components/general/Placeholder';
 
-/**
- * Check if placeholder renders correctly
- * and asserting it to the matching snapshot
- */
-it('Soon renders correctly', () => {
+it('Placeholder renders correctly', () => {
   const tree = renderer.create(
-    <Soon />,
+    <Placeholder />,
+  ).toJSON();
+
+  expect(tree).toMatchSnapshot();
+});
+
+it('Placeholder w/ Text renders correctly', () => {
+  const tree = renderer.create(
+    <Placeholder text={'Hello world!'} />,
   ).toJSON();
 
   expect(tree).toMatchSnapshot();

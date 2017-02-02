@@ -25,6 +25,7 @@ const styles = StyleSheet.create({
     left: 0,
     right: 0,
   },
+
   // Success
   msg: {
     right: 0,
@@ -34,7 +35,6 @@ const styles = StyleSheet.create({
     borderLeftWidth: 3,
     borderColor: '#1C854C',
     backgroundColor: '#59DC9A',
-    // borderRadius: 2,
   },
   msg_text: {
     textAlign: 'center',
@@ -64,7 +64,7 @@ const styles = StyleSheet.create({
 /* Component ==================================================================== */
 const Alerts = ({ status, success, error }) => (
   <View style={styles.alerts}>
-    {success !== '' &&
+    {!!success &&
       <View>
         <View style={[styles.msg]}>
           <Text style={[styles.msg_text]}>{success}</Text>
@@ -73,7 +73,7 @@ const Alerts = ({ status, success, error }) => (
       </View>
     }
 
-    {status !== '' &&
+    {!!status &&
       <View>
         <View style={[styles.msg, styles.msgStatus]}>
           <Text style={[styles.msg_text, styles.msgStatus_text]}>
@@ -84,7 +84,7 @@ const Alerts = ({ status, success, error }) => (
       </View>
     }
 
-    {error !== '' &&
+    {!!error &&
       <View>
         <View style={[styles.msg, styles.msgError]}>
           <Text

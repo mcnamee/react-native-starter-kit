@@ -1,4 +1,222 @@
-exports[`test Alerts renders correctly 1`] = `
+exports[`test Alerts (Error) renders correctly 1`] = `
+<View
+  style={
+    Object {
+      "left": 0,
+      "right": 0,
+    }
+  }>
+  <View>
+    <View
+      style={
+        Array [
+          Object {
+            "backgroundColor": "#59DC9A",
+            "borderColor": "#1C854C",
+            "borderLeftWidth": 3,
+            "left": 0,
+            "paddingHorizontal": 10,
+            "paddingVertical": 10,
+            "right": 0,
+          },
+          Object {
+            "backgroundColor": "#FB6567",
+            "borderColor": "#C02827",
+          },
+        ]
+      }>
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        h1={false}
+        h2={false}
+        h3={false}
+        h4={false}
+        h5={false}
+        onPress={null}
+        p={false}
+        style={
+          Array [
+            Object {
+              "color": "#222222",
+              "fontFamily": "HelveticaNeue",
+              "fontSize": 14,
+              "fontWeight": "500",
+              "lineHeight": 18,
+            },
+            Array [
+              Object {
+                "color": "#16693c",
+                "fontWeight": "500",
+                "textAlign": "center",
+              },
+              Object {
+                "color": "#7f1a1a",
+              },
+            ],
+          ]
+        }>
+        Error hey
+      </Text>
+    </View>
+    <View
+      style={
+        Object {
+          "height": 1,
+          "left": 0,
+          "marginTop": 19,
+          "right": 0,
+        }
+      } />
+  </View>
+</View>
+`;
+
+exports[`test Alerts (Status) renders correctly 1`] = `
+<View
+  style={
+    Object {
+      "left": 0,
+      "right": 0,
+    }
+  }>
+  <View>
+    <View
+      style={
+        Array [
+          Object {
+            "backgroundColor": "#59DC9A",
+            "borderColor": "#1C854C",
+            "borderLeftWidth": 3,
+            "left": 0,
+            "paddingHorizontal": 10,
+            "paddingVertical": 10,
+            "right": 0,
+          },
+          Object {
+            "backgroundColor": "#8EDBE5",
+            "borderColor": "#408491",
+          },
+        ]
+      }>
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        h1={false}
+        h2={false}
+        h3={false}
+        h4={false}
+        h5={false}
+        onPress={null}
+        p={false}
+        style={
+          Array [
+            Object {
+              "color": "#222222",
+              "fontFamily": "HelveticaNeue",
+              "fontSize": 14,
+              "fontWeight": "500",
+              "lineHeight": 18,
+            },
+            Array [
+              Object {
+                "color": "#16693c",
+                "fontWeight": "500",
+                "textAlign": "center",
+              },
+              Object {
+                "color": "#2f606a",
+              },
+            ],
+          ]
+        }>
+        Something\'s happening...
+      </Text>
+    </View>
+    <View
+      style={
+        Object {
+          "height": 1,
+          "left": 0,
+          "marginTop": 19,
+          "right": 0,
+        }
+      } />
+  </View>
+</View>
+`;
+
+exports[`test Alerts (Sucess) renders correctly 1`] = `
+<View
+  style={
+    Object {
+      "left": 0,
+      "right": 0,
+    }
+  }>
+  <View>
+    <View
+      style={
+        Array [
+          Object {
+            "backgroundColor": "#59DC9A",
+            "borderColor": "#1C854C",
+            "borderLeftWidth": 3,
+            "left": 0,
+            "paddingHorizontal": 10,
+            "paddingVertical": 10,
+            "right": 0,
+          },
+        ]
+      }>
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        h1={false}
+        h2={false}
+        h3={false}
+        h4={false}
+        h5={false}
+        onPress={null}
+        p={false}
+        style={
+          Array [
+            Object {
+              "color": "#222222",
+              "fontFamily": "HelveticaNeue",
+              "fontSize": 14,
+              "fontWeight": "500",
+              "lineHeight": 18,
+            },
+            Array [
+              Object {
+                "color": "#16693c",
+                "fontWeight": "500",
+                "textAlign": "center",
+              },
+            ],
+          ]
+        }>
+        Hello Success
+      </Text>
+    </View>
+    <View
+      style={
+        Object {
+          "height": 1,
+          "left": 0,
+          "marginTop": 19,
+          "right": 0,
+        }
+      } />
+  </View>
+</View>
+`;
+
+exports[`test Alerts (empty) renders correctly 1`] = `
 <View
   style={
     Object {

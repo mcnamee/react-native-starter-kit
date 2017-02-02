@@ -7,10 +7,7 @@
  * https://github.com/mcnamee/react-native-starter-app
  */
 import React, { PropTypes } from 'react';
-import {
-  View,
-  ActivityIndicator,
-} from 'react-native';
+import { View, ActivityIndicator } from 'react-native';
 
 // Consts and Libs
 import { AppStyles } from '@theme/';
@@ -35,16 +32,13 @@ const Loading = ({ text, transparent }) => (
 
     <Spacer size={10} />
 
-    {text &&
-      <Text>{text}</Text>
-    }
+    {!!text && <Text>{text}</Text>}
   </View>
 );
 
-Loading.propTypes = {
-  text: PropTypes.string,
-  transparent: PropTypes.bool,
-};
+Loading.propTypes = { text: PropTypes.string, transparent: PropTypes.bool };
+Loading.defaultProps = { text: null, transparent: false };
+Loading.componentName = 'Loading';
 
 /* Export Component ==================================================================== */
 export default Loading;

@@ -1,4 +1,4 @@
-exports[`test Soon renders correctly 1`] = `
+exports[`test Placeholder renders correctly 1`] = `
 <View
   style={
     Array [
@@ -23,6 +23,7 @@ exports[`test Soon renders correctly 1`] = `
     h3={false}
     h4={false}
     h5={false}
+    onPress={null}
     p={false}
     style={
       Array [
@@ -36,6 +37,49 @@ exports[`test Soon renders correctly 1`] = `
       ]
     }>
     Coming soon...
+  </Text>
+</View>
+`;
+
+exports[`test Placeholder w/ Text renders correctly 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "backgroundColor": "#E9EBEE",
+        "flex": 1,
+        "flexDirection": "column",
+        "position": "relative",
+      },
+      Object {
+        "alignItems": "center",
+        "justifyContent": "center",
+      },
+    ]
+  }>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    h1={false}
+    h2={false}
+    h3={false}
+    h4={false}
+    h5={false}
+    onPress={null}
+    p={false}
+    style={
+      Array [
+        Object {
+          "color": "#222222",
+          "fontFamily": "HelveticaNeue",
+          "fontSize": 14,
+          "fontWeight": "500",
+          "lineHeight": 18,
+        },
+      ]
+    }>
+    Hello world!
   </Text>
 </View>
 `;

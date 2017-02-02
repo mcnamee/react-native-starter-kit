@@ -2,20 +2,18 @@
  * Test to check if the component renders correctly
  */
 /* global it expect */
-
 import 'react-native';
 import React from 'react';
 import renderer from 'react-test-renderer';
 
-import List from '@ui/List';
+import { List, ListItem } from '@ui';
 
-/**
- * Check if list renders correctly
- * and asserting it to the matching snapshot
- */
 it('List renders correctly', () => {
   const tree = renderer.create(
-    <List />,
+    <List>
+      <ListItem title={'Hello'} />
+      <ListItem title={'Second'} />
+    </List>,
   ).toJSON();
 
   expect(tree).toMatchSnapshot();

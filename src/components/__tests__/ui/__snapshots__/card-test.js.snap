@@ -37,6 +37,215 @@ exports[`test Card renders correctly 1`] = `
         undefined,
         undefined,
       ]
-    } />
+    }>
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail">
+      Hello world
+    </Text>
+  </View>
+</View>
+`;
+
+exports[`test Card w/ Image renders correctly 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "backgroundColor": "white",
+        "borderColor": "#e1e8ee",
+        "borderWidth": 1,
+        "margin": 15,
+        "marginBottom": 0,
+        "padding": 15,
+        "shadowColor": "rgba(0,0,0, .2)",
+        "shadowOffset": Object {
+          "height": 0,
+          "width": 0,
+        },
+        "shadowOpacity": 1,
+        "shadowRadius": 1,
+      },
+      Object {
+        "padding": 0,
+      },
+      Array [
+        Object {
+          "backgroundColor": "#FFFFFF",
+          "borderColor": "#D0D1D5",
+          "borderRadius": 2,
+        },
+        Array [],
+      ],
+    ]
+  }>
+  <View
+    style={
+      Array [
+        Object {
+          "backgroundColor": "transparent",
+        },
+        undefined,
+        undefined,
+      ]
+    }>
+    <View
+      style={
+        Object {
+          "flex": 1,
+        }
+      }>
+      <Image
+        resizeMode="cover"
+        source={1}
+        style={
+          Array [
+            Object {
+              "flex": 1,
+              "height": 150,
+              "width": null,
+            },
+            undefined,
+          ]
+        } />
+      <View
+        style={
+          Array [
+            Object {
+              "padding": 10,
+            },
+            undefined,
+          ]
+        }>
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail">
+          Hello world
+        </Text>
+      </View>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`test Card w/ Title renders correctly 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "backgroundColor": "white",
+        "borderColor": "#e1e8ee",
+        "borderWidth": 1,
+        "margin": 15,
+        "marginBottom": 0,
+        "padding": 15,
+        "shadowColor": "rgba(0,0,0, .2)",
+        "shadowOffset": Object {
+          "height": 0,
+          "width": 0,
+        },
+        "shadowOpacity": 1,
+        "shadowRadius": 1,
+      },
+      undefined,
+      Array [
+        Object {
+          "backgroundColor": "#FFFFFF",
+          "borderColor": "#D0D1D5",
+          "borderRadius": 2,
+        },
+        Array [],
+      ],
+    ]
+  }>
+  <View
+    style={
+      Array [
+        Object {
+          "backgroundColor": "transparent",
+        },
+        undefined,
+        undefined,
+      ]
+    }>
+    <View>
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Array [
+            Object {
+              "fontFamily": undefined,
+            },
+            undefined,
+            undefined,
+            undefined,
+            undefined,
+            undefined,
+            undefined,
+            undefined,
+            undefined,
+            undefined,
+            Array [
+              Object {
+                "color": "#43484d",
+                "fontSize": 17.5,
+                "fontWeight": "bold",
+                "marginBottom": 15,
+                "textAlign": "center",
+              },
+              Array [
+                Object {
+                  "color": "#0E4EF8",
+                  "fontFamily": "HelveticaNeue",
+                  "fontSize": 21,
+                  "fontWeight": "800",
+                  "left": 0,
+                  "lineHeight": 26,
+                  "margin": 0,
+                  "marginBottom": 4,
+                  "right": 0,
+                },
+                Object {
+                  "marginBottom": 15,
+                },
+                Array [],
+              ],
+              undefined,
+            ],
+          ]
+        }>
+        With Title
+      </Text>
+      <View
+        style={
+          Array [
+            Object {
+              "backgroundColor": "#e1e8ee",
+              "height": 1,
+            },
+            Array [
+              Object {
+                "marginBottom": 15,
+              },
+              Array [
+                Object {
+                  "backgroundColor": "#D0D1D5",
+                },
+              ],
+            ],
+          ]
+        } />
+    </View>
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail">
+      Hello world
+    </Text>
+  </View>
 </View>
 `;

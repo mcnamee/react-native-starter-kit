@@ -1,7 +1,7 @@
 /**
- * Coming Soon
+ * Placeholder Scene
  *
-    <ComingSoon text={"Hello World"} />
+    <Placeholder text={"Hello World"} />
  *
  * React Native Starter App
  * https://github.com/mcnamee/react-native-starter-app
@@ -16,15 +16,15 @@ import { AppStyles } from '@theme/';
 import { Text } from '@ui/';
 
 /* Component ==================================================================== */
-const ComingSoon = ({ text }) => (
+const Placeholder = ({ text }) => (
   <View style={[AppStyles.container, AppStyles.containerCentered]}>
     <Text>{text}</Text>
   </View>
 );
 
-ComingSoon.propTypes = { text: PropTypes.string };
-ComingSoon.defaultProps = { text: 'Coming soon...' };
-ComingSoon.componentName = 'ComingSoon';
+Placeholder.propTypes = { text: PropTypes.string };
+Placeholder.defaultProps = { text: 'Coming soon...' };
+Placeholder.componentName = 'Placeholder';
 
 /* Export Component ==================================================================== */
-export default ComingSoon;
+export default Placeholder;

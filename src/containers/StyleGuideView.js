@@ -7,6 +7,7 @@
 import React, { Component } from 'react';
 import {
   View,
+  Alert,
   ListView,
   ScrollView,
   StyleSheet,
@@ -225,12 +226,14 @@ class StyleGuide extends Component {
                   <Text h1>Heading 1</Text>
                   <Text h2>Heading 2</Text>
                   <Text h3>Heading 3</Text>
+                  <Text h3 onPress={() => Alert.alert('hey')}>Heading 3 with Link</Text>
                   <Text h4>Heading 4</Text>
+                  <Text h5>Heading 5</Text>
                   <Text p>
                     Mus ac nostra lobortis sapien a erat in risus purus odio
                     egestas a donec fringilla scelerisque congue parturient
-                    condimentum penatibus neque urna magna. Leo dictumst
-                    senectus inceptos parturient pharetra.
+                    condimentum penatibus neque urna magna. <Text onPress={() => Alert.alert('hey')}>
+                    Leo dictumst</Text> senectus inceptos parturient pharetra.
                   </Text>
                   <Text p>
                     Mus ac nostra lobortis sapien a erat in risus purus odio

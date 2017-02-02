@@ -33,6 +33,20 @@ exports[`test ListItem renders correctly 1`] = `
         undefined,
       ]
     }>
+    <Image
+      source={1}
+      style={
+        Array [
+          Object {
+            "height": 34,
+            "width": 34,
+          },
+          Object {
+            "borderRadius": 17,
+          },
+          undefined,
+        ]
+      } />
     <View
       style={
         Object {
@@ -80,7 +94,7 @@ exports[`test ListItem renders correctly 1`] = `
             ],
           ]
         }>
-        Coming Soon...
+        Hello world
       </Text>
       <View
         style={undefined} />
@@ -117,7 +131,7 @@ exports[`test ListItem renders correctly 1`] = `
           style={
             Array [
               Object {
-                "color": "#222222",
+                "color": "#777777",
                 "fontSize": 28,
               },
               Array [

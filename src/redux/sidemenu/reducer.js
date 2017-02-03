@@ -6,7 +6,7 @@
  */
 
 // Set initial state
-const initialState = {
+export const initialState = {
   isOpen: false,
   disableGestures: false,
 };

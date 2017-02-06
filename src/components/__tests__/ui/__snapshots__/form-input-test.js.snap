@@ -1,0 +1,81 @@
+exports[`test FormInput renders correctly 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "borderBottomColor": "#bdc6cf",
+        "borderBottomWidth": 1,
+        "marginLeft": 20,
+        "marginRight": 20,
+      },
+      Array [
+        Object {
+          "backgroundColor": "rgba(255,255,255,0.05)",
+          "borderBottomColor": "#D0D1D5",
+          "borderBottomWidth": 1,
+          "marginLeft": 20,
+          "marginRight": 20,
+          "marginTop": 10,
+        },
+        Array [],
+      ],
+    ]
+  }>
+  <TextInput
+    autoCapitalize={undefined}
+    autoCorrect={undefined}
+    autoFocus={undefined}
+    blurOnSubmit={undefined}
+    clearButtonMode={undefined}
+    clearTextOnFocus={undefined}
+    dataDetectorTypes={undefined}
+    defaultValue={undefined}
+    editable={undefined}
+    enablesReturnKeyAutomatically={undefined}
+    inlineImageLeft={undefined}
+    inlineImagePadding={undefined}
+    keyboardAppearance={undefined}
+    keyboardType={undefined}
+    maxLength={undefined}
+    multiline={undefined}
+    numberOfLines={undefined}
+    onBlur={undefined}
+    onChange={undefined}
+    onChangeText={undefined}
+    onContentSizeChange={undefined}
+    onEndEditing={undefined}
+    onFocus={undefined}
+    onKeyPress={undefined}
+    onLayout={undefined}
+    onSelectionChange={undefined}
+    onSubmitEditing={undefined}
+    placeholder={undefined}
+    placeholderTextColor={undefined}
+    returnKeyLabel={undefined}
+    returnKeyType={undefined}
+    secureTextEntry={undefined}
+    selectTextOnFocus={undefined}
+    selectionColor="#86939e"
+    selectionState={undefined}
+    style={
+      Array [
+        Object {
+          "color": "#86939e",
+          "fontSize": 17.5,
+          "height": 36,
+        },
+        Array [
+          Object {
+            "color": "#222222",
+            "fontFamily": "HelveticaNeue",
+            "paddingHorizontal": 10,
+            "paddingVertical": 3,
+          },
+          Array [],
+        ],
+      ]
+    }
+    underlineColorAndroid={undefined}
+    value="John Smith" />
+</View>
+`;

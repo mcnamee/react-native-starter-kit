@@ -1,0 +1,51 @@
+exports[`test FormLabel renders correctly 1`] = `
+<View
+  style={
+    Array [
+      Object {},
+      Array [],
+    ]
+  }>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    style={
+      Array [
+        Object {
+          "fontFamily": undefined,
+        },
+        undefined,
+        undefined,
+        undefined,
+        undefined,
+        undefined,
+        undefined,
+        undefined,
+        undefined,
+        undefined,
+        Array [
+          Object {
+            "color": "#86939e",
+            "fontSize": 15,
+            "fontWeight": "bold",
+            "marginBottom": 1,
+            "marginLeft": 20,
+            "marginRight": 20,
+            "marginTop": 15,
+          },
+          Array [
+            Object {
+              "color": "#222222",
+              "fontFamily": "HelveticaNeue",
+            },
+            Array [],
+          ],
+          undefined,
+        ],
+      ]
+    }>
+    JOHN SMITH
+  </Text>
+</View>
+`;

@@ -29,6 +29,8 @@ import {
   Text,
   List,
   ListItem,
+  FormInput,
+  FormLabel,
 } from '@components/ui/';
 
 // Example Data
@@ -104,6 +106,7 @@ class StyleGuide extends Component {
           { key: '1', title: 'Basics' },
           { key: '2', title: 'Cards' },
           { key: '3', title: 'Lists' },
+          { key: '4', title: 'Form' },
         ],
       },
       dataSource: ds.cloneWithRows(dummyData1),
@@ -324,6 +327,23 @@ class StyleGuide extends Component {
                   dataSource={this.state.dataSource2}
                 />
               </List>
+            </ScrollView>
+          </View>
+        );
+      case '4' :
+        return (
+          <View style={styles.tabContainer}>
+            <ScrollView
+              automaticallyAdjustContentInsets={false}
+              style={[AppStyles.container]}
+            >
+              <FormLabel>First Name</FormLabel>
+              <FormInput />
+
+              <Spacer size={10} />
+
+              <FormLabel>Last Name</FormLabel>
+              <FormInput />
             </ScrollView>
           </View>
         );

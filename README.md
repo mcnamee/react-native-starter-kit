@@ -1,3 +1,10 @@
+[![GitHub tag](https://img.shields.io/github/tag/mcnamee/react-native-starter-app.svg)]()
+[![GitHub contributors](https://img.shields.io/github/contributors/mcnamee/react-native-starter-app.svg)]()
+[![license](https://img.shields.io/github/license/mcnamee/react-native-starter-app.svg)]()
+[![Bitbucket issues](https://img.shields.io/github/issues/mcnamee/react-native-starter-app.svg)]()
+[![GitHub closed issues](https://img.shields.io/github/issues-closed/mcnamee/react-native-starter-app.svg)]()
+[![GitHub pull requests](https://img.shields.io/github/issues-pr/mcnamee/react-native-starter-app.svg)]()
+
 ![alt text](https://dl.dropboxusercontent.com/u/46690444/GITHUB/rnsk-logo.jpg "React Native Starter Kit")
 
 # React Native Starter Kit
@@ -68,6 +75,3 @@ React Native Starter Kit helps you get started with React Native. It contains a 
   - `/navigation`- Routes - wire up the router with any & all screens. [Read More &rarr;](/src/navigation/README.md)
   - `/redux` - Redux Reducers & Actions grouped by type. [Read More &rarr;](/src/redux/README.md)
   - `/theme` - Theme specific styles and variables
-
-
-

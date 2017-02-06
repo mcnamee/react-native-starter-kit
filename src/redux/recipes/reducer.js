@@ -8,7 +8,7 @@
 import AppUtil from '@lib/util';
 
 // Set initial state
-const initialState = {
+export const initialState = {
   meals: [],
 };
 

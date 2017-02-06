@@ -63,6 +63,9 @@ exports[`test Error renders correctly 1`] = `
           "fontWeight": "500",
           "lineHeight": 18,
         },
+        Object {
+          "textAlign": "center",
+        },
       ]
     }>
     We can\'t find that
@@ -143,6 +146,9 @@ exports[`test Error w/ Try Again Button renders correctly 1`] = `
           "fontSize": 14,
           "fontWeight": "500",
           "lineHeight": 18,
+        },
+        Object {
+          "textAlign": "center",
         },
       ]
     }>

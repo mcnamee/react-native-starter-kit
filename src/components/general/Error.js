@@ -23,7 +23,7 @@ const Error = ({ text, tryAgain }) => (
 
     <Spacer size={10} />
 
-    <Text>{text}</Text>
+    <Text style={AppStyles.textCenterAligned}>{text}</Text>
 
     <Spacer size={20} />
 
@@ -44,4 +44,3 @@ Error.componentName = 'Error';
 
 /* Export Component ==================================================================== */
 export default Error;
-

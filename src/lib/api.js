@@ -61,9 +61,9 @@ function debug(str, title) {
 function handleError(err) {
   let error = '';
   if (typeof err === 'string') error = err;
-  else if (err.message) error = err.message;
+  else if (err && err.message) error = err.message;
 
-  if (!err) error = ErrorMessages.default;
+  if (!error) error = ErrorMessages.default;
   return error;
 }
 

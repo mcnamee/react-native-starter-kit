@@ -128,7 +128,16 @@ function fetcher(method, endpoint, params, body) {
     if (params) {
       // Object - eg. /recipes?title=this&cat=2
       if (typeof params === 'object') {
-        // If there's an 'id' prop, /{id}?
+
+        // Replace matching params in API routes eg. /recipes/{param}/foo
+        for (let param in params) {
+          if (endpoint.includes(`{${param}}`)) {
+            endpoint = endpoint.split(`{${param}}`).join(params[param]);
+            delete params[param];
+          }
+        }
+
+        // Check if there's still an 'id' prop, /{id}?
         if (params.id !== undefined) {
           if (typeof params.id === 'string' || typeof params.id === 'number') {
             urlParams = `/${params.id}`;
@@ -136,7 +145,7 @@ function fetcher(method, endpoint, params, body) {
           }
         }
 
-        // The rest of the params
+        // Add the rest of the params as a query string
         urlParams = `?${serialize(params)}`;
 
       // String or Number - eg. /recipes/23

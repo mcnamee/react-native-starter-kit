@@ -36,16 +36,12 @@ class CustomFormInput extends Component {
     const props = {
       ...this.props,
       containerStyle: [{
-        ...Platform.select({
-          ios: {
-            borderBottomColor: AppColors.border,
-            borderBottomWidth: 1,
-            backgroundColor: 'rgba(255,255,255,0.05)',
-            marginTop: 10,
-            marginLeft: 20,
-            marginRight: 20,
-          },
-        }),
+        borderBottomColor: AppColors.border,
+        borderBottomWidth: 1,
+        backgroundColor: 'rgba(255,255,255,0.05)',
+        marginTop: 10,
+        marginLeft: 20,
+        marginRight: 20,
       }],
       inputStyle: [{
         color: AppColors.textPrimary,

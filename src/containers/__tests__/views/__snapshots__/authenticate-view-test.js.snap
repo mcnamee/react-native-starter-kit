@@ -114,6 +114,7 @@ exports[`test AuthenticateView renders correctly 1`] = `
                 "padding": 12,
               },
               undefined,
+              undefined,
             ]
           }>
           <Text
@@ -281,6 +282,7 @@ exports[`test AuthenticateView renders correctly 1`] = `
                 "marginRight": 0,
                 "padding": 12,
               },
+              undefined,
               undefined,
             ]
           }>
@@ -491,6 +493,7 @@ exports[`test AuthenticateView renders correctly 1`] = `
                 "marginRight": 0,
                 "padding": 8,
               },
+              undefined,
               undefined,
             ]
           }>

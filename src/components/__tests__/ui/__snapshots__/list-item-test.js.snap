@@ -54,50 +54,55 @@ exports[`test ListItem renders correctly 1`] = `
           "justifyContent": "center",
         }
       }>
-      <Text
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        style={
-          Array [
-            Object {
-              "fontFamily": undefined,
-            },
-            undefined,
-            undefined,
-            undefined,
-            undefined,
-            undefined,
-            undefined,
-            undefined,
-            undefined,
-            undefined,
+      <View
+        style={undefined}>
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
             Array [
               Object {
-                "color": "#43484d",
-                "fontSize": 17.5,
-              },
-              Array [
-                Object {
-                  "color": "#222222",
-                  "fontFamily": "HelveticaNeue",
-                  "fontSize": 14,
-                  "fontWeight": "500",
-                  "lineHeight": 18,
-                },
-                Array [],
-              ],
-              Object {
-                "marginLeft": 10,
+                "fontFamily": undefined,
               },
               undefined,
-            ],
-          ]
-        }>
-        Hello world
-      </Text>
+              undefined,
+              undefined,
+              undefined,
+              undefined,
+              undefined,
+              undefined,
+              undefined,
+              undefined,
+              Array [
+                Object {
+                  "color": "#43484d",
+                  "fontSize": 17.5,
+                },
+                Object {
+                  "marginLeft": 10,
+                },
+                Array [
+                  Object {
+                    "color": "#222222",
+                    "fontFamily": "HelveticaNeue",
+                    "fontSize": 14,
+                    "fontWeight": "500",
+                    "lineHeight": 18,
+                  },
+                  Array [],
+                ],
+                undefined,
+              ],
+            ]
+          }>
+          Hello world
+        </Text>
+      </View>
       <View
-        style={undefined} />
+        style={undefined}>
+        <View />
+      </View>
     </View>
     <View
       style={
@@ -138,7 +143,10 @@ exports[`test ListItem renders correctly 1`] = `
                 Object {
                   "backgroundColor": "transparent",
                 },
-                undefined,
+                Array [
+                  Object {},
+                  undefined,
+                ],
               ],
               Object {
                 "fontFamily": "Material Icons",

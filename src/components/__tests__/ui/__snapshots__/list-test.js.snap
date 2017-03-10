@@ -61,50 +61,55 @@ exports[`test List renders correctly 1`] = `
             "justifyContent": "center",
           }
         }>
-        <Text
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
-          style={
-            Array [
-              Object {
-                "fontFamily": undefined,
-              },
-              undefined,
-              undefined,
-              undefined,
-              undefined,
-              undefined,
-              undefined,
-              undefined,
-              undefined,
-              undefined,
+        <View
+          style={undefined}>
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
               Array [
                 Object {
-                  "color": "#43484d",
-                  "fontSize": 17.5,
-                },
-                Array [
-                  Object {
-                    "color": "#222222",
-                    "fontFamily": "HelveticaNeue",
-                    "fontSize": 14,
-                    "fontWeight": "500",
-                    "lineHeight": 18,
-                  },
-                  Array [],
-                ],
-                Object {
-                  "marginLeft": 10,
+                  "fontFamily": undefined,
                 },
                 undefined,
-              ],
-            ]
-          }>
-          Hello
-        </Text>
+                undefined,
+                undefined,
+                undefined,
+                undefined,
+                undefined,
+                undefined,
+                undefined,
+                undefined,
+                Array [
+                  Object {
+                    "color": "#43484d",
+                    "fontSize": 17.5,
+                  },
+                  Object {
+                    "marginLeft": 10,
+                  },
+                  Array [
+                    Object {
+                      "color": "#222222",
+                      "fontFamily": "HelveticaNeue",
+                      "fontSize": 14,
+                      "fontWeight": "500",
+                      "lineHeight": 18,
+                    },
+                    Array [],
+                  ],
+                  undefined,
+                ],
+              ]
+            }>
+            Hello
+          </Text>
+        </View>
         <View
-          style={undefined} />
+          style={undefined}>
+          <View />
+        </View>
       </View>
       <View
         style={
@@ -145,7 +150,10 @@ exports[`test List renders correctly 1`] = `
                   Object {
                     "backgroundColor": "transparent",
                   },
-                  undefined,
+                  Array [
+                    Object {},
+                    undefined,
+                  ],
                 ],
                 Object {
                   "fontFamily": "Material Icons",
@@ -201,50 +209,55 @@ exports[`test List renders correctly 1`] = `
             "justifyContent": "center",
           }
         }>
-        <Text
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
-          style={
-            Array [
-              Object {
-                "fontFamily": undefined,
-              },
-              undefined,
-              undefined,
-              undefined,
-              undefined,
-              undefined,
-              undefined,
-              undefined,
-              undefined,
-              undefined,
+        <View
+          style={undefined}>
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
               Array [
                 Object {
-                  "color": "#43484d",
-                  "fontSize": 17.5,
-                },
-                Array [
-                  Object {
-                    "color": "#222222",
-                    "fontFamily": "HelveticaNeue",
-                    "fontSize": 14,
-                    "fontWeight": "500",
-                    "lineHeight": 18,
-                  },
-                  Array [],
-                ],
-                Object {
-                  "marginLeft": 10,
+                  "fontFamily": undefined,
                 },
                 undefined,
-              ],
-            ]
-          }>
-          Second
-        </Text>
+                undefined,
+                undefined,
+                undefined,
+                undefined,
+                undefined,
+                undefined,
+                undefined,
+                undefined,
+                Array [
+                  Object {
+                    "color": "#43484d",
+                    "fontSize": 17.5,
+                  },
+                  Object {
+                    "marginLeft": 10,
+                  },
+                  Array [
+                    Object {
+                      "color": "#222222",
+                      "fontFamily": "HelveticaNeue",
+                      "fontSize": 14,
+                      "fontWeight": "500",
+                      "lineHeight": 18,
+                    },
+                    Array [],
+                  ],
+                  undefined,
+                ],
+              ]
+            }>
+            Second
+          </Text>
+        </View>
         <View
-          style={undefined} />
+          style={undefined}>
+          <View />
+        </View>
       </View>
       <View
         style={
@@ -285,7 +298,10 @@ exports[`test List renders correctly 1`] = `
                   Object {
                     "backgroundColor": "transparent",
                   },
-                  undefined,
+                  Array [
+                    Object {},
+                    undefined,
+                  ],
                 ],
                 Object {
                   "fontFamily": "Material Icons",

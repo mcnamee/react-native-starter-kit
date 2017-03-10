@@ -109,6 +109,7 @@ exports[`test LoginView renders correctly 1`] = `
               onBlur={undefined}
               onChange={undefined}
               onChangeText={[Function]}
+              onContentSizeChange={undefined}
               onEndEditing={undefined}
               onFocus={undefined}
               onKeyPress={undefined}
@@ -131,7 +132,8 @@ exports[`test LoginView renders correctly 1`] = `
                   "fontSize": 17,
                   "height": 36,
                   "marginBottom": 5,
-                  "padding": 7,
+                  "paddingHorizontal": 7,
+                  "paddingVertical": 7,
                 }
               }
               underlineColorAndroid="transparent"
@@ -178,6 +180,7 @@ exports[`test LoginView renders correctly 1`] = `
               onBlur={undefined}
               onChange={undefined}
               onChangeText={[Function]}
+              onContentSizeChange={undefined}
               onEndEditing={undefined}
               onFocus={undefined}
               onKeyPress={undefined}
@@ -200,7 +203,8 @@ exports[`test LoginView renders correctly 1`] = `
                   "fontSize": 17,
                   "height": 36,
                   "marginBottom": 5,
-                  "padding": 7,
+                  "paddingHorizontal": 7,
+                  "paddingVertical": 7,
                 }
               }
               underlineColorAndroid="transparent"
@@ -270,6 +274,7 @@ exports[`test LoginView renders correctly 1`] = `
                 "marginRight": 0,
                 "padding": 12,
               },
+              undefined,
               undefined,
             ]
           }>
@@ -483,6 +488,7 @@ exports[`test LoginView renders correctly 1`] = `
                 "marginRight": 0,
                 "padding": 12,
               },
+              undefined,
               undefined,
             ]
           }>

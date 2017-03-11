@@ -62,6 +62,7 @@ exports[`test Button renders correctly 1`] = `
           "padding": 12,
         },
         undefined,
+        undefined,
       ]
     }>
     <Text
@@ -175,6 +176,7 @@ exports[`test Button with Icon renders correctly 1`] = `
           "marginRight": 0,
           "padding": 12,
         },
+        undefined,
         undefined,
       ]
     }>
@@ -315,6 +317,7 @@ exports[`test Button with Text renders correctly 1`] = `
           "padding": 12,
         },
         undefined,
+        undefined,
       ]
     }>
     <Text
@@ -428,6 +431,7 @@ exports[`test Button with onPress renders correctly 1`] = `
           "marginRight": 0,
           "padding": 12,
         },
+        undefined,
         undefined,
       ]
     }>
@@ -543,6 +547,7 @@ exports[`test Large Button renders correctly 1`] = `
           "padding": 8,
         },
         undefined,
+        undefined,
       ]
     }>
     <Text
@@ -656,6 +661,7 @@ exports[`test Large Button with Icon renders correctly 1`] = `
           "marginRight": 0,
           "padding": 15,
         },
+        undefined,
         undefined,
       ]
     }>
@@ -790,6 +796,7 @@ exports[`test Outlined Button renders correctly 1`] = `
           "padding": 12,
         },
         undefined,
+        undefined,
       ]
     }>
     <Text
@@ -897,6 +904,7 @@ exports[`test Outlined Button with Icon renders correctly 1`] = `
           "marginRight": 0,
           "padding": 12,
         },
+        undefined,
         undefined,
       ]
     }>
@@ -1037,6 +1045,7 @@ exports[`test Small Button renders correctly 1`] = `
           "padding": 8,
         },
         undefined,
+        undefined,
       ]
     }>
     <Text
@@ -1150,6 +1159,7 @@ exports[`test Small Button with Icon renders correctly 1`] = `
           "marginRight": 0,
           "padding": 8,
         },
+        undefined,
         undefined,
       ]
     }>

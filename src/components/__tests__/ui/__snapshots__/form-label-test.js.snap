@@ -45,7 +45,7 @@ exports[`test FormLabel renders correctly 1`] = `
         ],
       ]
     }>
-    JOHN SMITH
+    John Smith
   </Text>
 </View>
 `;

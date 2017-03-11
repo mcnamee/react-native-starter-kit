@@ -220,6 +220,7 @@ exports[`test Error w/ Try Again Button renders correctly 1`] = `
             "padding": 8,
           },
           undefined,
+          undefined,
         ]
       }>
       <Text

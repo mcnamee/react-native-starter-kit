@@ -1,0 +1,18 @@
+language: node_js
+node_js:
+  - "5"
+
+install:
+  - ./travis
+  - npm install
+  - npm install --save-dev coveralls
+
+script:
+  - npm test
+
+after_script:
+  - cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
+
+branches:
+  only:
+    - master

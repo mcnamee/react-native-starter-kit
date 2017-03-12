@@ -5,6 +5,10 @@
 [![GitHub closed issues](https://img.shields.io/github/issues-closed/mcnamee/react-native-starter-app.svg?style=flat-square)](https://github.com/mcnamee/react-native-starter-app/issues-closed)
 [![GitHub pull requests](https://img.shields.io/github/issues-pr/mcnamee/react-native-starter-app.svg?style=flat-square)](https://github.com/mcnamee/react-native-starter-app/issues-pr)
 
+
+[![Build Status](https://travis-ci.org/mcnamee/react-native-starter-app.svg?branch=master)](https://travis-ci.org/mcnamee/react-native-starter-app)
+[![Coverage Status](https://coveralls.io/repos/github/mcnamee/react-native-starter-app/badge.svg?branch=master)](https://coveralls.io/github/mcnamee/react-native-starter-app?branch=master)
+
 ![alt text](https://dl.dropboxusercontent.com/u/46690444/GITHUB/rnsk-logo.jpg "React Native Starter Kit")
 
 # React Native Starter Kit

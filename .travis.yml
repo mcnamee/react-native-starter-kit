@@ -3,7 +3,6 @@ node_js:
   - "5"
 
 install:
-  - ./travis
   - npm install
   - npm install --save-dev coveralls
 

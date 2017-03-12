@@ -1,4 +1,6 @@
-exports[`test Loading renders correctly 1`] = `
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Loading renders correctly 1`] = `
 <View
   style={
     Array [
@@ -14,12 +16,14 @@ exports[`test Loading renders correctly 1`] = `
       },
       false,
     ]
-  }>
+  }
+>
   <ActivityIndicator
     animating={true}
     color="#AAA"
     hidesWhenStopped={true}
-    size="large" />
+    size="large"
+  />
   <View
     style={
       Object {
@@ -28,11 +32,12 @@ exports[`test Loading renders correctly 1`] = `
         "marginTop": 9,
         "right": 0,
       }
-    } />
+    }
+  />
 </View>
 `;
 
-exports[`test Loading w/ text renders correctly 1`] = `
+exports[`Loading w/ text renders correctly 1`] = `
 <View
   style={
     Array [
@@ -48,12 +53,14 @@ exports[`test Loading w/ text renders correctly 1`] = `
       },
       false,
     ]
-  }>
+  }
+>
   <ActivityIndicator
     animating={true}
     color="#AAA"
     hidesWhenStopped={true}
-    size="large" />
+    size="large"
+  />
   <View
     style={
       Object {
@@ -62,7 +69,8 @@ exports[`test Loading w/ text renders correctly 1`] = `
         "marginTop": 9,
         "right": 0,
       }
-    } />
+    }
+  />
   <Text
     accessible={true}
     allowFontScaling={true}
@@ -84,7 +92,8 @@ exports[`test Loading w/ text renders correctly 1`] = `
           "lineHeight": 18,
         },
       ]
-    }>
+    }
+  >
     Checking for Updates
   </Text>
 </View>

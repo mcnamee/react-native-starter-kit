@@ -1,4 +1,6 @@
-exports[`test AuthenticateView renders correctly 1`] = `
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AuthenticateView renders correctly 1`] = `
 <Image
   source={1}
   style={
@@ -19,7 +21,8 @@ exports[`test AuthenticateView renders correctly 1`] = `
         "width": 750,
       },
     ]
-  }>
+  }
+>
   <Image
     source={1}
     style={
@@ -29,7 +32,8 @@ exports[`test AuthenticateView renders correctly 1`] = `
           "width": 637.5,
         },
       ]
-    } />
+    }
+  />
   <View
     style={
       Array [
@@ -42,7 +46,8 @@ exports[`test AuthenticateView renders correctly 1`] = `
           "paddingHorizontal": 20,
         },
       ]
-    }>
+    }
+  >
     <View
       style={
         Array [
@@ -50,13 +55,16 @@ exports[`test AuthenticateView renders correctly 1`] = `
             "flex": 1,
           },
         ]
-      }>
+      }
+    >
       <View
         accessibilityComponentType={undefined}
         accessibilityLabel={undefined}
         accessibilityTraits={undefined}
         accessible={true}
+        hasTVPreferredFocus={undefined}
         hitSlop={undefined}
+        isTVSelectable={true}
         onLayout={undefined}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
@@ -72,7 +80,9 @@ exports[`test AuthenticateView renders correctly 1`] = `
             undefined,
           ]
         }
-        testID={undefined}>
+        testID={undefined}
+        tvParallaxProperties={undefined}
+      >
         <View
           style={
             Array [
@@ -116,7 +126,8 @@ exports[`test AuthenticateView renders correctly 1`] = `
               undefined,
               undefined,
             ]
-          }>
+          }
+        >
           <Text
             accessible={true}
             allowFontScaling={false}
@@ -139,7 +150,8 @@ exports[`test AuthenticateView renders correctly 1`] = `
                   "fontWeight": "normal",
                 },
               ]
-            }>
+            }
+          >
             
           </Text>
           <Text
@@ -183,7 +195,8 @@ exports[`test AuthenticateView renders correctly 1`] = `
                   },
                 ],
               ]
-            }>
+            }
+          >
             Login
           </Text>
         </View>
@@ -198,7 +211,8 @@ exports[`test AuthenticateView renders correctly 1`] = `
         "marginTop": 9,
         "right": 0,
       }
-    } />
+    }
+  />
   <View
     style={
       Array [
@@ -211,7 +225,8 @@ exports[`test AuthenticateView renders correctly 1`] = `
           "paddingHorizontal": 20,
         },
       ]
-    }>
+    }
+  >
     <View
       style={
         Array [
@@ -219,13 +234,16 @@ exports[`test AuthenticateView renders correctly 1`] = `
             "flex": 1,
           },
         ]
-      }>
+      }
+    >
       <View
         accessibilityComponentType={undefined}
         accessibilityLabel={undefined}
         accessibilityTraits={undefined}
         accessible={true}
+        hasTVPreferredFocus={undefined}
         hitSlop={undefined}
+        isTVSelectable={true}
         onLayout={undefined}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
@@ -241,7 +259,9 @@ exports[`test AuthenticateView renders correctly 1`] = `
             undefined,
           ]
         }
-        testID={undefined}>
+        testID={undefined}
+        tvParallaxProperties={undefined}
+      >
         <View
           style={
             Array [
@@ -285,7 +305,8 @@ exports[`test AuthenticateView renders correctly 1`] = `
               undefined,
               undefined,
             ]
-          }>
+          }
+        >
           <Text
             accessible={true}
             allowFontScaling={false}
@@ -308,7 +329,8 @@ exports[`test AuthenticateView renders correctly 1`] = `
                   "fontWeight": "normal",
                 },
               ]
-            }>
+            }
+          >
             
           </Text>
           <Text
@@ -352,7 +374,8 @@ exports[`test AuthenticateView renders correctly 1`] = `
                   },
                 ],
               ]
-            }>
+            }
+          >
             Sign up
           </Text>
         </View>
@@ -367,7 +390,8 @@ exports[`test AuthenticateView renders correctly 1`] = `
         "marginTop": 14,
         "right": 0,
       }
-    } />
+    }
+  />
   <Text
     accessible={true}
     allowFontScaling={true}
@@ -398,7 +422,8 @@ exports[`test AuthenticateView renders correctly 1`] = `
           },
         ],
       ]
-    }>
+    }
+  >
     - or -
   </Text>
   <View
@@ -409,7 +434,8 @@ exports[`test AuthenticateView renders correctly 1`] = `
         "marginTop": 9,
         "right": 0,
       }
-    } />
+    }
+  />
   <View
     style={
       Array [
@@ -422,7 +448,8 @@ exports[`test AuthenticateView renders correctly 1`] = `
           "paddingHorizontal": 20,
         },
       ]
-    }>
+    }
+  >
     <View
       style={
         Array [
@@ -430,7 +457,8 @@ exports[`test AuthenticateView renders correctly 1`] = `
             "flex": 1,
           },
         ]
-      } />
+      }
+    />
     <View
       style={
         Array [
@@ -438,13 +466,16 @@ exports[`test AuthenticateView renders correctly 1`] = `
             "flex": 2,
           },
         ]
-      }>
+      }
+    >
       <View
         accessibilityComponentType={undefined}
         accessibilityLabel={undefined}
         accessibilityTraits={undefined}
         accessible={true}
+        hasTVPreferredFocus={undefined}
         hitSlop={undefined}
+        isTVSelectable={true}
         onLayout={undefined}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
@@ -460,7 +491,9 @@ exports[`test AuthenticateView renders correctly 1`] = `
             undefined,
           ]
         }
-        testID={undefined}>
+        testID={undefined}
+        tvParallaxProperties={undefined}
+      >
         <View
           style={
             Array [
@@ -496,7 +529,8 @@ exports[`test AuthenticateView renders correctly 1`] = `
               undefined,
               undefined,
             ]
-          }>
+          }
+        >
           <Text
             accessible={true}
             allowFontScaling={true}
@@ -538,7 +572,8 @@ exports[`test AuthenticateView renders correctly 1`] = `
                   },
                 ],
               ]
-            }>
+            }
+          >
             Skip
           </Text>
         </View>
@@ -551,7 +586,8 @@ exports[`test AuthenticateView renders correctly 1`] = `
             "flex": 1,
           },
         ]
-      } />
+      }
+    />
   </View>
   <View
     style={
@@ -561,6 +597,7 @@ exports[`test AuthenticateView renders correctly 1`] = `
         "marginTop": 39,
         "right": 0,
       }
-    } />
+    }
+  />
 </Image>
 `;

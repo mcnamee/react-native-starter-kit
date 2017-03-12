@@ -1,11 +1,14 @@
-exports[`test FormLabel renders correctly 1`] = `
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FormLabel renders correctly 1`] = `
 <View
   style={
     Array [
       Object {},
       Array [],
     ]
-  }>
+  }
+>
   <Text
     accessible={true}
     allowFontScaling={true}
@@ -44,7 +47,8 @@ exports[`test FormLabel renders correctly 1`] = `
           undefined,
         ],
       ]
-    }>
+    }
+  >
     John Smith
   </Text>
 </View>

@@ -1,4 +1,6 @@
-exports[`test Error renders correctly 1`] = `
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Error renders correctly 1`] = `
 <View
   style={
     Array [
@@ -13,7 +15,8 @@ exports[`test Error renders correctly 1`] = `
         "justifyContent": "center",
       },
     ]
-  }>
+  }
+>
   <Text
     accessible={true}
     allowFontScaling={false}
@@ -31,7 +34,8 @@ exports[`test Error renders correctly 1`] = `
           "fontWeight": "normal",
         },
       ]
-    }>
+    }
+  >
     
   </Text>
   <View
@@ -42,7 +46,8 @@ exports[`test Error renders correctly 1`] = `
         "marginTop": 9,
         "right": 0,
       }
-    } />
+    }
+  />
   <Text
     accessible={true}
     allowFontScaling={true}
@@ -67,8 +72,9 @@ exports[`test Error renders correctly 1`] = `
           "textAlign": "center",
         },
       ]
-    }>
-    We can\'t find that
+    }
+  >
+    We can't find that
   </Text>
   <View
     style={
@@ -78,11 +84,12 @@ exports[`test Error renders correctly 1`] = `
         "marginTop": 19,
         "right": 0,
       }
-    } />
+    }
+  />
 </View>
 `;
 
-exports[`test Error w/ Try Again Button renders correctly 1`] = `
+exports[`Error w/ Try Again Button renders correctly 1`] = `
 <View
   style={
     Array [
@@ -97,7 +104,8 @@ exports[`test Error w/ Try Again Button renders correctly 1`] = `
         "justifyContent": "center",
       },
     ]
-  }>
+  }
+>
   <Text
     accessible={true}
     allowFontScaling={false}
@@ -115,7 +123,8 @@ exports[`test Error w/ Try Again Button renders correctly 1`] = `
           "fontWeight": "normal",
         },
       ]
-    }>
+    }
+  >
     
   </Text>
   <View
@@ -126,7 +135,8 @@ exports[`test Error w/ Try Again Button renders correctly 1`] = `
         "marginTop": 9,
         "right": 0,
       }
-    } />
+    }
+  />
   <Text
     accessible={true}
     allowFontScaling={true}
@@ -151,7 +161,8 @@ exports[`test Error w/ Try Again Button renders correctly 1`] = `
           "textAlign": "center",
         },
       ]
-    }>
+    }
+  >
     Woops, Something went wrong.
   </Text>
   <View
@@ -162,13 +173,16 @@ exports[`test Error w/ Try Again Button renders correctly 1`] = `
         "marginTop": 19,
         "right": 0,
       }
-    } />
+    }
+  />
   <View
     accessibilityComponentType={undefined}
     accessibilityLabel={undefined}
     accessibilityTraits={undefined}
     accessible={true}
+    hasTVPreferredFocus={undefined}
     hitSlop={undefined}
+    isTVSelectable={true}
     onLayout={undefined}
     onResponderGrant={[Function]}
     onResponderMove={[Function]}
@@ -184,7 +198,9 @@ exports[`test Error w/ Try Again Button renders correctly 1`] = `
         undefined,
       ]
     }
-    testID={undefined}>
+    testID={undefined}
+    tvParallaxProperties={undefined}
+  >
     <View
       style={
         Array [
@@ -222,7 +238,8 @@ exports[`test Error w/ Try Again Button renders correctly 1`] = `
           undefined,
           undefined,
         ]
-      }>
+      }
+    >
       <Text
         accessible={true}
         allowFontScaling={true}
@@ -264,7 +281,8 @@ exports[`test Error w/ Try Again Button renders correctly 1`] = `
               },
             ],
           ]
-        }>
+        }
+      >
         Try again
       </Text>
     </View>

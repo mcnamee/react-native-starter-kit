@@ -1,10 +1,13 @@
-exports[`test CardView renders correctly 1`] = `
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CardView renders correctly 1`] = `
 <View
   accessibilityComponentType={undefined}
   accessibilityLabel={undefined}
   accessibilityTraits={undefined}
   accessible={true}
   hitSlop={undefined}
+  isTVSelectable={true}
   onLayout={undefined}
   onResponderGrant={[Function]}
   onResponderMove={[Function]}
@@ -17,7 +20,9 @@ exports[`test CardView renders correctly 1`] = `
       "opacity": 1,
     }
   }
-  testID={undefined}>
+  testID={undefined}
+  tvParallaxProperties={undefined}
+>
   <View
     style={
       Array [
@@ -48,7 +53,8 @@ exports[`test CardView renders correctly 1`] = `
           Array [],
         ],
       ]
-    }>
+    }
+  >
     <View
       style={
         Array [
@@ -58,13 +64,15 @@ exports[`test CardView renders correctly 1`] = `
           undefined,
           undefined,
         ]
-      }>
+      }
+    >
       <View
         style={
           Object {
             "flex": 1,
           }
-        }>
+        }
+      >
         <Image
           resizeMode="cover"
           source={
@@ -81,7 +89,8 @@ exports[`test CardView renders correctly 1`] = `
               },
               undefined,
             ]
-          } />
+          }
+        />
         <View
           style={
             Array [
@@ -90,7 +99,8 @@ exports[`test CardView renders correctly 1`] = `
               },
               undefined,
             ]
-          }>
+          }
+        >
           <View
             style={
               Array [
@@ -98,7 +108,8 @@ exports[`test CardView renders correctly 1`] = `
                   "paddingBottom": 10,
                 },
               ]
-            }>
+            }
+          >
             <Text
               accessible={true}
               allowFontScaling={true}
@@ -124,7 +135,8 @@ exports[`test CardView renders correctly 1`] = `
                     "right": 0,
                   },
                 ]
-              }>
+              }
+            >
               A Cake
             </Text>
             <Text
@@ -148,8 +160,9 @@ exports[`test CardView renders correctly 1`] = `
                     "lineHeight": 18,
                   },
                 ]
-              }>
-              It\'s so delicious!
+              }
+            >
+              It's so delicious!
             </Text>
           </View>
         </View>

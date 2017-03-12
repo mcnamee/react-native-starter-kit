@@ -1,4 +1,6 @@
-exports[`test ListItem renders correctly 1`] = `
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ListItem renders correctly 1`] = `
 <View
   onLongPress={undefined}
   onPress={undefined}
@@ -22,7 +24,8 @@ exports[`test ListItem renders correctly 1`] = `
       ],
     ]
   }
-  underlayColor="#D0D1D5">
+  underlayColor="#D0D1D5"
+>
   <View
     style={
       Array [
@@ -32,7 +35,8 @@ exports[`test ListItem renders correctly 1`] = `
         },
         undefined,
       ]
-    }>
+    }
+  >
     <Image
       source={1}
       style={
@@ -46,16 +50,19 @@ exports[`test ListItem renders correctly 1`] = `
           },
           undefined,
         ]
-      } />
+      }
+    />
     <View
       style={
         Object {
           "flex": 1,
           "justifyContent": "center",
         }
-      }>
+      }
+    >
       <View
-        style={undefined}>
+        style={undefined}
+      >
         <Text
           accessible={true}
           allowFontScaling={true}
@@ -95,12 +102,14 @@ exports[`test ListItem renders correctly 1`] = `
                 undefined,
               ],
             ]
-          }>
+          }
+        >
           Hello world
         </Text>
       </View>
       <View
-        style={undefined}>
+        style={undefined}
+      >
         <View />
       </View>
     </View>
@@ -111,7 +120,8 @@ exports[`test ListItem renders correctly 1`] = `
           "flex": 0.15,
           "justifyContent": "center",
         }
-      }>
+      }
+    >
       <View
         onLongPress={undefined}
         onPress={undefined}
@@ -128,7 +138,8 @@ exports[`test ListItem renders correctly 1`] = `
             undefined,
           ]
         }
-        underlayColor="white">
+        underlayColor="white"
+      >
         <Text
           accessible={true}
           allowFontScaling={false}
@@ -154,7 +165,8 @@ exports[`test ListItem renders correctly 1`] = `
                 "fontWeight": "normal",
               },
             ]
-          }>
+          }
+        >
           
         </Text>
       </View>

@@ -1,4 +1,6 @@
-exports[`test Card renders correctly 1`] = `
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Card renders correctly 1`] = `
 <View
   style={
     Array [
@@ -27,7 +29,8 @@ exports[`test Card renders correctly 1`] = `
         Array [],
       ],
     ]
-  }>
+  }
+>
   <View
     style={
       Array [
@@ -37,18 +40,20 @@ exports[`test Card renders correctly 1`] = `
         undefined,
         undefined,
       ]
-    }>
+    }
+  >
     <Text
       accessible={true}
       allowFontScaling={true}
-      ellipsizeMode="tail">
+      ellipsizeMode="tail"
+    >
       Hello world
     </Text>
   </View>
 </View>
 `;
 
-exports[`test Card w/ Image renders correctly 1`] = `
+exports[`Card w/ Image renders correctly 1`] = `
 <View
   style={
     Array [
@@ -79,7 +84,8 @@ exports[`test Card w/ Image renders correctly 1`] = `
         Array [],
       ],
     ]
-  }>
+  }
+>
   <View
     style={
       Array [
@@ -89,13 +95,15 @@ exports[`test Card w/ Image renders correctly 1`] = `
         undefined,
         undefined,
       ]
-    }>
+    }
+  >
     <View
       style={
         Object {
           "flex": 1,
         }
-      }>
+      }
+    >
       <Image
         resizeMode="cover"
         source={1}
@@ -108,7 +116,8 @@ exports[`test Card w/ Image renders correctly 1`] = `
             },
             undefined,
           ]
-        } />
+        }
+      />
       <View
         style={
           Array [
@@ -117,11 +126,13 @@ exports[`test Card w/ Image renders correctly 1`] = `
             },
             undefined,
           ]
-        }>
+        }
+      >
         <Text
           accessible={true}
           allowFontScaling={true}
-          ellipsizeMode="tail">
+          ellipsizeMode="tail"
+        >
           Hello world
         </Text>
       </View>
@@ -130,7 +141,7 @@ exports[`test Card w/ Image renders correctly 1`] = `
 </View>
 `;
 
-exports[`test Card w/ Title renders correctly 1`] = `
+exports[`Card w/ Title renders correctly 1`] = `
 <View
   style={
     Array [
@@ -159,7 +170,8 @@ exports[`test Card w/ Title renders correctly 1`] = `
         Array [],
       ],
     ]
-  }>
+  }
+>
   <View
     style={
       Array [
@@ -169,7 +181,8 @@ exports[`test Card w/ Title renders correctly 1`] = `
         undefined,
         undefined,
       ]
-    }>
+    }
+  >
     <View>
       <Text
         accessible={true}
@@ -217,7 +230,8 @@ exports[`test Card w/ Title renders correctly 1`] = `
               undefined,
             ],
           ]
-        }>
+        }
+      >
         With Title
       </Text>
       <View
@@ -238,12 +252,14 @@ exports[`test Card w/ Title renders correctly 1`] = `
               ],
             ],
           ]
-        } />
+        }
+      />
     </View>
     <Text
       accessible={true}
       allowFontScaling={true}
-      ellipsizeMode="tail">
+      ellipsizeMode="tail"
+    >
       Hello world
     </Text>
   </View>

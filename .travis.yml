@@ -8,7 +8,6 @@ install:
 
 script:
   - npm test
-  - ./node_modules/.bin/eslint -c .eslintrc --ext .js src
 
 after_script:
   - cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js

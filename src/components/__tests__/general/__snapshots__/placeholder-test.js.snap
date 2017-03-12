@@ -1,4 +1,6 @@
-exports[`test Placeholder renders correctly 1`] = `
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Placeholder renders correctly 1`] = `
 <View
   style={
     Array [
@@ -13,7 +15,8 @@ exports[`test Placeholder renders correctly 1`] = `
         "justifyContent": "center",
       },
     ]
-  }>
+  }
+>
   <Text
     accessible={true}
     allowFontScaling={true}
@@ -35,13 +38,14 @@ exports[`test Placeholder renders correctly 1`] = `
           "lineHeight": 18,
         },
       ]
-    }>
+    }
+  >
     Coming soon...
   </Text>
 </View>
 `;
 
-exports[`test Placeholder w/ Text renders correctly 1`] = `
+exports[`Placeholder w/ Text renders correctly 1`] = `
 <View
   style={
     Array [
@@ -56,7 +60,8 @@ exports[`test Placeholder w/ Text renders correctly 1`] = `
         "justifyContent": "center",
       },
     ]
-  }>
+  }
+>
   <Text
     accessible={true}
     allowFontScaling={true}
@@ -78,7 +83,8 @@ exports[`test Placeholder w/ Text renders correctly 1`] = `
           "lineHeight": 18,
         },
       ]
-    }>
+    }
+  >
     Hello world!
   </Text>
 </View>

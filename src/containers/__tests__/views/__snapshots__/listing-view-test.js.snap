@@ -1,4 +1,6 @@
-exports[`test ListingView renders correctly 1`] = `
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ListingView renders correctly 1`] = `
 <View
   style={
     Array [
@@ -9,8 +11,9 @@ exports[`test ListingView renders correctly 1`] = `
         "position": "relative",
       },
     ]
-  }>
-  <ScrollView
+  }
+>
+  <RCTScrollView
     automaticallyAdjustContentInsets={false}
     dataSource={
       ListViewDataSource {
@@ -18,25 +21,18 @@ exports[`test ListingView renders correctly 1`] = `
       }
     }
     initialListSize={8}
-    onContentSizeChange={[Function]}
-    onEndReachedThreshold={1000}
-    onKeyboardDidHide={undefined}
-    onKeyboardDidShow={undefined}
-    onKeyboardWillHide={undefined}
-    onKeyboardWillShow={undefined}
-    onLayout={[Function]}
-    onScroll={[Function]}
-    pageSize={1}
     refreshControl={
-      <RefreshControl
+      <RefreshControlMock
         onRefresh={[Function]}
         refreshing={true}
-        tintColor="#0E4EF8" />
+        tintColor="#0E4EF8"
+      />
     }
-    removeClippedSubviews={true}
     renderRow={[Function]}
-    scrollEventThrottle={50}
-    scrollRenderAheadDistance={1000}
-    stickyHeaderIndices={Array []} />
+    renderScrollComponent={[Function]}
+  >
+    <RCTRefreshControl />
+    <View />
+  </RCTScrollView>
 </View>
 `;

@@ -1,4 +1,6 @@
-exports[`test Text H1 renders correctly 1`] = `
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Text H1 renders correctly 1`] = `
 <Text
   accessible={true}
   allowFontScaling={true}
@@ -24,12 +26,13 @@ exports[`test Text H1 renders correctly 1`] = `
         "right": 0,
       },
     ]
-  }>
+  }
+>
   Hey Now...
 </Text>
 `;
 
-exports[`test Text H1 with Link renders correctly 1`] = `
+exports[`Text H1 with Link renders correctly 1`] = `
 <Text
   accessible={true}
   allowFontScaling={true}
@@ -59,12 +62,13 @@ exports[`test Text H1 with Link renders correctly 1`] = `
         "textDecorationLine": "underline",
       },
     ]
-  }>
+  }
+>
   Hey Now...
 </Text>
 `;
 
-exports[`test Text H2 renders correctly 1`] = `
+exports[`Text H2 renders correctly 1`] = `
 <Text
   accessible={true}
   allowFontScaling={true}
@@ -90,12 +94,13 @@ exports[`test Text H2 renders correctly 1`] = `
         "right": 0,
       },
     ]
-  }>
+  }
+>
   Hey Now...
 </Text>
 `;
 
-exports[`test Text H3 renders correctly 1`] = `
+exports[`Text H3 renders correctly 1`] = `
 <Text
   accessible={true}
   allowFontScaling={true}
@@ -121,12 +126,13 @@ exports[`test Text H3 renders correctly 1`] = `
         "right": 0,
       },
     ]
-  }>
+  }
+>
   Hey Now...
 </Text>
 `;
 
-exports[`test Text H4 renders correctly 1`] = `
+exports[`Text H4 renders correctly 1`] = `
 <Text
   accessible={true}
   allowFontScaling={true}
@@ -152,12 +158,13 @@ exports[`test Text H4 renders correctly 1`] = `
         "right": 0,
       },
     ]
-  }>
+  }
+>
   Hey Now...
 </Text>
 `;
 
-exports[`test Text H5 renders correctly 1`] = `
+exports[`Text H5 renders correctly 1`] = `
 <Text
   accessible={true}
   allowFontScaling={true}
@@ -184,12 +191,13 @@ exports[`test Text H5 renders correctly 1`] = `
         "right": 0,
       },
     ]
-  }>
+  }
+>
   Hey Now...
 </Text>
 `;
 
-exports[`test Text P renders correctly 1`] = `
+exports[`Text P renders correctly 1`] = `
 <Text
   accessible={true}
   allowFontScaling={true}
@@ -212,12 +220,13 @@ exports[`test Text P renders correctly 1`] = `
         "marginBottom": 8,
       },
     ]
-  }>
+  }
+>
   Hey Now...
 </Text>
 `;
 
-exports[`test Text renders correctly 1`] = `
+exports[`Text renders correctly 1`] = `
 <Text
   accessible={true}
   allowFontScaling={true}
@@ -239,7 +248,8 @@ exports[`test Text renders correctly 1`] = `
         "lineHeight": 18,
       },
     ]
-  }>
+  }
+>
   Hey Now...
 </Text>
 `;

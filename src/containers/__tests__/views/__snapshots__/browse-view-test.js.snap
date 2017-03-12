@@ -1,4 +1,6 @@
-exports[`test BrowseView renders correctly 1`] = `
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BrowseView renders correctly 1`] = `
 <View
   style={
     Array [
@@ -14,12 +16,14 @@ exports[`test BrowseView renders correctly 1`] = `
       },
       false,
     ]
-  }>
+  }
+>
   <ActivityIndicator
     animating={true}
     color="#AAA"
     hidesWhenStopped={true}
-    size="large" />
+    size="large"
+  />
   <View
     style={
       Object {
@@ -28,6 +32,7 @@ exports[`test BrowseView renders correctly 1`] = `
         "marginTop": 9,
         "right": 0,
       }
-    } />
+    }
+  />
 </View>
 `;

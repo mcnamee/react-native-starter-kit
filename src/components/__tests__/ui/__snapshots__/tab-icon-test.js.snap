@@ -1,4 +1,6 @@
-exports[`test TabIcon renders correctly 1`] = `
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TabIcon renders correctly 1`] = `
 <View
   onLongPress={undefined}
   onPress={undefined}
@@ -15,7 +17,8 @@ exports[`test TabIcon renders correctly 1`] = `
       undefined,
     ]
   }
-  underlayColor="white">
+  underlayColor="white"
+>
   <Text
     accessible={true}
     allowFontScaling={false}
@@ -38,7 +41,8 @@ exports[`test TabIcon renders correctly 1`] = `
           "fontWeight": "normal",
         },
       ]
-    }>
+    }
+  >
     
   </Text>
 </View>

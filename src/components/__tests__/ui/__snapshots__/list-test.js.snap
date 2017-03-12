@@ -1,4 +1,6 @@
-exports[`test List renders correctly 1`] = `
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`List renders correctly 1`] = `
 <View
   style={
     Array [
@@ -19,7 +21,8 @@ exports[`test List renders correctly 1`] = `
         Array [],
       ],
     ]
-  }>
+  }
+>
   <View
     onLongPress={undefined}
     onPress={undefined}
@@ -43,7 +46,8 @@ exports[`test List renders correctly 1`] = `
         ],
       ]
     }
-    underlayColor="#D0D1D5">
+    underlayColor="#D0D1D5"
+  >
     <View
       style={
         Array [
@@ -53,16 +57,19 @@ exports[`test List renders correctly 1`] = `
           },
           undefined,
         ]
-      }>
+      }
+    >
       <View
         style={
           Object {
             "flex": 1,
             "justifyContent": "center",
           }
-        }>
+        }
+      >
         <View
-          style={undefined}>
+          style={undefined}
+        >
           <Text
             accessible={true}
             allowFontScaling={true}
@@ -102,12 +109,14 @@ exports[`test List renders correctly 1`] = `
                   undefined,
                 ],
               ]
-            }>
+            }
+          >
             Hello
           </Text>
         </View>
         <View
-          style={undefined}>
+          style={undefined}
+        >
           <View />
         </View>
       </View>
@@ -118,7 +127,8 @@ exports[`test List renders correctly 1`] = `
             "flex": 0.15,
             "justifyContent": "center",
           }
-        }>
+        }
+      >
         <View
           onLongPress={undefined}
           onPress={undefined}
@@ -135,7 +145,8 @@ exports[`test List renders correctly 1`] = `
               undefined,
             ]
           }
-          underlayColor="white">
+          underlayColor="white"
+        >
           <Text
             accessible={true}
             allowFontScaling={false}
@@ -161,7 +172,8 @@ exports[`test List renders correctly 1`] = `
                   "fontWeight": "normal",
                 },
               ]
-            }>
+            }
+          >
             
           </Text>
         </View>
@@ -191,7 +203,8 @@ exports[`test List renders correctly 1`] = `
         ],
       ]
     }
-    underlayColor="#D0D1D5">
+    underlayColor="#D0D1D5"
+  >
     <View
       style={
         Array [
@@ -201,16 +214,19 @@ exports[`test List renders correctly 1`] = `
           },
           undefined,
         ]
-      }>
+      }
+    >
       <View
         style={
           Object {
             "flex": 1,
             "justifyContent": "center",
           }
-        }>
+        }
+      >
         <View
-          style={undefined}>
+          style={undefined}
+        >
           <Text
             accessible={true}
             allowFontScaling={true}
@@ -250,12 +266,14 @@ exports[`test List renders correctly 1`] = `
                   undefined,
                 ],
               ]
-            }>
+            }
+          >
             Second
           </Text>
         </View>
         <View
-          style={undefined}>
+          style={undefined}
+        >
           <View />
         </View>
       </View>
@@ -266,7 +284,8 @@ exports[`test List renders correctly 1`] = `
             "flex": 0.15,
             "justifyContent": "center",
           }
-        }>
+        }
+      >
         <View
           onLongPress={undefined}
           onPress={undefined}
@@ -283,7 +302,8 @@ exports[`test List renders correctly 1`] = `
               undefined,
             ]
           }
-          underlayColor="white">
+          underlayColor="white"
+        >
           <Text
             accessible={true}
             allowFontScaling={false}
@@ -309,7 +329,8 @@ exports[`test List renders correctly 1`] = `
                   "fontWeight": "normal",
                 },
               ]
-            }>
+            }
+          >
             
           </Text>
         </View>

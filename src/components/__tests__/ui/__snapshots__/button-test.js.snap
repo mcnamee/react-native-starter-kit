@@ -1,10 +1,14 @@
-exports[`test Button renders correctly 1`] = `
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button renders correctly 1`] = `
 <View
   accessibilityComponentType={undefined}
   accessibilityLabel={undefined}
   accessibilityTraits={undefined}
   accessible={true}
+  hasTVPreferredFocus={undefined}
   hitSlop={undefined}
+  isTVSelectable={true}
   onLayout={undefined}
   onResponderGrant={[Function]}
   onResponderMove={[Function]}
@@ -20,7 +24,9 @@ exports[`test Button renders correctly 1`] = `
       undefined,
     ]
   }
-  testID={undefined}>
+  testID={undefined}
+  tvParallaxProperties={undefined}
+>
   <View
     style={
       Array [
@@ -64,7 +70,8 @@ exports[`test Button renders correctly 1`] = `
         undefined,
         undefined,
       ]
-    }>
+    }
+  >
     <Text
       accessible={true}
       allowFontScaling={true}
@@ -106,20 +113,23 @@ exports[`test Button renders correctly 1`] = `
             },
           ],
         ]
-      }>
+      }
+    >
       Coming Soon...
     </Text>
   </View>
 </View>
 `;
 
-exports[`test Button with Icon renders correctly 1`] = `
+exports[`Button with Icon renders correctly 1`] = `
 <View
   accessibilityComponentType={undefined}
   accessibilityLabel={undefined}
   accessibilityTraits={undefined}
   accessible={true}
+  hasTVPreferredFocus={undefined}
   hitSlop={undefined}
+  isTVSelectable={true}
   onLayout={undefined}
   onResponderGrant={[Function]}
   onResponderMove={[Function]}
@@ -135,7 +145,9 @@ exports[`test Button with Icon renders correctly 1`] = `
       undefined,
     ]
   }
-  testID={undefined}>
+  testID={undefined}
+  tvParallaxProperties={undefined}
+>
   <View
     style={
       Array [
@@ -179,7 +191,8 @@ exports[`test Button with Icon renders correctly 1`] = `
         undefined,
         undefined,
       ]
-    }>
+    }
+  >
     <Text
       accessible={true}
       allowFontScaling={false}
@@ -202,7 +215,8 @@ exports[`test Button with Icon renders correctly 1`] = `
             "fontWeight": "normal",
           },
         ]
-      }>
+      }
+    >
       
     </Text>
     <Text
@@ -246,20 +260,23 @@ exports[`test Button with Icon renders correctly 1`] = `
             },
           ],
         ]
-      }>
+      }
+    >
       Coming Soon...
     </Text>
   </View>
 </View>
 `;
 
-exports[`test Button with Text renders correctly 1`] = `
+exports[`Button with Text renders correctly 1`] = `
 <View
   accessibilityComponentType={undefined}
   accessibilityLabel={undefined}
   accessibilityTraits={undefined}
   accessible={true}
+  hasTVPreferredFocus={undefined}
   hitSlop={undefined}
+  isTVSelectable={true}
   onLayout={undefined}
   onResponderGrant={[Function]}
   onResponderMove={[Function]}
@@ -275,7 +292,9 @@ exports[`test Button with Text renders correctly 1`] = `
       undefined,
     ]
   }
-  testID={undefined}>
+  testID={undefined}
+  tvParallaxProperties={undefined}
+>
   <View
     style={
       Array [
@@ -319,7 +338,8 @@ exports[`test Button with Text renders correctly 1`] = `
         undefined,
         undefined,
       ]
-    }>
+    }
+  >
     <Text
       accessible={true}
       allowFontScaling={true}
@@ -361,20 +381,23 @@ exports[`test Button with Text renders correctly 1`] = `
             },
           ],
         ]
-      }>
+      }
+    >
       Test Button
     </Text>
   </View>
 </View>
 `;
 
-exports[`test Button with onPress renders correctly 1`] = `
+exports[`Button with onPress renders correctly 1`] = `
 <View
   accessibilityComponentType={undefined}
   accessibilityLabel={undefined}
   accessibilityTraits={undefined}
   accessible={true}
+  hasTVPreferredFocus={undefined}
   hitSlop={undefined}
+  isTVSelectable={true}
   onLayout={undefined}
   onResponderGrant={[Function]}
   onResponderMove={[Function]}
@@ -390,7 +413,9 @@ exports[`test Button with onPress renders correctly 1`] = `
       undefined,
     ]
   }
-  testID={undefined}>
+  testID={undefined}
+  tvParallaxProperties={undefined}
+>
   <View
     style={
       Array [
@@ -434,7 +459,8 @@ exports[`test Button with onPress renders correctly 1`] = `
         undefined,
         undefined,
       ]
-    }>
+    }
+  >
     <Text
       accessible={true}
       allowFontScaling={true}
@@ -476,20 +502,23 @@ exports[`test Button with onPress renders correctly 1`] = `
             },
           ],
         ]
-      }>
+      }
+    >
       Coming Soon...
     </Text>
   </View>
 </View>
 `;
 
-exports[`test Large Button renders correctly 1`] = `
+exports[`Large Button renders correctly 1`] = `
 <View
   accessibilityComponentType={undefined}
   accessibilityLabel={undefined}
   accessibilityTraits={undefined}
   accessible={true}
+  hasTVPreferredFocus={undefined}
   hitSlop={undefined}
+  isTVSelectable={true}
   onLayout={undefined}
   onResponderGrant={[Function]}
   onResponderMove={[Function]}
@@ -505,7 +534,9 @@ exports[`test Large Button renders correctly 1`] = `
       undefined,
     ]
   }
-  testID={undefined}>
+  testID={undefined}
+  tvParallaxProperties={undefined}
+>
   <View
     style={
       Array [
@@ -549,7 +580,8 @@ exports[`test Large Button renders correctly 1`] = `
         undefined,
         undefined,
       ]
-    }>
+    }
+  >
     <Text
       accessible={true}
       allowFontScaling={true}
@@ -591,20 +623,23 @@ exports[`test Large Button renders correctly 1`] = `
             },
           ],
         ]
-      }>
+      }
+    >
       Coming Soon...
     </Text>
   </View>
 </View>
 `;
 
-exports[`test Large Button with Icon renders correctly 1`] = `
+exports[`Large Button with Icon renders correctly 1`] = `
 <View
   accessibilityComponentType={undefined}
   accessibilityLabel={undefined}
   accessibilityTraits={undefined}
   accessible={true}
+  hasTVPreferredFocus={undefined}
   hitSlop={undefined}
+  isTVSelectable={true}
   onLayout={undefined}
   onResponderGrant={[Function]}
   onResponderMove={[Function]}
@@ -620,7 +655,9 @@ exports[`test Large Button with Icon renders correctly 1`] = `
       undefined,
     ]
   }
-  testID={undefined}>
+  testID={undefined}
+  tvParallaxProperties={undefined}
+>
   <View
     style={
       Array [
@@ -664,7 +701,8 @@ exports[`test Large Button with Icon renders correctly 1`] = `
         undefined,
         undefined,
       ]
-    }>
+    }
+  >
     <Text
       accessible={true}
       allowFontScaling={false}
@@ -687,7 +725,8 @@ exports[`test Large Button with Icon renders correctly 1`] = `
             "fontWeight": "normal",
           },
         ]
-      }>
+      }
+    >
       
     </Text>
     <Text
@@ -731,20 +770,23 @@ exports[`test Large Button with Icon renders correctly 1`] = `
             },
           ],
         ]
-      }>
+      }
+    >
       Coming Soon...
     </Text>
   </View>
 </View>
 `;
 
-exports[`test Outlined Button renders correctly 1`] = `
+exports[`Outlined Button renders correctly 1`] = `
 <View
   accessibilityComponentType={undefined}
   accessibilityLabel={undefined}
   accessibilityTraits={undefined}
   accessible={true}
+  hasTVPreferredFocus={undefined}
   hitSlop={undefined}
+  isTVSelectable={true}
   onLayout={undefined}
   onResponderGrant={[Function]}
   onResponderMove={[Function]}
@@ -760,7 +802,9 @@ exports[`test Outlined Button renders correctly 1`] = `
       undefined,
     ]
   }
-  testID={undefined}>
+  testID={undefined}
+  tvParallaxProperties={undefined}
+>
   <View
     style={
       Array [
@@ -798,7 +842,8 @@ exports[`test Outlined Button renders correctly 1`] = `
         undefined,
         undefined,
       ]
-    }>
+    }
+  >
     <Text
       accessible={true}
       allowFontScaling={true}
@@ -840,20 +885,23 @@ exports[`test Outlined Button renders correctly 1`] = `
             },
           ],
         ]
-      }>
+      }
+    >
       Coming Soon...
     </Text>
   </View>
 </View>
 `;
 
-exports[`test Outlined Button with Icon renders correctly 1`] = `
+exports[`Outlined Button with Icon renders correctly 1`] = `
 <View
   accessibilityComponentType={undefined}
   accessibilityLabel={undefined}
   accessibilityTraits={undefined}
   accessible={true}
+  hasTVPreferredFocus={undefined}
   hitSlop={undefined}
+  isTVSelectable={true}
   onLayout={undefined}
   onResponderGrant={[Function]}
   onResponderMove={[Function]}
@@ -869,7 +917,9 @@ exports[`test Outlined Button with Icon renders correctly 1`] = `
       undefined,
     ]
   }
-  testID={undefined}>
+  testID={undefined}
+  tvParallaxProperties={undefined}
+>
   <View
     style={
       Array [
@@ -907,7 +957,8 @@ exports[`test Outlined Button with Icon renders correctly 1`] = `
         undefined,
         undefined,
       ]
-    }>
+    }
+  >
     <Text
       accessible={true}
       allowFontScaling={false}
@@ -930,7 +981,8 @@ exports[`test Outlined Button with Icon renders correctly 1`] = `
             "fontWeight": "normal",
           },
         ]
-      }>
+      }
+    >
       
     </Text>
     <Text
@@ -974,20 +1026,23 @@ exports[`test Outlined Button with Icon renders correctly 1`] = `
             },
           ],
         ]
-      }>
+      }
+    >
       Coming Soon...
     </Text>
   </View>
 </View>
 `;
 
-exports[`test Small Button renders correctly 1`] = `
+exports[`Small Button renders correctly 1`] = `
 <View
   accessibilityComponentType={undefined}
   accessibilityLabel={undefined}
   accessibilityTraits={undefined}
   accessible={true}
+  hasTVPreferredFocus={undefined}
   hitSlop={undefined}
+  isTVSelectable={true}
   onLayout={undefined}
   onResponderGrant={[Function]}
   onResponderMove={[Function]}
@@ -1003,7 +1058,9 @@ exports[`test Small Button renders correctly 1`] = `
       undefined,
     ]
   }
-  testID={undefined}>
+  testID={undefined}
+  tvParallaxProperties={undefined}
+>
   <View
     style={
       Array [
@@ -1047,7 +1104,8 @@ exports[`test Small Button renders correctly 1`] = `
         undefined,
         undefined,
       ]
-    }>
+    }
+  >
     <Text
       accessible={true}
       allowFontScaling={true}
@@ -1089,20 +1147,23 @@ exports[`test Small Button renders correctly 1`] = `
             },
           ],
         ]
-      }>
+      }
+    >
       Coming Soon...
     </Text>
   </View>
 </View>
 `;
 
-exports[`test Small Button with Icon renders correctly 1`] = `
+exports[`Small Button with Icon renders correctly 1`] = `
 <View
   accessibilityComponentType={undefined}
   accessibilityLabel={undefined}
   accessibilityTraits={undefined}
   accessible={true}
+  hasTVPreferredFocus={undefined}
   hitSlop={undefined}
+  isTVSelectable={true}
   onLayout={undefined}
   onResponderGrant={[Function]}
   onResponderMove={[Function]}
@@ -1118,7 +1179,9 @@ exports[`test Small Button with Icon renders correctly 1`] = `
       undefined,
     ]
   }
-  testID={undefined}>
+  testID={undefined}
+  tvParallaxProperties={undefined}
+>
   <View
     style={
       Array [
@@ -1162,7 +1225,8 @@ exports[`test Small Button with Icon renders correctly 1`] = `
         undefined,
         undefined,
       ]
-    }>
+    }
+  >
     <Text
       accessible={true}
       allowFontScaling={false}
@@ -1185,7 +1249,8 @@ exports[`test Small Button with Icon renders correctly 1`] = `
             "fontWeight": "normal",
           },
         ]
-      }>
+      }
+    >
       
     </Text>
     <Text
@@ -1229,7 +1294,8 @@ exports[`test Small Button with Icon renders correctly 1`] = `
             },
           ],
         ]
-      }>
+      }
+    >
       Coming Soon...
     </Text>
   </View>

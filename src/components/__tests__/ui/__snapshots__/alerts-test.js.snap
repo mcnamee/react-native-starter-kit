@@ -1,11 +1,14 @@
-exports[`test Alerts (Error) renders correctly 1`] = `
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Alerts (Error) renders correctly 1`] = `
 <View
   style={
     Object {
       "left": 0,
       "right": 0,
     }
-  }>
+  }
+>
   <View>
     <View
       style={
@@ -24,7 +27,8 @@ exports[`test Alerts (Error) renders correctly 1`] = `
             "borderColor": "#C02827",
           },
         ]
-      }>
+      }
+    >
       <Text
         accessible={true}
         allowFontScaling={true}
@@ -56,7 +60,8 @@ exports[`test Alerts (Error) renders correctly 1`] = `
               },
             ],
           ]
-        }>
+        }
+      >
         Error hey
       </Text>
     </View>
@@ -68,19 +73,21 @@ exports[`test Alerts (Error) renders correctly 1`] = `
           "marginTop": 19,
           "right": 0,
         }
-      } />
+      }
+    />
   </View>
 </View>
 `;
 
-exports[`test Alerts (Status) renders correctly 1`] = `
+exports[`Alerts (Status) renders correctly 1`] = `
 <View
   style={
     Object {
       "left": 0,
       "right": 0,
     }
-  }>
+  }
+>
   <View>
     <View
       style={
@@ -99,7 +106,8 @@ exports[`test Alerts (Status) renders correctly 1`] = `
             "borderColor": "#408491",
           },
         ]
-      }>
+      }
+    >
       <Text
         accessible={true}
         allowFontScaling={true}
@@ -131,8 +139,9 @@ exports[`test Alerts (Status) renders correctly 1`] = `
               },
             ],
           ]
-        }>
-        Something\'s happening...
+        }
+      >
+        Something's happening...
       </Text>
     </View>
     <View
@@ -143,19 +152,21 @@ exports[`test Alerts (Status) renders correctly 1`] = `
           "marginTop": 19,
           "right": 0,
         }
-      } />
+      }
+    />
   </View>
 </View>
 `;
 
-exports[`test Alerts (Sucess) renders correctly 1`] = `
+exports[`Alerts (Sucess) renders correctly 1`] = `
 <View
   style={
     Object {
       "left": 0,
       "right": 0,
     }
-  }>
+  }
+>
   <View>
     <View
       style={
@@ -170,7 +181,8 @@ exports[`test Alerts (Sucess) renders correctly 1`] = `
             "right": 0,
           },
         ]
-      }>
+      }
+    >
       <Text
         accessible={true}
         allowFontScaling={true}
@@ -199,7 +211,8 @@ exports[`test Alerts (Sucess) renders correctly 1`] = `
               },
             ],
           ]
-        }>
+        }
+      >
         Hello Success
       </Text>
     </View>
@@ -211,17 +224,19 @@ exports[`test Alerts (Sucess) renders correctly 1`] = `
           "marginTop": 19,
           "right": 0,
         }
-      } />
+      }
+    />
   </View>
 </View>
 `;
 
-exports[`test Alerts (empty) renders correctly 1`] = `
+exports[`Alerts (empty) renders correctly 1`] = `
 <View
   style={
     Object {
       "left": 0,
       "right": 0,
     }
-  } />
+  }
+/>
 `;

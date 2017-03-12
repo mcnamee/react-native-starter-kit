@@ -1,4 +1,6 @@
-exports[`test FormInput renders correctly 1`] = `
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FormInput renders correctly 1`] = `
 <View
   style={
     Array [
@@ -20,7 +22,8 @@ exports[`test FormInput renders correctly 1`] = `
         Array [],
       ],
     ]
-  }>
+  }
+>
   <TextInput
     autoCapitalize={undefined}
     autoCorrect={undefined}
@@ -76,6 +79,7 @@ exports[`test FormInput renders correctly 1`] = `
       ]
     }
     underlineColorAndroid={undefined}
-    value="John Smith" />
+    value="John Smith"
+  />
 </View>
 `;

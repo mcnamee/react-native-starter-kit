@@ -1,4 +1,6 @@
-exports[`test LaunchView renders correctly 1`] = `
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LaunchView renders correctly 1`] = `
 <View
   style={
     Array [
@@ -9,7 +11,8 @@ exports[`test LaunchView renders correctly 1`] = `
         "position": "relative",
       },
     ]
-  }>
+  }
+>
   <Image
     source={1}
     style={
@@ -23,12 +26,14 @@ exports[`test LaunchView renders correctly 1`] = `
           "justifyContent": "center",
         },
       ]
-    }>
+    }
+  >
     <ActivityIndicator
       animating={true}
       color="#C1C5C8"
       hidesWhenStopped={true}
-      size="large" />
+      size="large"
+    />
   </Image>
 </View>
 `;

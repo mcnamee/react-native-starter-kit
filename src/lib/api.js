@@ -91,7 +91,10 @@ function serialize(obj, prefix) {
 /**
   * Sends requests to the API
   */
-function fetcher(method, endpoint, params, body) {
+function fetcher(method, inputEndpoint, inputParams, body) {
+  let endpoint = inputEndpoint;
+  const params = inputParams;
+
   return new Promise(async (resolve, reject) => {
     requestCounter += 1;
     const requestNum = requestCounter;
@@ -128,14 +131,13 @@ function fetcher(method, endpoint, params, body) {
     if (params) {
       // Object - eg. /recipes?title=this&cat=2
       if (typeof params === 'object') {
-
         // Replace matching params in API routes eg. /recipes/{param}/foo
-        for (let param in params) {
+        Object.keys(params).forEach((param) => {
           if (endpoint.includes(`{${param}}`)) {
             endpoint = endpoint.split(`{${param}}`).join(params[param]);
             delete params[param];
           }
-        }
+        });
 
         // Check if there's still an 'id' prop, /{id}?
         if (params.id !== undefined) {

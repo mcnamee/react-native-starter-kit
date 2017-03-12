@@ -31,6 +31,10 @@ class RecipeListing extends Component {
     reFetch: PropTypes.func,
   }
 
+  static defaultProps = {
+    reFetch: null,
+  }
+
   constructor() {
     super();
 

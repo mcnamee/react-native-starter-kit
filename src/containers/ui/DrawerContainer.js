@@ -43,6 +43,13 @@ class Drawer extends Component {
     toggleSideMenu: PropTypes.func.isRequired,
   }
 
+  static defaultProps = {
+    navigationState: null,
+    onNavigate: null,
+    sideMenuIsOpen: null,
+  }
+
+
   /**
     * Toggle Side Menu
     */

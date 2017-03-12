@@ -87,6 +87,10 @@ class Menu extends Component {
     }),
   }
 
+  static defaultProps = {
+    user: null,
+  }
+
   constructor() {
     super();
 

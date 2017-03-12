@@ -47,6 +47,10 @@ class RecipeCard extends Component {
     }),
   }
 
+  static defaultProps = {
+    user: null,
+  }
+
   constructor(props) {
     super(props);
 

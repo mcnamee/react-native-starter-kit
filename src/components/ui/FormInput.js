@@ -7,7 +7,6 @@
  * https://github.com/mcnamee/react-native-starter-app
  */
 import React, { Component, PropTypes } from 'react';
-import { Platform } from 'react-native';
 import { FormInput } from 'react-native-elements';
 
 // Consts and Libs

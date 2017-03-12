@@ -51,6 +51,10 @@ class RecipeTabs extends Component {
     getMeals: PropTypes.func.isRequired,
   }
 
+  static defaultProps = {
+    meals: null,
+  }
+
   constructor(props) {
     super(props);
 

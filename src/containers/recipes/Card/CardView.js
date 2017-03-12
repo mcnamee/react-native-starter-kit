@@ -41,6 +41,12 @@ class RecipeCard extends Component {
     isFavourite: PropTypes.bool,
   }
 
+  static defaultProps = {
+    onPress: null,
+    onPressFavourite: null,
+    isFavourite: null,
+  }
+
   render = () => {
     const { title, content, image, onPress, onPressFavourite, isFavourite } = this.props;
 

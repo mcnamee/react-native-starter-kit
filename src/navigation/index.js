@@ -42,6 +42,7 @@ export default Actions.create(
 
       {/* General */}
       <Scene
+        clone
         key={'comingSoon'}
         title={'Coming Soon'}
         component={Placeholder}

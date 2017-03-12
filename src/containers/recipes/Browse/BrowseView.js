@@ -11,7 +11,7 @@ import {
   StyleSheet,
   InteractionManager,
 } from 'react-native';
-import { TabViewAnimated, TabBarTop } from 'react-native-tab-view';
+import { TabViewAnimated, TabBar } from 'react-native-tab-view';
 
 // Consts and Libs
 import { AppColors } from '@theme/';
@@ -132,7 +132,7 @@ class RecipeTabs extends Component {
     * Header Component
     */
   renderHeader = props => (
-    <TabBarTop
+    <TabBar
       {...props}
       style={styles.tabbar}
       indicatorStyle={styles.tabbarIndicator}

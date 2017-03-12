@@ -13,7 +13,7 @@ import {
   StyleSheet,
   TouchableOpacity,
 } from 'react-native';
-import { TabViewAnimated, TabBarTop } from 'react-native-tab-view';
+import { TabViewAnimated, TabBar } from 'react-native-tab-view';
 import { SocialIcon } from 'react-native-elements';
 import { Actions } from 'react-native-router-flux';
 
@@ -358,7 +358,7 @@ class StyleGuide extends Component {
     * Header Component
     */
   renderHeader = props => (
-    <TabBarTop
+    <TabBar
       {...props}
       style={styles.tabbar}
       indicatorStyle={styles.tabbarIndicator}

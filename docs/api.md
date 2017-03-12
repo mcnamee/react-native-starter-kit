@@ -20,6 +20,12 @@ The API util allows us to make API calls in a nice, shorthand way, eg.
 
   // Delete blog with ID of 52
   AppAPI.blog.delete(52);
+
+  // You can also have parameters in the endpoint definition, eg.
+  ['user_recipe', 'users/{userId}/recipes/{recipeId}']
+
+    // And then use it like so:
+    AppAPI.user_recipe.get({ userId: 33, recipeId: 2 });
 ```
 
 ## Configuration

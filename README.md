@@ -23,17 +23,17 @@ React Native Starter Kit helps you get started with React Native. It contains a 
 
 1. [Features](#features)
 1. **Before you start**
-  1. [Getting Started with React Native](/docs/react-native.md)
-  1. [React Native Quick Tips](/docs/quick-tips.md)
-  1. [Understanding the File Structure](#understanding-the-file-structure)
-  1. [Opinions Guiding this Project](/docs/opinions.md)
+   1. [Getting Started with React Native](/docs/react-native.md)
+   1. [React Native Quick Tips](/docs/quick-tips.md)
+   1. [Understanding the File Structure](#understanding-the-file-structure)
+   1. [Opinions Guiding this Project](/docs/opinions.md)
 1. **Using RNSK**
-  1. [Getting Up and Running with RNSK](#getting-started)
-  1. [Renaming the App from StarterKit](/docs/renaming.md)
-  1. [Routing / Navigating](/src/navigation/README.md)
-  1. [Using Google Analytics](/docs/google-analytics.md)
-  1. [Interacting with a REST API](/docs/api.md)
-  1. [Testing](/docs/testing.md)
+   1. [Getting Up and Running with RNSK](#getting-started)
+   1. [Renaming the App from StarterKit](/docs/renaming.md)
+   1. [Routing / Navigating](/src/navigation/README.md)
+   1. [Using Google Analytics](/docs/google-analytics.md)
+   1. [Interacting with a REST API](/docs/api.md)
+   1. [Testing](/docs/testing.md)
 1. [Contributing](/docs/contributing.md)
 1. [Licence](LICENSE)
 

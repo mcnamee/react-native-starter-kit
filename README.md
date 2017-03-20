@@ -9,13 +9,13 @@
 [![Build Status](https://travis-ci.org/mcnamee/react-native-starter-app.svg?branch=master)](https://travis-ci.org/mcnamee/react-native-starter-app)
 [![Coverage Status](https://coveralls.io/repos/github/mcnamee/react-native-starter-app/badge.svg?branch=master)](https://coveralls.io/github/mcnamee/react-native-starter-app?branch=master)
 
-![alt text](https://dl.dropboxusercontent.com/u/46690444/GITHUB/rnsk-logo.jpg "React Native Starter Kit")
+![alt text](/docs/rnsk-logo.jpg "React Native Starter Kit")
 
 # React Native Starter Kit
 
 React Native Starter Kit helps you get started with React Native. It contains a bunch of helpful components, building blocks and basic structure to allow you to jump straight into building an app.
 
-![alt text](https://dl.dropboxusercontent.com/u/46690444/GITHUB/rnsk-v2-screens.jpg "React Native Starter App")
+![alt text](/docs/rnsk-screens.jpg "React Native Starter App")
 
 ---
 

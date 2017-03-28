@@ -55,8 +55,8 @@ class CustomButton extends Component {
       large: false,
       icon: (this.props.icon && this.props.icon.name)
         ? {
-          ...this.props.icon,
           size: 14,
+          ...this.props.icon,
         } : null,
     };
 
@@ -68,8 +68,8 @@ class CustomButton extends Component {
 
       if (props.icon && props.icon.name) {
         props.icon = {
-          ...props.icon,
           size: 14,
+          ...props.icon,
         };
       }
     }
@@ -79,8 +79,8 @@ class CustomButton extends Component {
 
       if (props.icon && props.icon.name) {
         props.icon = {
-          ...props.icon,
           size: 20,
+          ...props.icon,
         };
       }
     }
@@ -95,8 +95,8 @@ class CustomButton extends Component {
 
       if (props.icon && props.icon.name) {
         props.icon = {
-          ...props.icon,
           color: AppColors.brand.primary,
+          ...props.icon,
         };
       }
     }

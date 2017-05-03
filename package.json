@@ -28,15 +28,15 @@
     "react-native-device-info": "^0.10.1",
     "react-native-elements": "^0.9.2",
     "react-native-google-analytics-bridge": "^5.0.0",
-    "react-native-router-flux": "^3.37.0",
+    "react-native-router-flux": "3.37.0",
     "react-native-side-menu": "^0.20.1",
-    "react-native-tab-view": "0.0.57",
+    "react-native-tab-view": "0.0.62",
     "react-native-vector-icons": "^4.0.0",
     "react-redux": "^5.0.1",
     "redux": "^3.6.0",
     "redux-logger": "^2.7.0",
     "redux-thunk": "^2.1.0",
-    "striptags": "^2.2.1",
+    "striptags": "^3.0.1",
     "tcomb-form-native": "^0.6.1"
   },
   "devDependencies": {
@@ -53,6 +53,6 @@
     "eslint-plugin-react": "^6.4.1",
     "jest": "19.0.2",
     "jest-react-native": "^18.0.0",
-    "react-test-renderer": "15.4.2"
+    "react-test-renderer": "15.5.4"
   }
 }

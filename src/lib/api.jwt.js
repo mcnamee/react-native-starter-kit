@@ -45,22 +45,27 @@ export default class JWT {
       });
     }
 
+    // Form payload
+    const loginPayload = {};
+    loginPayload[APIConfig.usernameKey] = this.apiCredentials.username;
+    loginPayload[APIConfig.passwordKey] = this.apiCredentials.password;
+
     // Let's try logging in
-    return AppAPI[APIConfig.tokenKey].post(null, {
-      username: this.apiCredentials.username,
-      password: this.apiCredentials.password,
-    }).then(async (res) => {
-      if (!res.token) {
+    return AppAPI[APIConfig.loginEndpointKey].post(null, loginPayload).then(async (res) => {
+      if (!res[APIConfig.tokenKey]) {
         return reject(res);
       }
 
-      const tokenIsNowValid = this.tokenIsValid ? await this.tokenIsValid(res.token) : undefined;
+      const tokenIsNowValid = this.tokenIsValid
+        ? await this.tokenIsValid(res[APIConfig.tokenKey])
+        : undefined;
+
       if (!tokenIsNowValid) return reject(res);
 
       // Set token in AsyncStorage + memory
-      if (this.storeToken) await this.storeToken(res.token);
+      if (this.storeToken) await this.storeToken(res[APIConfig.tokenKey]);
 
-      return resolve(res.token);
+      return resolve(res[APIConfig.tokenKey]);
     }).catch(err => reject(err));
   })
 
@@ -109,7 +114,7 @@ export default class JWT {
   }
 
   /**
-    * Tests whether a token is valid
+    * Tests whether a token is valid - only when it's a JWT token
     */
   tokenIsValid = (token, userId = null) => {
     let decodedToken;
@@ -124,21 +129,27 @@ export default class JWT {
     const eagerRenew = 60; // number of seconds prior to expiry that a token is considered 'old'
 
     // Validate against 'expiry', 'not before' and 'sub' fields in token
-    if (NOW > (decodedToken.exp - eagerRenew)) return false; // Expired
-    if (NOW < decodedToken.nbf - 300) return false; // Not yet valid (too early!)
-
-    // Don't worry about http vs https - strip it out
-    const thisHostname = APIConfig.hostname.replace(/.*?:\/\//g, '');
-    const tokenHostname = decodedToken.iss.replace(/.*?:\/\//g, '').substr(0, thisHostname.length);
-    if (thisHostname !== tokenHostname) {
-      return false; // Issuing server is different
+    if (decodedToken.exp && decodedToken.nbf) {
+      if (NOW > (decodedToken.exp - eagerRenew)) return false; // Expired
+      if (NOW < decodedToken.nbf - 300) return false; // Not yet valid (too early!)
     }
 
-    if (
-      userId && decodedToken.sub > 0 &&
-      decodedToken.sub !== userId
-    ) {
-      return false; // Token is for another user
+    // Don't worry about http vs https - strip it out
+    if (APIConfig.hostname && decodedToken.iss) {
+      const thisHostname = APIConfig.hostname.replace(/.*?:\/\//g, '');
+      const tokenHostname = decodedToken.iss.replace(/.*?:\/\//g, '').substr(0, thisHostname.length);
+      if (thisHostname !== tokenHostname) {
+        return false; // Issuing server is different
+      }
+    }
+
+    if (decodedToken.sub) {
+      if (
+        userId && decodedToken.sub > 0 &&
+        decodedToken.sub !== userId
+      ) {
+        return false; // Token is for another user
+      }
     }
 
     return true;

@@ -83,7 +83,7 @@ class Menu extends Component {
     logout: PropTypes.func.isRequired,
     closeSideMenu: PropTypes.func.isRequired,
     user: PropTypes.shape({
-      name: PropTypes.string,
+      email: PropTypes.string,
     }),
   }
 
@@ -155,7 +155,7 @@ class Menu extends Component {
           <View style={[styles.menu]}>{menuItems}</View>
 
           <View style={[styles.menuBottom]}>
-            {this.props.user && this.props.user.name ?
+            {this.props.user && this.props.user.email ?
               <View>
                 <Text
                   style={[
@@ -164,7 +164,7 @@ class Menu extends Component {
                   ]}
                 >
                   Logged in as:{'\n'}
-                  {this.props.user.name}
+                  {this.props.user.email}
                 </Text>
 
                 <Spacer size={10} />

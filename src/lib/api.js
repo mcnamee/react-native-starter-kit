@@ -18,7 +18,6 @@ import AppUtil from '@lib/util';
 const Token = new JWT();
 
 // Config
-const HOSTNAME = APIConfig.hostname;
 const ENDPOINTS = APIConfig.endpoints;
 
 let USER_AGENT;
@@ -62,6 +61,7 @@ function handleError(err) {
   let error = '';
   if (typeof err === 'string') error = err;
   else if (err && err.message) error = err.message;
+  else if (err && err.error && err.error.message) error = err.error.message;
 
   if (!error) error = ErrorMessages.default;
   return error;
@@ -91,8 +91,9 @@ function serialize(obj, prefix) {
 /**
   * Sends requests to the API
   */
-function fetcher(method, inputEndpoint, inputParams, body) {
+function fetcher(method, inputEndpoint, inputParams, inputBody) {
   let endpoint = inputEndpoint;
+  let body = inputBody;
   const params = inputParams;
 
   return new Promise(async (resolve, reject) => {
@@ -117,12 +118,31 @@ function fetcher(method, inputEndpoint, inputParams, body) {
       },
     };
 
-    // Add Token
-    // Don't add on the login endpoint
-    if (Token.getStoredToken && endpoint !== APIConfig.endpoints.get(APIConfig.tokenKey)) {
-      const apiToken = await Token.getStoredToken();
-      if (apiToken) {
-        req.headers.Authorization = `Bearer ${apiToken}`;
+    // Add Token to authEndpoints only
+    if (Token.getStoredToken) {
+      // Form array of complete auth endpoints to test against
+      const authEndpoints = APIConfig.authEnpoints.map(x => APIConfig.endpoints.get(x));
+
+      // Only add the token when we need to
+      if (authEndpoints.indexOf(endpoint) > -1) {
+        // Get the token
+        const apiToken = await Token.getStoredToken();
+        if (apiToken) {
+          // Add token to header
+          if (APIConfig.sendAuthorizationBearerHeader) {
+            req.headers.Authorization = `Bearer ${apiToken}`;
+          }
+
+          // Add token to body
+          if (APIConfig.sendTokenInBody) {
+            if (!body) {
+              body = {};
+              body[APIConfig.sendTokenInBodyKey] = apiToken;
+            } else if (typeof body === 'object') {
+              body[APIConfig.sendTokenInBodyKey] = apiToken;
+            }
+          }
+        }
       }
     }
 
@@ -156,16 +176,17 @@ function fetcher(method, inputEndpoint, inputParams, body) {
 
       // Something else? Just log an error
       } else {
-        debug('You provided params, but it wasn\'t an object!', HOSTNAME + endpoint + urlParams);
+        debug('You provided params, but it wasn\'t an object!', endpoint + urlParams);
       }
     }
 
     // Add Body
     if (body) req.body = JSON.stringify(body);
 
-    const thisUrl = HOSTNAME + endpoint + urlParams;
+    const thisUrl = endpoint + urlParams;
 
     debug('', `API Request #${requestNum} to ${thisUrl}`);
+    if (DEBUG_MODE) console.log(req);
 
     // Make the request
     return fetch(thisUrl, req)
@@ -210,7 +231,7 @@ function fetcher(method, inputEndpoint, inputParams, body) {
             .catch(error => reject(error));
         }
 
-        debug(err, HOSTNAME + endpoint + urlParams);
+        debug(err, endpoint + urlParams);
         return reject(err);
       });
   });

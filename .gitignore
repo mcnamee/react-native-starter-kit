@@ -56,3 +56,7 @@ fastlane/screenshots
 #
 coverage/*
 jest/*
+
+# Other
+#
+/.env

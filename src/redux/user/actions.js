@@ -5,8 +5,6 @@
  * https://github.com/mcnamee/react-native-starter-app
  */
 
-import jwtDecode from 'jwt-decode';
-
 import AppAPI from '@lib/api';
 
 /**
@@ -23,33 +21,17 @@ export function login(credentials, freshLogin) {
 
     // Get a new token from API
     return AppAPI.getToken(userCreds)
-      .then((token) => {
-        let decodedToken = '';
+      // Get user details from API, using my token
+      .then(() => AppAPI.me.post()
+        .then((userData) => {
+          dispatch({
+            type: 'USER_REPLACE',
+            data: userData,
+          });
 
-        try {
-          decodedToken = jwtDecode(token);
-        } catch (err) {
-          return reject('Token decode failed.');
-        }
-
-        if (
-          !decodedToken || !decodedToken.data ||
-          !decodedToken.data.user || !decodedToken.data.user.id
-        ) {
-          return reject('Token decode failed.');
-        }
-
-        // Get user details from API, using my token
-        return AppAPI.users.get(decodedToken.data.user.id)
-          .then((userData) => {
-            dispatch({
-              type: 'USER_REPLACE',
-              data: userData,
-            });
-
-            return resolve(userData);
-          }).catch(err => reject(err));
-      }).catch(err => reject(err));
+          return resolve(userData);
+        }).catch(err => reject(err)),
+      ).catch(err => reject(err));
   });
 }
 
@@ -70,7 +52,7 @@ export function logout() {
   * Get My User Data
   */
 export function getMe() {
-  return dispatch => AppAPI.me.get()
+  return dispatch => AppAPI.me.post()
     .then((userData) => {
       dispatch({
         type: 'USER_REPLACE',

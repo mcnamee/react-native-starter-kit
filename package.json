@@ -26,6 +26,7 @@
     "react-addons-shallow-compare": "^15.4.2",
     "react-native": "^0.42.0",
     "react-native-device-info": "^0.10.1",
+    "react-native-dotenv": "0.0.4",
     "react-native-elements": "^0.9.2",
     "react-native-google-analytics-bridge": "^5.0.0",
     "react-native-router-flux": "3.37.0",

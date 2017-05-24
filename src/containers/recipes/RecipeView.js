@@ -35,10 +35,12 @@ class RecipeView extends Component {
 
   static propTypes = {
     recipe: PropTypes.shape({
-      title: PropTypes.object.isRequired,
-      content: PropTypes.object,
-      featured_image: PropTypes.string,
-      acf: PropTypes.object,
+      id: PropTypes.number.isRequired,
+      title: PropTypes.string.isRequired,
+      body: PropTypes.string.isRequired,
+      image: PropTypes.string,
+      ingredients: PropTypes.arrayOf(PropTypes.string),
+      method: PropTypes.arrayOf(PropTypes.string),
     }).isRequired,
   }
 
@@ -46,75 +48,74 @@ class RecipeView extends Component {
     * Ingredients
     */
   renderIngredients = (ingredients) => {
-    const ingJsx = [];
+    const jsx = [];
     let iterator = 1;
 
     ingredients.forEach((item) => {
-      ingJsx.push(
+      jsx.push(
         <View key={`ingredient-${iterator}`} style={[AppStyles.row]}>
           <View><Text> - </Text></View>
           <View style={[AppStyles.paddingLeftSml, AppStyles.flex1]}>
-            <Text>{item.ingredient.toString()}</Text>
+            <Text>{item.toString()}</Text>
           </View>
         </View>,
       );
       iterator += 1;
     });
 
-    return ingJsx;
+    return jsx;
   }
 
   /**
     * Method
     */
-  renderMethod = (methods) => {
-    const ingJsx = [];
+  renderMethod = (method) => {
+    const jsx = [];
     let iterator = 1;
 
-    methods.forEach((item) => {
-      ingJsx.push(
+    method.forEach((item) => {
+      jsx.push(
         <View key={`method-${iterator}`} style={[AppStyles.row]}>
           <View><Text> {iterator}. </Text></View>
           <View style={[AppStyles.paddingBottomSml, AppStyles.paddingLeftSml, AppStyles.flex1]}>
-            <Text>{item.method.toString()}</Text>
+            <Text>{item.toString()}</Text>
           </View>
         </View>,
       );
       iterator += 1;
     });
 
-    return ingJsx;
+    return jsx;
   }
 
   render = () => {
-    const { title, content, acf } = this.props.recipe;
-    const featuredImage = this.props.recipe.featured_image;
+    const { title, body, image, ingredients, method } = this.props.recipe;
 
     return (
       <ScrollView style={[AppStyles.container]}>
-        {featuredImage !== '' &&
+        {image !== '' &&
           <Image
-            source={{ uri: featuredImage }}
+            source={{ uri: image }}
             style={[styles.featuredImage]}
           />
         }
 
         <Card>
           <Text h2>{title.rendered}</Text>
-          <Text>{content.rendered}</Text>
+          <Text>{body}</Text>
         </Card>
 
-        {acf.ingredients ?
+        {ingredients ?
           <Card>
             <Text h2>Ingredients</Text>
-            {this.renderIngredients(acf.ingredients)}
+            {this.renderIngredients(ingredients)}
           </Card>
         : null}
 
-        {acf.methods ?
+        {method ?
           <Card>
             <Text h2>Method</Text>
-            {this.renderMethod(acf.methods)}
+            {this.renderMethod(method)}
           </Card>
         : null}
 

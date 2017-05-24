@@ -80,7 +80,7 @@ class RecipeTabs extends Component {
       routes.push({
         key: idx.toString(),
         id: meal.id.toString(),
-        title: meal.name,
+        title: meal.title,
       });
 
       idx += 1;

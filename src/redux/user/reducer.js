@@ -11,7 +11,7 @@ const initialState = {};
 export default function userReducer(state = initialState, action) {
   switch (action.type) {
     case 'USER_REPLACE':
-      return action.data;
+      return action.data && action.data.users && action.data.users[0] ? action.data.users[0] : {};
 
     default:
       return state;

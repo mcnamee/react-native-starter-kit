@@ -64,14 +64,16 @@ React Native Starter Kit helps you get started with React Native. It contains a 
 1. Run `npm install` from root directory
 1. Start the app in [an emulator](/docs/quick-tips.md#running-in-an-emulator)
 
-### Want to test out authentication?
-We've created a quick and dirty little API server on Firebase. You can get it up and running within minutes too:
+---
+
+### The API & testing out authentication
+We've created a quick little API server on [Google's Firebase Platform](https://firebase.google.com/). You can get your own little API server up and running within minutes too:
 
 1. Signup for a [Firebase account](https://firebase.google.com/)
 1. Create a new project - eg. React Native Starter App
-1. Turn on email/password `Authentication`
-1. Enable the `Database` feature, and import the `firebase-sample-data.json` file found in this repo
-1. Get the Firebase project's API key, copy `/src/constants/secrets.sample.js` to `/src/constants/secrets.js` and paste the API key in the respective variable
+1. Turn on email/password __Authentication__
+1. Enable the __Database__ feature, and import the `firebase-sample-data.json` file found in this repo
+1. Get the Firebase project's API key, copy `/.env.sample` to `/.env` and paste the API key in the APIKEY variable (eg. `APIKEY=d8f72k10s39djk29js`)
 
 ---
 

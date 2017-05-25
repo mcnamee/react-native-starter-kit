@@ -74,6 +74,32 @@ We've created a quick little API server on [Google's Firebase Platform](https://
 1. Turn on email/password __Authentication__
 1. Enable the __Database__ feature, and import the `firebase-sample-data.json` file found in this repo
 1. Get the Firebase project's API key, copy `/.env.sample` to `/.env` and paste the API key in the APIKEY variable (eg. `APIKEY=d8f72k10s39djk29js`)
+1. Add the following __rules__ to the Database
+
+```json
+{
+  "rules": {
+    ".read": false,
+    ".write": false,
+      
+    "recipes": {
+      ".read": true,
+    	".indexOn": ["category"]
+    },
+
+    "meals": {
+      ".read": true
+    },
+
+    "favourites": {
+    	"$uid": {
+      	".read": "auth != null && auth.uid == $uid",
+      	".write": "auth != null && auth.uid == $uid"
+    	}
+  	}
+  }
+}
+```
 
 ---
 

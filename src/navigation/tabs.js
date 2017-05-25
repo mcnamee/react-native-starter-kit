@@ -44,7 +44,7 @@ const scenes = (
         {...navbarPropsTabs}
         key={'recipesListing'}
         component={Recipes}
-        title={AppConfig.appName}
+        title={'Recipes'}
         analyticsDesc={'Recipes: Browse Recipes'}
       />
       <Scene

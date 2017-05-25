@@ -47,34 +47,3 @@ export function logout() {
       });
     });
 }
-
-/**
-  * Get My User Data
-  */
-export function getMe() {
-  return dispatch => AppAPI.me.post()
-    .then((userData) => {
-      dispatch({
-        type: 'USER_REPLACE',
-        data: userData,
-      });
-
-      return userData;
-    });
-}
-
-/**
-  * Update My User Data
-  * - Receives complete user data in return
-  */
-export function updateMe(payload) {
-  return dispatch => AppAPI.me.post(payload)
-    .then((userData) => {
-      dispatch({
-        type: 'USER_REPLACE',
-        data: userData,
-      });
-
-      return userData;
-    });
-}

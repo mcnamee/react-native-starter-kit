@@ -25,9 +25,9 @@ export default {
   endpoints: new Map([
     ['login', `${authHostname}/verifyPassword?key=${apiKey}`], // If you change the key, update the reference below
     ['signup', `${authHostname}/signupNewUser?key=${apiKey}`],
-    ['users', `${authHostname}/getAccountInfo?key=${apiKey}`],
     ['me', `${authHostname}/getAccountInfo?key=${apiKey}`],
 
+    ['favourites', `${hostname}/favourites/{userId}.json`],
     ['recipes', `${hostname}/recipes.json`],
     ['meals', `${hostname}/meals.json`],
   ]),
@@ -36,8 +36,8 @@ export default {
   // Which endpoints need authorization to access?
   // - We'll then add the token to the header if needed
   authEnpoints: [
-    'users',
     'me',
+    'favourites',
   ],
 
 
@@ -69,4 +69,10 @@ export default {
   sendTokenInBody: true,
   // If so, what key?
   sendTokenInBodyKey: 'idToken',
+
+
+  // Should each Auth request contain the token as a query param?
+  sendTokenInUrl: true,
+  // If so, what key?
+  sendTokenInUrlKey: 'auth',
 };

@@ -49,10 +49,14 @@ class RecipeTabs extends Component {
   static propTypes = {
     meals: PropTypes.arrayOf(PropTypes.object),
     getMeals: PropTypes.func.isRequired,
+    getFavourites: PropTypes.func.isRequired,
+    userId: PropTypes.string,
   }
 
   static defaultProps = {
     meals: null,
+    favourites: null,
+    userId: null,
   }
 
   constructor(props) {
@@ -107,6 +111,12 @@ class RecipeTabs extends Component {
       this.props.getMeals()
         .then(() => {
           this.setTabs();
+
+          // Get user's favourite recipes
+          if (this.props.userId) {
+            this.props.getFavourites(this.props.userId)
+              .catch(e => console.log(e));
+          }
         }).catch((err) => {
           const error = AppAPI.handleError(err);
           this.setState({

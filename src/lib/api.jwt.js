@@ -49,6 +49,7 @@ export default class JWT {
     const loginPayload = {};
     loginPayload[APIConfig.usernameKey] = this.apiCredentials.username;
     loginPayload[APIConfig.passwordKey] = this.apiCredentials.password;
+    loginPayload.returnSecureToken = true;
 
     // Let's try logging in
     return AppAPI[APIConfig.loginEndpointKey].post(null, loginPayload).then(async (res) => {

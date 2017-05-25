@@ -134,13 +134,20 @@ function fetcher(method, inputEndpoint, inputParams, inputBody) {
           }
 
           // Add token to body
-          if (APIConfig.sendTokenInBody) {
+          if (method !== 'GET' && APIConfig.sendTokenInBody) {
             if (!body) {
               body = {};
               body[APIConfig.sendTokenInBodyKey] = apiToken;
             } else if (typeof body === 'object') {
               body[APIConfig.sendTokenInBodyKey] = apiToken;
             }
+          }
+        }
+
+        // Add token to URL (as a query param)
+        if (APIConfig.sendTokenInUrl) {
+          if (typeof params === 'object') {
+            params[APIConfig.sendTokenInUrlKey] = apiToken;
           }
         }
       }

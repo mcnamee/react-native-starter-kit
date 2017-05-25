@@ -78,7 +78,7 @@ class RecipeListing extends Component {
     return (
       <View style={[AppStyles.container]}>
         <ListView
-          initialListSize={8}
+          initialListSize={5}
           renderRow={recipe => <RecipeCard recipe={recipe} />}
           dataSource={dataSource}
           automaticallyAdjustContentInsets={false}

@@ -8,6 +8,35 @@
 import AppAPI from '@lib/api';
 
 /**
+  * Get Favourites
+  */
+export function getFavourites(userId) {
+  return dispatch =>
+    AppAPI.favourites.get({ userId })
+      .then((res) => {
+        dispatch({
+          type: 'FAVOURITES_REPLACE',
+          data: res,
+        });
+      });
+}
+
+/**
+  * Update My Favourites
+  */
+export function updateFavourites(userId, newFavourites) {
+  return dispatch =>
+    AppAPI.favourites.put({ userId }, newFavourites)
+      .then((res) => {
+        dispatch({
+          type: 'FAVOURITES_REPLACE',
+          data: res,
+        });
+      });
+}
+
+
+/**
   * Get Meals
   */
 export function getMeals() {
@@ -26,6 +55,6 @@ export function getMeals() {
   */
 export function reset() {
   return {
-    type: 'MEALS_RESET',
+    type: 'RECIPE_RESET',
   };
 }

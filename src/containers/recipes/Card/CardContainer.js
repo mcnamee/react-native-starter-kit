@@ -9,7 +9,7 @@ import { connect } from 'react-redux';
 import { Actions } from 'react-native-router-flux';
 
 // Actions
-import * as UserActions from '@redux/user/actions';
+import * as RecipeActions from '@redux/recipes/actions';
 
 // Components
 import RecipeCardRender from './CardView';
@@ -18,11 +18,12 @@ import RecipeCardRender from './CardView';
 // What data from the store shall we send to the component?
 const mapStateToProps = state => ({
   user: state.user,
+  favourites: (state.recipe && state.recipe.favourites) ? state.recipe.favourites : null,
 });
 
 // Any actions to map to the component?
 const mapDispatchToProps = {
-  updateFavourites: UserActions.updateMe,
+  updateFavourites: RecipeActions.updateFavourites,
 };
 
 /* Component ==================================================================== */
@@ -37,14 +38,14 @@ class RecipeCard extends Component {
       image: PropTypes.string,
     }).isRequired,
     updateFavourites: PropTypes.func.isRequired,
+    favourites: PropTypes.arrayOf(PropTypes.number),
     user: PropTypes.shape({
-      acf: PropTypes.shape({
-        favourite_recipes: PropTypes.arrayOf(PropTypes.object),
-      }),
+      localId: PropTypes.string,
     }),
   }
 
   static defaultProps = {
+    favourites: null,
     user: null,
   }
 
@@ -73,28 +74,22 @@ class RecipeCard extends Component {
     * When user taps to favourite a recipe
     */
   onPressFavourite = () => {
-    const recipeId = this.props.recipe.id;
+    if (this.props.user && this.props.user.localId) {
+      const recipeId = this.props.recipe.id;
 
-    if (recipeId && this.props.updateFavourites) {
-      const favs = (
-        this.props.user && this.props.user.acf &&
-        this.props.user.acf.favourite_recipes
-      )
-        ? this.props.user.acf.favourite_recipes
-        : null;
+      if (recipeId && this.props.updateFavourites) {
+        const favs = this.props.favourites;
 
-      // Build Payload - Update current user favourites
-      // Payload should be:
-      //   {fields: {favourite_recipes: [{recipe_id: 43}, {recipe_id: 44}]}}
-      const arrIdx = this.isFavourite();
+        // Toggle to/from current list
+        if (this.isFavourite()) {
+          favs.splice(favs.indexOf(this.props.recipe.id), 1);
+        } else {
+          favs.push(recipeId);
+        }
 
-      // Remove from current list
-      if (arrIdx) favs.splice(arrIdx, 1);
-      // Add to current list
-      else favs.push({ recipe_id: recipeId });
-
-      // Send new list to API
-      this.props.updateFavourites({ fields: { favourite_recipes: favs } });
+        // Send new list to API
+        this.props.updateFavourites(this.props.user.localId, favs);
+      }
     }
   }
 
@@ -103,23 +98,10 @@ class RecipeCard extends Component {
     * Check in Redux to find if this Recipe ID is a Favourite
     */
   isFavourite = () => {
-    const { user, recipe } = this.props;
+    const { favourites, recipe } = this.props;
 
-    if (recipe && recipe.id) {
-      if (user && user.acf && user.acf.favourite_recipes) {
-        const recipeId = recipe.id;
-        const favs = user.acf.favourite_recipes;
-
-        // Return true if this recipe is in favourites list
-        let result = false;
-        favs.forEach((obj, key) => {
-          if (String(recipeId) === String(obj.recipe_id)) {
-            result = key;
-          }
-        });
-
-        return result;
-      }
+    if (recipe && recipe.id && favourites) {
+      if (favourites.indexOf(recipe.id) > -1) return true;
     }
 
     return false;
@@ -135,8 +117,8 @@ class RecipeCard extends Component {
         body={recipe.body}
         image={recipe.image}
         onPress={this.onPressCard}
-        onPressFavourite={(user && user.id) ? this.onPressFavourite : null}
-        isFavourite={(user && user.id && this.isFavourite()) && true}
+        onPressFavourite={(user && user.localId) ? this.onPressFavourite : null}
+        isFavourite={(user && user.localId && this.isFavourite()) && true}
       />
     );
   }

@@ -63,10 +63,13 @@ class MealListing extends Component {
       });
     }
 
-    return AppAPI.recipes.get({ recipe_meal: meal })
+    return AppAPI.recipes.get({ orderBy: '"category"', startAt: meal, endAt: meal })
       .then((res) => {
+        // Response is an Obj - convert to array
+        const recipes = res ? Object.keys(res).map(k => res[k]) : [];
+
         this.setState({
-          recipes: res,
+          recipes,
           loading: false,
           error: null,
         });

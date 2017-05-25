@@ -19,12 +19,6 @@ it('Updates the state of the user on logout', () => {
   });
 });
 
-it('Updates the state of the user on retrieval', () => {
-  expect(userReducer(initialState, userActions.getMe())).toEqual({
-    ...initialState,
-  });
-});
-
 it('Updates the state of the user on update', () => {
   expect(userReducer(initialState, userActions.updateMe())).toEqual({
     ...initialState,

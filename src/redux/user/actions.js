@@ -78,6 +78,13 @@ export function signUp(email, password) {
 }
 
 /**
+  * Reset Password
+  */
+export function resetPassword(email) {
+  return () => Firebase.auth().sendPasswordResetEmail(email);
+}
+
+/**
   * Logout
   */
 export function logout() {

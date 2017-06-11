@@ -12,8 +12,7 @@ import { AppConfig } from '@constants/';
 
 // Scenes
 import Authenticate from '@containers/auth/AuthenticateView';
-import AuthLogin from '@containers/auth/Login/LoginContainer';
-import AuthSignUp from '@containers/auth/SignUp/SignUpContainer';
+import AuthForm from '@containers/auth/Form/FormContainer';
 
 /* Routes ==================================================================== */
 const scenes = (
@@ -30,16 +29,27 @@ const scenes = (
       key={'login'}
       title={'Login'}
       clone
-      component={AuthLogin}
-      analyticsDesc={'AuthLogin: Login'}
+      component={AuthForm}
+      formType={'login'}
+      analyticsDesc={'AuthForm: Login'}
     />
     <Scene
       {...AppConfig.navbarProps}
       key={'signUp'}
       title={'Sign Up'}
       clone
-      component={AuthSignUp}
-      analyticsDesc={'AuthSignUp: Sign Up'}
+      component={AuthForm}
+      formType={'signup'}
+      analyticsDesc={'AuthForm: Sign Up'}
+    />
+    <Scene
+      {...AppConfig.navbarProps}
+      key={'passwordReset'}
+      title={'Password Reset'}
+      clone
+      component={AuthForm}
+      formType={'passwordReset'}
+      analyticsDesc={'AuthForm: Password Reset'}
     />
   </Scene>
 );

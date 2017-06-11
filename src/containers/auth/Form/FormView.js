@@ -1,11 +1,12 @@
 /**
- * Login Screen
+ * Login/Sign Up/Forgot Password Screen
  *
  * React Native Starter App
  * https://github.com/mcnamee/react-native-starter-app
  */
 import React, { Component, PropTypes } from 'react';
 import {
+  View,
   ScrollView,
   AsyncStorage,
   TouchableOpacity,
@@ -20,11 +21,18 @@ import { AppStyles } from '@theme/';
 import { Alerts, Card, Spacer, Text, Button } from '@ui/';
 
 /* Component ==================================================================== */
-class Login extends Component {
+class AuthForm extends Component {
   static componentName = 'Login';
 
   static propTypes = {
     login: PropTypes.func.isRequired,
+    signUp: PropTypes.func.isRequired,
+    resetPassword: PropTypes.func.isRequired,
+    formType: PropTypes.oneOf(['login', 'signup', 'passwordReset']),
+  }
+
+  static defaultProps = {
+    formType: 'login',
   }
 
   constructor(props) {
@@ -47,16 +55,26 @@ class Login extends Component {
       },
     );
 
+    // What fields should exist in the form?
+    let formFields = FormValidation.struct({
+      Email: validEmail,
+      Password: validPassword,
+    });
+
+    // When this is the Password Reset screen - remove the password field
+    if (props.formType === 'passwordReset') {
+      formFields = FormValidation.struct({
+        Email: validEmail,
+      });
+    }
+
     this.state = {
       resultMsg: {
         status: '',
         success: '',
         error: '',
       },
-      form_fields: FormValidation.struct({
-        Email: validEmail,
-        Password: validPassword,
-      }),
+      form_fields: formFields,
       empty_form_values: {
         Email: '',
         Password: '',
@@ -107,7 +125,7 @@ class Login extends Component {
         this.setState({ resultMsg: { status: 'One moment...' } });
 
         // Scroll to top, to show message
-        if (this.scrollView) this.scrollView.scrollTo({ y: 0 })
+        if (this.scrollView) this.scrollView.scrollTo({ y: 0 });
 
         this.props.login(credentials.Email, credentials.Password).then(() => {
           this.setState({
@@ -116,6 +134,71 @@ class Login extends Component {
             setTimeout(() => {
               Actions.app({ type: 'reset' });
             }, 1000);
+          });
+        }).catch((err) => {
+          this.setState({ resultMsg: { error: err.message } });
+        });
+      });
+    }
+  }
+
+  /**
+    * Reset Password
+    */
+  resetPassword = () => {
+    const credentials = this.form.getValue();
+
+    // Form is valid
+    if (credentials && credentials.Email) {
+      this.props.resetPassword(credentials.Email)
+        .then(() => {
+          // Show that user is now logged in
+          this.setState({
+            resultMsg: { success: 'Cool, we\'ve sent you an email.' },
+          }, () => {
+            // Redirect to main App Screen
+            setTimeout(() => {
+              Actions.app({ type: 'reset' });
+            }, 1000);
+          });
+        }).catch((err) => {
+          this.setState({ resultMsg: { error: err.message } });
+        });
+    }
+  }
+
+  /**
+    * Sign Up
+    */
+  signUp = () => {
+    // Get new credentials and update
+    const credentials = this.form.getValue();
+
+    // Form is valid
+    if (credentials) {
+      this.setState({ form_values: credentials }, () => {
+        this.setState({ resultMsg: { status: 'One moment...' } });
+
+        // Scroll to top, to show message
+        if (this.scrollView) this.scrollView.scrollTo({ y: 0 });
+
+        this.props.signUp(credentials.Email, credentials.Password).then(() => {
+          // Show Sign Up success message
+          this.setState({
+            resultMsg: { success: 'Awesome, you\'re now signed up!' },
+          }, () => {
+            // Then log user in
+            this.props.login(credentials.Email, credentials.Password).then(() => {
+              // Show that user is now logged in
+              this.setState({
+                resultMsg: { success: 'Awesome, you\'re now logged in!' },
+              }, () => {
+                // Redirect to main App Screen
+                setTimeout(() => {
+                  Actions.app({ type: 'reset' });
+                }, 1000);
+              });
+            });
           });
         }).catch((err) => {
           this.setState({ resultMsg: { error: err.message } });
@@ -148,29 +231,38 @@ class Login extends Component {
             options={this.state.options}
           />
 
-          <Button
-            title={'Login'}
-            onPress={this.login}
-          />
+          {this.props.formType === 'login' &&
+            <Button title={'Login'} onPress={this.login} />
+          }
+          {this.props.formType === 'signup' &&
+            <Button title={'Sign Up'} onPress={this.signUp} />
+          }
+          {this.props.formType === 'passwordReset' &&
+            <Button title={'Send Instructions'} onPress={this.resetPassword} />
+          }
 
           <Spacer size={10} />
 
-          <TouchableOpacity onPress={Actions.passwordReset}>
-            <Text p style={[AppStyles.textCenterAligned, AppStyles.link]}>
-              Forgot Password
-            </Text>
-          </TouchableOpacity>
+          {this.props.formType === 'login' &&
+            <View>
+              <TouchableOpacity onPress={Actions.passwordReset}>
+                <Text p style={[AppStyles.textCenterAligned, AppStyles.link]}>
+                  Forgot Password
+                </Text>
+              </TouchableOpacity>
 
-          <Spacer size={10} />
+              <Spacer size={10} />
 
-          <Text p style={[AppStyles.textCenterAligned]}>
-            - or -
-          </Text>
+              <Text p style={[AppStyles.textCenterAligned]}>
+                - or -
+              </Text>
 
-          <Button
-            title={'Sign Up'}
-            onPress={Actions.signUp}
-          />
+              <Button
+                title={'Sign Up'}
+                onPress={Actions.signUp}
+              />
+            </View>
+          }
         </Card>
       </ScrollView>
     );
@@ -178,4 +270,4 @@ class Login extends Component {
 }
 
 /* Export Component ==================================================================== */
-export default Login;
+export default AuthForm;

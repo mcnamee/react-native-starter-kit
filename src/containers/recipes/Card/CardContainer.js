@@ -103,7 +103,7 @@ class RecipeCard extends Component {
     const { favourites, recipe } = this.props;
 
     if (recipe && recipe.id && favourites) {
-      if (favourites.indexOf(recipe.id) > -1) return true;
+      if (favourites.length > 0 && favourites.indexOf(recipe.id) > -1) return true;
     }
 
     return false;

@@ -16,7 +16,7 @@ export function getFavourites(dispatch) {
   const ref = FirebaseRef.child(`favourites/${UID}`);
 
   return ref.on('value', (snapshot) => {
-    const favs = snapshot.val() || {};
+    const favs = snapshot.val() || [];
 
     return dispatch({
       type: 'FAVOURITES_REPLACE',

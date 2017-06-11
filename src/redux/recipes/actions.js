@@ -15,7 +15,7 @@ export function getFavourites(dispatch) {
 
   const ref = FirebaseRef.child(`favourites/${UID}`);
 
-  return ref.once('value').then((snapshot) => {
+  return ref.on('value', (snapshot) => {
     const favs = snapshot.val() || {};
 
     return dispatch({
@@ -42,12 +42,7 @@ export function replaceFavourites(newFavourites) {
   const UID = Firebase.auth().currentUser.uid;
   if (!UID) return false;
 
-  return dispatch =>
-    FirebaseRef.child(`favourites/${UID}`).set(newFavourites)
-      .then(() => dispatch({
-        type: 'FAVOURITES_REPLACE',
-        data: newFavourites,
-      }));
+  return () => FirebaseRef.child(`favourites/${UID}`).set(newFavourites);
 }
 
 /**
@@ -75,7 +70,7 @@ export function getRecipes() {
   return (dispatch) => {
     const ref = FirebaseRef.child('recipes');
 
-    return ref.once('value').then((snapshot) => {
+    return ref.on('value', (snapshot) => {
       const recipes = snapshot.val() || {};
 
       return dispatch({

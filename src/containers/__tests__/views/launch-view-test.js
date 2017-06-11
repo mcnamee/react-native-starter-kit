@@ -1,7 +1,7 @@
 /**
  * Test to check if the component renders correctly
  */
-/* global it expect jest */
+/* global it expect */
 import 'react-native';
 import React from 'react';
 import renderer from 'react-test-renderer';
@@ -15,7 +15,11 @@ const mockPromise = new Promise((resolve) => {
 
 it('LaunchView renders correctly', () => {
   const tree = renderer.create(
-    <LaunchView login={() => mockPromise} />,
+    <LaunchView
+      login={() => mockPromise}
+      getRecipes={() => mockPromise}
+      getMeals={() => mockPromise}
+    />,
   ).toJSON();
 
   expect(tree).toMatchSnapshot();

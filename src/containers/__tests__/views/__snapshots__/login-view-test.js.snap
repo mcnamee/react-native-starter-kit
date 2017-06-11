@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`LoginView renders correctly 1`] = `
+exports[`FormView renders correctly 1`] = `
 <RCTScrollView
   automaticallyAdjustContentInsets={false}
   contentContainerStyle={
@@ -356,28 +356,75 @@ exports[`LoginView renders correctly 1`] = `
             }
           }
         />
-        <View
-          accessibilityComponentType={undefined}
-          accessibilityLabel={undefined}
-          accessibilityTraits={undefined}
-          accessible={true}
-          hitSlop={undefined}
-          isTVSelectable={true}
-          onLayout={undefined}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
-          style={
-            Object {
-              "opacity": 1,
+        <View>
+          <View
+            accessibilityComponentType={undefined}
+            accessibilityLabel={undefined}
+            accessibilityTraits={undefined}
+            accessible={true}
+            hitSlop={undefined}
+            isTVSelectable={true}
+            onLayout={undefined}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "opacity": 1,
+              }
             }
-          }
-          testID={undefined}
-          tvParallaxProperties={undefined}
-        >
+            testID={undefined}
+            tvParallaxProperties={undefined}
+          >
+            <Text
+              accessible={true}
+              allowFontScaling={true}
+              ellipsizeMode="tail"
+              h1={false}
+              h2={false}
+              h3={false}
+              h4={false}
+              h5={false}
+              onPress={null}
+              p={true}
+              style={
+                Array [
+                  Object {
+                    "color": "#222222",
+                    "fontFamily": "HelveticaNeue",
+                    "fontSize": 14,
+                    "fontWeight": "500",
+                    "lineHeight": 18,
+                    "marginBottom": 8,
+                  },
+                  Array [
+                    Object {
+                      "textAlign": "center",
+                    },
+                    Object {
+                      "color": "#0E4EF8",
+                      "textDecorationLine": "underline",
+                    },
+                  ],
+                ]
+              }
+            >
+              Forgot Password
+            </Text>
+          </View>
+          <View
+            style={
+              Object {
+                "height": 1,
+                "left": 0,
+                "marginTop": 9,
+                "right": 0,
+              }
+            }
+          />
           <Text
             accessible={true}
             allowFontScaling={true}
@@ -403,174 +450,129 @@ exports[`LoginView renders correctly 1`] = `
                   Object {
                     "textAlign": "center",
                   },
-                  Object {
-                    "color": "#0E4EF8",
-                    "textDecorationLine": "underline",
-                  },
                 ],
               ]
             }
           >
-            Forgot Password
+            - or -
           </Text>
-        </View>
-        <View
-          style={
-            Object {
-              "height": 1,
-              "left": 0,
-              "marginTop": 9,
-              "right": 0,
-            }
-          }
-        />
-        <Text
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
-          h1={false}
-          h2={false}
-          h3={false}
-          h4={false}
-          h5={false}
-          onPress={null}
-          p={true}
-          style={
-            Array [
-              Object {
-                "color": "#222222",
-                "fontFamily": "HelveticaNeue",
-                "fontSize": 14,
-                "fontWeight": "500",
-                "lineHeight": 18,
-                "marginBottom": 8,
-              },
-              Array [
-                Object {
-                  "textAlign": "center",
-                },
-              ],
-            ]
-          }
-        >
-          - or -
-        </Text>
-        <View
-          accessibilityComponentType={undefined}
-          accessibilityLabel={undefined}
-          accessibilityTraits={undefined}
-          accessible={true}
-          hasTVPreferredFocus={undefined}
-          hitSlop={undefined}
-          isTVSelectable={true}
-          onLayout={undefined}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
-          style={
-            Array [
-              Object {
-                "backgroundColor": "transparent",
-              },
-              undefined,
-            ]
-          }
-          testID={undefined}
-          tvParallaxProperties={undefined}
-        >
           <View
+            accessibilityComponentType={undefined}
+            accessibilityLabel={undefined}
+            accessibilityTraits={undefined}
+            accessible={true}
+            hasTVPreferredFocus={undefined}
+            hitSlop={undefined}
+            isTVSelectable={true}
+            onLayout={undefined}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
             style={
               Array [
                 Object {
-                  "alignItems": "center",
-                  "backgroundColor": "#9E9E9E",
-                  "flexDirection": "row",
-                  "justifyContent": "center",
-                  "marginLeft": 15,
-                  "marginRight": 15,
-                  "padding": 19,
+                  "backgroundColor": "transparent",
                 },
-                undefined,
-                undefined,
-                undefined,
-                undefined,
-                undefined,
-                Object {
-                  "backgroundColor": "#0E4EF8",
-                },
-                Object {
-                  "borderRadius": 2,
-                },
-                Object {
-                  "shadowColor": "rgba(0,0,0, .4)",
-                  "shadowOffset": Object {
-                    "height": 1,
-                    "width": 1,
-                  },
-                  "shadowOpacity": 1,
-                  "shadowRadius": 1,
-                },
-                Object {
-                  "padding": 12,
-                },
-                Object {
-                  "marginLeft": 0,
-                  "marginRight": 0,
-                  "padding": 12,
-                },
-                undefined,
                 undefined,
               ]
             }
+            testID={undefined}
+            tvParallaxProperties={undefined}
           >
-            <Text
-              accessible={true}
-              allowFontScaling={true}
-              ellipsizeMode="tail"
+            <View
               style={
                 Array [
                   Object {
-                    "fontFamily": undefined,
+                    "alignItems": "center",
+                    "backgroundColor": "#9E9E9E",
+                    "flexDirection": "row",
+                    "justifyContent": "center",
+                    "marginLeft": 15,
+                    "marginRight": 15,
+                    "padding": 19,
                   },
                   undefined,
                   undefined,
                   undefined,
                   undefined,
                   undefined,
+                  Object {
+                    "backgroundColor": "#0E4EF8",
+                  },
+                  Object {
+                    "borderRadius": 2,
+                  },
+                  Object {
+                    "shadowColor": "rgba(0,0,0, .4)",
+                    "shadowOffset": Object {
+                      "height": 1,
+                      "width": 1,
+                    },
+                    "shadowOpacity": 1,
+                    "shadowRadius": 1,
+                  },
+                  Object {
+                    "padding": 12,
+                  },
+                  Object {
+                    "marginLeft": 0,
+                    "marginRight": 0,
+                    "padding": 12,
+                  },
                   undefined,
                   undefined,
-                  undefined,
-                  undefined,
-                  Array [
-                    Object {
-                      "color": "white",
-                      "fontSize": 20,
-                    },
-                    Object {
-                      "color": "#fff",
-                    },
-                    Object {
-                      "fontSize": 17.5,
-                    },
-                    Object {
-                      "fontSize": 14,
-                    },
-                    undefined,
-                    Object {
-                      "fontWeight": "bold",
-                    },
-                    Object {
-                      "fontFamily": "HelveticaNeue",
-                    },
-                  ],
                 ]
               }
             >
-              Sign Up
-            </Text>
+              <Text
+                accessible={true}
+                allowFontScaling={true}
+                ellipsizeMode="tail"
+                style={
+                  Array [
+                    Object {
+                      "fontFamily": undefined,
+                    },
+                    undefined,
+                    undefined,
+                    undefined,
+                    undefined,
+                    undefined,
+                    undefined,
+                    undefined,
+                    undefined,
+                    undefined,
+                    Array [
+                      Object {
+                        "color": "white",
+                        "fontSize": 20,
+                      },
+                      Object {
+                        "color": "#fff",
+                      },
+                      Object {
+                        "fontSize": 17.5,
+                      },
+                      Object {
+                        "fontSize": 14,
+                      },
+                      undefined,
+                      Object {
+                        "fontWeight": "bold",
+                      },
+                      Object {
+                        "fontFamily": "HelveticaNeue",
+                      },
+                    ],
+                  ]
+                }
+              >
+                Sign Up
+              </Text>
+            </View>
           </View>
         </View>
       </View>

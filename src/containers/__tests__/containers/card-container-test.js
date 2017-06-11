@@ -1,7 +1,7 @@
 /**
  * Test to check if the container is created correctly
  */
-/* global it expect jest */
+/* global it expect */
 import 'react-native';
 
 import CardContainer from '@containers/recipes/Card/CardContainer';

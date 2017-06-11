@@ -1,7 +1,7 @@
 /**
  * Test to check if the container is created correctly
  */
-/* global it expect jest */
+/* global it expect */
 import 'react-native';
 
 import BrowseContainer from '@containers/recipes/Browse/BrowseContainer';

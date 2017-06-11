@@ -711,7 +711,7 @@ exports[`Large Button with Icon renders correctly 1`] = `
         Array [
           Object {
             "color": "white",
-            "fontSize": 20,
+            "fontSize": 14,
           },
           Array [
             Object {

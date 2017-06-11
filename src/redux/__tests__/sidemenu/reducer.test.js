@@ -1,7 +1,7 @@
 /**
  * Test to check if a reducer is working as expected
  */
-/* global it expect jest */
+/* global it expect */
 import 'react-native';
 
 import sideMenuReducer, { initialState } from '@redux/sidemenu/reducer';

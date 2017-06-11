@@ -19,7 +19,7 @@ class CustomButton extends Component {
     large: PropTypes.bool,
     outlined: PropTypes.bool,
     backgroundColor: PropTypes.string,
-    onPress: PropTypes.func.isRequired,
+    onPress: PropTypes.func,
     icon: PropTypes.shape({
       name: PropTypes.string,
     }),
@@ -31,6 +31,7 @@ class CustomButton extends Component {
     outlined: false,
     icon: {},
     backgroundColor: null,
+    onPress: null,
   }
 
   buttonProps = () => {

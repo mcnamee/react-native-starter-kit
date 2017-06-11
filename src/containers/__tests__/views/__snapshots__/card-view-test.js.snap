@@ -161,9 +161,7 @@ exports[`CardView renders correctly 1`] = `
                   },
                 ]
               }
-            >
-              It's so delicious!
-            </Text>
+            />
           </View>
         </View>
       </View>

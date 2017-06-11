@@ -1,19 +1,23 @@
 /**
  * Test to check if the component renders correctly
  */
-/* global it expect jest */
+/* global it expect */
 import 'react-native';
 import React from 'react';
 import renderer from 'react-test-renderer';
 
-import LoginView from '@containers/auth/Login/LoginView';
+import FormView from '@containers/auth/Form/FormView';
 
 // Login prop expects a promise
 const mockPromise = new Promise(resolve => resolve());
 
-it('LoginView renders correctly', () => {
+it('FormView renders correctly', () => {
   const tree = renderer.create(
-    <LoginView login={() => mockPromise} />,
+    <FormView
+      login={() => mockPromise}
+      signUp={() => mockPromise}
+      resetPassword={() => mockPromise}
+    />,
   ).toJSON();
 
   expect(tree).toMatchSnapshot();

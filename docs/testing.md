@@ -1,4 +1,14 @@
-# Testing (with Jest)
+# Testing
+
+## Linting (with eslint)
+
+Want to check if your code is formatted consistently + pick up on any syntax errors:
+
+```
+./node_modules/.bin/eslint "src/**/*.js"
+```
+
+## Jest Snapshots
 
 Run `npm test` to run a test add `-- --watch` to run it in developer mode.
 

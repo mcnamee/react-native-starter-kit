@@ -1,7 +1,7 @@
 /**
  * Test to check if an action is working as expected
  */
-/* global it expect jest */
+/* global it expect */
 import 'react-native';
 
 import * as sideMenuActions from '@redux/sidemenu/actions';

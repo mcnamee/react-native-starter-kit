@@ -1,7 +1,7 @@
 /**
  * Test to check if the component renders correctly
  */
-/* global it expect jest */
+/* global it expect */
 import 'react-native';
 import React from 'react';
 import renderer from 'react-test-renderer';
@@ -15,7 +15,7 @@ it('ListingView renders correctly', () => {
   ];
 
   const tree = renderer.create(
-    <ListingView recipes={theseRecipes} reFetch={jest.fn()} />,
+    <ListingView recipes={theseRecipes} />,
   ).toJSON();
 
   expect(tree).toMatchSnapshot();

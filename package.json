@@ -19,6 +19,7 @@
     "verbose": true
   },
   "dependencies": {
+    "eslint-config-airbnb": "^14.1.0",
     "firebase": "^4.1.2",
     "jwt-decode": "^2.1.0",
     "react": "15.4.2",
@@ -50,7 +51,7 @@
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-jsx-a11y": "^4.0.0",
     "eslint-plugin-react": "^6.4.1",
-    "jest": "19.0.2",
+    "jest": "^19.0.2",
     "jest-react-native": "^18.0.0",
     "react-test-renderer": "15.5.4"
   }

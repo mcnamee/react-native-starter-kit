@@ -4,15 +4,6 @@
  * React Native Starter App
  * https://github.com/mcnamee/react-native-starter-app
  */
-
-const Entities = require('html-entities').AllHtmlEntities;
-
-const entities = new Entities();
-
-function striptags(input) {
-  return input.replace(/(<([^>]+)>)/ig, '');
-}
-
 const UTIL = {
   /**
     * Test if Obj is empty
@@ -36,60 +27,6 @@ const UTIL = {
     if (str.length > limit) return `${str.substr(0, limit).trim()} ...`;
     return str;
   },
-
-  /**
-    * Decode HTML Entites
-    */
-  htmlEntitiesDecode: str => entities.decode(str),
-
-  /**
-    * Convert all HTMLEntities when Array
-    */
-  convertHtmlEntitiesArray: (arr) => {
-    const finalArr = arr;
-
-    if (arr instanceof Array) {
-      arr.forEach((item, key) => {
-        if (item instanceof Array) {
-          finalArr[key] = UTIL.convertHtmlEntitiesArray(item);
-        } else if (typeof item === 'object') {
-          finalArr[key] = UTIL.convertHtmlEntitiesObject(item);
-        } else if (typeof item === 'string') {
-          finalArr[key] = entities.decode(striptags(item));
-        }
-      });
-    }
-
-    return finalArr;
-  },
-
-  /**
-    * Convert all HTMLEntities when Object
-    */
-  convertHtmlEntitiesObject: (obj) => {
-    const finalObj = obj;
-
-    if (typeof obj === 'object' && !(obj instanceof Array)) {
-      Object.keys(obj).forEach((key) => {
-        const item = obj[key];
-
-        if (item instanceof Array) {
-          finalObj[key] = UTIL.convertHtmlEntitiesArray(item);
-        } else if (typeof item === 'object') {
-          finalObj[key] = UTIL.convertHtmlEntitiesObject(item);
-        } else if (typeof item === 'string') {
-          finalObj[key] = entities.decode(striptags(item));
-        }
-      });
-    }
-
-    return finalObj;
-  },
-
-  /**
-    * Strips all HTML tags
-    */
-  stripTags: str => striptags(str),
 };
 
 /* Export ==================================================================== */

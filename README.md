@@ -5,15 +5,13 @@
 [![GitHub closed issues](https://img.shields.io/github/issues-closed/mcnamee/react-native-starter-app.svg?style=flat-square)](https://github.com/mcnamee/react-native-starter-app/issues-closed)
 [![GitHub pull requests](https://img.shields.io/github/issues-pr/mcnamee/react-native-starter-app.svg?style=flat-square)](https://github.com/mcnamee/react-native-starter-app/issues-pr)
 
-
-[![Build Status](https://travis-ci.org/mcnamee/react-native-starter-app.svg?branch=master)](https://travis-ci.org/mcnamee/react-native-starter-app)
-[![Coverage Status](https://coveralls.io/repos/github/mcnamee/react-native-starter-app/badge.svg?branch=master)](https://coveralls.io/github/mcnamee/react-native-starter-app?branch=master)
-
 ![alt text](/docs/rnsk-logo.jpg "React Native Starter Kit")
 
 # React Native Starter Kit
 
 React Native Starter Kit helps you get started with React Native. It contains a bunch of helpful components, building blocks and basic structure to allow you to jump straight into building an app.
+
+What's more, it's now integrated with [Firebase](https://firebase.google.com/), to help you kick start your next full-stack product.
 
 ![alt text](/docs/rnsk-screens.jpg "React Native Starter App")
 
@@ -32,7 +30,7 @@ React Native Starter Kit helps you get started with React Native. It contains a 
    1. [Renaming the App from StarterKit](/docs/renaming.md)
    1. [Routing / Navigating](/src/navigation/README.md)
    1. [Using Google Analytics](/docs/google-analytics.md)
-   1. [Interacting with a REST API](/docs/api.md)
+   1. [Interacting with the Firebase API](https://firebase.google.com/docs/database/web/start)
    1. [Testing](/docs/testing.md)
 1. [Contributing](/docs/contributing.md)
 1. [Licence](LICENSE)
@@ -45,7 +43,7 @@ React Native Starter Kit helps you get started with React Native. It contains a 
 | --- | --- |
 | [Redux](https://github.com/reactjs/react-redux) | A predictable state container - Helping you write applications that behave consistently and run in different environments. |
 | [React Native Router Flux](https://github.com/aksonov/react-native-router-flux) | Router for React Native based on new React Native Navigation API. <br><br>['How to' Guide &rarr;](/src/navigation/README.md)|
-| [API Example](/docs/api.md) | A basic example showing how you can interact with a RESTful API with user authentication (JWT). |
+| [Firebase](https://firebase.google.com) | Most apps needs some sort of data. RNSK is setup and ready to go with 'data from the cloud'. |
 | [Sidebar / Hamburger Menu](https://github.com/react-native-community/react-native-side-menu) | ... |
 | [React Native Elements](https://github.com/react-native-community/react-native-elements) | Cross Platform React Native UI Toolkit. |
 | [Google Analytics](https://github.com/idehub/react-native-google-analytics-bridge) | Shows how to track screen views (includes both a 'debug' mode tracker as well as 'release' mode so that data doesn't get obfuscated). <br><br>[Setup Guide &rarr;](/docs/google-analytics.md) |
@@ -59,6 +57,7 @@ React Native Starter Kit helps you get started with React Native. It contains a 
 
 ## Getting Started
 
+1. [Setup your own Firebase API to get the full experience](#the-api--testing-out-authentication)
 1. Ensure you've followed the [React Native - Get Started Guide](https://facebook.github.io/react-native/docs/getting-started.html) for the platform/s of choice
 1. Clone this project `git clone https://github.com/mcnamee/react-native-starter-app.git`
 1. Run `npm install` from root directory
@@ -66,14 +65,14 @@ React Native Starter Kit helps you get started with React Native. It contains a 
 
 ---
 
-### The API & testing out authentication
-We've created a quick little API server on [Google's Firebase Platform](https://firebase.google.com/). You can get your own little API server up and running within minutes too:
+## The API & testing out authentication
+We've created a quick little "API server" on [Google's Firebase Platform](https://firebase.google.com/). You can get your own API up and running within minutes too:
 
 1. Signup for a [Firebase account](https://firebase.google.com/)
-1. Create a new project - eg. React Native Starter App
+1. Create a new project - eg. "React Native Starter App"
 1. Turn on email/password __Authentication__
 1. Enable the __Database__ feature, and import the `firebase-sample-data.json` file found in this repo
-1. Get the Firebase project's API key, copy `/.env.sample` to `/.env` and paste the API key in the APIKEY variable (eg. `APIKEY=d8f72k10s39djk29js`)
+1. Get the Firebase project's API credentials, copy `/.env.sample` to `/.env` and fill in the respective variables (eg. `APIKEY=d8f72k10s39djk29js`). You can get your projects details from Firebase, by clicking on the cog icon, next to overview > 'Add Firebase to your web app'.
 1. Add the following __rules__ to the Database
 
 ```json
@@ -81,7 +80,7 @@ We've created a quick little API server on [Google's Firebase Platform](https://
   "rules": {
     ".read": false,
     ".write": false,
-      
+
     "recipes": {
       ".read": true,
     	".indexOn": ["category"]

@@ -15,7 +15,6 @@ import { TabViewAnimated, TabBar } from 'react-native-tab-view';
 
 // Consts and Libs
 import { AppColors } from '@theme/';
-import AppAPI from '@lib/api';
 
 // Containers
 import RecipeListing from '@containers/recipes/Listing/ListingContainer';
@@ -23,7 +22,6 @@ import RecipeListing from '@containers/recipes/Listing/ListingContainer';
 // Components
 import { Text } from '@ui/';
 import Loading from '@components/general/Loading';
-import Error from '@components/general/Error';
 
 /* Styles ==================================================================== */
 const styles = StyleSheet.create({
@@ -47,16 +45,11 @@ class RecipeTabs extends Component {
   static componentName = 'RecipeTabs';
 
   static propTypes = {
-    meals: PropTypes.arrayOf(PropTypes.object),
-    getMeals: PropTypes.func.isRequired,
-    getFavourites: PropTypes.func.isRequired,
-    userId: PropTypes.string,
+    meals: PropTypes.arrayOf(PropTypes.object).isRequired,
   }
 
   static defaultProps = {
-    meals: null,
-    favourites: null,
-    userId: null,
+    meals: [],
   }
 
   constructor(props) {
@@ -68,9 +61,12 @@ class RecipeTabs extends Component {
     };
   }
 
+  /**
+    * Wait until any interactions are finished, before setting up tabs
+    */
   componentDidMount = () => {
     InteractionManager.runAfterInteractions(() => {
-      this.fetchData();
+      this.setTabs();
     });
   }
 
@@ -96,37 +92,11 @@ class RecipeTabs extends Component {
         routes,
       },
     }, () => {
-      this.setState({
-        loading: false,
-      });
+      // Hack to prevent error showing
+      setTimeout(() => {
+        this.setState({ loading: false });
+      }, 100);
     });
-  }
-
-  /**
-    * Fetch meals to populate tabs
-    */
-  fetchData = () => {
-    // Get meals to populate tabs
-    if (!this.props.meals || this.props.meals.length < 1) {
-      this.props.getMeals()
-        .then(() => {
-          this.setTabs();
-
-          // Get user's favourite recipes
-          if (this.props.userId) {
-            this.props.getFavourites(this.props.userId)
-              .catch(e => console.log(e));
-          }
-        }).catch((err) => {
-          const error = AppAPI.handleError(err);
-          this.setState({
-            loading: false,
-            error,
-          });
-        });
-    } else {
-      this.setTabs();
-    }
   }
 
   /**
@@ -181,7 +151,6 @@ class RecipeTabs extends Component {
 
   render = () => {
     if (this.state.loading || !this.state.navigation) return <Loading />;
-    if (this.state.error) return <Error text={this.state.error} />;
 
     return (
       <TabViewAnimated

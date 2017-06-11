@@ -7,8 +7,9 @@
 
 // Set initial state
 export const initialState = {
-  favourites: [],
   meals: [],
+  recipes: [],
+  favourites: [],
 };
 
 export default function recipeReducer(state = initialState, action) {
@@ -20,19 +21,31 @@ export default function recipeReducer(state = initialState, action) {
       };
     }
     case 'MEALS_REPLACE': {
-      let meals = [];
+      return {
+        ...state,
+        meals: action.data,
+      };
+    }
+    case 'RECIPES_REPLACE': {
+      let recipes = [];
 
-      // Pick out the items to keep
+      // Pick out the props I need
       if (action.data && typeof action.data === 'object') {
-        meals = action.data.map(item => ({
+        recipes = action.data.map(item => ({
           id: item.id,
           title: item.title,
+          body: item.body,
+          category: item.category,
+          image: item.image,
+          author: item.author,
+          ingredients: item.ingredients,
+          method: item.method,
         }));
       }
 
       return {
         ...state,
-        meals,
+        recipes,
       };
     }
     default:

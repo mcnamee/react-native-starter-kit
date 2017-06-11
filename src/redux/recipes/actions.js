@@ -4,57 +4,76 @@
  * React Native Starter App
  * https://github.com/mcnamee/react-native-starter-app
  */
-
-import AppAPI from '@lib/api';
+import { Firebase, FirebaseRef } from '@constants/';
 
 /**
-  * Get Favourites
+  * Get this User's Favourite Recipes
   */
-export function getFavourites(userId) {
-  return dispatch =>
-    AppAPI.favourites.get({ userId })
-      .then((res) => {
-        dispatch({
-          type: 'FAVOURITES_REPLACE',
-          data: res,
-        });
+export function getFavourites() {
+  const UID = Firebase.auth().currentUser.uid;
+  if (!UID) return false;
+
+  return (dispatch) => {
+    const ref = FirebaseRef.child(`favourites/${UID}`);
+
+    return ref.once('value').then((snapshot) => {
+      const favs = snapshot.val() || {};
+
+      return dispatch({
+        type: 'FAVOURITES_REPLACE',
+        data: favs,
       });
+    });
+  };
 }
 
 /**
-  * Update My Favourites
+  * Update My Favourites Recipes
   */
-export function updateFavourites(userId, newFavourites) {
-  return dispatch =>
-    AppAPI.favourites.put({ userId }, newFavourites)
-      .then((res) => {
-        dispatch({
-          type: 'FAVOURITES_REPLACE',
-          data: res,
-        });
-      });
-}
+export function replaceFavourites(newFavourites) {
+  const UID = Firebase.auth().currentUser.uid;
+  if (!UID) return false;
 
+  return dispatch =>
+    FirebaseRef.child(`favourites/${UID}`).set(newFavourites)
+      .then(() => dispatch({
+        type: 'FAVOURITES_REPLACE',
+        data: newFavourites,
+      }));
+}
 
 /**
   * Get Meals
   */
 export function getMeals() {
-  return dispatch =>
-    AppAPI.meals.get()
-      .then((res) => {
-        dispatch({
-          type: 'MEALS_REPLACE',
-          data: res,
-        });
+  return (dispatch) => {
+    const ref = FirebaseRef.child('meals');
+
+    return ref.once('value').then((snapshot) => {
+      const meals = snapshot.val() || {};
+
+      return dispatch({
+        type: 'MEALS_REPLACE',
+        data: meals,
       });
+    });
+  };
 }
 
 /**
-  * Reset Meals
+  * Get Recipes
   */
-export function reset() {
-  return {
-    type: 'RECIPE_RESET',
+export function getRecipes() {
+  return (dispatch) => {
+    const ref = FirebaseRef.child('recipes');
+
+    return ref.once('value').then((snapshot) => {
+      const recipes = snapshot.val() || {};
+
+      return dispatch({
+        type: 'RECIPES_REPLACE',
+        data: recipes,
+      });
+    });
   };
 }

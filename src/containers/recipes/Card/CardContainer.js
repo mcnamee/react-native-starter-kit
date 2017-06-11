@@ -23,7 +23,7 @@ const mapStateToProps = state => ({
 
 // Any actions to map to the component?
 const mapDispatchToProps = {
-  updateFavourites: RecipeActions.updateFavourites,
+  replaceFavourites: RecipeActions.replaceFavourites,
 };
 
 /* Component ==================================================================== */
@@ -37,10 +37,10 @@ class RecipeCard extends Component {
       body: PropTypes.string.isRequired,
       image: PropTypes.string,
     }).isRequired,
-    updateFavourites: PropTypes.func.isRequired,
+    replaceFavourites: PropTypes.func.isRequired,
     favourites: PropTypes.arrayOf(PropTypes.number),
     user: PropTypes.shape({
-      localId: PropTypes.string,
+      uid: PropTypes.string,
     }),
   }
 
@@ -74,10 +74,10 @@ class RecipeCard extends Component {
     * When user taps to favourite a recipe
     */
   onPressFavourite = () => {
-    if (this.props.user && this.props.user.localId) {
+    if (this.props.user && this.props.user.uid) {
       const recipeId = this.props.recipe.id;
 
-      if (recipeId && this.props.updateFavourites) {
+      if (recipeId && this.props.replaceFavourites) {
         const favs = this.props.favourites;
 
         // Toggle to/from current list
@@ -88,11 +88,13 @@ class RecipeCard extends Component {
         }
 
         // Send new list to API
-        this.props.updateFavourites(this.props.user.localId, favs);
+        this.props.replaceFavourites(favs);
+
+        // Manually trigger a re-render - I wish I knew why this was required...
+        this.setState({ recipe: this.state.recipe });
       }
     }
   }
-
 
   /**
     * Check in Redux to find if this Recipe ID is a Favourite
@@ -117,8 +119,8 @@ class RecipeCard extends Component {
         body={recipe.body}
         image={recipe.image}
         onPress={this.onPressCard}
-        onPressFavourite={(user && user.localId) ? this.onPressFavourite : null}
-        isFavourite={(user && user.localId && this.isFavourite()) && true}
+        onPressFavourite={(user && user.uid) ? this.onPressFavourite : null}
+        isFavourite={(user && user.uid && this.isFavourite()) && true}
       />
     );
   }

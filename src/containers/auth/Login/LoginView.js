@@ -14,7 +14,6 @@ import FormValidation from 'tcomb-form-native';
 import { Actions } from 'react-native-router-flux';
 
 // Consts and Libs
-import AppAPI from '@lib/api';
 import { AppStyles } from '@theme/';
 
 // Components
@@ -108,14 +107,9 @@ class Login extends Component {
         this.setState({ resultMsg: { status: 'One moment...' } });
 
         // Scroll to top, to show message
-        if (this.scrollView) {
-          this.scrollView.scrollTo({ y: 0 });
-        }
+        if (this.scrollView) this.scrollView.scrollTo({ y: 0 })
 
-        this.props.login({
-          username: credentials.Email,
-          password: credentials.Password,
-        }, true).then(() => {
+        this.props.login(credentials.Email, credentials.Password).then(() => {
           this.setState({
             resultMsg: { success: 'Awesome, you\'re now logged in!' },
           }, () => {
@@ -124,8 +118,7 @@ class Login extends Component {
             }, 1000);
           });
         }).catch((err) => {
-          const error = AppAPI.handleError(err);
-          this.setState({ resultMsg: { error } });
+          this.setState({ resultMsg: { error: err.message } });
         });
       });
     }

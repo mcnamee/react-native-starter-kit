@@ -13,7 +13,6 @@ import FormValidation from 'tcomb-form-native';
 import { Actions } from 'react-native-router-flux';
 
 // Consts and Libs
-import AppAPI from '@lib/api';
 import { AppStyles } from '@theme/';
 
 // Components
@@ -108,25 +107,20 @@ class SignUp extends Component {
         this.setState({ resultMsg: { status: 'One moment...' } });
 
         // Scroll to top, to show message
-        if (this.scrollView) {
-          this.scrollView.scrollTo({ y: 0 });
-        }
+        if (this.scrollView) this.scrollView.scrollTo({ y: 0 });
 
-        this.props.signUp({
-          email: credentials.Email,
-          password: credentials.Password,
-          returnSecureToken: true,
-        }, true).then(() => {
+        this.props.signUp(credentials.Email, credentials.Password).then(() => {
+          // Show Sign Up success message
           this.setState({
             resultMsg: { success: 'Awesome, you\'re now signed up!' },
           }, () => {
-            this.props.login({
-              email: credentials.Email,
-              password: credentials.Password,
-            }, true).then(() => {
+            // Then log user in
+            this.props.login(credentials.Email, credentials.Password).then(() => {
+              // Show that user is now logged in
               this.setState({
                 resultMsg: { success: 'Awesome, you\'re now logged in!' },
               }, () => {
+                // Redirect to main App Screen
                 setTimeout(() => {
                   Actions.app({ type: 'reset' });
                 }, 1000);
@@ -134,8 +128,7 @@ class SignUp extends Component {
             });
           });
         }).catch((err) => {
-          const error = AppAPI.handleError(err);
-          this.setState({ resultMsg: { error } });
+          this.setState({ resultMsg: { error: err.message } });
         });
       });
     }
@@ -170,9 +163,7 @@ class SignUp extends Component {
             onPress={this.signUp}
           />
 
-          <Spacer size={10} />
-
-          <Spacer size={10} />
+          <Spacer size={20} />
 
           <Text p style={[AppStyles.textCenterAligned]}>
             - or -

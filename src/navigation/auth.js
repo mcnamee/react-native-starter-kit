@@ -12,7 +12,6 @@ import { AppConfig } from '@constants/';
 
 // Scenes
 import Authenticate from '@containers/auth/AuthenticateView';
-import AuthWebView from '@containers/auth/WebView';
 import AuthLogin from '@containers/auth/Login/LoginContainer';
 import AuthSignUp from '@containers/auth/SignUp/SignUpContainer';
 
@@ -41,15 +40,6 @@ const scenes = (
       clone
       component={AuthSignUp}
       analyticsDesc={'AuthSignUp: Sign Up'}
-    />
-    <Scene
-      {...AppConfig.navbarProps}
-      key={'passwordReset'}
-      title={'Password Reset'}
-      clone
-      component={AuthWebView}
-      url={AppConfig.urls.resetPassword}
-      analyticsDesc={'AuthWebView: Password Reset'}
     />
   </Scene>
 );

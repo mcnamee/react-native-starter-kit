@@ -19,6 +19,7 @@
     "verbose": true
   },
   "dependencies": {
+    "firebase": "^4.1.2",
     "html-entities": "^1.2.0",
     "jwt-decode": "^2.1.0",
     "qs": "^6.3.0",

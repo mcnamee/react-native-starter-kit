@@ -28,6 +28,13 @@ async function saveCredentialsToStorage(email = '', password = '') {
 }
 
 /**
+  * Remove Login Credentials from AsyncStorage
+  */
+async function removeCredentialsFromStorage() {
+  await AsyncStorage.removeItem('api/credentials');
+}
+
+/**
   * Login to Firebase with Email/Password
   */
 export function login(inputEmail = '', inputPassword = '') {
@@ -51,10 +58,10 @@ export function login(inputEmail = '', inputPassword = '') {
       .signInWithEmailAndPassword(email, password)
       .then((res) => {
         // Get Favourites
-        RecipeActions.getFavourites();
+        RecipeActions.getFavourites(dispatch);
 
         // Send to Redux
-        dispatch({
+        return dispatch({
           type: 'USER_LOGIN',
           data: res,
         });
@@ -76,10 +83,9 @@ export function signUp(email, password) {
 export function logout() {
   return dispatch => Firebase.auth()
     .signOut()
-    .then((res) => {
-      dispatch({
-        type: 'USER_LOGOUT',
-        data: res,
-      });
+    .then(() => {
+      removeCredentialsFromStorage();
+      RecipeActions.resetFavourites(dispatch);
+      dispatch({ type: 'USER_LOGOUT' });
     });
 }

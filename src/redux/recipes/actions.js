@@ -9,22 +9,30 @@ import { Firebase, FirebaseRef } from '@constants/';
 /**
   * Get this User's Favourite Recipes
   */
-export function getFavourites() {
+export function getFavourites(dispatch) {
   const UID = Firebase.auth().currentUser.uid;
   if (!UID) return false;
 
-  return (dispatch) => {
-    const ref = FirebaseRef.child(`favourites/${UID}`);
+  const ref = FirebaseRef.child(`favourites/${UID}`);
 
-    return ref.once('value').then((snapshot) => {
-      const favs = snapshot.val() || {};
+  return ref.once('value').then((snapshot) => {
+    const favs = snapshot.val() || {};
 
-      return dispatch({
-        type: 'FAVOURITES_REPLACE',
-        data: favs,
-      });
+    return dispatch({
+      type: 'FAVOURITES_REPLACE',
+      data: favs,
     });
-  };
+  });
+}
+
+/**
+  * Reset a User's Favourite Recipes in Redux (eg for logou)
+  */
+export function resetFavourites(dispatch) {
+  return dispatch({
+    type: 'FAVOURITES_REPLACE',
+    data: [],
+  });
 }
 
 /**

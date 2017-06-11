@@ -130,10 +130,8 @@ export default class JWT {
     const eagerRenew = 60; // number of seconds prior to expiry that a token is considered 'old'
 
     // Validate against 'expiry', 'not before' and 'sub' fields in token
-    if (decodedToken.exp && decodedToken.nbf) {
-      if (NOW > (decodedToken.exp - eagerRenew)) return false; // Expired
-      if (NOW < decodedToken.nbf - 300) return false; // Not yet valid (too early!)
-    }
+    if (decodedToken.exp && NOW > (decodedToken.exp - eagerRenew)) return false; // Expired
+    if (decodedToken.nbf && NOW < decodedToken.nbf - 300) return false; // Not yet valid
 
     // Don't worry about http vs https - strip it out
     if (APIConfig.hostname && decodedToken.iss) {

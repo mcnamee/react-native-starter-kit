@@ -119,14 +119,14 @@ function fetcher(method, inputEndpoint, inputParams, inputBody) {
     };
 
     // Add Token to authEndpoints only
-    if (Token.getStoredToken) {
+    if (Token.getToken) {
       // Form array of complete auth endpoints to test against
       const authEndpoints = APIConfig.authEnpoints.map(x => APIConfig.endpoints.get(x));
 
       // Only add the token when we need to
       if (authEndpoints.indexOf(endpoint) > -1) {
         // Get the token
-        const apiToken = await Token.getStoredToken();
+        const apiToken = await Token.getToken();
         if (apiToken) {
           // Add token to header
           if (APIConfig.sendAuthorizationBearerHeader) {

@@ -94,7 +94,6 @@ We've created a quick little "API server" on [Google's Firebase Platform](https:
       "$uid": {
         ".read": "auth != null && auth.uid == $uid",
         ".write": "auth != null && auth.uid == $uid",
-        ".validate": "newData.hasChildren(['firstName', 'lastName', 'role']) || newData.hasChildren(['lastLoggedIn'])",
 
         "firstName": { ".validate": "newData.isString() && newData.val().length > 0" },
         "lastName": { ".validate": "newData.isString() && newData.val().length > 0" },
@@ -115,6 +114,8 @@ We've created a quick little "API server" on [Google's Firebase Platform](https:
   }
 }
 ```
+
+Want to experiment even more with Firebase? Check out the [Firebase Cloud Functions](/docs/README.md)
 
 ---
 

@@ -111,7 +111,6 @@ export function signUp(email, password, firstName, lastName) {
           lastName,
           signedUp: Firebase.database.ServerValue.TIMESTAMP,
           lastLoggedIn: Firebase.database.ServerValue.TIMESTAMP,
-          role: 'user',
         });
       }
     });

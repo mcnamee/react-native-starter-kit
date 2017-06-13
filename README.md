@@ -81,13 +81,29 @@ We've created a quick little "API server" on [Google's Firebase Platform](https:
     ".read": false,
     ".write": false,
 
+    "meals": {
+      ".read": true
+    },
+
     "recipes": {
       ".read": true,
     	".indexOn": ["category"]
     },
 
-    "meals": {
-      ".read": true
+    "users": {
+      "$uid": {
+        ".read": "auth != null && auth.uid == $uid",
+        ".write": "auth != null && auth.uid == $uid",
+        ".validate": "newData.hasChildren(['firstName', 'lastName', 'role']) || newData.hasChildren(['lastLoggedIn'])",
+
+        "firstName": { ".validate": "newData.isString() && newData.val().length > 0" },
+        "lastName": { ".validate": "newData.isString() && newData.val().length > 0" },
+        "lastLoggedIn": { ".validate": "newData.val() <= now" },
+        "signedUp": { ".validate": "newData.val() <= now" },
+        "role": {
+          ".validate": "(root.child('users/'+auth.uid+'/role').val() === 'admin' && newData.val() === 'admin') || newData.val() === 'user'"
+        }
+      }
     },
 
     "favourites": {

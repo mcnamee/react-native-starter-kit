@@ -1,4 +1,18 @@
 {
+  "users": {
+  },
+  "favourites": {
+  },
+  "meals": [
+    {
+      "id": 1,
+      "title": "Lunch"
+    },
+    {
+      "id": 2,
+      "title": "Dinner"
+    }
+  ],
   "recipes" : [
     {
       "id": 1,
@@ -263,18 +277,6 @@
         "magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet",
         "sed quia non numquam eius modi tempora incidunt ut labore"
       ]
-    }
-  ],
-  "favourites": [
-  ],
-  "meals": [
-    {
-      "id": 1,
-      "title": "Lunch"
-    },
-    {
-      "id": 2,
-      "title": "Dinner"
     }
   ]
 }

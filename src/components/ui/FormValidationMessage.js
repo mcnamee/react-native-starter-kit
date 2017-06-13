@@ -1,26 +1,25 @@
 /**
- * Text Input
+ * Form Validation Message
  *
-     <FormInput></FormInput>
+     <FormValidationMessage></FormValidationMessage>
  *
  * React Native Starter App
  * https://github.com/mcnamee/react-native-starter-app
  */
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { FormInput } from 'react-native-elements';
+import React, { Component, PropTypes } from 'react';
+import { FormValidationMessage } from 'react-native-elements';
 
 // Consts and Libs
-import { AppColors, AppFonts } from '@theme/';
+import { AppFonts } from '@theme/';
 
 /* Component ==================================================================== */
-class CustomFormInput extends Component {
+class CustomFormValidationMessage extends Component {
   static propTypes = {
     containerStyle: PropTypes.oneOfType([
       PropTypes.array,
       PropTypes.shape({}),
     ]),
-    inputStyle: PropTypes.oneOfType([
+    labelStyle: PropTypes.oneOfType([
       PropTypes.array,
       PropTypes.shape({}),
     ]),
@@ -28,26 +27,18 @@ class CustomFormInput extends Component {
 
   static defaultProps = {
     containerStyle: [],
-    inputStyle: [],
+    labelStyle: [],
   }
 
   inputProps = () => {
     // Defaults
     const props = {
       ...this.props,
-      containerStyle: [{
-        borderBottomColor: AppColors.border,
-        borderBottomWidth: 1,
-        backgroundColor: 'rgba(255,255,255,0.05)',
-        marginTop: 10,
+      containerStyle: [],
+      labelStyle: [{
         marginLeft: 0,
         marginRight: 0,
-      }],
-      inputStyle: [{
-        color: AppColors.textPrimary,
         fontFamily: AppFonts.base.family,
-        paddingHorizontal: 10,
-        paddingVertical: 3,
       }],
     };
 
@@ -55,15 +46,15 @@ class CustomFormInput extends Component {
       props.containerStyle.push(this.props.containerStyle);
     }
 
-    if (this.props.inputStyle) {
-      props.inputStyle.push(this.props.inputStyle);
+    if (this.props.labelStyle) {
+      props.labelStyle.push(this.props.labelStyle);
     }
 
     return props;
   }
 
-  render = () => <FormInput {...this.inputProps()} />
+  render = () => <FormValidationMessage {...this.inputProps()} />
 }
 
 /* Export Component ==================================================================== */
-export default CustomFormInput;
+export default CustomFormValidationMessage;

@@ -102,10 +102,10 @@ class StyleGuide extends Component {
       navigation: {
         index: 0,
         routes: [
-          { key: '0', title: 'Buttons' },
-          { key: '1', title: 'Basics' },
-          { key: '2', title: 'Cards' },
-          { key: '3', title: 'Lists' },
+          { key: '0', title: 'Lists' },
+          { key: '1', title: 'Buttons' },
+          { key: '2', title: 'Basics' },
+          { key: '3', title: 'Cards' },
           { key: '4', title: 'Form' },
         ],
       },
@@ -144,6 +144,33 @@ class StyleGuide extends Component {
   renderScene = ({ route }) => {
     switch (route.key) {
       case '0' :
+        return (
+          <View style={styles.tabContainer}>
+            <ScrollView
+              automaticallyAdjustContentInsets={false}
+              style={[AppStyles.container]}
+            >
+              <View style={[AppStyles.paddingHorizontal]}>
+                <Spacer size={15} />
+                <Text h2>List Rows</Text>
+                <Spacer size={-10} />
+              </View>
+              <List>
+                <ListView
+                  renderRow={this.renderRow}
+                  dataSource={this.state.dataSource}
+                />
+              </List>
+              <List>
+                <ListView
+                  renderRow={this.renderRow}
+                  dataSource={this.state.dataSource2}
+                />
+              </List>
+            </ScrollView>
+          </View>
+        );
+      case '1' :
         return (
           <View style={styles.tabContainer}>
             <ScrollView
@@ -217,7 +244,7 @@ class StyleGuide extends Component {
             </ScrollView>
           </View>
         );
-      case '1' :
+      case '2' :
         return (
           <View style={styles.tabContainer}>
             <ScrollView
@@ -257,7 +284,7 @@ class StyleGuide extends Component {
             </ScrollView>
           </View>
         );
-      case '2' :
+      case '3' :
         return (
           <View style={styles.tabContainer}>
             <ScrollView
@@ -303,33 +330,6 @@ class StyleGuide extends Component {
             </ScrollView>
           </View>
         );
-      case '3' :
-        return (
-          <View style={styles.tabContainer}>
-            <ScrollView
-              automaticallyAdjustContentInsets={false}
-              style={[AppStyles.container]}
-            >
-              <View style={[AppStyles.paddingHorizontal]}>
-                <Spacer size={15} />
-                <Text h2>List Rows</Text>
-                <Spacer size={-10} />
-              </View>
-              <List>
-                <ListView
-                  renderRow={this.renderRow}
-                  dataSource={this.state.dataSource}
-                />
-              </List>
-              <List>
-                <ListView
-                  renderRow={this.renderRow}
-                  dataSource={this.state.dataSource2}
-                />
-              </List>
-            </ScrollView>
-          </View>
-        );
       case '4' :
         return (
           <View style={styles.tabContainer}>
@@ -337,13 +337,15 @@ class StyleGuide extends Component {
               automaticallyAdjustContentInsets={false}
               style={[AppStyles.container]}
             >
-              <FormLabel>First Name</FormLabel>
-              <FormInput />
+              <View style={[AppStyles.paddingHorizontal]}>
+                <FormLabel>First Name</FormLabel>
+                <FormInput />
 
-              <Spacer size={10} />
+                <Spacer size={10} />
 
-              <FormLabel>Last Name</FormLabel>
-              <FormInput />
+                <FormLabel>Last Name</FormLabel>
+                <FormInput />
+              </View>
             </ScrollView>
           </View>
         );

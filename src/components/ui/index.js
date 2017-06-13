@@ -15,5 +15,6 @@ import List from './List';
 import ListItem from './ListItem';
 import FormInput from './FormInput';
 import FormLabel from './FormLabel';
+import FormValidationMessage from './FormValidationMessage';
 
-export { Alerts, Button, Card, Spacer, TabIcon, Text, List, ListItem, FormInput, FormLabel };
+export { Alerts, Button, Card, Spacer, TabIcon, Text, List, ListItem, FormInput, FormLabel, FormValidationMessage };

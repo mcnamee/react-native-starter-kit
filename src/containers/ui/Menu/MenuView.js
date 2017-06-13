@@ -54,12 +54,12 @@ const styles = StyleSheet.create({
   },
   menuItem: {
     borderBottomWidth: 1,
-    borderBottomColor: AppColors.border,
+    borderBottomColor: 'rgba(255, 255, 255, 0.1)',
     paddingBottom: 10,
   },
   menuItem_text: {
-    fontSize: 18,
-    lineHeight: parseInt(18 + (18 * 0.5), 10),
+    fontSize: 16,
+    lineHeight: parseInt(16 + (16 * 0.5), 10),
     fontWeight: '500',
     marginTop: 10,
     color: '#EEEFF0',

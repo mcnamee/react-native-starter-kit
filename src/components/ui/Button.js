@@ -48,6 +48,8 @@ class CustomButton extends Component {
       raised: true,
       buttonStyle: {
         padding: 12,
+      },
+      containerViewStyle: {
         marginLeft: 0,
         marginRight: 0,
       },

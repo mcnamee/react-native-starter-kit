@@ -14,12 +14,23 @@ export default function userReducer(state = initialState, action) {
       if (action.data) {
         const input = action.data;
         return {
+          ...state,
           uid: input.uid,
           email: input.email,
           emailVerified: input.emailVerified,
-          displayName: input.displayName,
-          phoneNumber: input.phoneNumber,
-          photoURL: input.photoURL,
+        };
+      }
+      return {};
+    }
+    case 'USER_DETAILS_UPDATE': {
+      if (action.data) {
+        const input = action.data;
+        return {
+          ...state,
+          firstName: input.firstName,
+          lastName: input.lastName,
+          signedUp: input.signedUp,
+          role: input.role,
         };
       }
       return {};

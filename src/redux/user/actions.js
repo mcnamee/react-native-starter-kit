@@ -5,7 +5,7 @@
  * https://github.com/mcnamee/react-native-starter-app
  */
 import { AsyncStorage } from 'react-native';
-import { Firebase } from '@constants/';
+import { Firebase, FirebaseRef } from '@constants/';
 import * as RecipeActions from '../recipes/actions';
 
 /**
@@ -35,6 +35,25 @@ async function removeCredentialsFromStorage() {
 }
 
 /**
+  * Get this User's Details
+  */
+function getUserData(dispatch) {
+  const UID = Firebase.auth().currentUser.uid;
+  if (!UID) return false;
+
+  const ref = FirebaseRef.child(`users/${UID}`);
+
+  return ref.on('value', (snapshot) => {
+    const userData = snapshot.val() || [];
+
+    return dispatch({
+      type: 'USER_DETAILS_UPDATE',
+      data: userData,
+    });
+  });
+}
+
+/**
   * Login to Firebase with Email/Password
   */
 export function login(inputEmail = '', inputPassword = '') {
@@ -54,27 +73,48 @@ export function login(inputEmail = '', inputPassword = '') {
     if (email && password) saveCredentialsToStorage(email, password);
 
     // We're ready - let's try logging them in
-    Firebase.auth()
+    return Firebase.auth()
       .signInWithEmailAndPassword(email, password)
       .then((res) => {
-        // Get Favourites
-        RecipeActions.getFavourites(dispatch);
+        if (res && res.uid) {
+          // Update last logged in data
+          FirebaseRef.child(`users/${res.uid}`).update({
+            lastLoggedIn: Firebase.database.ServerValue.TIMESTAMP,
+          });
+
+          // Get Favourites
+          RecipeActions.getFavourites(dispatch);
+
+          // Get User Data
+          getUserData(dispatch);
+        }
 
         // Send to Redux
         return dispatch({
           type: 'USER_LOGIN',
           data: res,
         });
-      });
+      }).catch((err) => { throw err; });
   };
 }
 
 /**
   * Sign Up to Firebase
   */
-export function signUp(email, password) {
+export function signUp(email, password, firstName, lastName) {
   return () => Firebase.auth()
-    .createUserWithEmailAndPassword(email, password);
+    .createUserWithEmailAndPassword(email, password)
+    .then((res) => {
+      if (res && res.uid) {
+        FirebaseRef.child(`users/${res.uid}`).set({
+          firstName,
+          lastName,
+          signedUp: Firebase.database.ServerValue.TIMESTAMP,
+          lastLoggedIn: Firebase.database.ServerValue.TIMESTAMP,
+          role: 'user',
+        });
+      }
+    });
 }
 
 /**

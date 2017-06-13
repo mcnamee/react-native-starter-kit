@@ -20,6 +20,7 @@ import { AppStyles } from '@theme/';
 
 // Components
 import { Alerts, Card, Spacer, Text, Button } from '@ui/';
+import TcombTextInput from '@components/tcomb/TextInput';
 
 /* Component ==================================================================== */
 class AuthForm extends Component {
@@ -57,16 +58,15 @@ class AuthForm extends Component {
     );
 
     // What fields should exist in the form?
-    let formFields = FormValidation.struct({
-      Email: validEmail,
-      Password: validPassword,
-    });
+    const formFields = { Email: validEmail };
 
-    // When this is the Password Reset screen - remove the password field
-    if (props.formType === 'passwordReset') {
-      formFields = FormValidation.struct({
-        Email: validEmail,
-      });
+    // Add fields to the respective form type
+    if (props.formType === 'login') {
+      formFields.Password = validPassword;
+    } else if (props.formType === 'signup') {
+      formFields.Password = validPassword;
+      formFields.FirstName = FormValidation.String;
+      formFields.LastName = FormValidation.String;
     }
 
     this.state = {
@@ -75,7 +75,7 @@ class AuthForm extends Component {
         success: '',
         error: '',
       },
-      form_fields: formFields,
+      form_fields: FormValidation.struct(formFields),
       empty_form_values: {
         Email: '',
         Password: '',
@@ -84,14 +84,26 @@ class AuthForm extends Component {
       options: {
         fields: {
           Email: {
+            template: TcombTextInput,
             error: 'Please enter a valid email',
             autoCapitalize: 'none',
             clearButtonMode: 'while-editing',
           },
           Password: {
+            template: TcombTextInput,
             error: 'Your new password must be more than 6 characters',
             clearButtonMode: 'while-editing',
             secureTextEntry: true,
+          },
+          FirstName: {
+            template: TcombTextInput,
+            error: 'Please enter your first name',
+            clearButtonMode: 'while-editing',
+          },
+          LastName: {
+            template: TcombTextInput,
+            error: 'Please enter your first name',
+            clearButtonMode: 'while-editing',
           },
         },
       },
@@ -173,23 +185,23 @@ class AuthForm extends Component {
     */
   signUp = () => {
     // Get new credentials and update
-    const credentials = this.form.getValue();
+    const vals = this.form.getValue();
 
     // Form is valid
-    if (credentials) {
-      this.setState({ form_values: credentials }, () => {
+    if (vals) {
+      this.setState({ form_values: vals }, () => {
         this.setState({ resultMsg: { status: 'One moment...' } });
 
         // Scroll to top, to show message
         if (this.scrollView) this.scrollView.scrollTo({ y: 0 });
 
-        this.props.signUp(credentials.Email, credentials.Password).then(() => {
+        this.props.signUp(vals.Email, vals.Password, vals.FirstName, vals.LastName).then(() => {
           // Show Sign Up success message
           this.setState({
             resultMsg: { success: 'Awesome, you\'re now signed up!' },
           }, () => {
             // Then log user in
-            this.props.login(credentials.Email, credentials.Password).then(() => {
+            this.props.login(vals.Email, vals.Password).then(() => {
               // Show that user is now logged in
               this.setState({
                 resultMsg: { success: 'Awesome, you\'re now logged in!' },
@@ -231,6 +243,8 @@ class AuthForm extends Component {
             value={this.state.form_values}
             options={this.state.options}
           />
+
+          <Spacer size={10} />
 
           {this.props.formType === 'login' &&
             <Button title={'Login'} onPress={this.login} />

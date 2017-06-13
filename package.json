@@ -21,9 +21,10 @@
   "dependencies": {
     "eslint-config-airbnb": "^14.1.0",
     "firebase": "^4.1.2",
-    "react": "^16.0.0-alpha.12",
+    "prop-types": "^15.5.10",
+    "react": "16.0.0-alpha.6",
     "react-addons-shallow-compare": "^15.4.2",
-    "react-native": "^0.45.1",
+    "react-native": "0.44.3",
     "react-native-device-info": "^0.10.1",
     "react-native-dotenv": "0.0.4",
     "react-native-elements": "^0.12.2",
@@ -31,7 +32,7 @@
     "react-native-router-flux": "3.39.2",
     "react-native-side-menu": "^0.20.1",
     "react-native-tab-view": "0.0.66",
-    "react-native-vector-icons": "^4.0.0",
+    "react-native-vector-icons": "^4.2.0",
     "react-redux": "^5.0.1",
     "redux": "^3.6.0",
     "redux-logger": "^3.0.6",
@@ -45,13 +46,13 @@
     "babel-preset-es2015": "^6.18.0",
     "babel-preset-react-native": "1.9.2",
     "babel-register": "^6.16.3",
-    "eslint": "^3.9.1",
     "eslint-config-airbnb": "^15.0.1",
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-jsx-a11y": "^5.0.3",
+    "eslint": "^3.9.1",
     "eslint-plugin-react": "^7.0.1",
     "jest": "^20.0.4",
     "jest-react-native": "^18.0.0",
-    "react-test-renderer": "15.5.4"
+    "react-test-renderer": "^16.0.0-alpha.6"
   }
 }

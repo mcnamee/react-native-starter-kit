@@ -4,9 +4,9 @@
 /* global it expect */
 import 'react-native';
 
-import FormContainer from '@containers/auth/Form/FormContainer';
+import LoginContainer from '@containers/auth/Forms/LoginContainer';
 
 // Check if FormContainer is created correctly
-it('FormContainer is created correctly', () => {
-  expect(typeof FormContainer).toEqual('function');
+it('LoginContainer is created correctly', () => {
+  expect(typeof LoginContainer).toEqual('function');
 });

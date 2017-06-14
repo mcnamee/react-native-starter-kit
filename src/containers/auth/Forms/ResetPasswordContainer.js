@@ -1,5 +1,5 @@
 /**
- * Login/Sign Up/Forgot Password Container
+ * Forgot Password Container
  *
  * React Native Starter App
  * https://github.com/mcnamee/react-native-starter-app
@@ -15,13 +15,15 @@ import FormRender from './FormView';
 // What data from the store shall we send to the component?
 const mapStateToProps = state => ({
   user: state.user,
+  formType: 'passwordReset',
+  formFields: ['Email'],
+  buttonTitle: 'Send Instructions',
+  successMessage: 'We\'ve emailed you the instructions',
 });
 
 // Any actions to map to the component?
 const mapDispatchToProps = {
-  login: UserActions.login,
-  signUp: UserActions.signUp,
-  resetPassword: UserActions.resetPassword,
+  submit: UserActions.resetPassword,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(FormRender);

@@ -21,7 +21,7 @@ import { AppStyles, AppSizes, AppColors } from '@theme/';
 import { Spacer, Text, Button } from '@ui/';
 
 /* Styles ==================================================================== */
-const MENU_BG_COLOR = '#2E3234';
+const MENU_BG_COLOR = '#263137';
 
 const styles = StyleSheet.create({
   backgroundFill: {

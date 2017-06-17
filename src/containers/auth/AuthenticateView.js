@@ -15,7 +15,7 @@ import {
 import { Actions } from 'react-native-router-flux';
 
 // Consts and Libs
-import { AppStyles, AppSizes } from '@theme/';
+import { AppStyles, AppSizes, AppColors } from '@theme/';
 
 // Components
 import { Spacer, Text, Button } from '@ui/';
@@ -23,7 +23,7 @@ import { Spacer, Text, Button } from '@ui/';
 /* Styles ==================================================================== */
 const styles = StyleSheet.create({
   background: {
-    backgroundColor: 'transparent',
+    backgroundColor: AppColors.brand.primary,
     height: AppSizes.screen.height,
     width: AppSizes.screen.width,
   },
@@ -41,10 +41,7 @@ class Authenticate extends Component {
   static componentName = 'Authenticate';
 
   render = () => (
-    <Image
-      source={require('../../images/login.jpg')}
-      style={[AppStyles.containerCentered, AppStyles.container, styles.background]}
-    >
+    <View style={[AppStyles.containerCentered, AppStyles.container, styles.background]}>
       <Image
         source={require('../../images/logo.png')}
         style={[styles.logo]}
@@ -56,6 +53,7 @@ class Authenticate extends Component {
             title={'Login'}
             icon={{ name: 'lock' }}
             onPress={Actions.login}
+            backgroundColor={'#CB009E'}
           />
         </View>
       </View>
@@ -68,6 +66,7 @@ class Authenticate extends Component {
             title={'Sign up'}
             icon={{ name: 'face' }}
             onPress={Actions.signUp}
+            backgroundColor={'#CB009E'}
           />
         </View>
       </View>
@@ -87,15 +86,15 @@ class Authenticate extends Component {
             small
             title={'Skip'}
             onPress={Actions.app}
-            backgroundColor={'#CB009E'}
             raised={false}
+            backgroundColor={'rgba(255,255,255,0.2)'}
           />
         </View>
         <View style={[AppStyles.flex1]} />
       </View>
 
       <Spacer size={40} />
-    </Image>
+    </View>
   )
 }
 

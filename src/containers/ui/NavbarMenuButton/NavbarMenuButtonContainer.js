@@ -13,7 +13,9 @@ import * as SideMenuActions from '@redux/sidemenu/actions';
 import NavbarMenuButtonRender from './NavbarMenuButtonView';
 
 // What data from the store shall we send to the component?
-const mapStateToProps = () => ({});
+const mapStateToProps = state => ({
+  user: state.user,
+});
 
 // Any actions to map to the component?
 const mapDispatchToProps = {

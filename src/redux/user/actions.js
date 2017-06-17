@@ -56,10 +56,10 @@ function getUserData(dispatch) {
 /**
   * Login to Firebase with Email/Password
   */
-export function login(inputEmail = '', inputPassword = '') {
+export function login(formData = {}, verifyEmail = false) {
   // Reassign variables for eslint ;)
-  let email = inputEmail;
-  let password = inputPassword;
+  let email = formData.Email || '';
+  let password = formData.Password || '';
 
   return async (dispatch) => {
     // When no credentials passed in, check AsyncStorage for existing details
@@ -82,6 +82,13 @@ export function login(inputEmail = '', inputPassword = '') {
             lastLoggedIn: Firebase.database.ServerValue.TIMESTAMP,
           });
 
+          // Send verification Email - usually used on first login
+          if (verifyEmail) {
+            Firebase.auth().currentUser
+              .sendEmailVerification()
+              .catch(() => console.log('Verification email failed to send'));
+          }
+
           // Get Favourites
           RecipeActions.getFavourites(dispatch);
 
@@ -101,10 +108,16 @@ export function login(inputEmail = '', inputPassword = '') {
 /**
   * Sign Up to Firebase
   */
-export function signUp(email, password, firstName, lastName) {
+export function signUp(formData = {}) {
+  const email = formData.Email || '';
+  const password = formData.Password || '';
+  const firstName = formData.FirstName || '';
+  const lastName = formData.LastName || '';
+
   return () => Firebase.auth()
     .createUserWithEmailAndPassword(email, password)
     .then((res) => {
+      // Setup/Send Details to Firebase database
       if (res && res.uid) {
         FirebaseRef.child(`users/${res.uid}`).set({
           firstName,
@@ -119,8 +132,31 @@ export function signUp(email, password, firstName, lastName) {
 /**
   * Reset Password
   */
-export function resetPassword(email) {
+export function resetPassword(formData = {}) {
+  const email = formData.Email || '';
   return () => Firebase.auth().sendPasswordResetEmail(email);
+}
+
+/**
+  * Update Profile
+  */
+export function updateProfile(formData = {}) {
+  const UID = Firebase.auth().currentUser.uid;
+  if (!UID) return false;
+
+  const email = formData.Email || '';
+  const firstName = formData.FirstName || '';
+  const lastName = formData.LastName || '';
+
+  // Set the email against user account
+  return () => Firebase.auth().currentUser
+    .updateEmail(email)
+      .then(() => {
+        // Then update user in DB
+        FirebaseRef.child(`users/${UID}`).update({
+          firstName, lastName,
+        });
+      });
 }
 
 /**

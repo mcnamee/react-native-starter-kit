@@ -1,5 +1,5 @@
 /**
- * Navbar Elements
+ * Login Container
  *
  * React Native Starter App
  * https://github.com/mcnamee/react-native-starter-app
@@ -7,20 +7,23 @@
 import { connect } from 'react-redux';
 
 // Actions
-import * as SideMenuActions from '@redux/sidemenu/actions';
+import * as UserActions from '@redux/user/actions';
 
 // The component we're mapping to
-import NavbarMenuButtonRender from './NavbarMenuButtonView';
+import FormRender from './FormView';
 
 // What data from the store shall we send to the component?
 const mapStateToProps = state => ({
   user: state.user,
+  formType: 'login',
+  formFields: ['Email', 'Password'],
+  buttonTitle: 'Login',
+  successMessage: 'Awesome, you\'re now logged in',
 });
 
 // Any actions to map to the component?
 const mapDispatchToProps = {
-  toggleSideMenu: SideMenuActions.toggle,
+  submit: UserActions.login,
 };
 
-/* Export Component ==================================================================== */
-exports.NavbarMenuButton = connect(mapStateToProps, mapDispatchToProps)(NavbarMenuButtonRender);
+export default connect(mapStateToProps, mapDispatchToProps)(FormRender);

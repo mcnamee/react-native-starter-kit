@@ -48,14 +48,14 @@ export default {
     fontSize: Fonts.base.size,
     lineHeight: Fonts.base.lineHeight,
     color: Colors.textPrimary,
-    fontWeight: '500',
+    fontWeight: '300',
   },
   p: {
     fontFamily: Fonts.base.family,
     fontSize: Fonts.base.size,
     lineHeight: Fonts.base.lineHeight,
     color: Colors.textPrimary,
-    fontWeight: '500',
+    fontWeight: '300',
     marginBottom: 8,
   },
   h1: {

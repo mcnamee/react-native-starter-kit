@@ -21,7 +21,7 @@ import { AppStyles, AppSizes, AppColors } from '@theme/';
 import { Spacer, Text, Button } from '@ui/';
 
 /* Styles ==================================================================== */
-const MENU_BG_COLOR = '#2E3234';
+const MENU_BG_COLOR = '#263137';
 
 const styles = StyleSheet.create({
   backgroundFill: {
@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
     right: 0,
     backgroundColor: MENU_BG_COLOR,
     padding: 20,
-    paddingTop: AppSizes.statusBarHeight,
+    paddingTop: AppSizes.statusBarHeight + 20,
   },
   menuItem: {
     borderBottomWidth: 1,
@@ -61,7 +61,8 @@ const styles = StyleSheet.create({
     fontSize: 16,
     lineHeight: parseInt(16 + (16 * 0.5), 10),
     fontWeight: '500',
-    marginTop: 10,
+    marginTop: 14,
+    marginBottom: 8,
     color: '#EEEFF0',
   },
 
@@ -86,34 +87,27 @@ class Menu extends Component {
     user: PropTypes.shape({
       email: PropTypes.string,
     }),
+    unauthMenu: PropTypes.arrayOf(PropTypes.shape({})),
+    authMenu: PropTypes.arrayOf(PropTypes.shape({})),
   }
 
   static defaultProps = {
     user: null,
+    unauthMenu: [],
+    authMenu: [],
   }
 
-  constructor() {
-    super();
-
-    this.state = {
-      menu: [
-        {
-          title: 'Recipes',
-          onPress: () => { this.props.closeSideMenu(); Actions.app(); },
-        },
-        {
-          title: 'Example Link',
-          onPress: () => { this.props.closeSideMenu(); Actions.comingSoon(); },
-        },
-      ],
-    };
-  }
-
-  login = () => {
+  /**
+   * On Press of any menu item
+   */
+  onPress = (action) => {
     this.props.closeSideMenu();
-    Actions.login();
+    if (action) action();
   }
 
+  /**
+   * On Logout Press
+   */
   logout = () => {
     if (this.props.logout) {
       this.props.logout()
@@ -126,72 +120,68 @@ class Menu extends Component {
     }
   }
 
-  render = () => {
-    const { menu } = this.state;
+  /**
+   * Each Menu Item looks like this
+   */
+  menuItem = item => (
+    <TouchableOpacity
+      key={`menu-item-${item.title}`}
+      onPress={() => this.onPress(item.onPress)}
+    >
+      <View style={[styles.menuItem]}>
+        <Text style={[styles.menuItem_text]}>
+          {item.title}
+        </Text>
+      </View>
+    </TouchableOpacity>
+  )
 
-    // Build the actual Menu Items
-    const menuItems = [];
-    menu.map((item) => {
-      const { title, onPress } = item;
+  /**
+   * Build the Menu List
+   */
+  menuList = () => {
+    // Determine which menu to use - authenticated user menu or unauthenicated version?
+    let menu = this.props.unauthMenu;
+    if (this.props.user && this.props.user.email) menu = this.props.authMenu;
 
-      return menuItems.push(
-        <TouchableOpacity
-          key={`menu-item-${title}`}
-          onPress={onPress}
-        >
-          <View style={[styles.menuItem]}>
-            <Text style={[styles.menuItem_text]}>
-              {title}
-            </Text>
-          </View>
-        </TouchableOpacity>,
-      );
-    });
+    return menu.map(item => this.menuItem(item));
+  }
 
-    return (
-      <View style={[styles.container]}>
-        <View style={[styles.backgroundFill]} />
+  render = () => (
+    <View style={[styles.container]}>
+      <View style={[styles.backgroundFill]} />
 
-        <View style={[styles.menuContainer]}>
-          <View style={[styles.menu]}>{menuItems}</View>
+      <View style={[styles.menuContainer]}>
+        <View style={[styles.menu]}>{this.menuList()}</View>
 
-          <View style={[styles.menuBottom]}>
-            {this.props.user && this.props.user.email ?
-              <View>
-                <Text
-                  style={[
-                    styles.menuBottom_text,
-                    AppStyles.textCenterAligned,
-                  ]}
-                >
-                  Logged in as:{'\n'}
-                  {this.props.user.email}
-                </Text>
+        <View style={[styles.menuBottom]}>
+          {this.props.user && this.props.user.email ?
+            <View>
+              <Text
+                style={[
+                  styles.menuBottom_text,
+                  AppStyles.textCenterAligned,
+                ]}
+              >
+                Logged in as:{'\n'}
+                {this.props.user.email}
+              </Text>
 
-                <Spacer size={10} />
+              <Spacer size={10} />
 
-                <View style={[AppStyles.paddingHorizontal, AppStyles.paddingVerticalSml]}>
-                  <Button
-                    small
-                    title={'Log Out'}
-                    onPress={this.logout}
-                  />
-                </View>
-              </View>
-            :
               <View style={[AppStyles.paddingHorizontal, AppStyles.paddingVerticalSml]}>
-                <Button
-                  small
-                  title={'Log In'}
-                  onPress={this.login}
-                />
+                <Button small title={'Log Out'} onPress={this.logout} />
               </View>
-            }
-          </View>
+            </View>
+          :
+            <View style={[AppStyles.paddingHorizontal, AppStyles.paddingVerticalSml]}>
+              <Button small title={'Log In'} onPress={() => this.onPress(Actions.login)} />
+            </View>
+          }
         </View>
       </View>
-    );
-  }
+    </View>
+  )
 }
 
 /* Export Component ==================================================================== */

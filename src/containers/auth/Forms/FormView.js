@@ -51,6 +51,7 @@ class AuthForm extends Component {
     const formFields = {};
     if (props.formFields.indexOf('Email') > -1) formFields.Email = this.validEmail;
     if (props.formFields.indexOf('Password') > -1) formFields.Password = this.validPassword;
+    if (props.formFields.indexOf('ConfirmPassword') > -1) formFields.ConfirmPassword = this.validPassword;
     if (props.formFields.indexOf('FirstName') > -1) formFields.FirstName = FormValidation.String;
     if (props.formFields.indexOf('LastName') > -1) formFields.LastName = FormValidation.String;
 
@@ -64,6 +65,7 @@ class AuthForm extends Component {
       empty_form_values: {
         Email: '',
         Password: '',
+        ConfirmPassword: '',
         FirstName: '',
         LastName: '',
       },
@@ -78,7 +80,13 @@ class AuthForm extends Component {
           },
           Password: {
             template: TcombTextInput,
-            error: 'Your new password must be more than 6 characters',
+            error: 'Passwords must be more than 8 characters and contain letters and numbers',
+            clearButtonMode: 'while-editing',
+            secureTextEntry: true,
+          },
+          ConfirmPassword: {
+            template: TcombTextInput,
+            error: 'Your passwords must match',
             clearButtonMode: 'while-editing',
             secureTextEntry: true,
           },
@@ -137,10 +145,34 @@ class AuthForm extends Component {
     */
   validPassword = FormValidation.refinement(
     FormValidation.String, (password) => {
-      if (password.length < 6) return false;
+      if (password.length < 8) return false; // Too short
+      if (password.search(/\d/) === -1) return false; // No numbers
+      if (password.search(/[a-zA-Z]/) === -1) return false; // No letters
       return true;
     },
   );
+
+  /**
+    * Password Confirmation - password fields must match
+    * - Sets the error and returns bool of whether to process form or not
+    */
+  passwordsMatch = (form) => {
+    const error = form.Password !== form.ConfirmPassword;
+
+    this.setState({
+      options: FormValidation.update(this.state.options, {
+        fields: {
+          ConfirmPassword: {
+            hasError: { $set: error },
+            error: { $set: error ? 'Passwords don\'t match' : '' },
+          },
+        },
+      }),
+      form_values: form,
+    });
+
+    return error;
+  }
 
   /**
     * Handle Form Submit
@@ -148,6 +180,12 @@ class AuthForm extends Component {
   handleSubmit = () => {
     // Get new credentials and update
     const formData = this.form.getValue();
+
+    // Check whether passwords match
+    if (formData && formData.Password && formData.ConfirmPassword) {
+      const passwordsDontMatch = this.passwordsMatch(formData);
+      if (passwordsDontMatch) return false;
+    }
 
     // Form is valid
     if (formData) {
@@ -173,6 +211,7 @@ class AuthForm extends Component {
 
               return setTimeout(() => {
                 Actions.app({ type: 'reset' });
+                Actions.pop();
               }, 500);
             });
           }).catch(err => this.setState({ resultMsg: { error: err.message } }));
@@ -181,6 +220,8 @@ class AuthForm extends Component {
         }
       });
     }
+
+    return true;
   }
 
   render = () => {
@@ -228,6 +269,7 @@ class AuthForm extends Component {
               </Text>
 
               <Button
+               outlined
                 title={'Sign Up'}
                 onPress={Actions.signUp}
               />

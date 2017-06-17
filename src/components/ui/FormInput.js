@@ -46,7 +46,7 @@ class CustomFormInput extends Component {
       inputStyle: [{
         color: AppColors.textPrimary,
         fontFamily: AppFonts.base.family,
-        paddingHorizontal: 10,
+        paddingHorizontal: 0,
         paddingVertical: 3,
       }],
     };

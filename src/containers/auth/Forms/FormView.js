@@ -23,6 +23,7 @@ import { Alerts, Card, Spacer, Text, Button } from '@ui/';
 import TcombTextInput from '@components/tcomb/TextInput';
 
 /* Component ==================================================================== */
+let redirectTimeout;
 class AuthForm extends Component {
   static componentName = 'Login';
 
@@ -127,6 +128,8 @@ class AuthForm extends Component {
     }
   }
 
+  componentWillUnmount = () => clearTimeout(redirectTimeout);
+
   /**
     * Get user data from AsyncStorage to populate fields
     */
@@ -219,10 +222,13 @@ class AuthForm extends Component {
                   }).catch(err => this.setState({ resultMsg: { error: err.message } }));
               }
 
-              return setTimeout(() => {
+              // Timeout to ensure success message is seen/read by user
+              redirectTimeout = setTimeout(() => {
                 Actions.app({ type: 'reset' });
                 Actions.pop();
               }, 500);
+
+              return true;
             });
           }).catch(err => this.setState({ resultMsg: { error: err.message } }));
         } else {

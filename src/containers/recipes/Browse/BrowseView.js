@@ -42,6 +42,7 @@ const styles = StyleSheet.create({
 });
 
 /* Component ==================================================================== */
+let loadingTimeout;
 class RecipeTabs extends Component {
   static componentName = 'RecipeTabs';
 
@@ -71,6 +72,8 @@ class RecipeTabs extends Component {
     });
   }
 
+  componentWillUnmount = () => clearTimeout(loadingTimeout);
+
   /**
     * When meals are ready, populate tabs
     */
@@ -94,7 +97,7 @@ class RecipeTabs extends Component {
       },
     }, () => {
       // Hack to prevent error showing
-      setTimeout(() => {
+      loadingTimeout = setTimeout(() => {
         this.setState({ loading: false });
       }, 100);
     });

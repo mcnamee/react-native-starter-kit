@@ -50,14 +50,16 @@ export function replaceFavourites(newFavourites) {
   */
 export function getMeals() {
   return (dispatch) => {
-    const ref = FirebaseRef.child('meals');
+    return new Firebase.Promise((resolve) => {
+      const ref = FirebaseRef.child('meals');
 
-    return ref.once('value').then((snapshot) => {
-      const meals = snapshot.val() || {};
+      return ref.once('value').then((snapshot) => {
+        const meals = snapshot.val() || {};
 
-      return dispatch({
-        type: 'MEALS_REPLACE',
-        data: meals,
+        return resolve(dispatch({
+          type: 'MEALS_REPLACE',
+          data: meals,
+        }));
       });
     });
   };
@@ -68,14 +70,16 @@ export function getMeals() {
   */
 export function getRecipes() {
   return (dispatch) => {
-    const ref = FirebaseRef.child('recipes');
+    return new Firebase.Promise((resolve) => {
+      const ref = FirebaseRef.child('recipes');
 
-    return ref.on('value', (snapshot) => {
-      const recipes = snapshot.val() || {};
+      return ref.on('value', (snapshot) => {
+        const recipes = snapshot.val() || {};
 
-      return dispatch({
-        type: 'RECIPES_REPLACE',
-        data: recipes,
+        return resolve(dispatch({
+          type: 'RECIPES_REPLACE',
+          data: recipes,
+        }));
       });
     });
   };

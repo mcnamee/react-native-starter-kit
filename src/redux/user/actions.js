@@ -56,7 +56,7 @@ function getUserData(dispatch) {
 /**
   * Login to Firebase with Email/Password
   */
-export function login(formData = {}) {
+export function login(formData = {}, verifyEmail = false) {
   // Reassign variables for eslint ;)
   let email = formData.Email || '';
   let password = formData.Password || '';
@@ -81,6 +81,13 @@ export function login(formData = {}) {
           FirebaseRef.child(`users/${res.uid}`).update({
             lastLoggedIn: Firebase.database.ServerValue.TIMESTAMP,
           });
+
+          // Send verification Email - usually used on first login
+          if (verifyEmail) {
+            Firebase.auth().currentUser
+              .sendEmailVerification()
+              .catch(() => console.log('Verification email failed to send'));
+          }
 
           // Get Favourites
           RecipeActions.getFavourites(dispatch);
@@ -128,6 +135,28 @@ export function signUp(formData = {}) {
 export function resetPassword(formData = {}) {
   const email = formData.Email || '';
   return () => Firebase.auth().sendPasswordResetEmail(email);
+}
+
+/**
+  * Update Profile
+  */
+export function updateProfile(formData = {}) {
+  const UID = Firebase.auth().currentUser.uid;
+  if (!UID) return false;
+
+  const email = formData.Email || '';
+  const firstName = formData.FirstName || '';
+  const lastName = formData.LastName || '';
+
+  // Set the email against user account
+  return () => Firebase.auth().currentUser
+    .updateEmail(email)
+      .then(() => {
+        // Then update user in DB
+        FirebaseRef.child(`users/${UID}`).update({
+          firstName, lastName,
+        });
+      });
 }
 
 /**

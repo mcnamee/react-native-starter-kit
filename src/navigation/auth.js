@@ -15,6 +15,7 @@ import Authenticate from '@containers/auth/AuthenticateView';
 import LoginForm from '@containers/auth/Forms/LoginContainer';
 import SignUpForm from '@containers/auth/Forms/SignUpContainer';
 import ResetPasswordForm from '@containers/auth/Forms/ResetPasswordContainer';
+import UpdateProfileForm from '@containers/auth/Forms/UpdateProfileContainer';
 
 /* Routes ==================================================================== */
 const scenes = (
@@ -24,7 +25,7 @@ const scenes = (
       key={'authLanding'}
       component={Authenticate}
       type={ActionConst.RESET}
-      analyticsDesc={'Authenticate: Authentication'}
+      analyticsDesc={'Authentication'}
     />
     <Scene
       {...AppConfig.navbarProps}
@@ -32,7 +33,7 @@ const scenes = (
       title={'Login'}
       clone
       component={LoginForm}
-      analyticsDesc={'LoginForm: Login'}
+      analyticsDesc={'Login'}
     />
     <Scene
       {...AppConfig.navbarProps}
@@ -40,7 +41,7 @@ const scenes = (
       title={'Sign Up'}
       clone
       component={SignUpForm}
-      analyticsDesc={'SignUpForm: Sign Up'}
+      analyticsDesc={'Sign Up'}
     />
     <Scene
       {...AppConfig.navbarProps}
@@ -48,7 +49,15 @@ const scenes = (
       title={'Password Reset'}
       clone
       component={ResetPasswordForm}
-      analyticsDesc={'ResetPasswordForm: Password Reset'}
+      analyticsDesc={'Password Reset'}
+    />
+    <Scene
+      {...AppConfig.navbarProps}
+      key={'updateProfile'}
+      title={'Update Profile'}
+      clone
+      component={UpdateProfileForm}
+      analyticsDesc={'Update Profile'}
     />
   </Scene>
 );

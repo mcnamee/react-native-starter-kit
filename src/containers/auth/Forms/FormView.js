@@ -27,21 +27,31 @@ class AuthForm extends Component {
   static componentName = 'Login';
 
   static propTypes = {
+    user: PropTypes.shape({
+      email: PropTypes.string,
+      firstName: PropTypes.string,
+      lastName: PropTypes.string,
+    }),
     submit: PropTypes.func,
     onSuccessfulSubmit: PropTypes.func,
-    formType: PropTypes.oneOf(['login', 'signUp', 'passwordReset']),
+    formType: PropTypes.oneOf(['login', 'signUp', 'passwordReset', 'updateProfile']),
     formFields: PropTypes.arrayOf(PropTypes.string),
     buttonTitle: PropTypes.string,
     successMessage: PropTypes.string,
+    introTitle: PropTypes.string,
+    introText: PropTypes.string,
   }
 
   static defaultProps = {
+    user: null,
     submit: null,
     onSuccessfulSubmit: null,
     formType: 'login',
     formFields: ['Email', 'Password'],
     buttonTitle: 'Login',
     successMessage: 'Awesome, you\'re now logged in',
+    introTitle: null,
+    introText: null,
   }
 
   constructor(props) {
@@ -62,14 +72,11 @@ class AuthForm extends Component {
         error: '',
       },
       form_fields: FormValidation.struct(formFields),
-      empty_form_values: {
-        Email: '',
-        Password: '',
-        ConfirmPassword: '',
-        FirstName: '',
-        LastName: '',
+      form_values: {
+        Email: (props.user && props.user.email) ? props.user.email : '',
+        FirstName: (props.user && props.user.firstName) ? props.user.firstName : '',
+        LastName: (props.user && props.user.lastName) ? props.user.lastName : '',
       },
-      form_values: {},
       options: {
         fields: {
           Email: {
@@ -109,10 +116,11 @@ class AuthForm extends Component {
     // Pre-populate any details stored in AsyncStorage
     const values = await this.getStoredCredentials();
 
-    if (values !== null) {
+    if (values !== null && values.email && values.password) {
       this.setState({
         form_values: {
-          Email: values.username || '',
+          ...this.state.form_values,
+          Email: values.email || '',
           Password: values.password || '',
         },
       });
@@ -204,9 +212,11 @@ class AuthForm extends Component {
               // eg. once signed up, let's log them in - pass the Login function
               // through as the onSuccessfulSubmit prop
               if (this.props.onSuccessfulSubmit) {
-                return this.props.onSuccessfulSubmit(formData)
-                  .then(() => Actions.app({ type: 'reset' }))
-                  .catch(err => this.setState({ resultMsg: { error: err.message } }));
+                return this.props.onSuccessfulSubmit(formData, true)
+                  .then(() => {
+                    Actions.app({ type: 'reset' });
+                    Actions.pop();
+                  }).catch(err => this.setState({ resultMsg: { error: err.message } }));
               }
 
               return setTimeout(() => {
@@ -241,6 +251,19 @@ class AuthForm extends Component {
             error={this.state.resultMsg.error}
           />
 
+          {(!!this.props.introTitle || !!this.props.introText) &&
+            <View>
+              {!!this.props.introTitle &&
+                <Text h1>{this.props.introTitle}</Text>
+              }
+              {!!this.props.introText &&
+                <Text>{this.props.introText}</Text>
+              }
+
+              <Spacer size={10} />
+            </View>
+          }
+
           <Form
             ref={(b) => { this.form = b; }}
             type={this.state.form_fields}
@@ -248,7 +271,7 @@ class AuthForm extends Component {
             options={this.state.options}
           />
 
-          <Spacer size={10} />
+          <Spacer size={20} />
 
           <Button title={this.props.buttonTitle} onPress={this.handleSubmit} />
 
@@ -268,14 +291,12 @@ class AuthForm extends Component {
                 - or -
               </Text>
 
-              <Button
-               outlined
-                title={'Sign Up'}
-                onPress={Actions.signUp}
-              />
+              <Button outlined title={'Sign Up'} onPress={Actions.signUp} />
             </View>
           }
         </Card>
+
+        <Spacer size={60} />
       </ScrollView>
     );
   }

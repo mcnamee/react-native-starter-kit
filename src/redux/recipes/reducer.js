@@ -4,13 +4,10 @@
  * React Native Starter App
  * https://github.com/mcnamee/react-native-starter-app
  */
+import Store from './store';
 
 // Set initial state
-export const initialState = {
-  meals: [],
-  recipes: [],
-  favourites: [],
-};
+export const initialState = Store;
 
 export default function recipeReducer(state = initialState, action) {
   switch (action.type) {

@@ -13,13 +13,25 @@ import {
   MESSAGING_SENDER_ID,
 } from 'react-native-dotenv';
 
-Firebase.initializeApp({
-  apiKey: API_KEY,
-  authDomain: AUTH_DOMAIN,
-  databaseURL: DATABASE_URL,
-  storageBucket: STORAGE_BUCKET,
-  messagingSenderId: MESSAGING_SENDER_ID,
-});
+let firebaseInitialized = false;
 
-export const FirebaseRef = Firebase.database().ref();
-export default Firebase;
+if (
+  API_KEY !== 'null' &&
+  AUTH_DOMAIN !== 'null' &&
+  DATABASE_URL !== 'null' &&
+  STORAGE_BUCKET !== 'null' &&
+  MESSAGING_SENDER_ID !== 'null'
+) {
+  Firebase.initializeApp({
+    apiKey: API_KEY,
+    authDomain: AUTH_DOMAIN,
+    databaseURL: DATABASE_URL,
+    storageBucket: STORAGE_BUCKET,
+    messagingSenderId: MESSAGING_SENDER_ID,
+  });
+
+  firebaseInitialized = true;
+}
+
+export const FirebaseRef = firebaseInitialized ? Firebase.database().ref() : null;
+export default firebaseInitialized ? Firebase : null;

@@ -5,7 +5,7 @@
  * https://github.com/mcnamee/react-native-starter-app
  */
 import { AsyncStorage } from 'react-native';
-import { Firebase, FirebaseRef } from '@constants/';
+import { ErrorMessages, Firebase, FirebaseRef } from '@constants/';
 import * as RecipeActions from '../recipes/actions';
 
 /**
@@ -38,6 +38,11 @@ async function removeCredentialsFromStorage() {
   * Get this User's Details
   */
 function getUserData(dispatch) {
+  if (Firebase === null) {
+    return () => new Promise((resolve, reject) =>
+      reject({ message: ErrorMessages.invalidFirebase }));
+  }
+
   const UID = Firebase.auth().currentUser.uid;
   if (!UID) return false;
 
@@ -57,6 +62,11 @@ function getUserData(dispatch) {
   * Login to Firebase with Email/Password
   */
 export function login(formData = {}, verifyEmail = false) {
+  if (Firebase === null) {
+    return () => new Promise((resolve, reject) =>
+      reject({ message: ErrorMessages.invalidFirebase }));
+  }
+
   // Reassign variables for eslint ;)
   let email = formData.Email || '';
   let password = formData.Password || '';
@@ -109,6 +119,11 @@ export function login(formData = {}, verifyEmail = false) {
   * Sign Up to Firebase
   */
 export function signUp(formData = {}) {
+  if (Firebase === null) {
+    return () => new Promise((resolve, reject) =>
+      reject({ message: ErrorMessages.invalidFirebase }));
+  }
+
   const email = formData.Email || '';
   const password = formData.Password || '';
   const firstName = formData.FirstName || '';
@@ -133,6 +148,11 @@ export function signUp(formData = {}) {
   * Reset Password
   */
 export function resetPassword(formData = {}) {
+  if (Firebase === null) {
+    return () => new Promise((resolve, reject) =>
+      reject({ message: ErrorMessages.invalidFirebase }));
+  }
+
   const email = formData.Email || '';
   return () => Firebase.auth().sendPasswordResetEmail(email);
 }
@@ -141,6 +161,11 @@ export function resetPassword(formData = {}) {
   * Update Profile
   */
 export function updateProfile(formData = {}) {
+  if (Firebase === null) {
+    return () => new Promise((resolve, reject) =>
+      reject({ message: ErrorMessages.invalidFirebase }));
+  }
+
   const UID = Firebase.auth().currentUser.uid;
   if (!UID) return false;
 
@@ -163,6 +188,11 @@ export function updateProfile(formData = {}) {
   * Logout
   */
 export function logout() {
+  if (Firebase === null) {
+    return () => new Promise((resolve, reject) =>
+      reject({ message: ErrorMessages.invalidFirebase }));
+  }
+
   return dispatch => Firebase.auth()
     .signOut()
     .then(() => {

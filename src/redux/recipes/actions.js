@@ -10,6 +10,8 @@ import { Firebase, FirebaseRef } from '@constants/';
   * Get this User's Favourite Recipes
   */
 export function getFavourites(dispatch) {
+  if (Firebase === null) return () => new Promise(resolve => resolve());
+
   const UID = Firebase.auth().currentUser.uid;
   if (!UID) return false;
 
@@ -39,6 +41,8 @@ export function resetFavourites(dispatch) {
   * Update My Favourites Recipes
   */
 export function replaceFavourites(newFavourites) {
+  if (Firebase === null) return () => new Promise(resolve => resolve());
+
   const UID = Firebase.auth().currentUser.uid;
   if (!UID) return false;
 
@@ -49,38 +53,38 @@ export function replaceFavourites(newFavourites) {
   * Get Meals
   */
 export function getMeals() {
-  return (dispatch) => {
-    return new Firebase.Promise((resolve) => {
-      const ref = FirebaseRef.child('meals');
+  if (Firebase === null) return () => new Promise(resolve => resolve());
 
-      return ref.once('value').then((snapshot) => {
-        const meals = snapshot.val() || {};
+  return dispatch => new Firebase.Promise((resolve) => {
+    const ref = FirebaseRef.child('meals');
 
-        return resolve(dispatch({
-          type: 'MEALS_REPLACE',
-          data: meals,
-        }));
-      });
+    return ref.once('value').then((snapshot) => {
+      const meals = snapshot.val() || {};
+
+      return resolve(dispatch({
+        type: 'MEALS_REPLACE',
+        data: meals,
+      }));
     });
-  };
+  });
 }
 
 /**
   * Get Recipes
   */
 export function getRecipes() {
-  return (dispatch) => {
-    return new Firebase.Promise((resolve) => {
-      const ref = FirebaseRef.child('recipes');
+  if (Firebase === null) return () => new Promise(resolve => resolve());
 
-      return ref.on('value', (snapshot) => {
-        const recipes = snapshot.val() || {};
+  return dispatch => new Firebase.Promise((resolve) => {
+    const ref = FirebaseRef.child('recipes');
 
-        return resolve(dispatch({
-          type: 'RECIPES_REPLACE',
-          data: recipes,
-        }));
-      });
+    return ref.on('value', (snapshot) => {
+      const recipes = snapshot.val() || {};
+
+      return resolve(dispatch({
+        type: 'RECIPES_REPLACE',
+        data: recipes,
+      }));
     });
-  };
+  });
 }

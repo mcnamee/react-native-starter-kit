@@ -57,10 +57,11 @@ What's more, it's now integrated with [Firebase](https://firebase.google.com/), 
 
 ## Getting Started
 
-1. [Setup your own Firebase API to get the full experience](#the-api--testing-out-authentication)
 1. Ensure you've followed the [React Native - Get Started Guide](https://facebook.github.io/react-native/docs/getting-started.html) for the platform/s of choice
 1. Clone this project `git clone https://github.com/mcnamee/react-native-starter-app.git`
 1. Run `npm install` from root directory
+1. Create your own .env file (to store any app secrets) - simply run `cp .env.sample .env`
+1. [Setup your own Firebase API to get the full experience](#the-api--testing-out-authentication) (optional)
 1. Start the app in [an emulator](/docs/quick-tips.md#running-in-an-emulator)
 
 ---
@@ -72,7 +73,7 @@ We've created a quick little "API server" on [Google's Firebase Platform](https:
 1. Create a new project - eg. "React Native Starter App"
 1. Turn on email/password __Authentication__
 1. Enable the __Database__ feature, and import the `firebase-sample-data.json` file found in this repo
-1. Get the Firebase project's API credentials, copy `/.env.sample` to `/.env` and fill in the respective variables (eg. `APIKEY=d8f72k10s39djk29js`). You can get your projects details from Firebase, by clicking on the cog icon, next to overview > 'Add Firebase to your web app'.
+1. Get the Firebase project's API credentials, and add them to the respective variables in your `/.env` file (eg. `APIKEY=d8f72k10s39djk29js`). You can get your projects details from Firebase, by clicking on the cog icon, next to overview > 'Add Firebase to your web app'.
 1. Add the following __rules__ to the Database
 
 ```json

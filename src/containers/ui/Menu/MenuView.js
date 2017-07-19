@@ -15,7 +15,7 @@ import {
 import { Actions } from 'react-native-router-flux';
 
 // Consts and Libs
-import { AppStyles, AppSizes, AppColors } from '@theme/';
+import { AppStyles, AppSizes } from '@theme/';
 
 // Components
 import { Spacer, Text, Button } from '@ui/';

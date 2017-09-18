@@ -22,7 +22,11 @@ const TabIcon = ({ icon, selected, type }) => (
   />
 );
 
-TabIcon.propTypes = { icon: PropTypes.string.isRequired, selected: PropTypes.bool, type: PropTypes.string };
+TabIcon.propTypes = {
+  icon: PropTypes.string.isRequired,
+  selected: PropTypes.bool,
+  type: PropTypes.string
+};
 TabIcon.defaultProps = { icon: 'search', selected: false, type: null };
 
 /* Export Component ==================================================================== */

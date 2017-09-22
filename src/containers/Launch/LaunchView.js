@@ -40,6 +40,11 @@ class AppLaunch extends Component {
     getMeals: PropTypes.func.isRequired,
   }
 
+  constructor() {
+    super();
+    console.ignoredYellowBox = ['Setting a timer'];
+  }
+
   componentDidMount = () => {
     // Show status bar on app launch
     StatusBar.setHidden(false, true);

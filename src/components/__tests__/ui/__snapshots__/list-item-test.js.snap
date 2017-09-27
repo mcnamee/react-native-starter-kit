@@ -2,13 +2,14 @@
 
 exports[`ListItem renders correctly 1`] = `
 <View
+  avatar={1}
   onLongPress={undefined}
   onPress={undefined}
   style={
     Array [
       Object {
         "backgroundColor": "transparent",
-        "borderBottomColor": "#ededed",
+        "borderBottomColor": "#bbb",
         "borderBottomWidth": 1,
         "paddingBottom": 10,
         "paddingRight": 10,
@@ -24,6 +25,7 @@ exports[`ListItem renders correctly 1`] = `
       ],
     ]
   }
+  subTitle="Sub title"
   underlayColor="#D0D1D5"
 >
   <View
@@ -37,21 +39,75 @@ exports[`ListItem renders correctly 1`] = `
       ]
     }
   >
-    <Image
-      source={1}
+    <View
       style={
-        Array [
-          Object {
-            "height": 34,
-            "width": 34,
-          },
-          Object {
-            "borderRadius": 17,
-          },
-          undefined,
-        ]
+        Object {
+          "height": 34,
+          "width": 34,
+        }
       }
-    />
+    >
+      <View
+        activeOpacity={undefined}
+        onLongPress={undefined}
+        onPress={undefined}
+        style={
+          Array [
+            Object {
+              "backgroundColor": "transparent",
+              "height": 34,
+              "paddingBottom": 10,
+              "paddingRight": 10,
+              "paddingTop": 10,
+              "width": 34,
+            },
+            Object {
+              "borderRadius": 17,
+            },
+            undefined,
+          ]
+        }
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "alignSelf": "stretch",
+                "backgroundColor": "rgba(0,0,0,0.2)",
+                "bottom": 0,
+                "flex": 1,
+                "justifyContent": "center",
+                "left": 0,
+                "position": "absolute",
+                "right": 0,
+                "top": 0,
+              },
+              Object {
+                "borderRadius": 17,
+              },
+              undefined,
+            ]
+          }
+        >
+          <Image
+            source={1}
+            style={
+              Array [
+                Object {
+                  "height": 34,
+                  "width": 34,
+                },
+                Object {
+                  "borderRadius": 17,
+                },
+                undefined,
+              ]
+            }
+          />
+        </View>
+      </View>
+    </View>
     <View
       style={
         Object {
@@ -67,11 +123,10 @@ exports[`ListItem renders correctly 1`] = `
           accessible={true}
           allowFontScaling={true}
           ellipsizeMode="tail"
+          numberOfLines={1}
           style={
             Array [
-              Object {
-                "fontFamily": undefined,
-              },
+              Object {},
               undefined,
               undefined,
               undefined,
@@ -94,7 +149,7 @@ exports[`ListItem renders correctly 1`] = `
                     "color": "#222222",
                     "fontFamily": "HelveticaNeue",
                     "fontSize": 14,
-                    "fontWeight": "500",
+                    "fontWeight": "300",
                     "lineHeight": 18,
                   },
                   Array [],
@@ -114,16 +169,31 @@ exports[`ListItem renders correctly 1`] = `
       </View>
     </View>
     <View
+      accessibilityComponentType={undefined}
+      accessibilityLabel={undefined}
+      accessibilityTraits={undefined}
+      accessible={true}
+      hitSlop={undefined}
+      isTVSelectable={true}
+      onLayout={undefined}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
       style={
         Object {
           "alignItems": "flex-end",
           "flex": 0.15,
           "justifyContent": "center",
+          "opacity": 1,
         }
       }
+      testID={undefined}
+      tvParallaxProperties={undefined}
     >
       <View
-        onLongPress={undefined}
         onPress={undefined}
         style={
           Array [
@@ -154,10 +224,7 @@ exports[`ListItem renders correctly 1`] = `
                 Object {
                   "backgroundColor": "transparent",
                 },
-                Array [
-                  Object {},
-                  undefined,
-                ],
+                undefined,
               ],
               Object {
                 "fontFamily": "Material Icons",

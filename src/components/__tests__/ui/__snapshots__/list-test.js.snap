@@ -6,8 +6,7 @@ exports[`List renders correctly 1`] = `
     Array [
       Object {
         "backgroundColor": "#ffffff",
-        "borderBottomWidth": 1,
-        "borderColor": "#cbd2d9",
+        "borderColor": "#bbb",
         "borderTopWidth": 1,
         "marginTop": 20,
       },
@@ -30,7 +29,7 @@ exports[`List renders correctly 1`] = `
       Array [
         Object {
           "backgroundColor": "transparent",
-          "borderBottomColor": "#ededed",
+          "borderBottomColor": "#bbb",
           "borderBottomWidth": 1,
           "paddingBottom": 10,
           "paddingRight": 10,
@@ -74,11 +73,10 @@ exports[`List renders correctly 1`] = `
             accessible={true}
             allowFontScaling={true}
             ellipsizeMode="tail"
+            numberOfLines={1}
             style={
               Array [
-                Object {
-                  "fontFamily": undefined,
-                },
+                Object {},
                 undefined,
                 undefined,
                 undefined,
@@ -101,7 +99,7 @@ exports[`List renders correctly 1`] = `
                       "color": "#222222",
                       "fontFamily": "HelveticaNeue",
                       "fontSize": 14,
-                      "fontWeight": "500",
+                      "fontWeight": "300",
                       "lineHeight": 18,
                     },
                     Array [],
@@ -121,16 +119,31 @@ exports[`List renders correctly 1`] = `
         </View>
       </View>
       <View
+        accessibilityComponentType={undefined}
+        accessibilityLabel={undefined}
+        accessibilityTraits={undefined}
+        accessible={true}
+        hitSlop={undefined}
+        isTVSelectable={true}
+        onLayout={undefined}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
         style={
           Object {
             "alignItems": "flex-end",
             "flex": 0.15,
             "justifyContent": "center",
+            "opacity": 1,
           }
         }
+        testID={undefined}
+        tvParallaxProperties={undefined}
       >
         <View
-          onLongPress={undefined}
           onPress={undefined}
           style={
             Array [
@@ -161,10 +174,7 @@ exports[`List renders correctly 1`] = `
                   Object {
                     "backgroundColor": "transparent",
                   },
-                  Array [
-                    Object {},
-                    undefined,
-                  ],
+                  undefined,
                 ],
                 Object {
                   "fontFamily": "Material Icons",
@@ -187,7 +197,7 @@ exports[`List renders correctly 1`] = `
       Array [
         Object {
           "backgroundColor": "transparent",
-          "borderBottomColor": "#ededed",
+          "borderBottomColor": "#bbb",
           "borderBottomWidth": 1,
           "paddingBottom": 10,
           "paddingRight": 10,
@@ -231,11 +241,10 @@ exports[`List renders correctly 1`] = `
             accessible={true}
             allowFontScaling={true}
             ellipsizeMode="tail"
+            numberOfLines={1}
             style={
               Array [
-                Object {
-                  "fontFamily": undefined,
-                },
+                Object {},
                 undefined,
                 undefined,
                 undefined,
@@ -258,7 +267,7 @@ exports[`List renders correctly 1`] = `
                       "color": "#222222",
                       "fontFamily": "HelveticaNeue",
                       "fontSize": 14,
-                      "fontWeight": "500",
+                      "fontWeight": "300",
                       "lineHeight": 18,
                     },
                     Array [],
@@ -278,16 +287,31 @@ exports[`List renders correctly 1`] = `
         </View>
       </View>
       <View
+        accessibilityComponentType={undefined}
+        accessibilityLabel={undefined}
+        accessibilityTraits={undefined}
+        accessible={true}
+        hitSlop={undefined}
+        isTVSelectable={true}
+        onLayout={undefined}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
         style={
           Object {
             "alignItems": "flex-end",
             "flex": 0.15,
             "justifyContent": "center",
+            "opacity": 1,
           }
         }
+        testID={undefined}
+        tvParallaxProperties={undefined}
       >
         <View
-          onLongPress={undefined}
           onPress={undefined}
           style={
             Array [
@@ -318,10 +342,7 @@ exports[`List renders correctly 1`] = `
                   Object {
                     "backgroundColor": "transparent",
                   },
-                  Array [
-                    Object {},
-                    undefined,
-                  ],
+                  undefined,
                 ],
                 Object {
                   "fontFamily": "Material Icons",

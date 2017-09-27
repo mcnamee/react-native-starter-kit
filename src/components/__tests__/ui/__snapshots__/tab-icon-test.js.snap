@@ -2,7 +2,6 @@
 
 exports[`TabIcon renders correctly 1`] = `
 <View
-  onLongPress={undefined}
   onPress={undefined}
   style={
     Array [

@@ -6,7 +6,7 @@ import 'react-native';
 import React from 'react';
 import renderer from 'react-test-renderer';
 
-import FormView from '@containers/auth/Form/FormView';
+import FormView from '@containers/auth/Forms/FormView';
 
 // Login prop expects a promise
 const mockPromise = new Promise(resolve => resolve());

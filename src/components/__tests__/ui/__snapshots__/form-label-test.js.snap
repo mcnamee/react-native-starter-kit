@@ -15,9 +15,7 @@ exports[`FormLabel renders correctly 1`] = `
     ellipsizeMode="tail"
     style={
       Array [
-        Object {
-          "fontFamily": undefined,
-        },
+        Object {},
         undefined,
         undefined,
         undefined,
@@ -41,6 +39,8 @@ exports[`FormLabel renders correctly 1`] = `
             Object {
               "color": "#222222",
               "fontFamily": "HelveticaNeue",
+              "marginLeft": 0,
+              "marginRight": 0,
             },
             Array [],
           ],

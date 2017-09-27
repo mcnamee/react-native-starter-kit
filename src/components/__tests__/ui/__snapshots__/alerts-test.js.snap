@@ -46,7 +46,7 @@ exports[`Alerts (Error) renders correctly 1`] = `
               "color": "#222222",
               "fontFamily": "HelveticaNeue",
               "fontSize": 14,
-              "fontWeight": "500",
+              "fontWeight": "300",
               "lineHeight": 18,
             },
             Array [
@@ -125,7 +125,7 @@ exports[`Alerts (Status) renders correctly 1`] = `
               "color": "#222222",
               "fontFamily": "HelveticaNeue",
               "fontSize": 14,
-              "fontWeight": "500",
+              "fontWeight": "300",
               "lineHeight": 18,
             },
             Array [
@@ -200,7 +200,7 @@ exports[`Alerts (Sucess) renders correctly 1`] = `
               "color": "#222222",
               "fontFamily": "HelveticaNeue",
               "fontSize": 14,
-              "fontWeight": "500",
+              "fontWeight": "300",
               "lineHeight": 18,
             },
             Array [

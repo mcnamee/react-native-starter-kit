@@ -67,11 +67,7 @@ exports[`CardView renders correctly 1`] = `
       }
     >
       <View
-        style={
-          Object {
-            "flex": 1,
-          }
-        }
+        style={undefined}
       >
         <Image
           resizeMode="cover"
@@ -83,14 +79,30 @@ exports[`CardView renders correctly 1`] = `
           style={
             Array [
               Object {
-                "flex": 1,
                 "height": 150,
                 "width": null,
               },
               undefined,
             ]
           }
-        />
+        >
+          <View
+            style={
+              Object {
+                "alignItems": "center",
+                "alignSelf": "stretch",
+                "backgroundColor": "rgba(0, 0, 0, 0.2)",
+                "bottom": 0,
+                "flex": 1,
+                "justifyContent": "center",
+                "left": 0,
+                "position": "absolute",
+                "right": 0,
+                "top": 0,
+              }
+            }
+          />
+        </Image>
         <View
           style={
             Array [
@@ -156,7 +168,7 @@ exports[`CardView renders correctly 1`] = `
                     "color": "#222222",
                     "fontFamily": "HelveticaNeue",
                     "fontSize": 14,
-                    "fontWeight": "500",
+                    "fontWeight": "300",
                     "lineHeight": 18,
                   },
                 ]

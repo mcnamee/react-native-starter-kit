@@ -77,30 +77,80 @@ exports[`FormView renders correctly 1`] = `
         <View
           style={Object {}}
         >
-          <View
-            style={
-              Object {
-                "marginBottom": 10,
-              }
-            }
-          >
-            <Text
-              accessible={true}
-              allowFontScaling={true}
-              ellipsizeMode="tail"
+          <View>
+            <View
               style={
-                Object {
-                  "color": "#000000",
-                  "fontSize": 17,
-                  "fontWeight": "500",
-                  "marginBottom": 7,
-                }
+                Array [
+                  Object {},
+                  Array [],
+                ]
               }
             >
-              Email
-            </Text>
+              <Text
+                accessible={true}
+                allowFontScaling={true}
+                ellipsizeMode="tail"
+                style={
+                  Array [
+                    Object {},
+                    undefined,
+                    undefined,
+                    undefined,
+                    undefined,
+                    undefined,
+                    undefined,
+                    undefined,
+                    undefined,
+                    undefined,
+                    Array [
+                      Object {
+                        "color": "#86939e",
+                        "fontSize": 15,
+                        "fontWeight": "bold",
+                        "marginBottom": 1,
+                        "marginLeft": 20,
+                        "marginRight": 20,
+                        "marginTop": 15,
+                      },
+                      Array [
+                        Object {
+                          "color": "#222222",
+                          "fontFamily": "HelveticaNeue",
+                          "marginLeft": 0,
+                          "marginRight": 0,
+                        },
+                        Array [],
+                      ],
+                      undefined,
+                    ],
+                  ]
+                }
+              >
+                Email
+              </Text>
+            </View>
             <View
-              style={Object {}}
+              style={
+                Array [
+                  Object {
+                    "borderBottomColor": "#bdc6cf",
+                    "borderBottomWidth": 1,
+                    "marginLeft": 20,
+                    "marginRight": 20,
+                  },
+                  Array [
+                    Object {
+                      "backgroundColor": "rgba(255,255,255,0.05)",
+                      "borderBottomColor": "#D0D1D5",
+                      "borderBottomWidth": 1,
+                      "marginLeft": 0,
+                      "marginRight": 0,
+                      "marginTop": 10,
+                    },
+                    Array [],
+                  ],
+                ]
+              }
             >
               <TextInput
                 accessibilityLabel="Email"
@@ -135,47 +185,103 @@ exports[`FormView renders correctly 1`] = `
                 selectionColor={undefined}
                 selectionState={undefined}
                 style={
-                  Object {
-                    "borderColor": "#cccccc",
-                    "borderRadius": 4,
-                    "borderWidth": 1,
-                    "color": "#000000",
-                    "fontSize": 17,
-                    "height": 36,
-                    "marginBottom": 5,
-                    "paddingHorizontal": 7,
-                    "paddingVertical": 7,
-                  }
+                  Array [
+                    Object {
+                      "color": "#86939e",
+                      "fontSize": 17.5,
+                      "minHeight": 36,
+                      "width": 750,
+                    },
+                    Array [
+                      Object {
+                        "color": "#222222",
+                        "fontFamily": "HelveticaNeue",
+                        "paddingHorizontal": 0,
+                        "paddingVertical": 3,
+                      },
+                      Array [],
+                    ],
+                  ]
                 }
                 underlineColorAndroid="transparent"
                 value=""
               />
             </View>
           </View>
-          <View
-            style={
-              Object {
-                "marginBottom": 10,
-              }
-            }
-          >
-            <Text
-              accessible={true}
-              allowFontScaling={true}
-              ellipsizeMode="tail"
+          <View>
+            <View
               style={
-                Object {
-                  "color": "#000000",
-                  "fontSize": 17,
-                  "fontWeight": "500",
-                  "marginBottom": 7,
-                }
+                Array [
+                  Object {},
+                  Array [],
+                ]
               }
             >
-              Password
-            </Text>
+              <Text
+                accessible={true}
+                allowFontScaling={true}
+                ellipsizeMode="tail"
+                style={
+                  Array [
+                    Object {},
+                    undefined,
+                    undefined,
+                    undefined,
+                    undefined,
+                    undefined,
+                    undefined,
+                    undefined,
+                    undefined,
+                    undefined,
+                    Array [
+                      Object {
+                        "color": "#86939e",
+                        "fontSize": 15,
+                        "fontWeight": "bold",
+                        "marginBottom": 1,
+                        "marginLeft": 20,
+                        "marginRight": 20,
+                        "marginTop": 15,
+                      },
+                      Array [
+                        Object {
+                          "color": "#222222",
+                          "fontFamily": "HelveticaNeue",
+                          "marginLeft": 0,
+                          "marginRight": 0,
+                        },
+                        Array [],
+                      ],
+                      undefined,
+                    ],
+                  ]
+                }
+              >
+                Password
+              </Text>
+            </View>
             <View
-              style={Object {}}
+              style={
+                Array [
+                  Object {
+                    "borderBottomColor": "#bdc6cf",
+                    "borderBottomWidth": 1,
+                    "marginLeft": 20,
+                    "marginRight": 20,
+                  },
+                  Array [
+                    Object {
+                      "backgroundColor": "rgba(255,255,255,0.05)",
+                      "borderBottomColor": "#D0D1D5",
+                      "borderBottomWidth": 1,
+                      "marginLeft": 0,
+                      "marginRight": 0,
+                      "marginTop": 10,
+                    },
+                    Array [],
+                  ],
+                ]
+              }
             >
               <TextInput
                 accessibilityLabel="Password"
@@ -210,17 +316,23 @@ exports[`FormView renders correctly 1`] = `
                 selectionColor={undefined}
                 selectionState={undefined}
                 style={
-                  Object {
-                    "borderColor": "#cccccc",
-                    "borderRadius": 4,
-                    "borderWidth": 1,
-                    "color": "#000000",
-                    "fontSize": 17,
-                    "height": 36,
-                    "marginBottom": 5,
-                    "paddingHorizontal": 7,
-                    "paddingVertical": 7,
-                  }
+                  Array [
+                    Object {
+                      "color": "#86939e",
+                      "fontSize": 17.5,
+                      "minHeight": 36,
+                      "width": 750,
+                    },
+                    Array [
+                      Object {
+                        "color": "#222222",
+                        "fontFamily": "HelveticaNeue",
+                        "paddingHorizontal": 0,
+                        "paddingVertical": 3,
+                      },
+                      Array [],
+                    ],
+                  ]
                 }
                 underlineColorAndroid="transparent"
                 value=""
@@ -229,121 +341,144 @@ exports[`FormView renders correctly 1`] = `
           </View>
         </View>
         <View
-          accessibilityComponentType={undefined}
-          accessibilityLabel={undefined}
-          accessibilityTraits={undefined}
-          accessible={true}
-          hasTVPreferredFocus={undefined}
-          hitSlop={undefined}
-          isTVSelectable={true}
-          onLayout={undefined}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "height": 1,
+              "left": 0,
+              "marginTop": 19,
+              "right": 0,
+            }
+          }
+        />
+        <View
           style={
             Array [
               Object {
                 "backgroundColor": "transparent",
+                "marginLeft": 15,
+                "marginRight": 15,
               },
-              undefined,
+              Object {
+                "shadowColor": "rgba(0,0,0, .4)",
+                "shadowOffset": Object {
+                  "height": 1,
+                  "width": 1,
+                },
+                "shadowOpacity": 1,
+                "shadowRadius": 1,
+              },
+              Object {
+                "marginLeft": 0,
+                "marginRight": 0,
+              },
             ]
           }
-          testID={undefined}
-          tvParallaxProperties={undefined}
         >
           <View
+            accessibilityComponentType={undefined}
+            accessibilityLabel={undefined}
+            accessibilityTraits={undefined}
+            accessible={true}
+            hasTVPreferredFocus={undefined}
+            hitSlop={undefined}
+            isTVSelectable={true}
+            onLayout={undefined}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
             style={
               Array [
                 Object {
-                  "alignItems": "center",
-                  "backgroundColor": "#9E9E9E",
-                  "flexDirection": "row",
-                  "justifyContent": "center",
-                  "marginLeft": 15,
-                  "marginRight": 15,
-                  "padding": 19,
+                  "backgroundColor": "transparent",
                 },
-                undefined,
-                undefined,
-                undefined,
-                undefined,
-                undefined,
-                Object {
-                  "backgroundColor": "#0E4EF8",
-                },
-                Object {
-                  "borderRadius": 2,
-                },
-                Object {
-                  "shadowColor": "rgba(0,0,0, .4)",
-                  "shadowOffset": Object {
-                    "height": 1,
-                    "width": 1,
-                  },
-                  "shadowOpacity": 1,
-                  "shadowRadius": 1,
-                },
-                Object {
-                  "padding": 12,
-                },
-                Object {
-                  "marginLeft": 0,
-                  "marginRight": 0,
-                  "padding": 12,
-                },
-                undefined,
                 undefined,
               ]
             }
+            testID={undefined}
+            tvParallaxProperties={undefined}
           >
-            <Text
-              accessible={true}
-              allowFontScaling={true}
-              ellipsizeMode="tail"
+            <View
               style={
                 Array [
                   Object {
-                    "fontFamily": undefined,
+                    "alignItems": "center",
+                    "backgroundColor": "#9E9E9E",
+                    "flexDirection": "row",
+                    "justifyContent": "center",
+                    "padding": 19,
                   },
                   undefined,
                   undefined,
                   undefined,
                   undefined,
                   undefined,
+                  Object {
+                    "backgroundColor": "#0E4EF8",
+                  },
+                  Object {
+                    "borderRadius": 2,
+                  },
+                  Object {
+                    "padding": 12,
+                  },
                   undefined,
                   undefined,
                   undefined,
+                  Object {
+                    "padding": 12,
+                  },
                   undefined,
-                  Array [
-                    Object {
-                      "color": "white",
-                      "fontSize": 20,
-                    },
-                    Object {
-                      "color": "#fff",
-                    },
-                    Object {
-                      "fontSize": 17.5,
-                    },
-                    Object {
-                      "fontSize": 14,
-                    },
-                    undefined,
-                    Object {
-                      "fontWeight": "bold",
-                    },
-                    Object {
-                      "fontFamily": "HelveticaNeue",
-                    },
-                  ],
+                  undefined,
                 ]
               }
             >
-              Login
-            </Text>
+              <Text
+                accessible={true}
+                allowFontScaling={true}
+                ellipsizeMode="tail"
+                style={
+                  Array [
+                    Object {},
+                    undefined,
+                    undefined,
+                    undefined,
+                    undefined,
+                    undefined,
+                    undefined,
+                    undefined,
+                    undefined,
+                    undefined,
+                    Array [
+                      Object {
+                        "color": "white",
+                        "fontSize": 20,
+                      },
+                      Object {
+                        "color": "#fff",
+                      },
+                      Object {
+                        "fontSize": 17.5,
+                      },
+                      Object {
+                        "fontSize": 14,
+                      },
+                      undefined,
+                      Object {
+                        "fontWeight": "bold",
+                      },
+                      Object {
+                        "fontFamily": "HelveticaNeue",
+                      },
+                    ],
+                  ]
+                }
+              >
+                Login
+              </Text>
+            </View>
           </View>
         </View>
         <View
@@ -396,7 +531,7 @@ exports[`FormView renders correctly 1`] = `
                     "color": "#222222",
                     "fontFamily": "HelveticaNeue",
                     "fontSize": 14,
-                    "fontWeight": "500",
+                    "fontWeight": "300",
                     "lineHeight": 18,
                     "marginBottom": 8,
                   },
@@ -442,7 +577,7 @@ exports[`FormView renders correctly 1`] = `
                   "color": "#222222",
                   "fontFamily": "HelveticaNeue",
                   "fontSize": 14,
-                  "fontWeight": "500",
+                  "fontWeight": "300",
                   "lineHeight": 18,
                   "marginBottom": 8,
                 },
@@ -457,126 +592,143 @@ exports[`FormView renders correctly 1`] = `
             - or -
           </Text>
           <View
-            accessibilityComponentType={undefined}
-            accessibilityLabel={undefined}
-            accessibilityTraits={undefined}
-            accessible={true}
-            hasTVPreferredFocus={undefined}
-            hitSlop={undefined}
-            isTVSelectable={true}
-            onLayout={undefined}
-            onResponderGrant={[Function]}
-            onResponderMove={[Function]}
-            onResponderRelease={[Function]}
-            onResponderTerminate={[Function]}
-            onResponderTerminationRequest={[Function]}
-            onStartShouldSetResponder={[Function]}
             style={
               Array [
                 Object {
                   "backgroundColor": "transparent",
+                  "marginLeft": 15,
+                  "marginRight": 15,
                 },
-                undefined,
+                false,
+                Object {
+                  "marginLeft": 0,
+                  "marginRight": 0,
+                },
               ]
             }
-            testID={undefined}
-            tvParallaxProperties={undefined}
           >
             <View
+              accessibilityComponentType={undefined}
+              accessibilityLabel={undefined}
+              accessibilityTraits={undefined}
+              accessible={true}
+              hasTVPreferredFocus={undefined}
+              hitSlop={undefined}
+              isTVSelectable={true}
+              onLayout={undefined}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
               style={
                 Array [
                   Object {
-                    "alignItems": "center",
-                    "backgroundColor": "#9E9E9E",
-                    "flexDirection": "row",
-                    "justifyContent": "center",
-                    "marginLeft": 15,
-                    "marginRight": 15,
-                    "padding": 19,
+                    "backgroundColor": "transparent",
                   },
-                  undefined,
-                  undefined,
-                  undefined,
-                  undefined,
-                  undefined,
-                  Object {
-                    "backgroundColor": "#0E4EF8",
-                  },
-                  Object {
-                    "borderRadius": 2,
-                  },
-                  Object {
-                    "shadowColor": "rgba(0,0,0, .4)",
-                    "shadowOffset": Object {
-                      "height": 1,
-                      "width": 1,
-                    },
-                    "shadowOpacity": 1,
-                    "shadowRadius": 1,
-                  },
-                  Object {
-                    "padding": 12,
-                  },
-                  Object {
-                    "marginLeft": 0,
-                    "marginRight": 0,
-                    "padding": 12,
-                  },
-                  undefined,
                   undefined,
                 ]
               }
+              testID={undefined}
+              tvParallaxProperties={undefined}
             >
-              <Text
-                accessible={true}
-                allowFontScaling={true}
-                ellipsizeMode="tail"
+              <View
                 style={
                   Array [
                     Object {
-                      "fontFamily": undefined,
+                      "alignItems": "center",
+                      "backgroundColor": "#9E9E9E",
+                      "flexDirection": "row",
+                      "justifyContent": "center",
+                      "padding": 19,
                     },
                     undefined,
                     undefined,
                     undefined,
                     undefined,
                     undefined,
+                    Object {
+                      "backgroundColor": "transparent",
+                    },
+                    Object {
+                      "borderRadius": 2,
+                    },
+                    Object {
+                      "padding": 12,
+                    },
                     undefined,
                     undefined,
                     undefined,
+                    Object {
+                      "borderColor": "#0E4EF8",
+                      "borderWidth": 1,
+                      "padding": 12,
+                    },
                     undefined,
-                    Array [
-                      Object {
-                        "color": "white",
-                        "fontSize": 20,
-                      },
-                      Object {
-                        "color": "#fff",
-                      },
-                      Object {
-                        "fontSize": 17.5,
-                      },
-                      Object {
-                        "fontSize": 14,
-                      },
-                      undefined,
-                      Object {
-                        "fontWeight": "bold",
-                      },
-                      Object {
-                        "fontFamily": "HelveticaNeue",
-                      },
-                    ],
+                    undefined,
                   ]
                 }
               >
-                Sign Up
-              </Text>
+                <Text
+                  accessible={true}
+                  allowFontScaling={true}
+                  ellipsizeMode="tail"
+                  style={
+                    Array [
+                      Object {},
+                      undefined,
+                      undefined,
+                      undefined,
+                      undefined,
+                      undefined,
+                      undefined,
+                      undefined,
+                      undefined,
+                      undefined,
+                      Array [
+                        Object {
+                          "color": "white",
+                          "fontSize": 20,
+                        },
+                        Object {
+                          "color": "#0E4EF8",
+                        },
+                        Object {
+                          "fontSize": 17.5,
+                        },
+                        Object {
+                          "fontSize": 14,
+                        },
+                        undefined,
+                        Object {
+                          "fontWeight": "bold",
+                        },
+                        Object {
+                          "fontFamily": "HelveticaNeue",
+                        },
+                      ],
+                    ]
+                  }
+                >
+                  Sign Up
+                </Text>
+              </View>
             </View>
           </View>
         </View>
       </View>
     </View>
+    <View
+      style={
+        Object {
+          "height": 1,
+          "left": 0,
+          "marginTop": 59,
+          "right": 0,
+        }
+      }
+    />
   </View>
 </RCTScrollView>
 `;

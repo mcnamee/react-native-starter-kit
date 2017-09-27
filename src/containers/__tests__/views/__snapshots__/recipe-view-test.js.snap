@@ -116,7 +116,7 @@ exports[`RecipeView renders correctly 1`] = `
                 "color": "#222222",
                 "fontFamily": "HelveticaNeue",
                 "fontSize": 14,
-                "fontWeight": "500",
+                "fontWeight": "300",
                 "lineHeight": 18,
               },
             ]
@@ -225,7 +225,7 @@ exports[`RecipeView renders correctly 1`] = `
                     "color": "#222222",
                     "fontFamily": "HelveticaNeue",
                     "fontSize": 14,
-                    "fontWeight": "500",
+                    "fontWeight": "300",
                     "lineHeight": 18,
                   },
                 ]
@@ -263,7 +263,7 @@ exports[`RecipeView renders correctly 1`] = `
                     "color": "#222222",
                     "fontFamily": "HelveticaNeue",
                     "fontSize": 14,
-                    "fontWeight": "500",
+                    "fontWeight": "300",
                     "lineHeight": 18,
                   },
                 ]
@@ -302,7 +302,7 @@ exports[`RecipeView renders correctly 1`] = `
                     "color": "#222222",
                     "fontFamily": "HelveticaNeue",
                     "fontSize": 14,
-                    "fontWeight": "500",
+                    "fontWeight": "300",
                     "lineHeight": 18,
                   },
                 ]
@@ -340,7 +340,7 @@ exports[`RecipeView renders correctly 1`] = `
                     "color": "#222222",
                     "fontFamily": "HelveticaNeue",
                     "fontSize": 14,
-                    "fontWeight": "500",
+                    "fontWeight": "300",
                     "lineHeight": 18,
                   },
                 ]
@@ -379,7 +379,7 @@ exports[`RecipeView renders correctly 1`] = `
                     "color": "#222222",
                     "fontFamily": "HelveticaNeue",
                     "fontSize": 14,
-                    "fontWeight": "500",
+                    "fontWeight": "300",
                     "lineHeight": 18,
                   },
                 ]
@@ -417,7 +417,7 @@ exports[`RecipeView renders correctly 1`] = `
                     "color": "#222222",
                     "fontFamily": "HelveticaNeue",
                     "fontSize": 14,
-                    "fontWeight": "500",
+                    "fontWeight": "300",
                     "lineHeight": 18,
                   },
                 ]
@@ -528,7 +528,7 @@ exports[`RecipeView renders correctly 1`] = `
                     "color": "#222222",
                     "fontFamily": "HelveticaNeue",
                     "fontSize": 14,
-                    "fontWeight": "500",
+                    "fontWeight": "300",
                     "lineHeight": 18,
                   },
                 ]
@@ -571,7 +571,7 @@ exports[`RecipeView renders correctly 1`] = `
                     "color": "#222222",
                     "fontFamily": "HelveticaNeue",
                     "fontSize": 14,
-                    "fontWeight": "500",
+                    "fontWeight": "300",
                     "lineHeight": 18,
                   },
                 ]
@@ -610,7 +610,7 @@ exports[`RecipeView renders correctly 1`] = `
                     "color": "#222222",
                     "fontFamily": "HelveticaNeue",
                     "fontSize": 14,
-                    "fontWeight": "500",
+                    "fontWeight": "300",
                     "lineHeight": 18,
                   },
                 ]
@@ -653,7 +653,7 @@ exports[`RecipeView renders correctly 1`] = `
                     "color": "#222222",
                     "fontFamily": "HelveticaNeue",
                     "fontSize": 14,
-                    "fontWeight": "500",
+                    "fontWeight": "300",
                     "lineHeight": 18,
                   },
                 ]
@@ -692,7 +692,7 @@ exports[`RecipeView renders correctly 1`] = `
                     "color": "#222222",
                     "fontFamily": "HelveticaNeue",
                     "fontSize": 14,
-                    "fontWeight": "500",
+                    "fontWeight": "300",
                     "lineHeight": 18,
                   },
                 ]
@@ -735,7 +735,7 @@ exports[`RecipeView renders correctly 1`] = `
                     "color": "#222222",
                     "fontFamily": "HelveticaNeue",
                     "fontSize": 14,
-                    "fontWeight": "500",
+                    "fontWeight": "300",
                     "lineHeight": 18,
                   },
                 ]

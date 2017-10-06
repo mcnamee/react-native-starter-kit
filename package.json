@@ -13,7 +13,7 @@
       "<rootDir>/jest.setup.js"
     ],
     "transformIgnorePatterns": [
-      "node_modules/(?!react-native|tcomb-form-native|apsl-react-native-button,react-native-device-info|react-clone-referenced-element)"
+      "node_modules/(?!react-native|tcomb-form-native|apsl-react-native-button,react-clone-referenced-element)"
     ],
     "collectCoverage": true,
     "verbose": true
@@ -24,7 +24,6 @@
     "react": "16.0.0-alpha.6",
     "react-addons-shallow-compare": "^15.4.2",
     "react-native": "0.44.3",
-    "react-native-device-info": "^0.10.1",
     "react-native-dotenv": "0.1.0",
     "react-native-elements": "^0.15.0",
     "react-native-google-analytics-bridge": "^5.0.0",

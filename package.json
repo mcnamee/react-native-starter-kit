@@ -22,7 +22,6 @@
     "firebase": "^4.1.2",
     "prop-types": "^15.5.10",
     "react": "16.0.0-alpha.6",
-    "react-addons-shallow-compare": "^15.4.2",
     "react-native": "0.44.3",
     "react-native-dotenv": "0.1.0",
     "react-native-elements": "^0.15.0",

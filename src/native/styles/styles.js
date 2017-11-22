@@ -1,9 +1,10 @@
 import { StyleSheet } from 'react-native';
 
-export const appStyle = StyleSheet.create({
-  reactNativeWeb: {
-    flexDirection: 'column',
+export default StyleSheet.create({
+  container: {
     flex: 1,
+    flexDirection: 'column',
     justifyContent: 'center',
+    backgroundColor: '#fff',
   },
 });

@@ -3,10 +3,12 @@ import { View } from 'react-native';
 import PropTypes from 'prop-types';
 import { Text } from 'react-native-elements';
 
+import AppStyles from '../styles/styles';
+
 const Home = ({ onPress, color }) => (
-  <View>
+  <View style={AppStyles.container}>
     <Text h4 onPress={onPress} style={{ color, textAlign: 'center' }}>
-      Tap Me!
+      Tap Me
     </Text>
   </View>
 );

@@ -1,14 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const HelloWorld = ({ onClick, color }) => (
+const HelloWorld = ({ onPress, color }) => (
   <div className="hello-world">
-    <button className="btn btn-light" onClick={onClick} style={{ color }}>Click Me</button>
+    <button className="btn btn-light" onClick={onPress} style={{ color }}>Click Me</button>
   </div>
 );
 
 HelloWorld.propTypes = {
-  onClick: PropTypes.func.isRequired,
+  onPress: PropTypes.func.isRequired,
   color: PropTypes.string.isRequired,
 };
 

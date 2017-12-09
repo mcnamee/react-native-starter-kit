@@ -6,12 +6,12 @@ module.exports = {
   entry: [
     'webpack-hot-middleware/client',
     'babel-polyfill',
-    path.join(__dirname, '../src/web/index')
+    path.join(__dirname, '../src/web/index'),
   ],
   output: {
     path: path.join(__dirname, '../src/web'),
     filename: 'bundle.js',
-    publicPath: '/'
+    publicPath: '/',
   },
   module: {
     loaders: [
@@ -19,11 +19,11 @@ module.exports = {
       {
         test: /\.scss$/,
         loader:
-          'style-loader!css-loader!autoprefixer-loader?browsers=last 2 version!sass-loader'
+          'style-loader!css-loader!autoprefixer-loader?browsers=last 2 version!sass-loader',
       },
       {
         test: /\.json$/,
-        loader: 'json-loader'
+        loader: 'json-loader',
       },
       {
         test: /\.js$/,
@@ -40,25 +40,25 @@ module.exports = {
                     transform: 'react-transform-hmr',
                     imports: ['react'],
                     // this is important for Webpack HMR:
-                    locals: ['module']
-                  }
-                ]
-              }
-            ]
-          ]
-        }
-      }
-    ]
+                    locals: ['module'],
+                  },
+                ],
+              },
+            ],
+          ],
+        },
+      },
+    ],
   },
   plugins: [
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: JSON.stringify('development'),
-        PLATFORM_ENV: JSON.stringify('web')
-      }
+        PLATFORM_ENV: JSON.stringify('web'),
+      },
     }),
     new webpack.optimize.OccurrenceOrderPlugin(),
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoEmitOnErrorsPlugin()
-  ]
+    new webpack.NoEmitOnErrorsPlugin(),
+  ],
 };

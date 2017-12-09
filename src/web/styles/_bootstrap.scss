@@ -1,0 +1,7 @@
+// Override Bootstrap's variables before importing
+
+// $body-bg: #000;
+// $body-color: #111;
+
+// Then import Bootstrap
+@import "node_modules/bootstrap/scss/bootstrap";

@@ -1,31 +1,33 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 // Components
 import Header from '../components/Header';
-import HelloWorld from '../components/HelloWorld';
+import Sidebar from '../components/Sidebar';
 
-// Actions
-import {
-  toggleColor,
-} from '../../actions/colors';
+// Routes
+import Home from './Home';
+import NotFound from '../components/404';
+import About from '../components/About';
 
-const App = ({ dispatch, colors }) => (
-  <div className="react-native-web">
-    <Header />
-    <HelloWorld
-      onClick={() => dispatch(toggleColor())}
-      color={colors.color}
-    />
-  </div>
+const App = () => (
+  <Router>
+    <div>
+      <Header />
+      <div className="container-fluid">
+        <div className="row">
+          <Sidebar />
+          <main role="main" className="col-sm-9 ml-sm-auto col-md-10 pt-3">
+            <Switch>
+              <Route exact path="/" component={Home} />
+              <Route path="/about" component={About} />
+              <Route component={NotFound} />
+            </Switch>
+          </main>
+        </div>
+      </div>
+    </div>
+  </Router>
 );
 
-App.propTypes = {
-  dispatch: PropTypes.func.isRequired,
-  colors: PropTypes.shape({ color: PropTypes.string.isRequired }).isRequired,
-};
-
-const select = state => state;
-
-export default connect(select)(App);
+export default App;

@@ -1,24 +1,6 @@
-// get the page ready
-* { outline: none; box-sizing: border-box; }
-body { padding: 0; margin: 0; }
-html, body, .react-native-web { height: 100%; width: 100%; position: absolute; top: 0; right: 0; overflow: hidden;}
-body, button, input {
-  font-family: "HelveticaNeue-Light","Helvetica Neue Light","Helvetica Neue",Helvetica,Arial,"Lucida Grande",sans-serif;
-  font-size: 1em;
-}
+@import "bootstrap";
+@import "components/sidebar";
 
-// Let the real CSS begin
-.react-native-web {
-  justify-content: center;
-  display: flex;
-  flex-direction: column;
-
-  .hello-world {
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 200px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
+body {
+  padding-top: 3.5rem;
 }

@@ -1,23 +1,19 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { View } from 'react-native';
 import PropTypes from 'prop-types';
 import { Text } from 'react-native-elements';
 
-export default class HelloWorld extends Component {
-  static propTypes = {
-    onPress: PropTypes.func.isRequired,
-    color: PropTypes.string.isRequired,
-  }
+const Home = ({ onPress, color }) => (
+  <View>
+    <Text h4 onPress={onPress} style={{ color, textAlign: 'center' }}>
+      Tap Me!
+    </Text>
+  </View>
+);
 
-  render() {
-    const { onPress, color } = this.props;
+Home.propTypes = {
+  onPress: PropTypes.func.isRequired,
+  color: PropTypes.string.isRequired,
+};
 
-    return (
-      <View>
-        <Text h4 onPress={onPress} style={{ color: color, textAlign: 'center' }}>
-          Tap Me
-        </Text>
-      </View>
-    );
-  }
-}
+export default Home;

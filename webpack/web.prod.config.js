@@ -10,11 +10,11 @@ module.exports = {
   },
   module: {
     loaders: [
-      // take all less files, compile them, and bundle them in with our js bundle
+      // Take all sass files, compile them, and bundle them in with our js bundle
       {
-        test: /\.less$/,
+        test: /\.scss$/,
         loader:
-          'style-loader!css-loader!autoprefixer-loader?browsers=last 2 version!less-loader'
+          'style-loader!css-loader!autoprefixer-loader?browsers=last 2 version!sass-loader'
       },
       {
         test: /\.json$/,

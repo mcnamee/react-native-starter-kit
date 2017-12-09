@@ -1,9 +1,8 @@
-import React, { Component } from 'react';
+import React from 'react';
+import Config from '../../constants/config';
 
-export default class Header extends Component {
-  render() {
-    return (
-      <div className="header"></div>
-    );
-  }
-}
+const Header = () => (
+  <div className="header">{Config.appName}</div>
+);
+
+export default Header;

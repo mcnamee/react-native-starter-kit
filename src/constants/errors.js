@@ -3,9 +3,11 @@ export default {
   default: 'Hmm, an unknown error occured',
   timeout: 'Server Timed Out. Check your internet connection',
   invalidJson: 'Response returned is not valid JSON',
+
+  // Firebase Related
   invalidFirebase: 'Firebase is not connected correctly',
 
   // Recipes
-  recipe404: 'No recipes found',
+  recipe404: 'Recipe not found',
   missingMealId: 'Missing meal definition',
 };

@@ -1,6 +1,6 @@
 import React from 'react';
 import Root from './src/native/containers/Root';
-import configureStore from './src/store/configureStore.js';
+import configureStore from './src/store/index';
 
 const store = configureStore();
 

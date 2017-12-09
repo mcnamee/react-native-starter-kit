@@ -1,33 +1,26 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { View } from 'react-native';
 import PropTypes from 'prop-types';
-import { connect }  from 'react-redux';
+import { connect } from 'react-redux';
 import AppStyles from '../styles/styles';
 
 import Home from '../components/Home';
 
-import { toggleColor } from '../../actions/actions';
+import { toggleColor } from '../../actions/colors';
 
-class App extends Component {
-  static propTypes = {
-    dispatch: PropTypes.func.isRequired,
-    color: PropTypes.string.isRequired,
-    data: PropTypes.object.isRequired,
-  }
+const Container = ({ dispatch, colors }) => (
+  <View style={AppStyles.container}>
+    <Home
+      onPress={() => dispatch(toggleColor())}
+      color={colors.color}
+    />
+  </View>
+);
 
-  render() {
-    const { dispatch, color, data } = this.props;
-
-    return (
-      <View style={AppStyles.container}>
-        <Home
-          onPress={() => dispatch(toggleColor())}
-          color={color}
-        />
-      </View>
-    );
-  }
-}
+Container.propTypes = {
+  dispatch: PropTypes.func.isRequired,
+  colors: PropTypes.shape({ color: PropTypes.string.isRequired }).isRequired,
+};
 
 const select = state => state;
-export default connect(select)(App);
+export default connect(select)(Container);

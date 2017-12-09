@@ -1,12 +1,12 @@
 export default {
   brand: {
     primary: '#2375E5',
-    secondary: ''
+    secondary: '',
   },
   app: {
     background: '#FFFFFF',
   },
   text: {
-    primary: '#13171A'
-  }
+    primary: '#13171A',
+  },
 };

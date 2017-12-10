@@ -4,9 +4,9 @@ import { Provider } from 'react-redux';
 import { Router, Drawer, Stack } from 'react-native-router-flux';
 import { Icon } from 'react-native-elements';
 
-import Routes from '../routes/index';
+import Routes from './routes/index';
 
-import Menu from '../components/Menu';
+import Menu from './components/Menu';
 
 const Root = ({ store }) => (
   <Provider store={store}>

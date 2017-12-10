@@ -1,33 +1,72 @@
-import React from 'react';
+import React, { Component } from 'react';
+import {
+  Collapse,
+  Navbar,
+  NavbarToggler,
+  Nav,
+  NavItem,
+  NavLink,
+  UncontrolledDropdown,
+  DropdownToggle,
+  DropdownMenu,
+  DropdownItem,
+} from 'reactstrap';
 import { Link } from 'react-router-dom';
 import Config from '../../constants/config';
 
-const Header = () => (
-  <header>
-    <nav className="navbar navbar-expand-md navbar-dark fixed-top bg-primary">
-      <Link className="navbar-brand" to="/">{Config.appName}</Link>
-      <button className="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-        <span className="navbar-toggler-icon" />
-      </button>
+export default class Header extends Component {
+  constructor(props) {
+    super(props);
 
-      <div className="collapse navbar-collapse" id="navbarsExampleDefault">
-        <ul className="navbar-nav mr-auto">
-          <li className="nav-item active">
-            <Link className="nav-link" to="/">Home <span className="sr-only">(current)</span></Link>
-          </li>
-          <li className="nav-item">
-            <Link className="nav-link" to="/about">About</Link>
-          </li>
-          <li className="nav-item">
-            <Link className="nav-link" to="/">Profile</Link>
-          </li>
-          <li className="nav-item">
-            <Link className="nav-link" to="/">Help</Link>
-          </li>
-        </ul>
-      </div>
-    </nav>
-  </header>
-);
+    this.toggle = this.toggle.bind(this);
+    this.state = {
+      isOpen: false,
+    };
+  }
 
-export default Header;
+  toggle() {
+    this.setState({
+      isOpen: !this.state.isOpen,
+    });
+  }
+
+  render() {
+    return (
+      <header>
+        <Navbar dark color="primary" expand="md">
+          <Link to="/" className="navbar-brand" style={{ color: '#FFF' }}>
+            {Config.appName}
+          </Link>
+          <NavbarToggler onClick={this.toggle} />
+          <Collapse isOpen={this.state.isOpen} navbar>
+            <Nav className="ml-auto" navbar>
+              <NavItem>
+                <Link to="/about" className="nav-link">About</Link>
+              </NavItem>
+              <NavItem>
+                <NavLink href="https://reactstrap.github.io/components/">Components</NavLink>
+              </NavItem>
+              <UncontrolledDropdown nav>
+                <DropdownToggle nav caret>
+                  My Account
+                </DropdownToggle>
+                <DropdownMenu >
+                  <DropdownItem>
+                    Login
+                  </DropdownItem>
+                  <DropdownItem>
+                    Sign Up
+                  </DropdownItem>
+                  <DropdownItem divider />
+                  <DropdownItem>
+                    Logout
+                  </DropdownItem>
+                </DropdownMenu>
+              </UncontrolledDropdown>
+            </Nav>
+          </Collapse>
+        </Navbar>
+      </header>
+    );
+  }
+}

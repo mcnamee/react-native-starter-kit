@@ -10,6 +10,8 @@
     "no-console": "off",
     "import/no-extraneous-dependencies": "off",
     "import/extensions": "off",
-    "import/no-unresolved": "off"
+    "import/no-unresolved": "off",
+    "jsx-a11y/anchor-is-valid": "off",
+    "no-underscore-dangle": "off"
   },
 }

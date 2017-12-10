@@ -1,9 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Button } from 'reactstrap';
 
 const HelloWorld = ({ onPress, color }) => (
-  <div className="hello-world">
-    <button className="btn btn-light" onClick={onPress} style={{ color }}>Click Me</button>
+  <div>
+    <Button color="light" onClick={onPress} style={{ color }}>Click Me</Button>
   </div>
 );
 

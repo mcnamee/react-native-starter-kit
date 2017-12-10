@@ -17,5 +17,5 @@ Container.propTypes = {
   colors: PropTypes.shape({ color: PropTypes.string.isRequired }).isRequired,
 };
 
-const select = state => state;
-export default connect(select)(Container);
+const mapStateToProps = state => state;
+export default connect(mapStateToProps)(Container);

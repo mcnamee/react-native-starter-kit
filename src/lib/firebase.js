@@ -1,27 +1,29 @@
 import * as Firebase from 'firebase';
-import {
-  API_KEY,
-  AUTH_DOMAIN,
-  DATABASE_URL,
-  STORAGE_BUCKET,
-  MESSAGING_SENDER_ID,
-} from '../constants/firebase';
+import firebaseConfig from '../constants/firebase';
+
+const {
+  apiKey,
+  authDomain,
+  databaseURL,
+  storageBucket,
+  messagingSenderId,
+} = firebaseConfig;
 
 let firebaseInitialized = false;
 
 if (
-  API_KEY !== 'null' &&
-  AUTH_DOMAIN !== 'null' &&
-  DATABASE_URL !== 'null' &&
-  STORAGE_BUCKET !== 'null' &&
-  MESSAGING_SENDER_ID !== 'null'
+  apiKey !== 'null' &&
+  authDomain !== 'null' &&
+  databaseURL !== 'null' &&
+  storageBucket !== 'null' &&
+  messagingSenderId !== 'null'
 ) {
   Firebase.initializeApp({
-    apiKey: API_KEY,
-    authDomain: AUTH_DOMAIN,
-    databaseURL: DATABASE_URL,
-    storageBucket: STORAGE_BUCKET,
-    messagingSenderId: MESSAGING_SENDER_ID,
+    apiKey,
+    authDomain,
+    databaseURL,
+    storageBucket,
+    messagingSenderId,
   });
 
   firebaseInitialized = true;

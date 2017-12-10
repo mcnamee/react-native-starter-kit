@@ -6,6 +6,9 @@ import DefaultProps from '../constants/navigation';
 import HomeContainer from '../../containers/Home';
 import HomeComponent from '../components/Home';
 
+import RecipesContainer from '../../containers/Recipes';
+import RecipesComponent from '../components/Recipes';
+
 import AboutComponent from '../components/About';
 
 const Index = (
@@ -18,13 +21,13 @@ const Index = (
         {...DefaultProps.tabProps}
       >
         <Stack
-          key="tab_1"
-          title="Tab #1"
-          tabBarLabel="TAB #1"
+          key="recipes"
+          title="Recipes"
+          tabBarLabel="Recipes"
           icon={() => <Icon name="directions" {...DefaultProps.icons} />}
           {...DefaultProps.navbarProps}
         >
-          <Scene key="home" component={HomeContainer} Layout={HomeComponent} />
+          <Scene key="home" component={RecipesContainer} Layout={RecipesComponent} />
         </Stack>
 
         <Stack

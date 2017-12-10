@@ -1,9 +1,3 @@
-/**
- * Recipe Actions
- *
- * React Native Starter App
- * https://github.com/mcnamee/react-native-starter-app
- */
 import { Firebase, FirebaseRef } from '../lib/firebase';
 
 /**
@@ -55,7 +49,7 @@ export function replaceFavourites(newFavourites) {
 export function getMeals() {
   if (Firebase === null) return () => new Promise(resolve => resolve());
 
-  return dispatch => new Firebase.Promise((resolve) => {
+  return dispatch => new Promise((resolve) => {
     const ref = FirebaseRef.child('meals');
 
     return ref.once('value').then((snapshot) => {
@@ -75,7 +69,7 @@ export function getMeals() {
 export function getRecipes() {
   if (Firebase === null) return () => new Promise(resolve => resolve());
 
-  return dispatch => new Firebase.Promise((resolve) => {
+  return dispatch => new Promise((resolve) => {
     const ref = FirebaseRef.child('recipes');
 
     return ref.on('value', (snapshot) => {

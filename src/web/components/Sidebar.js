@@ -7,13 +7,13 @@ const Sidebar = () => (
     <Col sm="3" md="2" className="d-none d-sm-block bg-light sidebar">
       <Nav vertical>
         <NavItem>
-          <Link className="nav-link" to="/">Overview</Link>
+          <Link className="nav-link" to="/">Home</Link>
         </NavItem>
         <NavItem>
-          <Link className="nav-link" to="/about">Reports</Link>
+          <Link className="nav-link" to="/about">About</Link>
         </NavItem>
         <NavItem>
-          <Link className="nav-link" to="/about">Analytics</Link>
+          <Link className="nav-link" to="/recipes">Recipes</Link>
         </NavItem>
       </Nav>
     </Col>

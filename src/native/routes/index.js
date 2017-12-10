@@ -1,7 +1,7 @@
 import React from 'react';
 import { Scene, Tabs, Stack } from 'react-native-router-flux';
 import { Icon } from 'react-native-elements';
-import DefaultProps from '../../constants/navigation';
+import DefaultProps from '../constants/navigation';
 
 import HomeContainer from '../../containers/Home';
 import HomeComponent from '../components/Home';

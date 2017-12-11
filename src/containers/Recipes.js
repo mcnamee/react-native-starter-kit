@@ -12,8 +12,15 @@ class RecipeListing extends Component {
       error: PropTypes.string,
       recipes: PropTypes.arrayOf(PropTypes.shape()).isRequired,
     }).isRequired,
+    match: PropTypes.shape({
+      params: PropTypes.shape({}),
+    }),
     getRecipes: PropTypes.func.isRequired,
     getMeals: PropTypes.func.isRequired,
+  }
+
+  static defaultProps = {
+    match: null,
   }
 
   componentDidMount = () => this.fetchRecipes();
@@ -32,11 +39,13 @@ class RecipeListing extends Component {
   }
 
   render = () => {
-    const { Layout } = this.props;
+    const { Layout, recipes, match } = this.props;
+    const id = (match && match.params && match.params.id) ? match.params.id : null;
 
     return (
       <Layout
-        recipes={this.props.recipes}
+        recipes={recipes}
+        recipeId={id}
         reFetch={() => this.fetchRecipes(true)}
       />
     );

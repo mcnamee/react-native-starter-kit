@@ -35,7 +35,7 @@ const RecipeListing = ({ recipes }) => {
       <CardBody>
         <CardTitle>{item.title}</CardTitle>
         <CardText>{item.body}</CardText>
-        <Link className="btn btn-primary" to="/recipe/{item.id}">View Recipe</Link>
+        <Link className="btn btn-primary" to={`/recipe/${item.id}`}>View Recipe</Link>
       </CardBody>
     </Card>
   ));

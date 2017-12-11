@@ -2,22 +2,18 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-import { getRecipes } from '../actions/recipes';
+import { getRecipes, getMeals } from '../actions/recipes';
 
 class RecipeListing extends Component {
   static propTypes = {
     Layout: PropTypes.func.isRequired,
-    recipes: PropTypes.arrayOf(PropTypes.object),
+    recipes: PropTypes.shape({
+      loading: PropTypes.bool.isRequired,
+      error: PropTypes.string,
+      recipes: PropTypes.arrayOf(PropTypes.shape()).isRequired,
+    }).isRequired,
     getRecipes: PropTypes.func.isRequired,
-  }
-
-  static defaultProps = {
-    recipes: [],
-  }
-
-  state = {
-    error: null,
-    loading: false,
+    getMeals: PropTypes.func.isRequired,
   }
 
   componentDidMount = () => this.fetchRecipes();
@@ -25,30 +21,35 @@ class RecipeListing extends Component {
   /**
     * Fetch Data from API, saving to Redux
     */
-  fetchRecipes = () => this.props.getRecipes()
-    .then(() => this.setState({ error: null, loading: false }))
-    .catch(err => this.setState({ error: err.message, loading: false }))
+  fetchRecipes = (reFetch = false) => {
+    if (reFetch || this.props.recipes.recipes[0].placeholder) {
+      return this.props.getRecipes()
+        .then(() => this.props.getMeals())
+        .catch(err => console.log(`Error: ${err}`));
+    }
+
+    return false;
+  }
 
   render = () => {
     const { Layout } = this.props;
 
     return (
       <Layout
-        error={this.state.error}
-        loading={this.state.loading}
         recipes={this.props.recipes}
-        reFetch={this.fetchRecipes}
+        reFetch={() => this.fetchRecipes(true)}
       />
     );
   }
 }
 
 const mapStateToProps = state => ({
-  recipes: state.recipes.recipes || [],
+  recipes: state.recipes || {},
 });
 
 const mapDispatchToProps = {
   getRecipes,
+  getMeals,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(RecipeListing);

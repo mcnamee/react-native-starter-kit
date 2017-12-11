@@ -3,25 +3,20 @@ import PropTypes from 'prop-types';
 import { FlatList, RefreshControl, View } from 'react-native';
 import { Card, Text } from 'react-native-elements';
 
-const RecipeListing = ({
-  recipes,
-  reFetch,
-  error,
-  loading,
-}) => {
+const RecipeListing = ({ recipes, reFetch }) => {
   const keyExtractor = item => item.id;
 
-  if (!loading && (!recipes || recipes.length < 1)) {
+  if (recipes.error) {
     return (
       <View>
-        <Text>{error}</Text>
+        <Text>{recipes.error}</Text>
       </View>
     );
   }
 
   return (
     <FlatList
-      data={recipes}
+      data={recipes.recipes}
       renderItem={({ item }) => (
         <Card image={{ uri: item.image }}>
           <Text h4>{item.title}</Text>
@@ -31,7 +26,7 @@ const RecipeListing = ({
       keyExtractor={keyExtractor}
       refreshControl={
         <RefreshControl
-          refreshing={loading}
+          refreshing={recipes.loading}
           onRefresh={reFetch}
         />
       }
@@ -40,16 +35,16 @@ const RecipeListing = ({
 };
 
 RecipeListing.propTypes = {
-  recipes: PropTypes.arrayOf(PropTypes.object).isRequired,
+  recipes: PropTypes.shape({
+    loading: PropTypes.bool.isRequired,
+    error: PropTypes.string,
+    recipes: PropTypes.arrayOf(PropTypes.shape()).isRequired,
+  }).isRequired,
   reFetch: PropTypes.func,
-  error: PropTypes.string,
-  loading: PropTypes.bool,
 };
 
 RecipeListing.defaultProps = {
   reFetch: null,
-  error: null,
-  loading: false,
 };
 
 export default RecipeListing;

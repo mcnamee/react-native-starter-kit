@@ -33,7 +33,7 @@ export default class Header extends Component {
   render() {
     return (
       <header>
-        <Navbar dark color="primary" expand="md">
+        <Navbar dark color="primary" expand="md" className="fixed-top">
           <Link to="/" className="navbar-brand" style={{ color: '#FFF' }}>
             {Config.appName}
           </Link>

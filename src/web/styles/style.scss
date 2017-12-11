@@ -1,2 +1,16 @@
 @import "bootstrap";
 @import "components/sidebar";
+
+body {
+  padding-top: 3.5em;
+}
+
+.content-loading {
+  opacity: 1;
+  animation: fadeInOut 1s linear;
+}
+
+@keyframes fadeInOut {
+  0%, 100% { opacity: 0.2 }
+  50% { opacity: 0.7 }
+}

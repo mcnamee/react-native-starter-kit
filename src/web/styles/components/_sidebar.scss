@@ -1,3 +1,7 @@
+/**
+ * Styles for the Sidebar.js component
+ */
+
 .sidebar {
   position: fixed;
   top: 56px;
@@ -8,20 +12,20 @@
   overflow-x: hidden;
   overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
   border-right: 1px solid #eee;
-}
 
-.sidebar .nav {
-  margin-bottom: 20px;
-}
+  .nav {
+    margin-bottom: 20px;
+  }
 
-.sidebar .nav-item {
-  width: 100%;
-}
+  .nav-item {
+    width: 100%;
 
-.sidebar .nav-item + .nav-item {
-  margin-left: 0;
-}
+    & + .nav-item {
+      margin-left: 0;
+    }
+  }
 
-.sidebar .nav-link {
-  border-radius: 0;
+  .nav-link {
+    border-radius: 0;
+  }
 }

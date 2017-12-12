@@ -11,7 +11,7 @@ import Routes from './routes/index';
 
 // Components
 import Header from './components/Header';
-import Sidebar from './components/Sidebar';
+import { Sidebar } from './components/Sidebar';
 
 // Load css
 require('./styles/style.scss');
@@ -27,7 +27,7 @@ const Root = () => (
         <Container fluid>
           <Row>
             <Sidebar />
-            <Col md="10" sml="9" className="pt-3 ml-sm-auto">
+            <Col md="10" sm="9" className="pt-3 ml-sm-auto">
               <Routes />
             </Col>
           </Row>

@@ -10,39 +10,27 @@ import {
   CardTitle,
 } from 'reactstrap';
 import { Link } from 'react-router-dom';
+import Error from './Error';
 
-const RecipeListing = ({ recipes }) => {
-  /**
-   * Show Error
-   */
-  if (recipes.error) {
-    return (
-      <Row>
-        <Col sm="12">
-          <h1>Error...</h1>
-          <p><code>{recipes.error}</code></p>
-        </Col>
-      </Row>
-    );
-  }
+const RecipeListing = ({ error, loading, recipes }) => {
+  // Error
+  if (error) return <Error content={error} />;
 
-  /**
-   * Build Cards for Listing
-   */
-  const cards = recipes.recipes.map(item => (
+  // Build Cards for Listing
+  const cards = recipes.map(item => (
     <Card key={`${item.id}`}>
-      <CardImg top src={item.image} alt={item.title} />
+      <Link to={`/recipe/${item.id}`}>
+        <CardImg top src={item.image} alt={item.title} />
+      </Link>
       <CardBody>
         <CardTitle>{item.title}</CardTitle>
         <CardText>{item.body}</CardText>
-        <Link className="btn btn-primary" to={`/recipe/${item.id}`}>View Recipe</Link>
+        <Link className="btn btn-primary" to={`/recipe/${item.id}`}>View Recipe &raquo;</Link>
       </CardBody>
     </Card>
   ));
 
-  /**
-   * Show Listing
-   */
+  // Show Listing
   return (
     <div>
       <Row>
@@ -50,7 +38,7 @@ const RecipeListing = ({ recipes }) => {
           <h1>Let{"'"}s Read Data from Firebase</h1>
         </Col>
       </Row>
-      <Row className={recipes.loading ? 'content-loading' : ''}>
+      <Row className={loading ? 'content-loading' : ''}>
         <Col sm="12" className="card-columns">
           {cards}
         </Col>
@@ -60,11 +48,13 @@ const RecipeListing = ({ recipes }) => {
 };
 
 RecipeListing.propTypes = {
-  recipes: PropTypes.shape({
-    loading: PropTypes.bool.isRequired,
-    error: PropTypes.string,
-    recipes: PropTypes.arrayOf(PropTypes.shape()).isRequired,
-  }).isRequired,
+  error: PropTypes.string,
+  loading: PropTypes.bool.isRequired,
+  recipes: PropTypes.arrayOf(PropTypes.shape()).isRequired,
+};
+
+RecipeListing.defaultProps = {
+  error: null,
 };
 
 export default RecipeListing;

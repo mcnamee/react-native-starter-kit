@@ -6,34 +6,45 @@ import {
   Card,
   CardText,
   CardBody,
-  CardTitle,
+  CardHeader,
+  ListGroup,
+  ListGroupItem,
 } from 'reactstrap';
-import { Redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import ErrorMessages from '../../constants/errors';
+import Loading from './Loading';
+import Error from './Error';
 
-const RecipeView = ({ recipes, recipeId }) => {
-  /**
-   * Show Error
-   */
-  if (recipes.error) {
-    return (
-      <Row>
-        <Col sm="12">
-          <h1>Error...</h1>
-          <p><code>{recipes.error}</code></p>
-        </Col>
-      </Row>
-    );
-  }
+const RecipeView = ({
+  error,
+  loading,
+  recipes,
+  recipeId,
+}) => {
+  // Loading
+  if (loading) return <Loading />;
 
-  /**
-   * Get Recipe
-   */
+  // Error
+  if (error) return <Error content={error} />;
+
+  // Get this Recipe from all recipes
   let recipe = null;
-  if (recipeId && recipes.recipes) {
-    recipe = recipes.recipes.find(item => parseInt(item.id, 10) === parseInt(recipeId, 10));
+  if (recipeId && recipes) {
+    recipe = recipes.find(item => parseInt(item.id, 10) === parseInt(recipeId, 10));
   }
 
-  if (!recipe) return <Redirect to={{ pathname: '/404' }} />;
+  // Recipe not found
+  if (!recipe) return <Error content={ErrorMessages.recipe404} />;
+
+  // Build Ingredients listing
+  const ingredients = recipe.ingredients.map(item => (
+    <ListGroupItem key={`${item}`}>{item}</ListGroupItem>
+  ));
+
+  // Build Method listing
+  const method = recipe.method.map(item => (
+    <ListGroupItem key={`${item}`}>{item}</ListGroupItem>
+  ));
 
   return (
     <div>
@@ -43,30 +54,35 @@ const RecipeView = ({ recipes, recipeId }) => {
           <p>by {recipe.author}</p>
         </Col>
       </Row>
-      <Row className={recipes.loading ? 'content-loading' : ''}>
-        <Col sm="4">
+      <Row>
+        <Col lg="4" className="recipe-view-card">
           <Card>
+            <CardHeader>About this recipe</CardHeader>
             <CardBody>
-              <CardTitle>About this recipe</CardTitle>
               <CardText>{recipe.body}</CardText>
             </CardBody>
           </Card>
         </Col>
-        <Col sm="6">
+        <Col lg="4" className="recipe-view-card">
           <Card>
-            <CardBody>
-              <CardTitle>Ingredients</CardTitle>
-              <CardText>{recipe.ingredients}</CardText>
-            </CardBody>
+            <CardHeader>Ingredients</CardHeader>
+            <ListGroup className="list-group-flush">
+              {ingredients}
+            </ListGroup>
           </Card>
         </Col>
-        <Col sm="6">
+        <Col lg="4" className="recipe-view-card">
           <Card>
-            <CardBody>
-              <CardTitle>Method</CardTitle>
-              <CardText>{recipe.method}</CardText>
-            </CardBody>
+            <CardHeader>Method</CardHeader>
+            <ListGroup className="list-group-flush">
+              {method}
+            </ListGroup>
           </Card>
+        </Col>
+      </Row>
+      <Row>
+        <Col sm="12">
+          <Link className="btn btn-primary" to="/recipes">&laquo; Back</Link>
         </Col>
       </Row>
     </div>
@@ -74,12 +90,14 @@ const RecipeView = ({ recipes, recipeId }) => {
 };
 
 RecipeView.propTypes = {
-  recipes: PropTypes.shape({
-    loading: PropTypes.bool.isRequired,
-    error: PropTypes.string,
-    recipes: PropTypes.arrayOf(PropTypes.shape()).isRequired,
-  }).isRequired,
+  error: PropTypes.string,
+  loading: PropTypes.bool.isRequired,
   recipeId: PropTypes.string.isRequired,
+  recipes: PropTypes.arrayOf(PropTypes.shape()).isRequired,
+};
+
+RecipeView.defaultProps = {
+  error: null,
 };
 
 export default RecipeView;

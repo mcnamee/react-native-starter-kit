@@ -1,10 +1,15 @@
 @import "bootstrap";
 @import "components/sidebar";
+@import "components/recipes";
+@import "components/loading";
 
 body {
   padding-top: 3.5em;
 }
 
+/**
+ * Pulsating Loading Animation
+ */
 .content-loading {
   opacity: 1;
   animation: fadeInOut 1s linear;

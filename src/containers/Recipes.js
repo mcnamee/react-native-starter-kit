@@ -44,8 +44,10 @@ class RecipeListing extends Component {
 
     return (
       <Layout
-        recipes={recipes}
-        recipeId={id}
+      recipeId={id}
+        error={recipes.error}
+        loading={recipes.loading}
+        recipes={recipes.recipes}
         reFetch={() => this.fetchRecipes(true)}
       />
     );

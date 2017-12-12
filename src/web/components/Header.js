@@ -13,6 +13,7 @@ import {
 } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import Config from '../../constants/config';
+import { SidebarNavItems } from './Sidebar';
 
 export default class Header extends Component {
   constructor(props) {
@@ -33,16 +34,16 @@ export default class Header extends Component {
   render() {
     return (
       <header>
-        <Navbar dark color="primary" expand="md" className="fixed-top">
+        <Navbar dark color="primary" expand="sm" className="fixed-top">
           <Link to="/" className="navbar-brand" style={{ color: '#FFF' }}>
             {Config.appName}
           </Link>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
-              <NavItem>
-                <Link to="/about" className="nav-link">About</Link>
-              </NavItem>
+              <div className="d-block d-sm-none">
+                {SidebarNavItems()}
+              </div>
               <NavItem>
                 <NavLink href="https://reactstrap.github.io/components/">Components</NavLink>
               </NavItem>

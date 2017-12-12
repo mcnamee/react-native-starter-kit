@@ -8,6 +8,7 @@ import HomeComponent from '../components/Home';
 
 import RecipesContainer from '../../containers/Recipes';
 import RecipesComponent from '../components/Recipes';
+import RecipeViewComponent from '../components/Recipe';
 
 import AboutComponent from '../components/About';
 
@@ -27,7 +28,7 @@ const Index = (
           icon={() => <Icon name="directions" {...DefaultProps.icons} />}
           {...DefaultProps.navbarProps}
         >
-          <Scene key="home" component={RecipesContainer} Layout={RecipesComponent} />
+          <Scene key="recipes" component={RecipesContainer} Layout={RecipesComponent} />
         </Stack>
 
         <Stack
@@ -51,6 +52,16 @@ const Index = (
         </Stack>
       </Tabs>
     </Scene>
+
+    <Scene
+      back
+      clone
+      key="recipe"
+      title="Recipe"
+      {...DefaultProps.navbarProps}
+      component={RecipesContainer}
+      Layout={RecipeViewComponent}
+    />
 
     <Scene
       key="about"

@@ -64,6 +64,16 @@ export function getMeals() {
 }
 
 /**
+  * Set an Error Message
+  */
+export function setError(message) {
+  return dispatch => new Promise(resolve => resolve(dispatch({
+    type: 'RECIPES_ERROR',
+    data: message,
+  })));
+}
+
+/**
   * Get Recipes
   */
 export function getRecipes() {

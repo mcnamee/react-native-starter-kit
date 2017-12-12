@@ -19,6 +19,12 @@ export default function recipeReducer(state = initialState, action) {
         meals: action.data,
       };
     }
+    case 'RECIPES_ERROR': {
+      return {
+        ...state,
+        error: action.data,
+      };
+    }
     case 'RECIPES_REPLACE': {
       let recipes = [];
 

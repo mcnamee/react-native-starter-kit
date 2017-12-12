@@ -4,6 +4,7 @@ export default {
   navbarProps: {
     navigationBarStyle: { backgroundColor: Colors.brand.primary },
     titleStyle: { color: 'white', alignSelf: 'center' },
+    backButtonTintColor: 'white',
   },
 
   tabProps: {

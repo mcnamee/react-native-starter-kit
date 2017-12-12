@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-import { getRecipes, getMeals } from '../actions/recipes';
+import { getRecipes, getMeals, setError } from '../actions/recipes';
 
 class RecipeListing extends Component {
   static propTypes = {
@@ -17,6 +17,7 @@ class RecipeListing extends Component {
     }),
     getRecipes: PropTypes.func.isRequired,
     getMeals: PropTypes.func.isRequired,
+    setError: PropTypes.func.isRequired,
   }
 
   static defaultProps = {
@@ -32,7 +33,10 @@ class RecipeListing extends Component {
     if (reFetch || this.props.recipes.recipes[0].placeholder) {
       return this.props.getRecipes()
         .then(() => this.props.getMeals())
-        .catch(err => console.log(`Error: ${err}`));
+        .catch((err) => {
+          console.log(`Error: ${err}`);
+          return this.props.setError(err);
+        });
     }
 
     return false;
@@ -44,7 +48,7 @@ class RecipeListing extends Component {
 
     return (
       <Layout
-      recipeId={id}
+        recipeId={id}
         error={recipes.error}
         loading={recipes.loading}
         recipes={recipes.recipes}
@@ -61,6 +65,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = {
   getRecipes,
   getMeals,
+  setError,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(RecipeListing);

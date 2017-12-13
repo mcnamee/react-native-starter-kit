@@ -7,6 +7,9 @@ export default {
   // Firebase Related
   invalidFirebase: 'Firebase is not connected correctly',
 
+  // Member
+  memberExists: 'Member already exists',
+
   // Recipes
   recipe404: 'Recipe not found',
   missingMealId: 'Missing meal definition',

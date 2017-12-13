@@ -1,6 +1,5 @@
 import Store from '../store/recipes';
 
-// Set initial state
 export const initialState = Store;
 
 export default function recipeReducer(state = initialState, action) {

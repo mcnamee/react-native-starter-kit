@@ -1,4 +1,4 @@
-import * as Firebase from 'firebase';
+import * as FirebaseModule from 'firebase';
 import firebaseConfig from '../constants/firebase';
 
 const {
@@ -18,7 +18,7 @@ if (
   storageBucket !== 'null' &&
   messagingSenderId !== 'null'
 ) {
-  Firebase.initializeApp({
+  FirebaseModule.initializeApp({
     apiKey,
     authDomain,
     databaseURL,
@@ -29,5 +29,5 @@ if (
   firebaseInitialized = true;
 }
 
-export const FirebaseRef = firebaseInitialized ? Firebase.database().ref() : null;
-export default firebaseInitialized ? Firebase : null;
+export const FirebaseRef = firebaseInitialized ? FirebaseModule.database().ref() : null;
+export const Firebase = firebaseInitialized ? FirebaseModule : null;

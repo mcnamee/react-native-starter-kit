@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
 import {
-  Collapse,
-  Navbar,
-  NavbarToggler,
   Nav,
+  Navbar,
   NavItem,
   NavLink,
-  UncontrolledDropdown,
-  DropdownToggle,
+  Collapse,
   DropdownMenu,
   DropdownItem,
+  NavbarToggler,
+  DropdownToggle,
+  UncontrolledDropdown,
 } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import Config from '../../constants/config';
@@ -56,7 +56,7 @@ export default class Header extends Component {
                     Login
                   </DropdownItem>
                   <DropdownItem>
-                    Sign Up
+                    <Link to="/sign-up">Sign Up</Link>
                   </DropdownItem>
                   <DropdownItem divider />
                   <DropdownItem>

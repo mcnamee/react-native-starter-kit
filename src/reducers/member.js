@@ -1,42 +1,48 @@
-/**
- * User Reducer
- *
- * React Native Starter App
- * https://github.com/mcnamee/react-native-starter-app
- */
+import Store from '../store/member';
 
-// Set initial state
-const initialState = {};
+export const initialState = Store;
 
 export default function userReducer(state = initialState, action) {
   switch (action.type) {
     case 'USER_LOGIN': {
       if (action.data) {
-        const input = action.data;
         return {
           ...state,
-          uid: input.uid,
-          email: input.email,
-          emailVerified: input.emailVerified,
+          loading: false,
+          error: null,
+          uid: action.data.uid,
+          email: action.data.email,
+          emailVerified: action.data.emailVerified,
         };
       }
-      return {};
+      return initialState;
     }
     case 'USER_DETAILS_UPDATE': {
       if (action.data) {
-        const input = action.data;
         return {
           ...state,
-          firstName: input.firstName,
-          lastName: input.lastName,
-          signedUp: input.signedUp,
-          role: input.role,
+          loading: false,
+          error: null,
+          firstName: action.data.firstName,
+          lastName: action.data.lastName,
+          signedUp: action.data.signedUp,
+          role: action.data.role,
         };
       }
-      return {};
+      return initialState;
+    }
+    case 'USER_ERROR': {
+      if (action.data) {
+        return {
+          ...state,
+          loading: false,
+          error: action.data,
+        };
+      }
+      return initialState;
     }
     case 'USER_LOGOUT': {
-      return {};
+      return initialState;
     }
     default:
       return state;

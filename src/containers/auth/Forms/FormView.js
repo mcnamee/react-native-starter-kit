@@ -85,6 +85,7 @@ class AuthForm extends Component {
             error: 'Please enter a valid email',
             autoCapitalize: 'none',
             clearButtonMode: 'while-editing',
+            autoFocus: true,
           },
           Password: {
             template: TcombTextInput,

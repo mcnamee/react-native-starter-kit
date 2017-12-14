@@ -18,7 +18,7 @@ const showError = (dispatch, errorMessage) => new Promise(() => dispatch({
 /**
   * Add loading state to redux
   */
-const showLoading = dispatch => new Promise(() => dispatch({ type: 'USER_LOADING' }));
+// const showLoading = dispatch => new Promise(() => dispatch({ type: 'USER_LOADING' }));
 
 /**
   * Sign Up to Firebase
@@ -27,22 +27,22 @@ export function signUp(formData) {
   const {
     email,
     password,
+    password2,
     firstName,
     lastName,
   } = formData;
 
-  return async dispatch => new Promise((resolve) => {
+  return dispatch => new Promise((resolve, reject) => {
     // Validation checks
-    if (!firstName) return showError(dispatch, 'First name is missing');
-    if (!lastName) return showError(dispatch, 'Last name is missing');
-    if (!email) return showError(dispatch, 'Email is missing');
-    if (!password) return showError(dispatch, 'Password is missing');
+    if (!firstName) return reject({ message: ErrorMessages.missingFirstName });
+    if (!lastName) return reject({ message: ErrorMessages.missingLastName });
+    if (!email) return reject({ message: ErrorMessages.missingEmail });
+    if (!password) return reject({ message: ErrorMessages.missingPassword });
+    if (!password2) return reject({ message: ErrorMessages.missingPassword });
+    if (password !== password2) return reject({ message: ErrorMessages.passwordsDontMatch });
 
-    // Validation passed, show loading state
-    showLoading(dispatch);
-    return resolve();
-  }).then(() => {
-    Firebase.auth()
+    // Go to Firebase
+    return Firebase.auth()
       .createUserWithEmailAndPassword(email, password)
       .then((res) => {
         // Send user details to Firebase database
@@ -52,11 +52,10 @@ export function signUp(formData) {
             lastName,
             signedUp: Firebase.database.ServerValue.TIMESTAMP,
             lastLoggedIn: Firebase.database.ServerValue.TIMESTAMP,
-          });
+          }).then(resolve);
         }
-      })
-      .catch((err) => { showError(dispatch, err.message); });
-  });
+      }).catch(reject);
+  }).catch((err) => { showError(dispatch, err.message); throw err.message; });
 }
 
 /**

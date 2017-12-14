@@ -4,18 +4,18 @@ import { connect } from 'react-redux';
 
 import { signUp } from '../actions/member';
 
-const SignUp = ({ Layout, accountSignUp, member }) => (
+const SignUp = ({ Layout, onFormSubmit, member }) => (
   <Layout
     member={member}
     error={member.error}
     loading={member.loading}
-    submitForm={accountSignUp}
+    onFormSubmit={onFormSubmit}
   />
 );
 
 SignUp.propTypes = {
   Layout: PropTypes.func.isRequired,
-  accountSignUp: PropTypes.func.isRequired,
+  onFormSubmit: PropTypes.func.isRequired,
   member: PropTypes.shape({
     loading: PropTypes.bool.isRequired,
     error: PropTypes.string,
@@ -27,7 +27,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = {
-  accountSignUp: signUp,
+  onFormSubmit: signUp,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(SignUp);

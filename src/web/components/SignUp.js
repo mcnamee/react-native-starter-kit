@@ -13,14 +13,17 @@ import {
   FormGroup,
   CardHeader,
 } from 'reactstrap';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import Loading from './Loading';
 
 class SignUp extends React.Component {
   static propTypes = {
     error: PropTypes.string,
     loading: PropTypes.bool.isRequired,
-    submitForm: PropTypes.func.isRequired,
+    onFormSubmit: PropTypes.func.isRequired,
+    history: PropTypes.shape({
+      push: PropTypes.func.isRequired,
+    }).isRequired,
   }
 
   static defaultProps = {
@@ -34,24 +37,29 @@ class SignUp extends React.Component {
       lastName: '',
       email: '',
       password: '',
+      password2: '',
     };
 
     this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleChange(event) {
+  handleChange = (event) => {
     this.setState({
       ...this.state,
       [event.target.name]: event.target.value,
     });
   }
 
+  handleSubmit = (event) => {
+    event.preventDefault();
+    this.props.onFormSubmit(this.state)
+      .then(() => this.props.history.push('/'))
+      .catch(e => console.log(`Error: ${e}`));
+  }
+
   render() {
-    const {
-      loading,
-      error,
-      submitForm,
-    } = this.props;
+    const { loading, error } = this.props;
 
     // Loading
     if (loading) return <Loading />;
@@ -64,7 +72,7 @@ class SignUp extends React.Component {
               <CardHeader>Sign Up</CardHeader>
               <CardBody>
                 {!!error && <Alert color="danger">{error}</Alert>}
-                <Form onSubmit={(e) => { e.preventDefault(); submitForm(this.state); }}>
+                <Form onSubmit={this.handleSubmit}>
                   <FormGroup>
                     <Label for="firstName">First Name</Label>
                     <Input
@@ -104,20 +112,37 @@ class SignUp extends React.Component {
                       type="password"
                       name="password"
                       id="password"
-                      placeholder="********"
+                      placeholder="••••••••"
                       value={this.state.password}
+                      onChange={this.handleChange}
+                    />
+                  </FormGroup>
+                  <FormGroup>
+                    <Label for="password2">Confirm Password</Label>
+                    <Input
+                      type="password"
+                      name="password2"
+                      id="password2"
+                      placeholder="••••••••"
+                      value={this.state.password2}
                       onChange={this.handleChange}
                     />
                   </FormGroup>
                   <Button>Sign Up!</Button>
                 </Form>
+
+                <hr />
+
+                <Row>
+                  <Col sm="6">
+                    Already have an account? <Link to="/login">Login</Link>
+                  </Col>
+                  <Col sm="6" className="text-right">
+                    <Link to="/forgot-password">Forgot Password?</Link>
+                  </Col>
+                </Row>
               </CardBody>
             </Card>
-          </Col>
-        </Row>
-        <Row>
-          <Col sm="12">
-            <Link className="btn btn-primary" to="/login">&laquo; Back</Link>
           </Col>
         </Row>
       </div>
@@ -125,4 +150,4 @@ class SignUp extends React.Component {
   }
 }
 
-export default SignUp;
+export default withRouter(SignUp);

@@ -58,26 +58,6 @@ export function signUp(formData) {
   }).catch((err) => { showError(dispatch, err.message); throw err.message; });
 }
 
-/**
-  * Get this User's Details
-  */
-function getUserData(dispatch) {
-  if (Firebase === null) return showError(dispatch);
-
-  const UID = Firebase.auth().currentUser.uid;
-  if (!UID) return false;
-
-  const ref = FirebaseRef.child(`users/${UID}`);
-
-  return ref.on('value', (snapshot) => {
-    const userData = snapshot.val() || [];
-
-    return dispatch({
-      type: 'USER_DETAILS_UPDATE',
-      data: userData,
-    });
-  });
-}
 
 /**
   * Login to Firebase with Email/Password
@@ -109,6 +89,27 @@ export function login(email, password, verifyEmail = false) {
         data: res,
       });
     }).catch((err) => { showError(dispatch, err); });
+}
+
+/**
+  * Get this User's Details
+  */
+function getUserData(dispatch) {
+  if (Firebase === null) return showError(dispatch);
+
+  const UID = Firebase.auth().currentUser.uid;
+  if (!UID) return false;
+
+  const ref = FirebaseRef.child(`users/${UID}`);
+
+  return ref.on('value', (snapshot) => {
+    const userData = snapshot.val() || [];
+
+    return dispatch({
+      type: 'USER_DETAILS_UPDATE',
+      data: userData,
+    });
+  });
 }
 
 /**

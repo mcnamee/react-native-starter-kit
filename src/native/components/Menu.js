@@ -21,7 +21,7 @@ const Menu = () => (
     <List>
       <ListItem {...listItemProps} key="0" title="Home" onPress={() => Actions.tabbar()} />
       <ListItem {...listItemProps} key="1" title="About Us" onPress={() => Actions.about()} />
-      <ListItem {...listItemProps} key="2" title="Settings" />
+      <ListItem {...listItemProps} key="2" title="Sign Up" onPress={() => Actions.signUp()} />
     </List>
   </View>
 );

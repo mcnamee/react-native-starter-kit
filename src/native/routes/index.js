@@ -3,14 +3,15 @@ import { Scene, Tabs, Stack } from 'react-native-router-flux';
 import { Icon } from 'react-native-elements';
 import DefaultProps from '../constants/navigation';
 
-import HomeContainer from '../../containers/Home';
-import HomeComponent from '../components/Home';
-
 import RecipesContainer from '../../containers/Recipes';
 import RecipesComponent from '../components/Recipes';
 import RecipeViewComponent from '../components/Recipe';
 
+import SignUpContainer from '../../containers/SignUp';
+import SignUpComponent from '../components/SignUp';
+
 import AboutComponent from '../components/About';
+import ProfileComponent from '../components/Profile';
 
 const Index = (
   <Stack>
@@ -18,14 +19,13 @@ const Index = (
       <Tabs
         key="tabbar"
         swipeEnabled
-        showLabel
+        showLabel={false}
         {...DefaultProps.tabProps}
       >
         <Stack
           key="recipes"
           title="Recipes"
-          tabBarLabel="Recipes"
-          icon={() => <Icon name="directions" {...DefaultProps.icons} />}
+          icon={() => <Icon name="layers" {...DefaultProps.icons} />}
           {...DefaultProps.navbarProps}
         >
           <Scene key="recipes" component={RecipesContainer} Layout={RecipesComponent} />
@@ -34,7 +34,6 @@ const Index = (
         <Stack
           key="tab_2"
           title="Tab #2"
-          tabBarLabel="TAB #2"
           icon={() => <Icon name="plus" {...DefaultProps.icons} />}
           {...DefaultProps.navbarProps}
         >
@@ -42,13 +41,20 @@ const Index = (
         </Stack>
 
         <Stack
-          key="tab_3"
-          title="Tab #3"
-          tabBarLabel="TAB #3"
-          icon={() => <Icon name="layers" {...DefaultProps.icons} />}
+          key="profile"
+          title="Profile"
+          icon={() => <Icon name="user" {...DefaultProps.icons} />}
           {...DefaultProps.navbarProps}
         >
-          <Scene key="home" component={HomeContainer} Layout={HomeComponent} />
+          <Scene key="profileHome" component={ProfileComponent} />
+          <Scene
+            back
+            key="signUp"
+            title="Sign Up"
+            {...DefaultProps.navbarProps}
+            component={SignUpContainer}
+            Layout={SignUpComponent}
+          />
         </Stack>
       </Tabs>
     </Scene>

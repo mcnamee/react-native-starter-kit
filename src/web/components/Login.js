@@ -16,7 +16,7 @@ import {
 import { Link, withRouter } from 'react-router-dom';
 import Loading from './Loading';
 
-class SignUp extends React.Component {
+class Login extends React.Component {
   static propTypes = {
     error: PropTypes.string,
     loading: PropTypes.bool.isRequired,
@@ -33,11 +33,8 @@ class SignUp extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      firstName: '',
-      lastName: '',
       email: '',
       password: '',
-      password2: '',
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -53,8 +50,9 @@ class SignUp extends React.Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
+    console.log('1');
     this.props.onFormSubmit(this.state)
-      .then(() => this.props.history.push('/'))
+      .then(() => { console.log('2'); this.props.history.push('/'); })
       .catch(e => console.log(`Error: ${e}`));
   }
 
@@ -69,34 +67,11 @@ class SignUp extends React.Component {
         <Row>
           <Col lg={{ size: 6, offset: 3 }}>
             <Card>
-              <CardHeader>Sign Up</CardHeader>
+              <CardHeader>Login</CardHeader>
               <CardBody>
                 {!!error && <Alert color="danger">{error}</Alert>}
                 <Form onSubmit={this.handleSubmit}>
                   <FormGroup>
-                    <Label for="firstName">First Name</Label>
-                    <Input
-                      type="text"
-                      name="firstName"
-                      id="firstName"
-                      placeholder="John"
-                      value={this.state.firstName}
-                      onChange={this.handleChange}
-                    />
-                  </FormGroup>
-                  <FormGroup>
-                    <Label for="lastName">Last Name</Label>
-                    <Input
-                      type="text"
-                      name="lastName"
-                      id="lastName"
-                      placeholder="Doe"
-                      value={this.state.lastName}
-                      onChange={this.handleChange}
-                    />
-                  </FormGroup>
-
-                  <FormGroup style={{ marginTop: 40 }}>
                     <Label for="email">Email</Label>
                     <Input
                       type="email"
@@ -118,27 +93,18 @@ class SignUp extends React.Component {
                       onChange={this.handleChange}
                     />
                   </FormGroup>
-                  <FormGroup>
-                    <Label for="password2">Confirm Password</Label>
-                    <Input
-                      type="password"
-                      name="password2"
-                      id="password2"
-                      placeholder="••••••••"
-                      value={this.state.password2}
-                      onChange={this.handleChange}
-                    />
-                  </FormGroup>
-                  <Button color="primary">Sign Up!</Button>
+                  <Button color="primary">Login</Button>
                 </Form>
 
                 <hr />
 
                 <Row>
                   <Col sm="6">
-                    Already have an account? <Link to="/login">Login</Link>
+                    Need an account? <Link to="/sign-up">Sign Up</Link>
                   </Col>
-                  <Col sm="6" className="text-right" />
+                  <Col sm="6" className="text-right">
+                    <Link to="/forgot-password">Forgot Password?</Link>
+                  </Col>
                 </Row>
               </CardBody>
             </Card>
@@ -149,4 +115,4 @@ class SignUp extends React.Component {
   }
 }
 
-export default withRouter(SignUp);
+export default withRouter(Login);

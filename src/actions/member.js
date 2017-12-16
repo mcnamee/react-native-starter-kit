@@ -58,46 +58,18 @@ export function signUp(formData) {
   }).catch((err) => { showError(dispatch, err.message); throw err.message; });
 }
 
-
-/**
-  * Login to Firebase with Email/Password
-  */
-export function login(email, password, verifyEmail = false) {
-  return async dispatch => Firebase.auth()
-    .signInWithEmailAndPassword(email, password)
-    .then((res) => {
-      if (res && res.uid) {
-        // Update last logged in data
-        FirebaseRef.child(`users/${res.uid}`).update({
-          lastLoggedIn: Firebase.database.ServerValue.TIMESTAMP,
-        });
-
-        // Send verification Email - usually used on first login
-        if (verifyEmail) {
-          Firebase.auth().currentUser
-            .sendEmailVerification()
-            .catch(() => console.log('Verification email failed to send'));
-        }
-
-        // Get User Data
-        getUserData(dispatch);
-      }
-
-      // Send to Redux
-      return dispatch({
-        type: 'USER_LOGIN',
-        data: res,
-      });
-    }).catch((err) => { showError(dispatch, err); });
-}
-
 /**
   * Get this User's Details
   */
 function getUserData(dispatch) {
-  if (Firebase === null) return showError(dispatch);
+  const UID = (
+    FirebaseRef
+    && Firebase
+    && Firebase.auth()
+    && Firebase.auth().currentUser
+    && Firebase.auth().currentUser.uid
+  ) ? Firebase.auth().currentUser.uid : null;
 
-  const UID = Firebase.auth().currentUser.uid;
   if (!UID) return false;
 
   const ref = FirebaseRef.child(`users/${UID}`);
@@ -110,6 +82,53 @@ function getUserData(dispatch) {
       data: userData,
     });
   });
+}
+
+/**
+  * Login to Firebase with Email/Password
+  */
+export function login(formData) {
+  const {
+    email,
+    password,
+  } = formData;
+
+  return dispatch => new Promise((resolve, reject) => {
+    // Validation checks
+    if (!email) return reject({ message: ErrorMessages.missingEmail });
+    if (!password) return reject({ message: ErrorMessages.missingPassword });
+
+    // Go to Firebase
+    return Firebase.auth()
+      .setPersistence(Firebase.auth.Auth.Persistence.LOCAL)
+      .then(() =>
+        Firebase.auth()
+          .signInWithEmailAndPassword(email, password)
+          .then((res) => {
+            if (res && res.uid) {
+              // Update last logged in data
+              FirebaseRef.child(`users/${res.uid}`).update({
+                lastLoggedIn: Firebase.database.ServerValue.TIMESTAMP,
+              });
+
+              // Send verification Email when email hasn't been verified
+              if (res.emailVerified === false) {
+                Firebase.auth().currentUser
+                  .sendEmailVerification()
+                  .catch(() => console.log('Verification email failed to send'));
+              }
+
+              // Get User Data
+              getUserData(dispatch);
+            }
+
+            // Send Login data to Redux
+            return resolve(dispatch({
+              type: 'USER_LOGIN',
+              data: res,
+            }));
+          }).catch(reject));
+  }).catch((err) => { showError(dispatch, err.message); throw err.message; });
 }
 
 /**

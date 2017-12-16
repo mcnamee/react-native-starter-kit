@@ -53,7 +53,7 @@ export default class Header extends Component {
                 </DropdownToggle>
                 <DropdownMenu >
                   <DropdownItem>
-                    Login
+                    <Link to="/login">Login</Link>
                   </DropdownItem>
                   <DropdownItem>
                     <Link to="/sign-up">Sign Up</Link>

@@ -11,12 +11,16 @@ import RecipeViewComponent from '../components/Recipe';
 import SignUpContainer from '../../containers/SignUp';
 import SignUpComponent from '../components/SignUp';
 
+import LoginContainer from '../../containers/Login';
+import LoginComponent from '../components/Login';
+
 import Error from '../components/Error';
 
 const Index = () => (
   <Switch>
     <Route exact path="/" component={Home} />
     <Route path="/sign-up" render={routeProps => <SignUpContainer {...routeProps} Layout={SignUpComponent} />} />
+    <Route path="/login" render={routeProps => <LoginContainer {...routeProps} Layout={LoginComponent} />} />
     <Route path="/recipes" render={routeProps => <RecipesContainer {...routeProps} Layout={RecipesComponent} />} />
     <Route path="/recipe/:id" render={routeProps => <RecipesContainer {...routeProps} Layout={RecipeViewComponent} />} />
     <Route render={routeProps => <Error {...routeProps} title="404" content="Sorry, the route you requested does not exist" />} />

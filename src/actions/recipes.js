@@ -49,18 +49,16 @@ export function replaceFavourites(newFavourites) {
 export function getMeals() {
   if (Firebase === null) return () => new Promise(resolve => resolve());
 
-  return dispatch => new Promise((resolve) => {
-    const ref = FirebaseRef.child('meals');
-
-    return ref.once('value').then((snapshot) => {
+  return dispatch => new Promise((resolve, reject) => FirebaseRef
+    .child('meals').once('value')
+    .then((snapshot) => {
       const meals = snapshot.val() || {};
 
       return resolve(dispatch({
         type: 'MEALS_REPLACE',
         data: meals,
       }));
-    });
-  });
+    }).catch(reject)).catch(e => console.log(e));
 }
 
 /**
@@ -79,16 +77,13 @@ export function setError(message) {
 export function getRecipes() {
   if (Firebase === null) return () => new Promise(resolve => resolve());
 
-  return dispatch => new Promise((resolve) => {
-    const ref = FirebaseRef.child('recipes');
-
-    return ref.on('value', (snapshot) => {
+  return dispatch => new Promise(resolve => FirebaseRef.child('recipes')
+    .on('value', (snapshot) => {
       const recipes = snapshot.val() || {};
 
       return resolve(dispatch({
         type: 'RECIPES_REPLACE',
         data: recipes,
       }));
-    });
-  });
+    })).catch(e => console.log(e));
 }

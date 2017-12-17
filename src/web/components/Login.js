@@ -18,6 +18,9 @@ import Loading from './Loading';
 
 class Login extends React.Component {
   static propTypes = {
+    member: PropTypes.shape({
+      email: PropTypes.string,
+    }),
     error: PropTypes.string,
     loading: PropTypes.bool.isRequired,
     onFormSubmit: PropTypes.func.isRequired,
@@ -28,12 +31,13 @@ class Login extends React.Component {
 
   static defaultProps = {
     error: null,
+    member: {},
   }
 
   constructor(props) {
     super(props);
     this.state = {
-      email: '',
+      email: (props.member && props.member.email) ? props.member.email : '',
       password: '',
     };
 
@@ -76,6 +80,7 @@ class Login extends React.Component {
                       type="email"
                       name="email"
                       id="email"
+                      autocomplete="off"
                       placeholder="john@doe.corp"
                       value={this.state.email}
                       onChange={this.handleChange}

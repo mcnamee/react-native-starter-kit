@@ -10,6 +10,9 @@ import RecipeViewComponent from '../components/Recipe';
 import SignUpContainer from '../../containers/SignUp';
 import SignUpComponent from '../components/SignUp';
 
+import LoginContainer from '../../containers/Login';
+import LoginComponent from '../components/Login';
+
 import AboutComponent from '../components/About';
 import ProfileComponent from '../components/Profile';
 
@@ -54,6 +57,14 @@ const Index = (
             {...DefaultProps.navbarProps}
             component={SignUpContainer}
             Layout={SignUpComponent}
+          />
+          <Scene
+            back
+            key="login"
+            title="Login"
+            {...DefaultProps.navbarProps}
+            component={LoginContainer}
+            Layout={LoginComponent}
           />
         </Stack>
       </Tabs>

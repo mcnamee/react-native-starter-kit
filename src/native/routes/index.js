@@ -16,8 +16,10 @@ import LoginComponent from '../components/Login';
 import ForgotPasswordContainer from '../../containers/ForgotPassword';
 import ForgotPasswordComponent from '../components/ForgotPassword';
 
-import AboutComponent from '../components/About';
+import AppContainer from '../../containers/App';
 import ProfileComponent from '../components/Profile';
+
+import AboutComponent from '../components/About';
 
 const Index = (
   <Stack>
@@ -52,7 +54,7 @@ const Index = (
           icon={() => <Icon name="user" {...DefaultProps.icons} />}
           {...DefaultProps.navbarProps}
         >
-          <Scene key="profileHome" component={ProfileComponent} />
+          <Scene key="profileHome" component={AppContainer} Layout={ProfileComponent} />
           <Scene
             back
             key="signUp"

@@ -54,7 +54,7 @@ class SignUp extends React.Component {
   handleSubmit = (event) => {
     event.preventDefault();
     this.props.onFormSubmit(this.state)
-      .then(() => this.props.history.push('/'))
+      .then(() => this.props.history.push('/login'))
       .catch(e => console.log(`Error: ${e}`));
   }
 
@@ -135,10 +135,9 @@ class SignUp extends React.Component {
                 <hr />
 
                 <Row>
-                  <Col sm="6">
+                  <Col sm="12">
                     Already have an account? <Link to="/login">Login</Link>
                   </Col>
-                  <Col sm="6" className="text-right" />
                 </Row>
               </CardBody>
             </Card>

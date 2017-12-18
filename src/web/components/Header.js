@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import {
   Nav,
   Navbar,
@@ -19,26 +20,34 @@ export default class Header extends Component {
   constructor(props) {
     super(props);
 
-    this.toggle = this.toggle.bind(this);
-    this.state = {
-      isOpen: false,
-    };
+    this.toggleDropDown = this.toggleDropDown.bind(this);
+    this.state = { isOpen: false };
   }
 
-  toggle() {
-    this.setState({
-      isOpen: !this.state.isOpen,
-    });
+  static propTypes = {
+    member: PropTypes.shape({
+      email: PropTypes.string,
+    }),
+    logout: PropTypes.func.isRequired,
   }
+
+  static defaultProps = {
+    member: {},
+  }
+
+  toggleDropDown = () => this.setState({ isOpen: !this.state.isOpen });
 
   render() {
+    const { logout, member } = this.props;
+    const loggedIn = !!(member && member.email);
+
     return (
       <header>
         <Navbar dark color="primary" expand="sm" className="fixed-top">
           <Link to="/" className="navbar-brand" style={{ color: '#FFF' }}>
             {Config.appName}
           </Link>
-          <NavbarToggler onClick={this.toggle} />
+          <NavbarToggler onClick={this.toggleDropDown} />
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
               <div className="d-block d-sm-none">
@@ -51,17 +60,25 @@ export default class Header extends Component {
                 <DropdownToggle nav caret>
                   My Account
                 </DropdownToggle>
-                <DropdownMenu >
-                  <DropdownItem>
-                    <Link to="/login">Login</Link>
-                  </DropdownItem>
-                  <DropdownItem>
-                    <Link to="/sign-up">Sign Up</Link>
-                  </DropdownItem>
-                  <DropdownItem divider />
-                  <DropdownItem>
-                    Logout
-                  </DropdownItem>
+                <DropdownMenu>
+                  {!loggedIn &&
+                    <div>
+                      <DropdownItem>
+                        <Link to="/login">Login</Link>
+                      </DropdownItem>
+                      <DropdownItem>
+                        <Link to="/sign-up">Sign Up</Link>
+                      </DropdownItem>
+                    </div>
+                  }
+                  {loggedIn &&
+                    <div>
+                      <DropdownItem divider />
+                      <DropdownItem>
+                        <a onClick={logout}>Logout</a>
+                      </DropdownItem>
+                    </div>
+                  }
                 </DropdownMenu>
               </UncontrolledDropdown>
             </Nav>

@@ -2,12 +2,6 @@ import ErrorMessages from '../constants/errors';
 import { Firebase, FirebaseRef } from '../lib/firebase';
 
 /**
-  * Return error when Firebase isn't setup
-  */
-// const firebaseInvalid = () => new Promise((resolve, reject) =>
-//   reject(new Error({ message: ErrorMessages.invalidFirebase })));
-
-/**
   * Add error to redux
   */
 const showError = (dispatch, errorMessage) => new Promise(() => dispatch({
@@ -134,10 +128,19 @@ export function login(formData) {
 /**
   * Reset Password
   */
-export function resetPassword(email) {
-  return async dispatch => Firebase.auth()
-    .sendPasswordResetEmail(email)
-    .catch((err) => { showError(dispatch, err); });
+export function resetPassword(formData) {
+  const { email } = formData;
+
+  return dispatch => new Promise((resolve, reject) => {
+    // Validation checks
+    if (!email) return reject({ message: ErrorMessages.missingEmail });
+
+    // Go to Firebase
+    return Firebase.auth()
+      .sendPasswordResetEmail(email)
+      .then(() => resolve(dispatch({ type: 'USER_RESET' })))
+      .catch(reject);
+  }).catch((err) => { showError(dispatch, err.message); throw err.message; });
 }
 
 /**
@@ -174,6 +177,6 @@ export function logout() {
   return dispatch => Firebase.auth()
     .signOut()
     .then(() => {
-      dispatch({ type: 'USER_LOGOUT' });
+      dispatch({ type: 'USER_RESET' });
     }).catch((err) => { showError(dispatch, err); });
 }

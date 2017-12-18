@@ -10,6 +10,7 @@ const Profile = () => (
     <List containerStyle={{ marginBottom: 20 }}>
       <ListItem title="Login" onPress={Actions.login} />
       <ListItem title="Sign Up" onPress={Actions.signUp} />
+      <ListItem title="Forgot Password" onPress={Actions.forgotPassword} />
     </List>
   </ScrollView>
 );

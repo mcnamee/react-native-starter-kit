@@ -13,6 +13,7 @@
     "import/no-unresolved": "off",
     "jsx-a11y/anchor-is-valid": "off",
     "no-underscore-dangle": "off",
-    "prefer-promise-reject-errors": "off"
+    "prefer-promise-reject-errors": "off",
+    "no-nested-ternary": "off"
   },
 }

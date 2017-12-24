@@ -59,7 +59,7 @@ class UpdateProfile extends React.Component {
   handleSubmit = (event) => {
     event.preventDefault();
     this.props.onFormSubmit(this.state)
-      .then(() => console.log('Update profile updated'))
+      .then(() => console.log('Profile updated'))
       .catch(e => console.log(`Error: ${e}`));
   }
 

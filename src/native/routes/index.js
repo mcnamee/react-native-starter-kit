@@ -16,6 +16,9 @@ import LoginComponent from '../components/Login';
 import ForgotPasswordContainer from '../../containers/ForgotPassword';
 import ForgotPasswordComponent from '../components/ForgotPassword';
 
+import UpdateProfileContainer from '../../containers/UpdateProfile';
+import UpdateProfileComponent from '../components/UpdateProfile';
+
 import AppContainer from '../../containers/App';
 import ProfileComponent from '../components/Profile';
 
@@ -78,6 +81,14 @@ const Index = (
             {...DefaultProps.navbarProps}
             component={ForgotPasswordContainer}
             Layout={ForgotPasswordComponent}
+          />
+          <Scene
+            back
+            key="updateProfile"
+            title="Update Profile"
+            {...DefaultProps.navbarProps}
+            component={UpdateProfileContainer}
+            Layout={UpdateProfileComponent}
           />
         </Stack>
       </Tabs>

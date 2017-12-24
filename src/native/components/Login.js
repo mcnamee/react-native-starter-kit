@@ -1,10 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { ScrollView, View } from 'react-native';
-import { Card, Text, FormLabel, FormInput, Button } from 'react-native-elements';
+import { Card, FormLabel, FormInput, Button } from 'react-native-elements';
 import { Actions } from 'react-native-router-flux';
 import AppColors from '../constants/colors';
 import Loading from './Loading';
+import Messages from './Messages';
 
 class Login extends React.Component {
   static propTypes = {
@@ -55,15 +56,7 @@ class Login extends React.Component {
       <ScrollView>
         <Card title="Login">
           <View>
-            {error &&
-              <View style={{
-                  backgroundColor: AppColors.danger,
-                  paddingVertical: 10,
-                }}
-              >
-                <Text style={{ color: '#fff', textAlign: 'center' }}>{error}</Text>
-              </View>
-            }
+            {error && <Messages message={error} />}
 
             <FormLabel>Email</FormLabel>
             <FormInput

@@ -9,8 +9,11 @@ const Profile = ({ member, logout }) => (
     <Text h4>Profile</Text>
 
     <List containerStyle={{ marginBottom: 20 }}>
-      {!!(member && member.email) ?
-        <ListItem title="Logout" onPress={logout} />
+      {(member && member.email) ?
+        <View>
+          <ListItem title="Update My Profile" onPress={Actions.updateProfile} />
+          <ListItem title="Logout" onPress={logout} />
+        </View>
       :
         <View>
           <ListItem title="Login" onPress={Actions.login} />

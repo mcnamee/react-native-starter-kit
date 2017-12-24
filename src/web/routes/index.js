@@ -21,6 +21,9 @@ import LoginComponent from '../components/Login';
 import ForgotPasswordContainer from '../../containers/ForgotPassword';
 import ForgotPasswordComponent from '../components/ForgotPassword';
 
+import UpdateProfileContainer from '../../containers/UpdateProfile';
+import UpdateProfileComponent from '../components/UpdateProfile';
+
 import Error from '../components/Error';
 
 const Index = () => (
@@ -56,6 +59,14 @@ const Index = () => (
         <TemplateNothing>
           <ForgotPasswordContainer {...props} Layout={ForgotPasswordComponent} />
         </TemplateNothing>
+      )}
+    />
+    <Route
+      path="/update-profile"
+      render={props => (
+        <TemplateSidebar>
+          <UpdateProfileContainer {...props} Layout={UpdateProfileComponent} />
+        </TemplateSidebar>
       )}
     />
     <Route

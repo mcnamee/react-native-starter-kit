@@ -12,11 +12,25 @@ import {
   DropdownToggle,
   UncontrolledDropdown,
 } from 'reactstrap';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import Config from '../../constants/config';
 import { SidebarNavItems } from './Sidebar';
 
-export default class Header extends Component {
+class Header extends Component {
+  static propTypes = {
+    member: PropTypes.shape({
+      email: PropTypes.string,
+    }),
+    logout: PropTypes.func.isRequired,
+    history: PropTypes.shape({
+      push: PropTypes.func.isRequired,
+    }).isRequired,
+  }
+
+  static defaultProps = {
+    member: {},
+  }
+
   constructor(props) {
     super(props);
 
@@ -24,21 +38,12 @@ export default class Header extends Component {
     this.state = { isOpen: false };
   }
 
-  static propTypes = {
-    member: PropTypes.shape({
-      email: PropTypes.string,
-    }),
-    logout: PropTypes.func.isRequired,
-  }
-
-  static defaultProps = {
-    member: {},
-  }
+  onLogout = () => this.props.logout().then(() => this.props.history.push('/login'));
 
   toggleDropDown = () => this.setState({ isOpen: !this.state.isOpen });
 
   render() {
-    const { logout, member } = this.props;
+    const { member } = this.props;
     const loggedIn = !!(member && member.email);
 
     return (
@@ -73,9 +78,12 @@ export default class Header extends Component {
                   }
                   {loggedIn &&
                     <div>
+                      <DropdownItem>
+                        <Link to="/update-profile">Update Profile</Link>
+                      </DropdownItem>
                       <DropdownItem divider />
                       <DropdownItem>
-                        <a onClick={logout}>Logout</a>
+                        <a onClick={this.onLogout}>Logout</a>
                       </DropdownItem>
                     </div>
                   }
@@ -88,3 +96,5 @@ export default class Header extends Component {
     );
   }
 }
+
+export default withRouter(Header);

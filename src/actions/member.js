@@ -146,37 +146,61 @@ export function resetPassword(formData) {
 /**
   * Update Profile
   */
-export function updateProfile(formData = {}) {
-  if (Firebase === null) return showError();
+export function updateProfile(formData) {
+  const {
+    email,
+    password,
+    password2,
+    firstName,
+    lastName,
+    changeEmail,
+    changePassword,
+  } = formData;
 
-  const UID = Firebase.auth().currentUser.uid;
-  if (!UID) return false;
+  return dispatch => new Promise((resolve, reject) => {
+    // Are they a user?
+    const UID = Firebase.auth().currentUser.uid;
+    if (!UID) return reject({ message: ErrorMessages.missingFirstName });
 
-  const email = formData.Email || '';
-  const firstName = formData.FirstName || '';
-  const lastName = formData.LastName || '';
+    // Validation checks
+    if (!firstName) return reject({ message: ErrorMessages.missingFirstName });
+    if (!lastName) return reject({ message: ErrorMessages.missingLastName });
+    if (changeEmail) {
+      if (!email) return reject({ message: ErrorMessages.missingEmail });
+    }
+    if (changePassword) {
+      if (!password) return reject({ message: ErrorMessages.missingPassword });
+      if (!password2) return reject({ message: ErrorMessages.missingPassword });
+      if (password !== password2) return reject({ message: ErrorMessages.passwordsDontMatch });
+    }
 
-  // Set the email against user account
-  return async dispatch => Firebase.auth()
-    .currentUser
-    .updateEmail(email)
-    .then(() => {
-      // Then update user in DB
-      FirebaseRef.child(`users/${UID}`).update({
-        firstName, lastName,
-      });
-    }).catch((err) => { showError(dispatch, err); });
+    // Go to Firebase
+    return FirebaseRef.child(`users/${UID}`).update({ firstName, lastName })
+      .then(async () => {
+        // Update Email address
+        if (changeEmail) {
+          await Firebase.auth().currentUser.updateEmail(email).catch(reject);
+        }
+
+        // Change the password
+        if (changePassword) {
+          await Firebase.auth().currentUser.updatePassword(password).catch(reject);
+        }
+
+        // Update Redux
+        await getUserData(dispatch);
+        resolve();
+      }).catch(reject);
+  }).catch((err) => { showError(dispatch, err.message); throw err.message; });
 }
 
 /**
   * Logout
   */
 export function logout() {
-  if (Firebase === null) return showError();
-
-  return dispatch => Firebase.auth()
-    .signOut()
-    .then(() => {
-      dispatch({ type: 'USER_RESET' });
-    }).catch((err) => { showError(dispatch, err); });
+  return dispatch => new Promise((resolve, reject) => {
+    Firebase.auth().signOut()
+      .then(() => resolve(dispatch({ type: 'USER_RESET' })))
+      .catch(reject);
+  }).catch((err) => { showError(dispatch, err.message); throw err.message; });
 }

@@ -9,6 +9,7 @@ import Loading from './Loading';
 class UpdateProfile extends React.Component {
   static propTypes = {
     error: PropTypes.string,
+    success: PropTypes.string,
     loading: PropTypes.bool.isRequired,
     onFormSubmit: PropTypes.func.isRequired,
     member: PropTypes.shape({
@@ -20,6 +21,7 @@ class UpdateProfile extends React.Component {
 
   static defaultProps = {
     error: null,
+    success: null,
   }
 
   constructor(props) {
@@ -52,7 +54,7 @@ class UpdateProfile extends React.Component {
   }
 
   render() {
-    const { loading, error } = this.props;
+    const { loading, error, success } = this.props;
 
     // Loading
     if (loading) return <Loading />;
@@ -62,6 +64,7 @@ class UpdateProfile extends React.Component {
         <Card title="Update Profile">
           <View>
             {error && <Messages message={error} />}
+            {success && <Messages message={success} type="success" />}
 
             <FormLabel>First Name</FormLabel>
             <FormInput

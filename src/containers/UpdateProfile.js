@@ -4,26 +4,42 @@ import { connect } from 'react-redux';
 
 import { updateProfile } from '../actions/member';
 
-const UpdateProfile = ({ Layout, onFormSubmit, member }) => (
+const UpdateProfile = ({
+  Layout,
+  onFormSubmit,
+  member,
+  isLoading,
+  errorMessage,
+  successMessage,
+}) => (
   <Layout
     member={member}
-    error={member.error}
-    loading={member.loading}
+    loading={isLoading}
+    error={errorMessage}
+    success={successMessage}
     onFormSubmit={onFormSubmit}
   />
 );
 
 UpdateProfile.propTypes = {
   Layout: PropTypes.func.isRequired,
+  member: PropTypes.shape({}).isRequired,
   onFormSubmit: PropTypes.func.isRequired,
-  member: PropTypes.shape({
-    loading: PropTypes.bool.isRequired,
-    error: PropTypes.string,
-  }).isRequired,
+  isLoading: PropTypes.bool.isRequired,
+  errorMessage: PropTypes.string,
+  successMessage: PropTypes.string,
+};
+
+UpdateProfile.defaultProps = {
+  errorMessage: null,
+  successMessage: null,
 };
 
 const mapStateToProps = state => ({
   member: state.member || {},
+  isLoading: state.status.loading || false,
+  errorMessage: state.status.error || null,
+  successMessage: state.status.success || null,
 });
 
 const mapDispatchToProps = {

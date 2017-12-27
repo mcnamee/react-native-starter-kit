@@ -12,7 +12,7 @@ const Template = ({ children }) => (
     <Container fluid>
       <Row>
         <Sidebar />
-        <Col md="10" sm="9" className="pl-5 pr-5 pt-5 ml-sm-auto">
+        <Col md="10" sm="9" className="px-sm-5 py-sm-5 ml-sm-auto">
           {children}
           <Footer />
         </Col>

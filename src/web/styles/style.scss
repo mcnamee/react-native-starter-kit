@@ -2,6 +2,7 @@
 @import "components/sidebar";
 @import "components/recipes";
 @import "components/loading";
+@import "components/header";
 @import "components/footer";
 
 body {
@@ -27,12 +28,10 @@ body {
 }
 
 /**
- * Navbar Brand
+ * Jumbotron
  */
-.navbar-brand {
-  text-transform: uppercase;
-  letter-spacing: 6px;
-  font-size: 0.9rem;
+.jumbotron {
+  border-radius: 0;
 }
 
 /**

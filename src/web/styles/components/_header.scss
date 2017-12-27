@@ -1,0 +1,18 @@
+/**
+ * Styles for the Header.js component
+ */
+
+header {
+  svg {
+    position: absolute;
+    right: -20%;
+    top: 2px;
+  }
+}
+
+.navbar-brand {
+  position: relative;
+  text-transform: uppercase;
+  letter-spacing: 6px;
+  font-size: 0.9rem;
+}

@@ -15,7 +15,7 @@ export default function (dispatch, type, val) {
       if (type === 'success') message = 'Success';
       if (type === 'error') message = 'Sorry, an error occurred';
       if (type === 'info') message = 'Something is happening...';
-      if (type === 'loading') message = true;
+      if (type === 'loading' && val !== false) message = true;
     }
 
     return resolve(dispatch({

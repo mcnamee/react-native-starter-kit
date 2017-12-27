@@ -3,8 +3,6 @@ import PropTypes from 'prop-types';
 import {
   Nav,
   Navbar,
-  NavItem,
-  NavLink,
   Collapse,
   DropdownMenu,
   DropdownItem,
@@ -58,9 +56,6 @@ class Header extends Component {
               <div className="d-block d-sm-none">
                 {SidebarNavItems()}
               </div>
-              <NavItem>
-                <NavLink href="https://reactstrap.github.io/components/">Components</NavLink>
-              </NavItem>
               <UncontrolledDropdown nav>
                 <DropdownToggle nav caret>
                   My Account

@@ -2,9 +2,37 @@
 @import "components/sidebar";
 @import "components/recipes";
 @import "components/loading";
+@import "components/footer";
 
 body {
   padding-top: 3.5em;
+}
+
+/**
+ * Form Overrides
+ */
+.form-control {
+  &:focus {
+    outline: none !important;
+    box-shadow: none;
+    border-color: $gray-400;
+    border-bottom-color: $primary;
+  }
+}
+
+.btn {
+  i {
+    font-size: 0.8rem;
+  }
+}
+
+/**
+ * Navbar Brand
+ */
+.navbar-brand {
+  text-transform: uppercase;
+  letter-spacing: 6px;
+  font-size: 0.9rem;
 }
 
 /**

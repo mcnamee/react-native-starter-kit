@@ -8,10 +8,11 @@
   bottom: 0;
   left: 0;
   z-index: 1000;
-  padding: 20px 0;
+  padding: 0;
   overflow-x: hidden;
   overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
-  border-right: 1px solid #eee;
+  background-color: #22262E;
+  border-right: 1px solid #252931;
 
   .nav {
     margin-bottom: 20px;
@@ -26,6 +27,25 @@
   }
 
   .nav-link {
-    border-radius: 0;
+    color: #6A6E74;
+    font-size: 0.9rem;
+    padding: 0.75rem 1rem;
+
+    i {
+      font-size: 1.2rem;
+      margin-right: 0.4rem;
+    }
+
+    span {
+      position: absolute;
+    }
+
+    &.active, &:hover {
+      color: white;
+    }
+
+    &.active {
+      background: #141519;
+    }
   }
 }

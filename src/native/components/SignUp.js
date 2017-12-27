@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { ScrollView, View } from 'react-native';
-import { Card, FormLabel, FormInput, Button } from 'react-native-elements';
+import { Card, CardItem, Text, Body, Form, Item, Label, Input, Button } from 'native-base';
 import { Actions } from 'react-native-router-flux';
 import AppColors from '../constants/colors';
 import Loading from './Loading';
@@ -53,32 +53,50 @@ class SignUp extends React.Component {
 
     return (
       <ScrollView>
-        <Card title="Sign Up">
-          <View>
-            {error && <Messages message={error} />}
+        <Card>
+          <CardItem header>
+            <Text>Sign Up</Text>
+          </CardItem>
+          <CardItem>
+            <Body>
+              {error && <Messages message={error} />}
 
-            <FormLabel>First Name</FormLabel>
-            <FormInput onChangeText={v => this.handleChange('firstName', v)} />
+              <Form>
+                <Item floatingLabel>
+                  <Label>First Name</Label>
+                  <Input onChangeText={v => this.handleChange('firstName', v)} />
+                </Item>
 
-            <FormLabel>Last Name</FormLabel>
-            <FormInput onChangeText={v => this.handleChange('lastName', v)} />
+                <Item floatingLabel>
+                  <Label>Last Name</Label>
+                  <Input onChangeText={v => this.handleChange('lastName', v)} />
+                </Item>
 
-            <FormLabel>Email</FormLabel>
-            <FormInput keyboardType="email-address" onChangeText={v => this.handleChange('email', v)} />
+                <Item floatingLabel>
+                  <Label>Email</Label>
+                  <Input keyboardType="email-address" onChangeText={v => this.handleChange('email', v)} />
+                </Item>
 
-            <FormLabel>Password</FormLabel>
-            <FormInput secureTextEntry onChangeText={v => this.handleChange('password', v)} />
+                <Item floatingLabel>
+                  <Label>Password</Label>
+                  <Input secureTextEntry onChangeText={v => this.handleChange('password', v)} />
+                </Item>
 
-            <FormLabel>Confirm Password</FormLabel>
-            <FormInput secureTextEntry onChangeText={v => this.handleChange('password2', v)} />
+                <Item floatingLabel>
+                  <Label>Confirm Password</Label>
+                  <Input secureTextEntry onChangeText={v => this.handleChange('password2', v)} />
+                </Item>
+              </Form>
 
-            <Button
-              containerViewStyle={{ marginTop: 15 }}
-              backgroundColor={AppColors.brand.primary}
-              onPress={this.handleSubmit}
-              title="Sign Up"
-            />
-          </View>
+              <Button
+                containerViewStyle={{ marginTop: 15 }}
+                backgroundColor={AppColors.brand.primary}
+                onPress={this.handleSubmit}
+              >
+                <Text>Sign Up</Text>
+              </Button>
+            </Body>
+          </CardItem>
         </Card>
       </ScrollView>
     );

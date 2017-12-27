@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { View, ScrollView } from 'react-native';
-import { Card, Text, ListItem } from 'react-native-elements';
+import { Card, CardItem, Body, List, ListItem, Text } from 'native-base';
 import ErrorMessages from '../../constants/errors';
 import Error from './Error';
 
@@ -24,12 +24,16 @@ const RecipeView = ({
 
   // Build Ingredients listing
   const ingredients = recipe.ingredients.map(item => (
-    <ListItem key={item} title={item} rightIcon={{ style: { opacity: 0 } }} />
+    <ListItem key={item} rightIcon={{ style: { opacity: 0 } }}>
+      <Text>{item}</Text>
+    </ListItem>
   ));
 
   // Build Method listing
   const method = recipe.method.map(item => (
-    <ListItem key={item} title={item} rightIcon={{ style: { opacity: 0 } }} />
+    <ListItem key={item} rightIcon={{ style: { opacity: 0 } }}>
+      <Text>{item}</Text>
+    </ListItem>
   ));
 
   return (
@@ -39,18 +43,41 @@ const RecipeView = ({
         <Text>by {recipe.author}</Text>
       </View>
 
-      <Card title="About this recipe">
-        <View>
-          <Text>{recipe.body}</Text>
-        </View>
+      <Card>
+        <CardItem header>
+          <Text>About this recipe</Text>
+        </CardItem>
+        <CardItem>
+          <Body>
+            <Text>{recipe.body}</Text>
+          </Body>
+        </CardItem>
       </Card>
 
-      <Card title="Ingredients">
-        {ingredients}
+      <Card>
+        <CardItem header>
+          <Text>Ingredients</Text>
+        </CardItem>
+        <CardItem>
+          <Body>
+            <List>
+              {ingredients}
+            </List>
+          </Body>
+        </CardItem>
       </Card>
 
-      <Card title="Method">
-        {method}
+      <Card>
+        <CardItem header>
+          <Text>Method</Text>
+        </CardItem>
+        <CardItem>
+          <Body>
+            <List>
+              {method}
+            </List>
+          </Body>
+        </CardItem>
       </Card>
     </ScrollView>
   );

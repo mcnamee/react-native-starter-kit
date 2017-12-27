@@ -2,18 +2,20 @@ import Colors from './colors';
 
 export default {
   navbarProps: {
-    navigationBarStyle: { backgroundColor: Colors.brand.primary },
-    titleStyle: { color: 'white', alignSelf: 'center' },
-    backButtonTintColor: 'white',
+    navigationBarStyle: { backgroundColor: 'white' },
+    titleStyle: { color: 'black', alignSelf: 'center' },
+    backButtonTintColor: 'black',
   },
 
   tabProps: {
-    activeBackgroundColor: 'transparent',
-    inactiveBackgroundColor: '#fff',
+    swipeEnabled: false,
+    activeBackgroundColor: 'rgba(255,255,255,0.1)',
+    inactiveBackgroundColor: Colors.brand.primary,
+    tabBarStyle: { backgroundColor: Colors.brand.primary },
   },
 
   icons: {
     type: 'simple-line-icon',
-    color: Colors.brand.primary,
+    color: 'white',
   },
 };

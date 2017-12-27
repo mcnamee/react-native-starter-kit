@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { ScrollView, View } from 'react-native';
-import { Card, FormLabel, FormInput, Button } from 'react-native-elements';
+import { ScrollView } from 'react-native';
+import { Card, CardItem, Body, Form, Item, Label, Input, Text, Button } from 'native-base';
 import { Actions } from 'react-native-router-flux';
 import AppColors from '../constants/colors';
 import Loading from './Loading';
@@ -54,30 +54,40 @@ class Login extends React.Component {
 
     return (
       <ScrollView>
-        <Card title="Login">
-          <View>
-            {error && <Messages message={error} />}
+        <Card>
+          <CardItem header>
+            <Text>Login</Text>
+          </CardItem>
+          <CardItem>
+            <Body>
+              {error && <Messages message={error} />}
 
-            <FormLabel>Email</FormLabel>
-            <FormInput
-              value={this.state.email}
-              keyboardType="email-address"
-              onChangeText={v => this.handleChange('email', v)}
-            />
+              <Form>
+                <Item floatingLabel>
+                  <Label>Email</Label>
+                  <Input
+                    value={this.state.email}
+                    keyboardType="email-address"
+                    onChangeText={v => this.handleChange('email', v)}
+                  />
+                </Item>
+                <Item floatingLabel last>
+                  <Label>Password</Label>
+                  <Input
+                    secureTextEntry
+                    onChangeText={v => this.handleChange('password', v)}
+                  />
+                </Item>
+              </Form>
 
-            <FormLabel>Password</FormLabel>
-            <FormInput
-              secureTextEntry
-              onChangeText={v => this.handleChange('password', v)}
-            />
-
-            <Button
-              containerViewStyle={{ marginTop: 15 }}
-              backgroundColor={AppColors.brand.primary}
-              onPress={this.handleSubmit}
-              title="Login"
-            />
-          </View>
+              <Button
+                containerViewStyle={{ marginTop: 15 }}
+                backgroundColor={AppColors.brand.primary}
+                onPress={this.handleSubmit}
+                title="Login"
+              />
+            </Body>
+          </CardItem>
         </Card>
       </ScrollView>
     );

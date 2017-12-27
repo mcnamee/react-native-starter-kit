@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { View } from 'react-native';
-import { Text } from 'react-native-elements';
+import { Text, H3 } from 'native-base';
 
 import AppStyles from '../styles/styles';
 
 const Error = ({ title, content }) => (
   <View style={AppStyles.container}>
-    <Text h4>{title}</Text>
+    <H3>{title}</H3>
     <Text>{content}</Text>
   </View>
 );

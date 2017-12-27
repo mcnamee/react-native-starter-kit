@@ -1,6 +1,6 @@
 import React from 'react';
 import { Scene, Tabs, Stack } from 'react-native-router-flux';
-import { Icon } from 'react-native-elements';
+import { Icon } from 'native-base';
 import DefaultProps from '../constants/navigation';
 
 import RecipesContainer from '../../containers/Recipes';

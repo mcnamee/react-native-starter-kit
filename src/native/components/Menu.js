@@ -1,6 +1,6 @@
 import React from 'react';
 import { View } from 'react-native';
-import { List, ListItem } from 'react-native-elements';
+import { List, ListItem, Text } from 'native-base';
 import { Actions } from 'react-native-router-flux';
 
 const listItemProps = {
@@ -19,9 +19,15 @@ const Menu = () => (
     }}
   >
     <List>
-      <ListItem {...listItemProps} key="0" title="Home" onPress={() => Actions.tabbar()} />
-      <ListItem {...listItemProps} key="1" title="About Us" onPress={() => Actions.about()} />
-      <ListItem {...listItemProps} key="2" title="Sign Up" onPress={() => Actions.signUp()} />
+      <ListItem {...listItemProps} key="0" onPress={() => Actions.tabbar()}>
+        <Text>Home</Text>
+      </ListItem>
+      <ListItem {...listItemProps} key="1" onPress={() => Actions.about()}>
+        <Text>About Us</Text>
+      </ListItem>
+      <ListItem {...listItemProps} key="2" onPress={() => Actions.signUp()}>
+        <Text>Sign Up</Text>
+      </ListItem>
     </List>
   </View>
 );

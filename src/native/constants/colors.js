@@ -5,13 +5,13 @@ export default {
   danger: '#dc3545',
 
   brand: {
-    primary: '#2375E5',
+    primary: '#473BE7',
     secondary: '',
   },
   app: {
-    background: '#FFFFFF',
+    background: '#ECF0F3',
   },
   text: {
-    primary: '#13171A',
+    primary: '#8D8E90',
   },
 };

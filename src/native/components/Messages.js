@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { View } from 'react-native';
-import { Text } from 'react-native-elements';
+import { Text } from 'native-base';
 
 import AppColors from '../constants/colors';
 

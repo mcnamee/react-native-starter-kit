@@ -1,4 +1,4 @@
-![React Native Starter Kit](/docs/rnsk-logo.jpg)
+<img src="/docs/rnsk-logo.jpg" alt="React Native Starter Kit" width="400" />
 
 [![GitHub tag](https://img.shields.io/github/tag/mcnamee/react-native-starter-app.svg?style=flat-square)](https://github.com/mcnamee/react-native-starter-app/tags)
 [![GitHub contributors](https://img.shields.io/github/contributors/mcnamee/react-native-starter-app.svg?style=flat-square)](https://github.com/mcnamee/react-native-starter-app/contributors)
@@ -11,7 +11,8 @@
 
 #### For when you're looking to build 'the next big thing' for both web and native mobile.
 
-[![Web Demo](/docs/web-demo.jpg)](http://react-boilerplate.mcnam.ee/) [![React Native Expo Demo](/docs/expo-demo.jpg)](https://expo.io/@mcnamee/react-native-starter-kit)
+<a href="http://react-boilerplate.mcnam.ee/"><img src="/docs/web-demo.jpg" alt="Web Demo" height="50" /></a>
+<a href="https://expo.io/@mcnamee/react-native-starter-kit"><img src="/docs/expo-demo.jpg" alt="React Native Expo Demo" height="50" /></a>
 
 ---
 

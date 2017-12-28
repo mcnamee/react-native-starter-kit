@@ -4,11 +4,11 @@
 
 ### Packaging for Web
 
-```
+```bash
 npm run web-bundle
 ```
 
-Creates a minified JavaScript bundle (that also houses the minified css) and places it next to the index.html in web/public that you can serve with any static file server.
+Creates a minified JavaScript bundle (that also houses the minified css) and places it next to the index.html in `/build` that you can serve with any static file server.
 
 ---
 
@@ -20,9 +20,9 @@ Expo provides free hosting for the JS-only apps created by CRNA, allowing you to
 
 Install the `exp` command-line tool, and run the publish command:
 
-```
-$ npm i -g exp
-$ exp publish
+```bash
+npm i -g exp
+exp publish
 ```
 
 ### Deploying to the App / Play Store https://docs.expo.io/versions/latest/introduction/already-used-react-native.html#deploying-to-the-app--play-store

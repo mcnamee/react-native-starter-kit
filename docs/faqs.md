@@ -36,9 +36,9 @@ Once you've got your head around the basics, checkout the [React Native](https:/
 
 You can edit `app.json` to include [configuration keys](https://docs.expo.io/versions/latest/guides/configuration.html) under the `expo` key.
 
-To change your app's display name, set the `expo.name` key in `app.json` to an appropriate string.
+To change your app's display name, set the `name` key in `app.json` to an appropriate string.
 
-To set an app icon, set the `expo.icon` key in `app.json` to be either a local path or a URL. It's recommended that you use a 512x512 png file with transparency.
+To set an app icon, set the `icon` key in `app.json` to be either a local path or a URL. It's recommended that you use a 512x512 png file with transparency.
 
 ## How do I eject from 'Create React Native App' and Expo?
 

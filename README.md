@@ -1,3 +1,5 @@
+![React Native Starter Kit](/docs/rnsk-logo.jpg)
+
 [![GitHub tag](https://img.shields.io/github/tag/mcnamee/react-native-starter-app.svg?style=flat-square)](https://github.com/mcnamee/react-native-starter-app/tags)
 [![GitHub contributors](https://img.shields.io/github/contributors/mcnamee/react-native-starter-app.svg?style=flat-square)](https://github.com/mcnamee/react-native-starter-app/contributors)
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](https://raw.githubusercontent.com/mcnamee/react-native-starter-app/master/LICENSE)
@@ -8,6 +10,8 @@
 # React (Web + Native) Starter Kit
 
 #### For when you're looking to build 'the next big thing' for both web and native mobile.
+
+[![Web Demo](/docs/web-demo.jpg)](http://react-boilerplate.mcnam.ee/) [![React Native Expo Demo](/docs/expo-demo.jpg)](https://expo.io/@mcnamee/react-native-starter-kit)
 
 ---
 

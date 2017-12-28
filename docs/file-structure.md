@@ -1,5 +1,6 @@
 # Understanding the File Structure
 
+- `/build` - Web server runs from here (we commit everything for Github Pages)
 - `/docs` - Github Repo Documentation
 - `/firebase` - Firebase samples
 - `/native-base-theme` - React Native's theme (by NativeBase)
@@ -7,6 +8,7 @@
     - `/actions` - Redux Actions - payloads of information that send data _from_ your application _to_ your store. [Read More &rarr;](https://redux.js.org/docs/basics/Actions.html)
     - `/constants` - Shared variables (across platforms)
     - `/containers` - 'Smart-components' that connect business logic to presentation [Read More &rarr;](https://redux.js.org/docs/basics/UsageWithReact.html#presentational-and-container-components)
+    - `/images` - Images shared across platforms
     - `/lib` - Utils and custom libraries that are shared across platforms
     - `/native` - React Native specific code
         - `/components` - 'Dumb-components' / presentational. [Read More &rarr;](https://medium.com/@dan_abramov/smart-and-dumb-components-7ca2f9a7c7d0)

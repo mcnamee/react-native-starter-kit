@@ -8,6 +8,14 @@ Want to check if your code is formatted consistently + pick up on any syntax err
 ./node_modules/.bin/eslint "src/**/*.js"
 ```
 
+## Writing and Running Tests
+
+This project is set up to use [jest](https://facebook.github.io/jest/) for tests. You can configure whatever testing strategy you like, but jest works out of the box. Create test files in directories called `__tests__` or with the `.test` extension to have the files loaded by jest. See the [the template project](https://github.com/react-community/create-react-native-app/blob/master/react-native-scripts/template/App.test.js) for an example test. The [jest documentation](https://facebook.github.io/jest/docs/en/getting-started.html) is also a wonderful resource, as is the [React Native testing tutorial](https://facebook.github.io/jest/docs/en/tutorial-react-native.html).
+
+#### `npm test`
+
+Runs the [jest](https://github.com/facebook/jest) test runner on your tests.
+
 ## Jest Snapshots
 
 Run `npm test` to run a test add `-- --watch` to run it in developer mode.

@@ -5,130 +5,90 @@
 [![GitHub closed issues](https://img.shields.io/github/issues-closed/mcnamee/react-native-starter-app.svg?style=flat-square)](https://github.com/mcnamee/react-native-starter-app/issues-closed)
 [![GitHub pull requests](https://img.shields.io/github/issues-pr/mcnamee/react-native-starter-app.svg?style=flat-square)](https://github.com/mcnamee/react-native-starter-app/issues-pr)
 
-![alt text](/docs/rnsk-logo.jpg "React Native Starter Kit")
+# React (Web + Native) Starter Kit
 
-# React Native Starter Kit
-
-React Native Starter Kit helps you get started with React Native. It contains a bunch of helpful components, building blocks and basic structure to allow you to jump straight into building an app.
-
-What's more, it's now integrated with [Firebase](https://firebase.google.com/), to help you kick start your next full-stack product.
-
-![alt text](/docs/rnsk-screens.jpg "React Native Starter App")
-
-
-## Available Scripts
-
-### `npm start`
-
-Runs your app in development mode - instructions will be provided in the terminal.
-
-#### `npm test`
-
-Runs the [jest](https://github.com/facebook/jest) test runner on your tests.
-
-#### `npm run web`
-
-Kicks off a webpack server on port 3001, it utilizes hot reloading with some redux-time-machine-magic to have a crazy awesome dev experience where you can rewind and revert actions in your application.
-
-In your browser, open http://localhost:3001
-
-#### `npm run web-bundle`
-
-Creates a minified JavaScript bundle (that also houses the minified css) and places it next to the index.html in web/public that you can serve with any static file server.
-
-#### `npm run eject`
-
-This will start the process of "ejecting" from Create React Native App's build scripts. You'll be asked a couple of questions about how you'd like to build your project.
-
-**Warning:** Running eject is a permanent action (aside from whatever version control system you use). An ejected app will require you to have an [Xcode and/or Android Studio environment](https://facebook.github.io/react-native/docs/getting-started.html) set up.
-
-## Customizing App Display Name and Icon
-
-You can edit `app.json` to include [configuration keys](https://docs.expo.io/versions/latest/guides/configuration.html) under the `expo` key.
-
-To change your app's display name, set the `expo.name` key in `app.json` to an appropriate string.
-
-To set an app icon, set the `expo.icon` key in `app.json` to be either a local path or a URL. It's recommended that you use a 512x512 png file with transparency.
-
-## Writing and Running Tests
-
-This project is set up to use [jest](https://facebook.github.io/jest/) for tests. You can configure whatever testing strategy you like, but jest works out of the box. Create test files in directories called `__tests__` or with the `.test` extension to have the files loaded by jest. See the [the template project](https://github.com/react-community/create-react-native-app/blob/master/react-native-scripts/template/App.test.js) for an example test. The [jest documentation](https://facebook.github.io/jest/docs/en/getting-started.html) is also a wonderful resource, as is the [React Native testing tutorial](https://facebook.github.io/jest/docs/en/tutorial-react-native.html).
-
-## Sharing and Deployment
-
-Create React Native App does a lot of work to make app setup and development simple and straightforward, but it's very difficult to do the same for deploying to Apple's App Store or Google's Play Store without relying on a hosted service.
-
-### Publishing to Expo's React Native Community
-
-Expo provides free hosting for the JS-only apps created by CRNA, allowing you to share your app through the Expo client app. This requires registration for an Expo account.
-
-Install the `exp` command-line tool, and run the publish command:
-
-```
-$ npm i -g exp
-$ exp publish
-```
-
-### Building an Expo "standalone" app
-
-You can also use a service like [Expo's standalone builds](https://docs.expo.io/versions/latest/guides/building-standalone-apps.html) if you want to get an IPA/APK for distribution without having to build the native code yourself.
-
-### Ejecting from Create React Native App
-
-If you want to build and deploy your app yourself, you'll need to eject from CRNA and use Xcode and Android Studio.
-
-This is usually as simple as running `npm run eject` in your project, which will walk you through the process. Make sure to install `react-native-cli` and follow the [native code getting started guide for React Native](https://facebook.github.io/react-native/docs/getting-started.html).
+#### For when you're looking to build 'the next big thing' for both web and native mobile.
 
 ---
 
-## The API & testing out authentication
-We've created a quick little "API server" on [Google's Firebase Platform](https://firebase.google.com/). You can get your own API up and running within minutes too:
+## 👋 Intro
 
-1. Signup for a [Firebase account](https://firebase.google.com/)
-1. Create a new project - eg. "React Native Starter App"
-1. Turn on email/password __Authentication__
-1. Enable the __Database__ feature, and import the `firebase-sample-data.json` file found in this repo
-1. Get the Firebase project's API credentials, and add them to the respective variables in your `/.env` file (eg. `APIKEY=d8f72k10s39djk29js`). You can get your projects details from Firebase, by clicking on the cog icon, next to overview > 'Add Firebase to your web app'.
-1. Add the following __rules__ to the Database
+This boilerplate launches with a [React web app](https://reactjs.org/) and [React Native app](https://facebook.github.io/react-native/) sharing a single code base. It shares the 'business logic' (_i.e. actions, containers, reducers_) across the platforms, whilst allowing flexibility in View components to ensure your project looks and feels native in each platform.
 
-```json
-{
-  "rules": {
-    ".read": false,
-    ".write": false,
+The project is _super_ helpful to kick-start your next project, as it provides a lot of the common tools you may reach for, all ready to go. Specifically:
 
-    "meals": {
-      ".read": true
-    },
+- A shared React and React Native structure
+- __Flux architecture__
+    - [Redux](https://redux.js.org/docs/introduction/)
+- __Routing and navigation__
+    - [React Native Router Flux](https://github.com/aksonov/react-native-router-flux) for native mobile
+    - [React Router](https://github.com/ReactTraining/react-router) for web
+- __Data Caching / Offline__
+    - [Redux Persist](https://github.com/rt2zz/redux-persist)
+- __UI Toolkit/s__
+    - [Native Base](https://nativebase.io/) for native mobile
+    - [Bootstrap](https://getbootstrap.com/) for web
+- __Simpler mobile app development__ through
+    - [Expo](https://expo.io/)
+- __User authentication__ example through
+    - [Firebase](https://firebase.google.com/)
+- __API/Data example__
+    - Shows how to read/write data from/to an external API (in our case, [Firebase](https://firebase.google.com/))
+- __Code Linting__ with
+    - [Airbnb's JS Linting](https://github.com/airbnb/javascript) guidelines
 
-    "recipes": {
-      ".read": true,
-    	".indexOn": ["category"]
-    },
+---
 
-    "users": {
-      "$uid": {
-        ".read": "auth != null && auth.uid == $uid",
-        ".write": "auth != null && auth.uid == $uid",
+## 📖 Docs
 
-        "firstName": { ".validate": "newData.isString() && newData.val().length > 0" },
-        "lastName": { ".validate": "newData.isString() && newData.val().length > 0" },
-        "lastLoggedIn": { ".validate": "newData.val() <= now" },
-        "signedUp": { ".validate": "newData.val() <= now" },
-        "role": {
-          ".validate": "(root.child('users/'+auth.uid+'/role').val() === 'admin' && newData.val() === 'admin') || newData.val() === 'user'"
-        }
-      }
-    },
+- [Setup your own Firebase](/docs/firebase.md)
+- [Understanding the file structure](/docs/file-structure.md)
+- [FAQs & Opinions](/docs/faqs.md)
+- [Testing, Deploying & Publishing](/docs/publishing.md)
+- [Tests & testing](/docs/testing.md)
+- [Contributing to this project](/docs/contributing.md)
 
-    "favourites": {
-    	"$uid": {
-      	".read": "auth != null && auth.uid == $uid",
-      	".write": "auth != null && auth.uid == $uid"
-    	}
-  	}
-  }
-}
+---
+
+## 🚀 Getting Started
+
+#### 1. Clone and Install
+
+```bash
+# Clone the repo
+git clone https://github.com/mcnamee/react-native-starter-app.git
+
+# Install dependencies
+npm i
 ```
 
-Want to experiment even more with Firebase? Check out the [Firebase Cloud Functions](/docs/README.md)
+#### 2.1. Run the _React Native_ App
+
+```bash
+# Start the React Native packager
+npm start
+```
+
+Instructions are shown in the terminal. You can select to open it in:
+
+- An emulator (either iOS or Android)
+- Your mobile device with the [Expo app](https://expo.io/). It will reload if you save edits to your files and you will see build errors and logs in the terminal.
+
+#### 2.2. Run the _Web_ App
+
+```bash
+# Starts are local live-reload server at:
+# http://localhost:3001
+npm run web
+```
+
+Via webpack, starts a localhost server on port 3001 [http://localhost:3001](http://localhost:3001).
+
+- Save code and it auto refreshes
+- Install [Redux DevTools](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd?hl=en) into Chrome to see the state of Redux
+
+---
+
+## 👊 Further Help?
+
+This repo is a great place to start, but if you'd prefer to sit back and have your new project built for you, [get in touch with me directly](https://mcnam.ee) and I can organise a quote.

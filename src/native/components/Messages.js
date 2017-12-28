@@ -3,11 +3,11 @@ import PropTypes from 'prop-types';
 import { View } from 'react-native';
 import { Text } from 'native-base';
 
-import AppColors from '../constants/colors';
+import Colors from '../../../native-base-theme/variables/commonColor';
 
 const Messages = ({ message, type }) => (
   <View style={{
-      backgroundColor: (type === 'error') ? AppColors.danger : (type === 'success') ? AppColors.success : AppColors.info,
+      backgroundColor: (type === 'error') ? Colors.brandDanger : (type === 'success') ? Colors.brandSuccess : Colors.brandInfo,
       paddingVertical: 10,
       paddingHorizontal: 5,
     }}

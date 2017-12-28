@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { ScrollView, View } from 'react-native';
-import { Card, CardItem, Text, Body, Form, Item, Label, Input, Button } from 'native-base';
+import { Container, Content, Text, Form, Item, Label, Input, Button } from 'native-base';
 import { Actions } from 'react-native-router-flux';
-import AppColors from '../constants/colors';
 import Loading from './Loading';
 import Messages from './Messages';
+import Header from './Header';
+import Spacer from './Spacer';
 
 class SignUp extends React.Component {
   static propTypes = {
@@ -41,7 +41,7 @@ class SignUp extends React.Component {
 
   handleSubmit = () => {
     this.props.onFormSubmit(this.state)
-      .then(() => Actions.tabbar())
+      .then(() => Actions.login())
       .catch(e => console.log(`Error: ${e}`));
   }
 
@@ -52,53 +52,53 @@ class SignUp extends React.Component {
     if (loading) return <Loading />;
 
     return (
-      <ScrollView>
-        <Card>
-          <CardItem header>
-            <Text>Sign Up</Text>
-          </CardItem>
-          <CardItem>
-            <Body>
-              {error && <Messages message={error} />}
+      <Container>
+        <Content padder>
+          <Header
+            title="Welcome"
+            content="We're glad to welcome you to the community. There's only a few questions and you'll be on your way."
+          />
 
-              <Form>
-                <Item floatingLabel>
-                  <Label>First Name</Label>
-                  <Input onChangeText={v => this.handleChange('firstName', v)} />
-                </Item>
+          {error && <Messages message={error} />}
 
-                <Item floatingLabel>
-                  <Label>Last Name</Label>
-                  <Input onChangeText={v => this.handleChange('lastName', v)} />
-                </Item>
+          <Form>
+            <Item stackedLabel>
+              <Label>First Name</Label>
+              <Input onChangeText={v => this.handleChange('firstName', v)} />
+            </Item>
 
-                <Item floatingLabel>
-                  <Label>Email</Label>
-                  <Input keyboardType="email-address" onChangeText={v => this.handleChange('email', v)} />
-                </Item>
+            <Item stackedLabel>
+              <Label>Last Name</Label>
+              <Input onChangeText={v => this.handleChange('lastName', v)} />
+            </Item>
 
-                <Item floatingLabel>
-                  <Label>Password</Label>
-                  <Input secureTextEntry onChangeText={v => this.handleChange('password', v)} />
-                </Item>
+            <Item stackedLabel>
+              <Label>Email</Label>
+              <Input
+                autoCapitalize="none"
+                keyboardType="email-address"
+                onChangeText={v => this.handleChange('email', v)}
+              />
+            </Item>
 
-                <Item floatingLabel>
-                  <Label>Confirm Password</Label>
-                  <Input secureTextEntry onChangeText={v => this.handleChange('password2', v)} />
-                </Item>
-              </Form>
+            <Item stackedLabel>
+              <Label>Password</Label>
+              <Input secureTextEntry onChangeText={v => this.handleChange('password', v)} />
+            </Item>
 
-              <Button
-                containerViewStyle={{ marginTop: 15 }}
-                backgroundColor={AppColors.brand.primary}
-                onPress={this.handleSubmit}
-              >
-                <Text>Sign Up</Text>
-              </Button>
-            </Body>
-          </CardItem>
-        </Card>
-      </ScrollView>
+            <Item stackedLabel>
+              <Label>Confirm Password</Label>
+              <Input secureTextEntry onChangeText={v => this.handleChange('password2', v)} />
+            </Item>
+
+            <Spacer size={20} />
+
+            <Button block onPress={this.handleSubmit}>
+              <Text>Sign Up</Text>
+            </Button>
+          </Form>
+        </Content>
+      </Container>
     );
   }
 }

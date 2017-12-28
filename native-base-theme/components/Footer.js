@@ -1,99 +1,98 @@
-import variable from "./../variables/platform";
+import variable from './../variables/platform';
 
 export default (variables = variable) => {
-  const platformStyle = variables.platformStyle;
-  const platform = variables.platform;
+  const { platformStyle, platform } = variables;
 
   const footerTheme = {
-    "NativeBase.Left": {
-      "NativeBase.Button": {
-        ".transparent": {
-          backgroundColor: "transparent",
+    'NativeBase.Left': {
+      'NativeBase.Button': {
+        '.transparent': {
+          backgroundColor: 'transparent',
           borderColor: null,
           elevation: 0,
           shadowColor: null,
           shadowOffset: null,
           shadowRadius: null,
-          shadowOpacity: null
+          shadowOpacity: null,
         },
-        "NativeBase.Icon": {
-          color: variables.topTabBarActiveTextColor
+        'NativeBase.Icon': {
+          color: variables.topTabBarActiveTextColor,
         },
-        "NativeBase.IconNB": {
-          color: variables.topTabBarActiveTextColor
+        'NativeBase.IconNB': {
+          color: variables.topTabBarActiveTextColor,
         },
-        alignSelf: null
+        alignSelf: null,
       },
       flex: 1,
-      alignSelf: "center",
-      alignItems: "flex-start"
+      alignSelf: 'center',
+      alignItems: 'flex-start',
     },
-    "NativeBase.Body": {
+    'NativeBase.Body': {
       flex: 1,
-      alignItems: "center",
-      alignSelf: "center",
-      flexDirection: "row",
-      "NativeBase.Button": {
-        alignSelf: "center",
-        ".transparent": {
-          backgroundColor: "transparent",
+      alignItems: 'center',
+      alignSelf: 'center',
+      flexDirection: 'row',
+      'NativeBase.Button': {
+        alignSelf: 'center',
+        '.transparent': {
+          backgroundColor: 'transparent',
           borderColor: null,
           elevation: 0,
           shadowColor: null,
           shadowOffset: null,
           shadowRadius: null,
-          shadowOpacity: null
+          shadowOpacity: null,
         },
-        ".full": {
+        '.full': {
           height: variables.footerHeight,
-          paddingBottom:variables.footerPaddingBottom,
-          flex: 1
+          paddingBottom: variables.footerPaddingBottom,
+          flex: 1,
         },
-        "NativeBase.Icon": {
-          color: variables.topTabBarActiveTextColor
+        'NativeBase.Icon': {
+          color: variables.topTabBarActiveTextColor,
         },
-        "NativeBase.IconNB": {
-          color: variables.topTabBarActiveTextColor
-        }
-      }
+        'NativeBase.IconNB': {
+          color: variables.topTabBarActiveTextColor,
+        },
+      },
     },
-    "NativeBase.Right": {
-      "NativeBase.Button": {
-        ".transparent": {
-          backgroundColor: "transparent",
+    'NativeBase.Right': {
+      'NativeBase.Button': {
+        '.transparent': {
+          backgroundColor: 'transparent',
           borderColor: null,
           elevation: 0,
           shadowColor: null,
           shadowOffset: null,
           shadowRadius: null,
-          shadowOpacity: null
+          shadowOpacity: null,
         },
-        "NativeBase.Icon": {
-          color: variables.topTabBarActiveTextColor
+        'NativeBase.Icon': {
+          color: variables.topTabBarActiveTextColor,
         },
-        "NativeBase.IconNB": {
-          color: variables.topTabBarActiveTextColor
+        'NativeBase.IconNB': {
+          color: variables.topTabBarActiveTextColor,
         },
-        alignSelf: null
+        alignSelf: null,
       },
       flex: 1,
-      alignSelf: "center",
-      alignItems: "flex-end"
+      alignSelf: 'center',
+      alignItems: 'flex-end',
     },
     backgroundColor: variables.footerDefaultBg,
-    flexDirection: "row",
-    justifyContent: "center",
-    borderTopWidth: platform === "ios" && platformStyle !== "material"
+    flexDirection: 'row',
+    justifyContent: 'center',
+    borderTopWidth: platform === 'ios' && platformStyle !== 'material'
       ? variables.borderWidth
       : undefined,
-    borderColor: platform === "ios" && platformStyle !== "material"
-      ? "#cbcbcb"
+    borderColor: platform === 'ios' && platformStyle !== 'material'
+      ? '#cbcbcb'
       : undefined,
     height: variables.footerHeight,
-    paddingBottom:variables.footerPaddingBottom,
+    paddingBottom: variables.footerPaddingBottom,
     elevation: 3,
     left: 0,
-    right: 0
+    right: 0,
   };
   return footerTheme;
 };

@@ -1,15 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { View } from 'react-native';
-import { Text, H3 } from 'native-base';
-
-import AppStyles from '../styles/styles';
+import { Container, Content, Text, H3 } from 'native-base';
 
 const Error = ({ title, content }) => (
-  <View style={AppStyles.container}>
-    <H3>{title}</H3>
-    <Text>{content}</Text>
-  </View>
+  <Container>
+    <Content>
+      <H3>{title}</H3>
+      <Text>{content}</Text>
+    </Content>
+  </Container>
 );
 
 Error.propTypes = {

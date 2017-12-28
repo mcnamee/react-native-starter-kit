@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { ScrollView } from 'react-native';
-import { Card, CardItem, Body, Form, Item, Label, Input, Text, Button } from 'native-base';
+import { Container, Content, Form, Item, Label, Input, Text, Button } from 'native-base';
 import { Actions } from 'react-native-router-flux';
-import AppColors from '../constants/colors';
 import Loading from './Loading';
 import Messages from './Messages';
+import Header from './Header';
+import Spacer from './Spacer';
 
 class Login extends React.Component {
   static propTypes = {
@@ -53,43 +53,41 @@ class Login extends React.Component {
     if (loading) return <Loading />;
 
     return (
-      <ScrollView>
-        <Card>
-          <CardItem header>
-            <Text>Login</Text>
-          </CardItem>
-          <CardItem>
-            <Body>
-              {error && <Messages message={error} />}
+      <Container>
+        <Content padder>
+          <Header
+            title="Welcome back"
+            content="Please use your email and password to login."
+          />
 
-              <Form>
-                <Item floatingLabel>
-                  <Label>Email</Label>
-                  <Input
-                    value={this.state.email}
-                    keyboardType="email-address"
-                    onChangeText={v => this.handleChange('email', v)}
-                  />
-                </Item>
-                <Item floatingLabel last>
-                  <Label>Password</Label>
-                  <Input
-                    secureTextEntry
-                    onChangeText={v => this.handleChange('password', v)}
-                  />
-                </Item>
-              </Form>
+          {error && <Messages message={error} />}
 
-              <Button
-                containerViewStyle={{ marginTop: 15 }}
-                backgroundColor={AppColors.brand.primary}
-                onPress={this.handleSubmit}
-                title="Login"
+          <Form>
+            <Item stackedLabel>
+              <Label>Email</Label>
+              <Input
+                autoCapitalize="none"
+                value={this.state.email}
+                keyboardType="email-address"
+                onChangeText={v => this.handleChange('email', v)}
               />
-            </Body>
-          </CardItem>
-        </Card>
-      </ScrollView>
+            </Item>
+            <Item stackedLabel>
+              <Label>Password</Label>
+              <Input
+                secureTextEntry
+                onChangeText={v => this.handleChange('password', v)}
+              />
+            </Item>
+
+            <Spacer size={20} />
+
+            <Button block onPress={this.handleSubmit}>
+              <Text>Login</Text>
+            </Button>
+          </Form>
+        </Content>
+      </Container>
     );
   }
 }

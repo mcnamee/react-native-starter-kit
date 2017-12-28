@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { ScrollView } from 'react-native';
-import { Card, CardItem, Text, Body, Form, Item, Label, Input, CheckBox, Button } from 'native-base';
-import AppColors from '../constants/colors';
+import { Container, Content, Text, Body, ListItem, Form, Item, Label, Input, CheckBox, Button, View } from 'native-base';
 import Messages from './Messages';
 import Loading from './Loading';
+import Header from './Header';
+import Spacer from './Spacer';
 
 class UpdateProfile extends React.Component {
   static propTypes = {
@@ -60,82 +60,87 @@ class UpdateProfile extends React.Component {
     if (loading) return <Loading />;
 
     return (
-      <ScrollView>
-        <Card>
-          <CardItem header>
-            <Text>Update Profile</Text>
-          </CardItem>
-          <CardItem>
-            <Body>
-              {error && <Messages message={error} />}
-              {success && <Messages message={success} type="success" />}
+      <Container>
+        <Content padder>
+          <Header
+            title="Update my profile"
+            content="Thanks for keeping your account up to date!"
+          />
 
-              <Form>
-                <Item floatingLabel>
-                  <Label>First Name</Label>
-                  <Input
-                    value={this.state.firstName}
-                    onChangeText={v => this.handleChange('firstName', v)}
-                  />
+          {error && <Messages message={error} />}
+          {success && <Messages message={success} type="success" />}
+
+          <Form>
+            <Item stackedLabel>
+              <Label>First Name</Label>
+              <Input
+                value={this.state.firstName}
+                onChangeText={v => this.handleChange('firstName', v)}
+              />
+            </Item>
+
+            <Item stackedLabel>
+              <Label>Last Name</Label>
+              <Input
+                value={this.state.lastName}
+                onChangeText={v => this.handleChange('lastName', v)}
+              />
+            </Item>
+
+            <ListItem>
+              <CheckBox
+                checked={this.state.changeEmail}
+                onPress={() => this.handleChange('changeEmail', !this.state.changeEmail)}
+              />
+              <Body>
+                <Text>Change Email</Text>
+              </Body>
+            </ListItem>
+
+            {this.state.changeEmail &&
+              <Item stackedLabel>
+                <Label>Email</Label>
+                <Input
+                  autoCapitalize="none"
+                  value={this.state.email}
+                  keyboardType="email-address"
+                  onChangeText={v => this.handleChange('email', v)}
+                />
+              </Item>
+            }
+
+            <ListItem>
+              <CheckBox
+                checked={this.state.changePassword}
+                onPress={() => this.handleChange('changePassword', !this.state.changePassword)}
+              />
+              <Body>
+                <Text>Change Password</Text>
+              </Body>
+            </ListItem>
+
+            {this.state.changePassword &&
+              <View padder>
+                <Item stackedLabel>
+                  <Label>Password</Label>
+                  <Input secureTextEntry onChangeText={v => this.handleChange('password', v)} />
                 </Item>
 
-                <Item floatingLabel>
-                  <Label>Last Name</Label>
-                  <Input
-                    value={this.state.lastName}
-                    onChangeText={v => this.handleChange('lastName', v)}
-                  />
+                <Item stackedLabel last>
+                  <Label>Confirm Password</Label>
+                  <Input secureTextEntry onChangeText={v => this.handleChange('password2', v)} />
                 </Item>
+              </View>
+            }
 
-                <CheckBox
-                  title="Change Email"
-                  checkedIcon="dot-circle-o"
-                  uncheckedIcon="circle-o"
-                  checked={this.state.changeEmail}
-                  onPress={() => this.handleChange('changeEmail', !this.state.changeEmail)}
-                />
+            <Spacer size={20} />
 
-                {this.state.changeEmail &&
-                  <Item floatingLabel>
-                    <Label>Email</Label>
-                    <Input
-                      value={this.state.email}
-                      keyboardType="email-address"
-                      onChangeText={v => this.handleChange('email', v)}
-                    />
-                  </Item>
-                }
-
-                <CheckBox
-                  title="Change Password"
-                  checkedIcon="dot-circle-o"
-                  uncheckedIcon="circle-o"
-                  checked={this.state.changePassword}
-                  onPress={() => this.handleChange('changePassword', !this.state.changePassword)}
-                />
-
-                {this.state.changePassword &&
-                  <Item floatingLabel>
-                    <Label>Password</Label>
-                    <Input secureTextEntry onChangeText={v => this.handleChange('password', v)} />
-
-                    <Label>Confirm Password</Label>
-                    <Input secureTextEntry onChangeText={v => this.handleChange('password2', v)} />
-                  </Item>
-                }
-              </Form>
-
-              <Button
-                containerViewStyle={{ marginTop: 15 }}
-                backgroundColor={AppColors.brand.primary}
-                onPress={this.handleSubmit}
-              >
-                <Text>Update Profile</Text>
-              </Button>
-            </Body>
-          </CardItem>
-        </Card>
-      </ScrollView>
+            <Button block onPress={this.handleSubmit}>
+              <Text>Update Profile</Text>
+            </Button>
+          </Form>
+        </Content>
+      </Container>
     );
   }
 }

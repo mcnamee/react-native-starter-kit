@@ -1,11 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { FlatList, RefreshControl } from 'react-native';
-import { Card, CardItem, Thumbnail, Body, Text, H3, Button } from 'native-base';
+import { FlatList, TouchableOpacity, RefreshControl, Image } from 'react-native';
+import { Container, Content, Card, CardItem, Body, Text, Button } from 'native-base';
 import { Actions } from 'react-native-router-flux';
-import AppColors from '../constants/colors';
 import Loading from './Loading';
 import Error from './Error';
+import Header from './Header';
+import Spacer from './Spacer';
 
 const RecipeListing = ({
   error,
@@ -21,41 +22,64 @@ const RecipeListing = ({
 
   const keyExtractor = item => item.id;
 
-  return (
-    <FlatList
-      data={recipes}
-      renderItem={({ item }) => (
-        <Card>
-          <CardItem>
-            <Thumbnail source={{ uri: item.image }} />
-            <Body>
-              <H3>{item.title}</H3>
-              <Text>{item.body}</Text>
+  const onPress = item => Actions.recipe({ match: { params: { id: String(item.id) } } });
 
-              <Button
-                onPress={() => Actions.recipe({ match: { params: { id: String(item.id) } } })}
-                containerViewStyle={{
-                  marginTop: 15,
-                  marginRight: 0,
-                  marginBottom: 0,
-                  marginLeft: 0,
-                }}
-                backgroundColor={AppColors.brand.primary}
-              >
-                <Text>View Recipe</Text>
-              </Button>
-            </Body>
-          </CardItem>
-        </Card>
-      )}
-      keyExtractor={keyExtractor}
-      refreshControl={
-        <RefreshControl
-          refreshing={loading}
-          onRefresh={reFetch}
+  return (
+    <Container>
+      <Content padder>
+        <Header
+          title="Top Recipes"
+          content="This is here to show how you can read and display data from a data source (in our case, Firebase)."
         />
-      }
-    />
+
+        <FlatList
+          numColumns={2}
+          data={recipes}
+          renderItem={({ item }) => (
+            <Card transparent style={{ paddingHorizontal: 6 }}>
+              <CardItem cardBody>
+                <TouchableOpacity onPress={() => onPress(item)} style={{ flex: 1 }}>
+                  <Image
+                    source={{ uri: item.image }}
+                    style={{
+                      height: 100,
+                      width: null,
+                      flex: 1,
+                      borderRadius: 5,
+                    }}
+                  />
+                </TouchableOpacity>
+              </CardItem>
+              <CardItem cardBody>
+                <Body>
+                  <Spacer size={10} />
+                  <Text style={{ fontWeight: '800' }}>{item.title}</Text>
+                  <Spacer size={15} />
+                  <Button
+                    block
+                    bordered
+                    small
+                    onPress={() => onPress(item)}
+                  >
+                    <Text>View Recipe</Text>
+                  </Button>
+                  <Spacer size={5} />
+                </Body>
+              </CardItem>
+            </Card>
+          )}
+          keyExtractor={keyExtractor}
+          refreshControl={
+            <RefreshControl
+              refreshing={loading}
+              onRefresh={reFetch}
+            />
+          }
+        />
+
+        <Spacer size={20} />
+      </Content>
+    </Container>
   );
 };
 

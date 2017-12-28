@@ -1,214 +1,214 @@
-import _ from "lodash";
-import bodyTheme from "./Body";
-import leftTheme from "./Left";
-import rightTheme from "./Right";
-import headerTheme from "./Header";
-import switchTheme from "./Switch";
-import thumbnailTheme from "./Thumbnail";
-import containerTheme from "./Container";
-import contentTheme from "./Content";
-import buttonTheme from "./Button";
-import titleTheme from "./Title";
-import subtitleTheme from "./Subtitle";
-import inputGroupTheme from "./InputGroup";
-import badgeTheme from "./Badge";
-import checkBoxTheme from "./CheckBox";
-import cardTheme from "./Card";
-import radioTheme from "./Radio";
-import h3Theme from "./H3";
-import h2Theme from "./H2";
-import h1Theme from "./H1";
-import footerTheme from "./Footer";
-import footerTabTheme from "./FooterTab";
-import fabTheme from "./Fab";
-import itemTheme from "./Item";
-import labelTheme from "./Label";
-import textAreaTheme from "./Textarea";
-import textTheme from "./Text";
-import toastTheme from "./Toast";
-import tabTheme from "./Tab";
-import tabBarTheme from "./TabBar";
-import tabContainerTheme from "./TabContainer";
-import viewTheme from "./View";
-import tabHeadingTheme from "./TabHeading";
-import iconTheme from "./Icon";
-import inputTheme from "./Input";
-import swipeRowTheme from "./SwipeRow";
-import segmentTheme from "./Segment";
-import spinnerTheme from "./Spinner";
-import cardItemTheme from "./CardItem";
-import listItemTheme from "./ListItem";
-import formTheme from "./Form";
-import separatorTheme from "./Separator";
-import variable from "./../variables/platform";
+import _ from 'lodash';
+import bodyTheme from './Body';
+import leftTheme from './Left';
+import rightTheme from './Right';
+import headerTheme from './Header';
+import switchTheme from './Switch';
+import thumbnailTheme from './Thumbnail';
+import containerTheme from './Container';
+import contentTheme from './Content';
+import buttonTheme from './Button';
+import titleTheme from './Title';
+import subtitleTheme from './Subtitle';
+import inputGroupTheme from './InputGroup';
+import badgeTheme from './Badge';
+import checkBoxTheme from './CheckBox';
+import cardTheme from './Card';
+import radioTheme from './Radio';
+import h3Theme from './H3';
+import h2Theme from './H2';
+import h1Theme from './H1';
+import footerTheme from './Footer';
+import footerTabTheme from './FooterTab';
+import fabTheme from './Fab';
+import itemTheme from './Item';
+import labelTheme from './Label';
+import textAreaTheme from './Textarea';
+import textTheme from './Text';
+import toastTheme from './Toast';
+import tabTheme from './Tab';
+import tabBarTheme from './TabBar';
+import tabContainerTheme from './TabContainer';
+import viewTheme from './View';
+import tabHeadingTheme from './TabHeading';
+import iconTheme from './Icon';
+import inputTheme from './Input';
+import swipeRowTheme from './SwipeRow';
+import segmentTheme from './Segment';
+import spinnerTheme from './Spinner';
+import cardItemTheme from './CardItem';
+import listItemTheme from './ListItem';
+import formTheme from './Form';
+import separatorTheme from './Separator';
+import variable from './../variables/platform';
 
 export default (variables = variable) => {
   const theme = {
     variables,
-    "NativeBase.Left": {
-      ...leftTheme(variables)
+    'NativeBase.Left': {
+      ...leftTheme(variables),
     },
-    "NativeBase.Right": {
-      ...rightTheme(variables)
+    'NativeBase.Right': {
+      ...rightTheme(variables),
     },
-    "NativeBase.Body": {
-      ...bodyTheme(variables)
-    },
-
-    "NativeBase.Header": {
-      ...headerTheme(variables)
+    'NativeBase.Body': {
+      ...bodyTheme(variables),
     },
 
-    "NativeBase.Button": {
-      ...buttonTheme(variables)
+    'NativeBase.Header': {
+      ...headerTheme(variables),
     },
 
-    "NativeBase.Title": {
-      ...titleTheme(variables)
-    },
-    "NativeBase.Subtitle": {
-      ...subtitleTheme(variables)
+    'NativeBase.Button': {
+      ...buttonTheme(variables),
     },
 
-    "NativeBase.InputGroup": {
-      ...inputGroupTheme(variables)
+    'NativeBase.Title': {
+      ...titleTheme(variables),
+    },
+    'NativeBase.Subtitle': {
+      ...subtitleTheme(variables),
     },
 
-    "NativeBase.Input": {
-      ...inputTheme(variables)
+    'NativeBase.InputGroup': {
+      ...inputGroupTheme(variables),
     },
 
-    "NativeBase.Badge": {
-      ...badgeTheme(variables)
+    'NativeBase.Input': {
+      ...inputTheme(variables),
     },
 
-    "NativeBase.CheckBox": {
-      ...checkBoxTheme(variables)
+    'NativeBase.Badge': {
+      ...badgeTheme(variables),
     },
 
-    "NativeBase.Radio": {
-      ...radioTheme(variables)
+    'NativeBase.CheckBox': {
+      ...checkBoxTheme(variables),
     },
 
-    "NativeBase.Card": {
-      ...cardTheme()
+    'NativeBase.Radio': {
+      ...radioTheme(variables),
     },
 
-    "NativeBase.CardItem": {
-      ...cardItemTheme(variables)
+    'NativeBase.Card': {
+      ...cardTheme(),
     },
 
-    "NativeBase.Toast": {
-      ...toastTheme(variables)
+    'NativeBase.CardItem': {
+      ...cardItemTheme(variables),
     },
 
-    "NativeBase.H1": {
-      ...h1Theme(variables)
-    },
-    "NativeBase.H2": {
-      ...h2Theme(variables)
-    },
-    "NativeBase.H3": {
-      ...h3Theme(variables)
-    },
-    "NativeBase.Form": {
-      ...formTheme(variables)
+    'NativeBase.Toast': {
+      ...toastTheme(variables),
     },
 
-    "NativeBase.Container": {
-      ...containerTheme(variables)
+    'NativeBase.H1': {
+      ...h1Theme(variables),
     },
-    "NativeBase.Content": {
-      ...contentTheme(variables)
+    'NativeBase.H2': {
+      ...h2Theme(variables),
     },
-
-    "NativeBase.Footer": {
-      ...footerTheme(variables)
+    'NativeBase.H3': {
+      ...h3Theme(variables),
     },
-
-    "NativeBase.Tabs": {
-      flex: 1
+    'NativeBase.Form': {
+      ...formTheme(variables),
     },
 
-    "NativeBase.FooterTab": {
-      ...footerTabTheme(variables)
+    'NativeBase.Container': {
+      ...containerTheme(variables),
+    },
+    'NativeBase.Content': {
+      ...contentTheme(variables),
     },
 
-    "NativeBase.ListItem": {
-      ...listItemTheme(variables)
+    'NativeBase.Footer': {
+      ...footerTheme(variables),
     },
 
-    "NativeBase.ListItem1": {
-      ...listItemTheme(variables)
+    'NativeBase.Tabs': {
+      flex: 1,
     },
 
-    "NativeBase.Icon": {
-      ...iconTheme(variables)
-    },
-    "NativeBase.IconNB": {
-      ...iconTheme(variables)
-    },
-    "NativeBase.Text": {
-      ...textTheme(variables)
-    },
-    "NativeBase.Spinner": {
-      ...spinnerTheme(variables)
+    'NativeBase.FooterTab': {
+      ...footerTabTheme(variables),
     },
 
-    "NativeBase.Fab": {
-      ...fabTheme(variables)
+    'NativeBase.ListItem': {
+      ...listItemTheme(variables),
     },
 
-    "NativeBase.Item": {
-      ...itemTheme(variables)
+    'NativeBase.ListItem1': {
+      ...listItemTheme(variables),
     },
 
-    "NativeBase.Label": {
-      ...labelTheme(variables)
+    'NativeBase.Icon': {
+      ...iconTheme(variables),
+    },
+    'NativeBase.IconNB': {
+      ...iconTheme(variables),
+    },
+    'NativeBase.Text': {
+      ...textTheme(variables),
+    },
+    'NativeBase.Spinner': {
+      ...spinnerTheme(variables),
     },
 
-    "NativeBase.Textarea": {
-      ...textAreaTheme(variables)
+    'NativeBase.Fab': {
+      ...fabTheme(variables),
     },
 
-    "NativeBase.PickerNB": {
-      "NativeBase.Button": {
-        "NativeBase.Text": {}
-      }
+    'NativeBase.Item': {
+      ...itemTheme(variables),
     },
 
-    "NativeBase.Tab": {
-      ...tabTheme(variables)
+    'NativeBase.Label': {
+      ...labelTheme(variables),
     },
 
-    "NativeBase.Segment": {
-      ...segmentTheme(variables)
+    'NativeBase.Textarea': {
+      ...textAreaTheme(variables),
     },
 
-    "NativeBase.TabBar": {
-      ...tabBarTheme(variables)
+    'NativeBase.PickerNB': {
+      'NativeBase.Button': {
+        'NativeBase.Text': {},
+      },
     },
-    "NativeBase.ViewNB": {
-      ...viewTheme(variables)
+
+    'NativeBase.Tab': {
+      ...tabTheme(variables),
     },
-    "NativeBase.TabHeading": {
-      ...tabHeadingTheme(variables)
+
+    'NativeBase.Segment': {
+      ...segmentTheme(variables),
     },
-    "NativeBase.TabContainer": {
-      ...tabContainerTheme(variables)
+
+    'NativeBase.TabBar': {
+      ...tabBarTheme(variables),
     },
-    "NativeBase.Switch": {
-      ...switchTheme(variables)
+    'NativeBase.ViewNB': {
+      ...viewTheme(variables),
     },
-    "NativeBase.Separator": {
-      ...separatorTheme(variables)
+    'NativeBase.TabHeading': {
+      ...tabHeadingTheme(variables),
     },
-    "NativeBase.SwipeRow": {
-      ...swipeRowTheme(variables)
+    'NativeBase.TabContainer': {
+      ...tabContainerTheme(variables),
     },
-    "NativeBase.Thumbnail": {
-      ...thumbnailTheme(variables)
-    }
+    'NativeBase.Switch': {
+      ...switchTheme(variables),
+    },
+    'NativeBase.Separator': {
+      ...separatorTheme(variables),
+    },
+    'NativeBase.SwipeRow': {
+      ...swipeRowTheme(variables),
+    },
+    'NativeBase.Thumbnail': {
+      ...thumbnailTheme(variables),
+    },
   };
 
   const cssifyTheme = (grandparent, parent, parentKey) => {
@@ -216,9 +216,9 @@ export default (variables = variable) => {
       // console.log('styleName', styleName);
       // console.log('parentKey', parentKey);
       if (
-        styleName.indexOf(".") === 0 &&
+        styleName.indexOf('.') === 0 &&
         parentKey &&
-        parentKey.indexOf(".") === 0
+        parentKey.indexOf('.') === 0
       ) {
         if (grandparent) {
           if (!grandparent[styleName]) {
@@ -228,7 +228,7 @@ export default (variables = variable) => {
           }
         }
       }
-      if (style && typeof style === "object") {
+      if (style && typeof style === 'object') {
         cssifyTheme(parent, style, styleName);
       }
     });

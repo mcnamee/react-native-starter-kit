@@ -1,7 +1,9 @@
 import React from 'react';
 import { Scene, Tabs, Stack } from 'react-native-router-flux';
 import { Icon } from 'native-base';
+
 import DefaultProps from '../constants/navigation';
+import AppConfig from '../../constants/config';
 
 import RecipesContainer from '../../containers/Recipes';
 import RecipesComponent from '../components/Recipes';
@@ -30,38 +32,39 @@ const Index = (
       <Tabs
         key="tabbar"
         swipeEnabled
+        type="replace"
         showLabel={false}
         {...DefaultProps.tabProps}
       >
         <Stack
-          key="recipes"
-          title="Recipes"
-          icon={() => <Icon name="layers" {...DefaultProps.icons} />}
-          {...DefaultProps.navbarProps}
-        >
-          <Scene key="recipes" component={RecipesContainer} Layout={RecipesComponent} />
-        </Stack>
-
-        <Stack
-          key="tab_2"
-          title="Tab #2"
-          icon={() => <Icon name="plus" {...DefaultProps.icons} />}
+          key="home"
+          title={AppConfig.appName.toUpperCase()}
+          icon={() => <Icon name="planet" {...DefaultProps.icons} />}
           {...DefaultProps.navbarProps}
         >
           <Scene key="home" component={AboutComponent} />
         </Stack>
 
         <Stack
+          key="recipes"
+          title="RECIPES"
+          icon={() => <Icon name="book" {...DefaultProps.icons} />}
+          {...DefaultProps.navbarProps}
+        >
+          <Scene key="recipes" component={RecipesContainer} Layout={RecipesComponent} />
+        </Stack>
+
+        <Stack
           key="profile"
-          title="Profile"
-          icon={() => <Icon name="user" {...DefaultProps.icons} />}
+          title="PROFILE"
+          icon={() => <Icon name="contact" {...DefaultProps.icons} />}
           {...DefaultProps.navbarProps}
         >
           <Scene key="profileHome" component={AppContainer} Layout={ProfileComponent} />
           <Scene
             back
             key="signUp"
-            title="Sign Up"
+            title="SIGN UP"
             {...DefaultProps.navbarProps}
             component={SignUpContainer}
             Layout={SignUpComponent}
@@ -69,7 +72,7 @@ const Index = (
           <Scene
             back
             key="login"
-            title="Login"
+            title="LOGIN"
             {...DefaultProps.navbarProps}
             component={LoginContainer}
             Layout={LoginComponent}
@@ -77,7 +80,7 @@ const Index = (
           <Scene
             back
             key="forgotPassword"
-            title="Forgot Password"
+            title="FORGOT PASSWORD"
             {...DefaultProps.navbarProps}
             component={ForgotPasswordContainer}
             Layout={ForgotPasswordComponent}
@@ -85,7 +88,7 @@ const Index = (
           <Scene
             back
             key="updateProfile"
-            title="Update Profile"
+            title="UPDATE PROFILE"
             {...DefaultProps.navbarProps}
             component={UpdateProfileContainer}
             Layout={UpdateProfileComponent}
@@ -98,17 +101,10 @@ const Index = (
       back
       clone
       key="recipe"
-      title="Recipe"
+      title="RECIPE"
       {...DefaultProps.navbarProps}
       component={RecipesContainer}
       Layout={RecipeViewComponent}
-    />
-
-    <Scene
-      key="about"
-      title="About Us"
-      component={AboutComponent}
-      {...DefaultProps.navbarProps}
     />
   </Stack>
 );

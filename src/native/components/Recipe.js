@@ -1,9 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { View, ScrollView } from 'react-native';
-import { Card, CardItem, Body, List, ListItem, Text } from 'native-base';
+import { Image } from 'react-native';
+import { Container, Content, Card, CardItem, Body, H3, List, ListItem, Text } from 'native-base';
 import ErrorMessages from '../../constants/errors';
 import Error from './Error';
+import Spacer from './Spacer';
 
 const RecipeView = ({
   error,
@@ -37,49 +38,53 @@ const RecipeView = ({
   ));
 
   return (
-    <ScrollView>
-      <View style={{ paddingHorizontal: 15, paddingTop: 30, paddingBottom: 20 }}>
-        <Text h4>{recipe.title}</Text>
+    <Container>
+      <Content padder>
+        <Image source={{ uri: recipe.image }} style={{ height: 100, width: null, flex: 1 }} />
+
+        <Spacer size={25} />
+        <H3>{recipe.title}</H3>
         <Text>by {recipe.author}</Text>
-      </View>
+        <Spacer size={15} />
 
-      <Card>
-        <CardItem header>
-          <Text>About this recipe</Text>
-        </CardItem>
-        <CardItem>
-          <Body>
-            <Text>{recipe.body}</Text>
-          </Body>
-        </CardItem>
-      </Card>
+        <Card>
+          <CardItem header bordered>
+            <Text>About this recipe</Text>
+          </CardItem>
+          <CardItem>
+            <Body>
+              <Text>{recipe.body}</Text>
+            </Body>
+          </CardItem>
+        </Card>
 
-      <Card>
-        <CardItem header>
-          <Text>Ingredients</Text>
-        </CardItem>
-        <CardItem>
-          <Body>
-            <List>
-              {ingredients}
-            </List>
-          </Body>
-        </CardItem>
-      </Card>
+        <Card>
+          <CardItem header bordered>
+            <Text>Ingredients</Text>
+          </CardItem>
+          <CardItem>
+            <Content>
+              <List>
+                {ingredients}
+              </List>
+            </Content>
+          </CardItem>
+        </Card>
 
-      <Card>
-        <CardItem header>
-          <Text>Method</Text>
-        </CardItem>
-        <CardItem>
-          <Body>
+        <Card>
+          <CardItem header bordered>
+            <Text>Method</Text>
+          </CardItem>
+          <CardItem>
             <List>
               {method}
             </List>
-          </Body>
-        </CardItem>
-      </Card>
-    </ScrollView>
+          </CardItem>
+        </Card>
+
+        <Spacer size={20} />
+      </Content>
+    </Container>
   );
 };
 

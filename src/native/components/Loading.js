@@ -1,11 +1,10 @@
 import React from 'react';
 import { View, ActivityIndicator } from 'react-native';
-import AppColors from '../constants/colors';
-import AppStyles from '../styles/styles';
+import Colors from '../../../native-base-theme/variables/commonColor';
 
 const About = () => (
-  <View style={AppStyles.container}>
-    <ActivityIndicator size="large" color={AppColors.brand.primary} />
+  <View style={{ flex: 1, flexDirection: 'column', justifyContent: 'center' }}>
+    <ActivityIndicator size="large" color={Colors.brandPrimary} />
   </View>
 );
 

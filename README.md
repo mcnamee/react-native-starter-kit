@@ -50,7 +50,7 @@ The project is _super_ helpful to kick-start your next project, as it provides a
 - [Understanding the file structure](/docs/file-structure.md)
 - [FAQs & Opinions](/docs/faqs.md)
 - [Testing, Deploying & Publishing](/docs/publishing.md)
-- [Tests & testing](/docs/testing.md)
+- [Tests & testing](/docs/testing.md) (coming soon...)
 - [Contributing to this project](/docs/contributing.md)
 
 ---

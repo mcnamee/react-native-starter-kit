@@ -23,7 +23,7 @@ export default {
   badgePadding: platform === 'ios' ? 3 : 0,
 
   // Button
-  btnFontFamily: platform === 'ios' ? 'System' : 'Roboto_medium',
+  btnFontFamily: platform === 'ios' ? 'System' : 'Roboto',
   btnDisabledBg: '#b5b5b5',
   btnDisabledClr: '#f1f1f1',
 
@@ -204,9 +204,9 @@ export default {
 
   // Line Height
   btnLineHeight: 19,
-  lineHeightH1: 32,
-  lineHeightH2: 27,
-  lineHeightH3: 22,
+  lineHeightH1: 38,
+  lineHeightH2: 32,
+  lineHeightH3: 26,
   iconLineHeight: platform === 'ios' ? 37 : 30,
   lineHeight: platform === 'ios' ? 20 : 24,
 
@@ -259,7 +259,7 @@ export default {
   noteFontSize: 14,
 
   // Title
-  titleFontfamily: platform === 'ios' ? 'System' : 'Roboto_medium',
+  titleFontfamily: platform === 'ios' ? 'System' : 'Roboto',
   titleFontSize: platform === 'ios' ? 17 : 19,
   subTitleFontSize: platform === 'ios' ? 12 : 14,
   subtitleColor: '#FFF',

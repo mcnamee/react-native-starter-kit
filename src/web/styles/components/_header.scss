@@ -16,3 +16,16 @@ header {
   letter-spacing: 6px;
   font-size: 0.9rem;
 }
+
+.dropdown-item {
+  &, a {
+    text-decoration: none !important;
+  }
+
+  .active, &:active {
+    &, a {
+      color: #fff;
+    }
+  }
+}
+

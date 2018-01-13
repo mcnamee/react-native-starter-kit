@@ -17,6 +17,7 @@ import { SidebarNavItems } from './Sidebar';
 class Header extends Component {
   static propTypes = {
     member: PropTypes.shape({
+      firstName: PropTypes.string,
       email: PropTypes.string,
     }),
     logout: PropTypes.func.isRequired,
@@ -59,7 +60,7 @@ class Header extends Component {
               </div>
               <UncontrolledDropdown nav>
                 <DropdownToggle nav caret>
-                  My Account
+                  {loggedIn ? `Hi, ${member.firstName}` : 'My Account'}
                 </DropdownToggle>
                 <DropdownMenu>
                   {!loggedIn &&

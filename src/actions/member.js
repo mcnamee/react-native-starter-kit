@@ -68,6 +68,21 @@ function getUserData(dispatch) {
   });
 }
 
+export function getMemberData() {
+  if (Firebase === null) return () => new Promise(resolve => resolve());
+
+  // Ensure token is up to date
+  return dispatch => new Promise((resolve) => {
+    Firebase.auth().onAuthStateChanged((loggedIn) => {
+      if (loggedIn) {
+        return resolve(getUserData(dispatch));
+      }
+
+      return () => new Promise(() => resolve());
+    });
+  });
+}
+
 /**
   * Login to Firebase with Email/Password
   */

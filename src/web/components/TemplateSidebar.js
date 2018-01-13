@@ -1,14 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Container, Row, Col } from 'reactstrap';
-import App from '../../containers/App';
+import Member from '../../containers/Member';
 import Header from './Header';
 import Footer from './Footer';
 import { Sidebar } from './Sidebar';
 
 const Template = ({ children }) => (
   <div>
-    <App Layout={Header} />
+    <Member Layout={Header} />
     <Container fluid>
       <Row>
         <Sidebar />

@@ -21,7 +21,7 @@ import ForgotPasswordComponent from '../components/ForgotPassword';
 import UpdateProfileContainer from '../../containers/UpdateProfile';
 import UpdateProfileComponent from '../components/UpdateProfile';
 
-import AppContainer from '../../containers/App';
+import MemberContainer from '../../containers/Member';
 import ProfileComponent from '../components/Profile';
 
 import AboutComponent from '../components/About';
@@ -60,7 +60,7 @@ const Index = (
           icon={() => <Icon name="contact" {...DefaultProps.icons} />}
           {...DefaultProps.navbarProps}
         >
-          <Scene key="profileHome" component={AppContainer} Layout={ProfileComponent} />
+          <Scene key="profileHome" component={MemberContainer} Layout={ProfileComponent} />
           <Scene
             back
             key="signUp"

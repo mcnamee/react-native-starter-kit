@@ -29,17 +29,13 @@ class RecipeListing extends Component {
   /**
     * Fetch Data from API, saving to Redux
     */
-  fetchRecipes = (reFetch = false) => {
-    if (reFetch || this.props.recipes.recipes[0].placeholder) {
-      return this.props.getRecipes()
-        .then(() => this.props.getMeals())
-        .catch((err) => {
-          console.log(`Error: ${err}`);
-          return this.props.setError(err);
-        });
-    }
-
-    return false;
+  fetchRecipes = () => {
+    return this.props.getRecipes()
+      .then(() => this.props.getMeals())
+      .catch((err) => {
+        console.log(`Error: ${err}`);
+        return this.props.setError(err);
+      });
   }
 
   render = () => {
@@ -52,7 +48,7 @@ class RecipeListing extends Component {
         error={recipes.error}
         loading={recipes.loading}
         recipes={recipes.recipes}
-        reFetch={() => this.fetchRecipes(true)}
+        reFetch={() => this.fetchRecipes()}
       />
     );
   }

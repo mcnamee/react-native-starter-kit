@@ -1,33 +1,34 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Container, Content, Form, Item, Label, Input, Text, Button } from 'native-base';
+import { Container, Content, Text, Form, Item, Label, Input, Button } from 'native-base';
 import { Actions } from 'react-native-router-flux';
 import Loading from './Loading';
 import Messages from './Messages';
-import translate from '../../i18n/i18n';
 import Header from './Header';
 import Spacer from './Spacer';
 
-class Login extends React.Component {
+import { DEFAULT_LOCALE } from '../../i18n/i18n';
+
+
+class Locale extends React.Component {
   static propTypes = {
-    member: PropTypes.shape({
-      email: PropTypes.string,
-    }),
+    locale: PropTypes.shape({
+      userLocale: PropTypes.string,
+    }).isRequired,
     error: PropTypes.string,
     loading: PropTypes.bool.isRequired,
-    onFormSubmit: PropTypes.func.isRequired,
+    onChangeLocale: PropTypes.func.isRequired,
   }
 
   static defaultProps = {
     error: null,
-    member: {},
   }
 
   constructor(props) {
     super(props);
     this.state = {
-      email: (props.member && props.member.email) ? props.member.email : '',
-      password: '',
+      userLocale:
+        (props.locale && props.locale.userLocale) ? props.locale.userLocale : DEFAULT_LOCALE,
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -42,8 +43,10 @@ class Login extends React.Component {
   }
 
   handleSubmit = () => {
-    this.props.onFormSubmit(this.state)
-      .then(() => Actions.tabbar())
+    this.props.onChangeLocale(this.state)
+      .then((promise) => {
+        Actions.pop();
+      })
       .catch(e => console.log(`Error: ${e}`));
   }
 
@@ -57,35 +60,26 @@ class Login extends React.Component {
       <Container>
         <Content padder>
           <Header
-            title="Welcome back"
-            content="Please use your email and password to login."
+            title="Change language"
+            content=""
           />
 
           {error && <Messages message={error} />}
 
           <Form>
             <Item stackedLabel>
-              <Label>Email</Label>
+              <Label>Language</Label>
               <Input
                 autoCapitalize="none"
-                value={this.state.email}
-                keyboardType="email-address"
-                onChangeText={v => this.handleChange('email', v)}
-              />
-            </Item>
-            <Item stackedLabel>
-              <Label>Password</Label>
-              <Input
-                secureTextEntry
-                onChangeText={v => this.handleChange('password', v)}
+                value={this.state.userLocale}
+                keyboardType="default"
+                onChangeText={v => this.handleChange('userLocale', v)}
               />
             </Item>
 
             <Spacer size={20} />
 
-            <Button block onPress={this.handleSubmit}>
-              <Text>{translate('login')}</Text>
-            </Button>
+            <Button block onPress={this.handleSubmit}><Text>Save</Text></Button>
           </Form>
         </Content>
       </Container>
@@ -93,4 +87,4 @@ class Login extends React.Component {
   }
 }
 
-export default Login;
+export default Locale;

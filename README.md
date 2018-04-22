@@ -63,6 +63,8 @@ The project is _super_ helpful to kick-start your next project, as it provides a
 
 #### 1. Clone and Install
 
+_*It's recommended that you install [React Native Debugger](https://github.com/jhen0409/react-native-debugger/releases)._
+
 ```bash
 # Clone the repo
 git clone https://github.com/mcnamee/react-native-starter-kit.git

@@ -1,12 +1,14 @@
-export default () => {
-  const rightTheme = {
-    'NativeBase.Button': {
-      alignSelf: null,
-    },
-    flex: 1,
-    alignSelf: 'center',
-    alignItems: 'flex-end',
-  };
+import variable from './../variables/platform';
 
-  return rightTheme;
+export default (variables = variable) => {
+	const rightTheme = {
+		'NativeBase.Button': {
+			alignSelf: null,
+		},
+		flex: 1,
+		alignSelf: 'center',
+		alignItems: 'flex-end',
+	};
+
+	return rightTheme;
 };

@@ -1,6 +1,6 @@
 {
   "expo": {
-    "sdkVersion": "22.0.0",
+    "sdkVersion": "26.0.0",
     "name": "React Native Starter Kit",
     "slug": "react-native-starter-kit",
     "icon": "src/images/app-icon.png",

@@ -1,9 +1,11 @@
-export default () => {
-  const bodyTheme = {
-    flex: 1,
-    alignItems: 'center',
-    alignSelf: 'center',
-  };
+import variable from './../variables/platform';
 
-  return bodyTheme;
+export default (variables = variable) => {
+	const bodyTheme = {
+		flex: 1,
+		alignItems: 'center',
+		alignSelf: 'center',
+	};
+
+	return bodyTheme;
 };

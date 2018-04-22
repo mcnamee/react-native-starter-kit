@@ -1,9 +1,11 @@
-export default () => {
-  const leftTheme = {
-    flex: 1,
-    alignSelf: 'center',
-    alignItems: 'flex-start',
-  };
+import variable from './../variables/platform';
 
-  return leftTheme;
+export default (variables = variable) => {
+	const leftTheme = {
+		flex: 1,
+		alignSelf: 'center',
+		alignItems: 'flex-start',
+	};
+
+	return leftTheme;
 };

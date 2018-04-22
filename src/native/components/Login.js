@@ -66,7 +66,7 @@ class Login extends React.Component {
 
           <Form>
             <Item stackedLabel>
-              <Label>Email</Label>
+              <Label>{translate('Email', locale)}</Label>
               <Input
                 autoCapitalize="none"
                 value={this.state.email}
@@ -75,7 +75,7 @@ class Login extends React.Component {
               />
             </Item>
             <Item stackedLabel>
-              <Label>Password</Label>
+              <Label>{translate('Password', locale)}</Label>
               <Input
                 secureTextEntry
                 onChangeText={v => this.handleChange('password', v)}
@@ -85,7 +85,7 @@ class Login extends React.Component {
             <Spacer size={20} />
 
             <Button block onPress={this.handleSubmit}>
-              <Text>{translate('login', locale)}</Text>
+              <Text>{translate('Login', locale)}</Text>
             </Button>
           </Form>
         </Content>

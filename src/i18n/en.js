@@ -1,3 +1,5 @@
 export default {
-  login: 'LOGIN',
+  Login: 'Login',
+  Email: 'Email',
+  Password: 'Password',
 };

@@ -48,7 +48,6 @@ class SignUp extends React.Component {
   render() {
     const { loading, error } = this.props;
 
-    // Loading
     if (loading) return <Loading />;
 
     return (

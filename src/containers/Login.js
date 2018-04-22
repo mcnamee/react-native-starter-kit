@@ -8,6 +8,7 @@ const Login = ({
   Layout,
   onFormSubmit,
   member,
+  locale,
   isLoading,
   infoMessage,
   errorMessage,
@@ -15,6 +16,7 @@ const Login = ({
 }) => (
   <Layout
     member={member}
+    locale={locale}
     loading={isLoading}
     info={infoMessage}
     error={errorMessage}
@@ -25,6 +27,7 @@ const Login = ({
 
 Login.propTypes = {
   Layout: PropTypes.func.isRequired,
+  locale: PropTypes.string,
   member: PropTypes.shape({}).isRequired,
   onFormSubmit: PropTypes.func.isRequired,
   isLoading: PropTypes.bool.isRequired,
@@ -35,12 +38,14 @@ Login.propTypes = {
 
 Login.defaultProps = {
   infoMessage: null,
+  locale: null,
   errorMessage: null,
   successMessage: null,
 };
 
 const mapStateToProps = state => ({
   member: state.member || {},
+  locale: state.locale || null,
   isLoading: state.status.loading || false,
   infoMessage: state.status.info || null,
   errorMessage: state.status.error || null,

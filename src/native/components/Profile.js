@@ -68,16 +68,16 @@ const Profile = ({ member, logout }) => (
                 <Text>Forgot Password</Text>
               </Body>
             </ListItem>
-            <ListItem onPress={Actions.locale} icon>
-              <Left>
-                <Icon name="ios-flag" />
-              </Left>
-              <Body>
-                <Text>Change Language</Text>
-              </Body>
-            </ListItem>
           </View>
         }
+        <ListItem onPress={Actions.locale} icon>
+          <Left>
+            <Icon name="ios-flag" />
+          </Left>
+          <Body>
+            <Text>Change Language</Text>
+          </Body>
+        </ListItem>
       </List>
     </Content>
   </Container>

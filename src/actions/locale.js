@@ -1,20 +1,17 @@
-import {
-  DEFAULT_LOCALE,
-  locales,
-} from '../i18n/i18n';
+import statusMessage from './status';
+import { Translations, DEFAULT_LOCALE } from '../i18n';
+import ErrorMessages from '../constants/errors';
 
-export function changeLocale(data) {
-  let { userLocale } = data;
-  return dispatch => new Promise((resolve) => {
+export default function changeLocale(locale = DEFAULT_LOCALE) {
+  return dispatch => new Promise(async (resolve, reject) => {
     // Validate locale
-    if (!locales.includes(userLocale)) {
-      userLocale = DEFAULT_LOCALE;
-    }
+    if (!Translations[locale]) return reject({ message: ErrorMessages.localeDoesNotExist });
 
-    console.log('userLocale: ', userLocale);
+    await statusMessage(dispatch, 'loading', false);
+
     return resolve(dispatch({
       type: 'LOCALE_REPLACE',
-      data: userLocale,
+      locale,
     }));
-  });
+  }).catch(async (err) => { await statusMessage(dispatch, 'error', err.message); throw err.message; });
 }

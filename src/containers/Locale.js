@@ -1,15 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { DEFAULT_LOCALE } from '../i18n/i18n';
-import { changeLocale } from '../actions/locale';
+import changeLocale from '../actions/locale';
 
 const Locale = ({
   Layout,
-  onChangeLocale,
   locale,
   isLoading,
   errorMessage,
+  onChangeLocale,
 }) => (
   <Layout
     locale={locale}
@@ -21,9 +20,7 @@ const Locale = ({
 
 Locale.propTypes = {
   Layout: PropTypes.func.isRequired,
-  locale: PropTypes.shape({
-    userLocale: PropTypes.string,
-  }),
+  locale: PropTypes.string,
   onChangeLocale: PropTypes.func.isRequired,
   isLoading: PropTypes.bool.isRequired,
   errorMessage: PropTypes.string,
@@ -31,13 +28,11 @@ Locale.propTypes = {
 
 Locale.defaultProps = {
   errorMessage: null,
-  locale: {
-    userLocale: DEFAULT_LOCALE,
-  },
+  locale: null,
 };
 
 const mapStateToProps = state => ({
-  locale: state.locale || {},
+  locale: state.locale || null,
   isLoading: state.status.loading || false,
   infoMessage: state.status.info || null,
   errorMessage: state.status.error || null,

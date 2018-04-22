@@ -4,7 +4,7 @@ import { Container, Content, Form, Item, Label, Input, Text, Button } from 'nati
 import { Actions } from 'react-native-router-flux';
 import Loading from './Loading';
 import Messages from './Messages';
-import translate from '../../i18n/i18n';
+import { translate } from '../../i18n';
 import Header from './Header';
 import Spacer from './Spacer';
 
@@ -13,6 +13,7 @@ class Login extends React.Component {
     member: PropTypes.shape({
       email: PropTypes.string,
     }),
+    locale: PropTypes.string,
     error: PropTypes.string,
     loading: PropTypes.bool.isRequired,
     onFormSubmit: PropTypes.func.isRequired,
@@ -20,6 +21,7 @@ class Login extends React.Component {
 
   static defaultProps = {
     error: null,
+    locale: null,
     member: {},
   }
 
@@ -48,9 +50,8 @@ class Login extends React.Component {
   }
 
   render() {
-    const { loading, error } = this.props;
+    const { loading, error, locale } = this.props;
 
-    // Loading
     if (loading) return <Loading />;
 
     return (
@@ -84,7 +85,7 @@ class Login extends React.Component {
             <Spacer size={20} />
 
             <Button block onPress={this.handleSubmit}>
-              <Text>{translate('login')}</Text>
+              <Text>{translate('login', locale)}</Text>
             </Button>
           </Form>
         </Content>

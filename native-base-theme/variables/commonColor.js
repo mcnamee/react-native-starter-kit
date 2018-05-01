@@ -25,7 +25,7 @@ export default {
   badgePadding: platform === "ios" ? 3 : 0,
 
   // Button
-  btnFontFamily: platform === "ios" ? "System" : "Roboto_medium",
+  btnFontFamily: platform === "ios" ? "System" : "Roboto",
   btnDisabledBg: "#b5b5b5",
   buttonPadding: 6,
   get btnPrimaryBg() {

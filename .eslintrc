@@ -11,7 +11,10 @@
     "import/no-extraneous-dependencies": "off",
     "import/extensions": "off",
     "import/no-unresolved": "off",
-    "jsx-a11y/href-no-hash": "off",
-    "jsx-a11y/img-has-alt": "off"
+    "jsx-a11y/anchor-is-valid": "off",
+    "no-underscore-dangle": "off",
+    "prefer-promise-reject-errors": "off",
+    "no-nested-ternary": "off",
+    "react/no-multi-comp": "off"
   },
 }

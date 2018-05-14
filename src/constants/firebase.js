@@ -1,37 +1,8 @@
-/**
- * Firebase Reference/Init
- *
- * React Native Starter App
- * https://github.com/mcnamee/react-native-starter-app
- */
-import * as Firebase from 'firebase';
-import {
-  API_KEY,
-  AUTH_DOMAIN,
-  DATABASE_URL,
-  STORAGE_BUCKET,
-  MESSAGING_SENDER_ID,
-} from 'react-native-dotenv';
-
-let firebaseInitialized = false;
-
-if (
-  API_KEY !== 'null' &&
-  AUTH_DOMAIN !== 'null' &&
-  DATABASE_URL !== 'null' &&
-  STORAGE_BUCKET !== 'null' &&
-  MESSAGING_SENDER_ID !== 'null'
-) {
-  Firebase.initializeApp({
-    apiKey: API_KEY,
-    authDomain: AUTH_DOMAIN,
-    databaseURL: DATABASE_URL,
-    storageBucket: STORAGE_BUCKET,
-    messagingSenderId: MESSAGING_SENDER_ID,
-  });
-
-  firebaseInitialized = true;
-}
-
-export const FirebaseRef = firebaseInitialized ? Firebase.database().ref() : null;
-export default firebaseInitialized ? Firebase : null;
+export default {
+  apiKey: 'AIzaSyAHshJehJ-E_9AoUN3kfY8BLvZtFoXxFto',
+  authDomain: 'react-native-starter-app.firebaseapp.com',
+  databaseURL: 'https://react-native-starter-app.firebaseio.com',
+  projectId: 'react-native-starter-app',
+  storageBucket: 'react-native-starter-app.appspot.com',
+  messagingSenderId: '762822550667',
+};

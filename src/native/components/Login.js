@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Container, Content, Form, Item, Label, Input, Text, Button } from 'native-base';
+import { Container, Content, Form, Item, Label, Input, Text, Button, View } from 'native-base';
 import { Actions } from 'react-native-router-flux';
 import Loading from './Loading';
 import Messages from './Messages';
@@ -56,13 +56,15 @@ class Login extends React.Component {
 
     return (
       <Container>
-        <Content padder>
-          <Header
-            title="Welcome back"
-            content="Please use your email and password to login."
-          />
+        <Content>
+          <View padder>
+            <Header
+              title="Welcome back"
+              content="Please use your email and password to login."
+            />
 
-          {error && <Messages message={error} />}
+            {error && <Messages message={error} />}
+          </View>
 
           <Form>
             <Item stackedLabel>
@@ -84,9 +86,11 @@ class Login extends React.Component {
 
             <Spacer size={20} />
 
-            <Button block onPress={this.handleSubmit}>
-              <Text>{translate('Login', locale)}</Text>
-            </Button>
+            <View padder>
+              <Button block onPress={this.handleSubmit}>
+                <Text>{translate('Login', locale)}</Text>
+              </Button>
+            </View>
           </Form>
         </Content>
       </Container>

@@ -14,12 +14,23 @@ module.exports = {
     publicPath: '/',
   },
   module: {
-    loaders: [
+    rules: [
       // Take all sass files, compile them, and bundle them in with our js bundle
       {
         test: /\.scss$/,
-        loader:
-          'style-loader!css-loader!autoprefixer-loader?browsers=last 2 version!sass-loader',
+        use: [
+          'style-loader',
+          { loader: 'css-loader', options: { importLoaders: 1 } },
+          'sass-loader',
+        ],
+      },
+      {
+        test: /\.css$/,
+        use: [
+          'style-loader',
+          { loader: 'css-loader', options: { importLoaders: 1 } },
+          'postcss-loader',
+        ],
       },
       {
         test: /\.json$/,

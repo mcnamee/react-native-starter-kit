@@ -5,7 +5,6 @@
   "private": true,
   "devDependencies": {
     "autoprefixer": "^8.3.0",
-    "autoprefixer-loader": "^3.2.0",
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.4",
     "babel-plugin-react-transform": "^3.0.0",
@@ -17,8 +16,9 @@
     "jest-expo": "~27.0.0",
     "json-loader": "^0.5.7",
     "node-sass": "^4.8.3",
-    "react-test-renderer": "16.3.2",
+    "postcss-loader": "^2.1.6",
     "react-native-scripts": "1.14.0",
+    "react-test-renderer": "16.3.2",
     "react-transform-catch-errors": "^1.0.2",
     "react-transform-hmr": "^1.0.4",
     "redbox-react": "^1.5.0",
@@ -26,7 +26,9 @@
     "redux-logger": "^3.0.6",
     "sass-loader": "^7.0.1",
     "style-loader": "^0.21.0",
+    "uglifyjs-webpack-plugin": "^1.2.7",
     "webpack": "^4.15.1",
+    "webpack-cli": "^3.0.8",
     "webpack-dev-server": "^3.1.4",
     "webpack-hot-middleware": "^2.22.1"
   },
@@ -37,8 +39,8 @@
     "android": "react-native-scripts android",
     "ios": "react-native-scripts ios",
     "test": "node node_modules/jest/bin/jest.js --watch",
-    "web": "webpack-dev-server --content-base build/ --config webpack/web.dev.config.js --port 3001 --inline --hot --colors --historyApiFallback",
-    "web-bundle": "webpack --config webpack/web.prod.config.js --progress --colors",
+    "web": "webpack-dev-server --content-base build/ --config webpack/web.dev.config.js --mode development --port 3001 --inline --hot --colors --historyApiFallback",
+    "web-bundle": "webpack --config webpack/web.prod.config.js --progress --colors --mode production",
     "clear-cache": "gulp clear-cache",
     "debug": "open 'rndebugger://set-debugger-loc?host=localhost&port=19001'"
   },
@@ -51,6 +53,7 @@
     "babel-eslint": "^8.2.3",
     "babel-polyfill": "^6.26.0",
     "bootstrap": "^4.1.0",
+    "cssnano": "^4.0.0",
     "eslint": "^5.1.0",
     "eslint-config-airbnb": "^17.0.0",
     "eslint-plugin-import": "^2.11.0",
@@ -61,6 +64,8 @@
     "morgan": "^1.9.0",
     "native-base": "^2.4.2",
     "object-assign": "^4.1.1",
+    "postcss-cssnext": "^3.1.0",
+    "postcss-import": "^11.1.0",
     "prop-types": "^15.6.1",
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
@@ -72,6 +77,7 @@
     "redux": "^4.0.0",
     "redux-persist": "^5.9.1",
     "redux-thunk": "^2.2.0",
+    "sugarss": "^1.0.1",
     "superagent": "^3.8.2"
   }
 }

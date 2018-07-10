@@ -102,35 +102,36 @@ export function login(formData) {
     // Go to Firebase
     return Firebase.auth()
       .setPersistence(Firebase.auth.Auth.Persistence.LOCAL)
-      .then(() =>
-        Firebase.auth()
-          .signInWithEmailAndPassword(email, password)
-          .then(async (res) => {
-            if (res && res.uid) {
-              // Update last logged in data
-              FirebaseRef.child(`users/${res.uid}`).update({
-                lastLoggedIn: Firebase.database.ServerValue.TIMESTAMP,
-              });
+      .then(() => Firebase.auth()
+        .signInWithEmailAndPassword(email, password)
+        .then(async (res) => {
+          const userDetails = res && res.user ? res.user : null;
 
-              // Send verification Email when email hasn't been verified
-              if (res.emailVerified === false) {
-                Firebase.auth().currentUser
-                  .sendEmailVerification()
-                  .catch(() => console.log('Verification email failed to send'));
-              }
+          if (userDetails.uid) {
+            // Update last logged in data
+            FirebaseRef.child(`users/${userDetails.uid}`).update({
+              lastLoggedIn: Firebase.database.ServerValue.TIMESTAMP,
+            });
 
-              // Get User Data
-              getUserData(dispatch);
+            // Send verification Email when email hasn't been verified
+            if (userDetails.emailVerified === false) {
+              Firebase.auth().currentUser
+                .sendEmailVerification()
+                .catch(() => console.log('Verification email failed to send'));
             }
 
-            await statusMessage(dispatch, 'loading', false);
+            // Get User Data
+            getUserData(dispatch);
+          }
 
-            // Send Login data to Redux
-            return resolve(dispatch({
-              type: 'USER_LOGIN',
-              data: res,
-            }));
-          }).catch(reject));
+          await statusMessage(dispatch, 'loading', false);
+
+          // Send Login data to Redux
+          return resolve(dispatch({
+            type: 'USER_LOGIN',
+            data: userDetails,
+          }));
+        }).catch(reject));
   }).catch(async (err) => { await statusMessage(dispatch, 'error', err.message); throw err.message; });
 }
 

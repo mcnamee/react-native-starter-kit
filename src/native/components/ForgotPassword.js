@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Container, Content, Text, Form, Item, Label, Input, Button } from 'native-base';
+import {
+  Container, Content, Text, Form, Item, Label, Input, Button,
+} from 'native-base';
 import { Actions } from 'react-native-router-flux';
 import Loading from './Loading';
 import Messages from './Messages';
@@ -34,19 +36,20 @@ class ForgotPassword extends React.Component {
 
   handleChange = (name, val) => {
     this.setState({
-      ...this.state,
       [name]: val,
     });
   }
 
   handleSubmit = () => {
-    this.props.onFormSubmit(this.state)
+    const { onFormSubmit } = this.props;
+    onFormSubmit(this.state)
       .then(() => Actions.login())
       .catch(e => console.log(`Error: ${e}`));
   }
 
   render() {
     const { loading, error } = this.props;
+    const { email } = this.state;
 
     // Loading
     if (loading) return <Loading />;
@@ -63,10 +66,12 @@ class ForgotPassword extends React.Component {
 
           <Form>
             <Item stackedLabel>
-              <Label>Email</Label>
+              <Label>
+                Email
+              </Label>
               <Input
                 autoCapitalize="none"
-                value={this.state.email}
+                value={email}
                 keyboardType="email-address"
                 onChangeText={v => this.handleChange('email', v)}
               />
@@ -74,7 +79,11 @@ class ForgotPassword extends React.Component {
 
             <Spacer size={20} />
 
-            <Button block onPress={this.handleSubmit}><Text>Reset Password</Text></Button>
+            <Button block onPress={this.handleSubmit}>
+              <Text>
+                Reset Password
+              </Text>
+            </Button>
           </Form>
         </Content>
       </Container>

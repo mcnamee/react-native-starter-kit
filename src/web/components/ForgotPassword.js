@@ -46,20 +46,21 @@ class ForgotPassword extends React.Component {
 
   handleChange = (event) => {
     this.setState({
-      ...this.state,
       [event.target.name]: event.target.value,
     });
   }
 
   handleSubmit = (event) => {
     event.preventDefault();
-    this.props.onFormSubmit(this.state)
-      .then(() => this.props.history.push('/login'))
+    const { onFormSubmit, history } = this.props;
+    onFormSubmit(this.state)
+      .then(() => history.push('/login'))
       .catch(e => console.log(`Error: ${e}`));
   }
 
   render() {
     const { loading, error } = this.props;
+    const { email } = this.state;
 
     // Loading
     if (loading) return <Loading />;
@@ -69,32 +70,50 @@ class ForgotPassword extends React.Component {
         <Row>
           <Col lg={{ size: 6, offset: 3 }}>
             <Card>
-              <CardHeader>Forgot Password</CardHeader>
+              <CardHeader>
+                Forgot Password
+              </CardHeader>
               <CardBody>
-                {!!error && <Alert color="danger">{error}</Alert>}
+                {!!error && (
+                <Alert color="danger">
+                  {error}
+                </Alert>
+                )}
                 <Form onSubmit={this.handleSubmit}>
                   <FormGroup>
-                    <Label for="email">Email</Label>
+                    <Label for="email">
+                      Email
+                    </Label>
                     <Input
                       type="email"
                       name="email"
                       id="email"
                       placeholder="john@doe.corp"
-                      value={this.state.email}
+                      value={email}
                       onChange={this.handleChange}
                     />
                   </FormGroup>
-                  <Button color="primary">Reset Password</Button>
+                  <Button color="primary">
+                    Reset Password
+                  </Button>
                 </Form>
 
                 <hr />
 
                 <Row>
                   <Col sm="6">
-                    Need an account? <Link to="/sign-up">Sign Up</Link>
+                    Need an account?
+                    {' '}
+                    <Link to="/sign-up">
+                      Sign Up
+                    </Link>
                   </Col>
                   <Col sm="6" className="text-right">
-                    <Link to="/forgot-password">Login</Link> to your account.
+                    <Link to="/forgot-password">
+                      Login
+                    </Link>
+                    {' '}
+                    to your account.
                   </Col>
                 </Row>
               </CardBody>

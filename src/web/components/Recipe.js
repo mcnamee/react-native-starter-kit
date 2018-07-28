@@ -38,34 +38,50 @@ const RecipeView = ({
 
   // Build Ingredients listing
   const ingredients = recipe.ingredients.map(item => (
-    <ListGroupItem key={`${item}`}>{item}</ListGroupItem>
+    <ListGroupItem key={`${item}`}>
+      {item}
+    </ListGroupItem>
   ));
 
   // Build Method listing
   const method = recipe.method.map(item => (
-    <ListGroupItem key={`${item}`}>{item}</ListGroupItem>
+    <ListGroupItem key={`${item}`}>
+      {item}
+    </ListGroupItem>
   ));
 
   return (
     <div>
       <Row>
         <Col sm="12">
-          <h1>{recipe.title}</h1>
-          <p>by {recipe.author}</p>
+          <h1>
+            {recipe.title}
+          </h1>
+          <p>
+            by
+            {' '}
+            {recipe.author}
+          </p>
         </Col>
       </Row>
       <Row>
         <Col lg="4" className="recipe-view-card">
           <Card>
-            <CardHeader>About this recipe</CardHeader>
+            <CardHeader>
+              About this recipe
+            </CardHeader>
             <CardBody>
-              <CardText>{recipe.body}</CardText>
+              <CardText>
+                {recipe.body}
+              </CardText>
             </CardBody>
           </Card>
         </Col>
         <Col lg="4" className="recipe-view-card">
           <Card>
-            <CardHeader>Ingredients</CardHeader>
+            <CardHeader>
+              Ingredients
+            </CardHeader>
             <ListGroup className="list-group-flush">
               {ingredients}
             </ListGroup>
@@ -73,7 +89,9 @@ const RecipeView = ({
         </Col>
         <Col lg="4" className="recipe-view-card">
           <Card>
-            <CardHeader>Method</CardHeader>
+            <CardHeader>
+              Method
+            </CardHeader>
             <ListGroup className="list-group-flush">
               {method}
             </ListGroup>
@@ -82,7 +100,11 @@ const RecipeView = ({
       </Row>
       <Row className="pb-3">
         <Col sm="12">
-          <Link className="btn btn-secondary" to="/recipes"><i className="icon-arrow-left" /> Back</Link>
+          <Link className="btn btn-secondary" to="/recipes">
+            <i className="icon-arrow-left" />
+            {' '}
+            Back
+          </Link>
         </Col>
       </Row>
     </div>

@@ -47,20 +47,21 @@ class Login extends React.Component {
 
   handleChange = (event) => {
     this.setState({
-      ...this.state,
       [event.target.name]: event.target.value,
     });
   }
 
   handleSubmit = (event) => {
     event.preventDefault();
-    this.props.onFormSubmit(this.state)
-      .then(() => this.props.history.push('/'))
+    const { onFormSubmit, history } = this.props;
+    onFormSubmit(this.state)
+      .then(() => history.push('/'))
       .catch(e => console.log(`Error: ${e}`));
   }
 
   render() {
     const { loading, error } = this.props;
+    const { email, password } = this.state;
 
     // Loading
     if (loading) return <Loading />;
@@ -70,43 +71,61 @@ class Login extends React.Component {
         <Row>
           <Col lg={{ size: 6, offset: 3 }}>
             <Card>
-              <CardHeader>Login</CardHeader>
+              <CardHeader>
+                Login
+              </CardHeader>
               <CardBody>
-                {!!error && <Alert color="danger">{error}</Alert>}
+                {!!error && (
+                <Alert color="danger">
+                  {error}
+                </Alert>
+                )}
                 <Form onSubmit={this.handleSubmit}>
                   <FormGroup>
-                    <Label for="email">Email</Label>
+                    <Label for="email">
+                      Email
+                    </Label>
                     <Input
                       type="email"
                       name="email"
                       id="email"
                       placeholder="john@doe.corp"
-                      value={this.state.email}
+                      value={email}
                       onChange={this.handleChange}
                     />
                   </FormGroup>
                   <FormGroup>
-                    <Label for="password">Password</Label>
+                    <Label for="password">
+                      Password
+                    </Label>
                     <Input
                       type="password"
                       name="password"
                       id="password"
                       placeholder="••••••••"
-                      value={this.state.password}
+                      value={password}
                       onChange={this.handleChange}
                     />
                   </FormGroup>
-                  <Button color="primary">Login</Button>
+                  <Button color="primary">
+                    Login
+                  </Button>
                 </Form>
 
                 <hr />
 
                 <Row>
                   <Col sm="6">
-                    Need an account? <Link to="/sign-up">Sign Up</Link>
+                    Need an account?
+                    {' '}
+                    <Link to="/sign-up">
+                      Sign Up
+                    </Link>
                   </Col>
                   <Col sm="6" className="text-right">
-                    <Link to="/forgot-password">Forgot Password?</Link>
+                    <Link to="/forgot-password">
+                      Forgot Password?
+                    </Link>
                   </Col>
                 </Row>
               </CardBody>

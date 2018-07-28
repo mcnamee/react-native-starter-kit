@@ -1,7 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { FlatList, TouchableOpacity, RefreshControl, Image } from 'react-native';
-import { Container, Content, Card, CardItem, Body, Text, Button } from 'native-base';
+import {
+  FlatList, TouchableOpacity, RefreshControl, Image,
+} from 'react-native';
+import {
+  Container, Content, Card, CardItem, Body, Text, Button,
+} from 'native-base';
 import { Actions } from 'react-native-router-flux';
 import Loading from './Loading';
 import Error from './Error';
@@ -53,7 +57,9 @@ const RecipeListing = ({
               <CardItem cardBody>
                 <Body>
                   <Spacer size={10} />
-                  <Text style={{ fontWeight: '800' }}>{item.title}</Text>
+                  <Text style={{ fontWeight: '800' }}>
+                    {item.title}
+                  </Text>
                   <Spacer size={15} />
                   <Button
                     block
@@ -61,7 +67,9 @@ const RecipeListing = ({
                     small
                     onPress={() => onPress(item)}
                   >
-                    <Text>View Recipe</Text>
+                    <Text>
+                      View Recipe
+                    </Text>
                   </Button>
                   <Spacer size={5} />
                 </Body>
@@ -69,12 +77,12 @@ const RecipeListing = ({
             </Card>
           )}
           keyExtractor={keyExtractor}
-          refreshControl={
+          refreshControl={(
             <RefreshControl
               refreshing={loading}
               onRefresh={reFetch}
             />
-          }
+          )}
         />
 
         <Spacer size={20} />

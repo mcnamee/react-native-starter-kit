@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Container, Content, Text, Button, ActionSheet } from 'native-base';
+import {
+  Container, Content, Text, Button, ActionSheet,
+} from 'native-base';
 import { Actions } from 'react-native-router-flux';
 import Loading from './Loading';
 import Messages from './Messages';
@@ -20,9 +22,12 @@ class Locale extends React.Component {
     error: null,
   }
 
-  handleChange = locale => this.props.onChangeLocale(locale)
-    .then(() => Actions.pop)
-    .catch(e => console.log(`Error: ${e}`));
+  handleChange = (locale) => {
+    const { onChangeLocale } = this.props;
+    onChangeLocale(locale)
+      .then(() => Actions.pop)
+      .catch(e => console.log(`Error: ${e}`));
+  }
 
   changeLocale = () => {
     // Form array of possible locales eg. ['en', 'it']
@@ -59,7 +64,11 @@ class Locale extends React.Component {
           {error && <Messages message={error} />}
 
           <Button block onPress={this.changeLocale}>
-            <Text>Change from {locale}</Text>
+            <Text>
+Change from
+              {' '}
+              {locale}
+            </Text>
           </Button>
         </Content>
       </Container>

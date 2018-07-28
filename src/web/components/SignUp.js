@@ -46,20 +46,27 @@ class SignUp extends React.Component {
 
   handleChange = (event) => {
     this.setState({
-      ...this.state,
       [event.target.name]: event.target.value,
     });
   }
 
   handleSubmit = (event) => {
     event.preventDefault();
-    this.props.onFormSubmit(this.state)
-      .then(() => this.props.history.push('/login'))
+    const { onFormSubmit, history } = this.props;
+    onFormSubmit(this.state)
+      .then(() => history.push('/login'))
       .catch(e => console.log(`Error: ${e}`));
   }
 
   render() {
     const { loading, error } = this.props;
+    const {
+      firstName,
+      lastName,
+      email,
+      password,
+      password2,
+    } = this.state;
 
     // Loading
     if (loading) return <Loading />;
@@ -69,74 +76,95 @@ class SignUp extends React.Component {
         <Row>
           <Col lg={{ size: 6, offset: 3 }}>
             <Card>
-              <CardHeader>Sign Up</CardHeader>
+              <CardHeader>
+                Sign Up
+              </CardHeader>
               <CardBody>
-                {!!error && <Alert color="danger">{error}</Alert>}
+                {!!error && (
+                  <Alert color="danger">
+                    {error}
+                  </Alert>
+                )}
                 <Form onSubmit={this.handleSubmit}>
                   <FormGroup>
-                    <Label for="firstName">First Name</Label>
+                    <Label for="firstName">
+                      First Name
+                    </Label>
                     <Input
                       type="text"
                       name="firstName"
                       id="firstName"
                       placeholder="John"
-                      value={this.state.firstName}
+                      value={firstName}
                       onChange={this.handleChange}
                     />
                   </FormGroup>
                   <FormGroup>
-                    <Label for="lastName">Last Name</Label>
+                    <Label for="lastName">
+                      Last Name
+                    </Label>
                     <Input
                       type="text"
                       name="lastName"
                       id="lastName"
                       placeholder="Doe"
-                      value={this.state.lastName}
+                      value={lastName}
                       onChange={this.handleChange}
                     />
                   </FormGroup>
 
                   <FormGroup style={{ marginTop: 40 }}>
-                    <Label for="email">Email</Label>
+                    <Label for="email">
+                      Email
+                    </Label>
                     <Input
                       type="email"
                       name="email"
                       id="email"
                       placeholder="john@doe.corp"
-                      value={this.state.email}
+                      value={email}
                       onChange={this.handleChange}
                     />
                   </FormGroup>
                   <FormGroup>
-                    <Label for="password">Password</Label>
+                    <Label for="password">
+                      Password
+                    </Label>
                     <Input
                       type="password"
                       name="password"
                       id="password"
                       placeholder="••••••••"
-                      value={this.state.password}
+                      value={password}
                       onChange={this.handleChange}
                     />
                   </FormGroup>
                   <FormGroup>
-                    <Label for="password2">Confirm Password</Label>
+                    <Label for="password2">
+                      Confirm Password
+                    </Label>
                     <Input
                       type="password"
                       name="password2"
                       id="password2"
                       placeholder="••••••••"
-                      value={this.state.password2}
+                      value={password2}
                       onChange={this.handleChange}
                     />
                   </FormGroup>
-                  <Button color="primary">Sign Up!</Button>
+                  <Button color="primary">
+                    Sign Up!
+                  </Button>
                 </Form>
 
                 <hr />
 
                 <Row>
                   <Col sm="12">
-                    Already have an account? <Link to="/login">Login</Link>
+                    Already have an account?
+                    <Link to="/login">
+                      Login
+                    </Link>
                   </Col>
                 </Row>
               </CardBody>

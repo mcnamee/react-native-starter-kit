@@ -15,9 +15,9 @@ class RecipeListing extends Component {
     match: PropTypes.shape({
       params: PropTypes.shape({}),
     }),
-    getRecipes: PropTypes.func.isRequired,
-    getMeals: PropTypes.func.isRequired,
-    setError: PropTypes.func.isRequired,
+    fetchRecipes: PropTypes.func.isRequired,
+    fetchMeals: PropTypes.func.isRequired,
+    showError: PropTypes.func.isRequired,
   }
 
   static defaultProps = {
@@ -30,11 +30,12 @@ class RecipeListing extends Component {
     * Fetch Data from API, saving to Redux
     */
   fetchRecipes = () => {
-    return this.props.getRecipes()
-      .then(() => this.props.getMeals())
+    const { fetchRecipes, fetchMeals, showError } = this.props;
+    return fetchRecipes()
+      .then(() => fetchMeals())
       .catch((err) => {
         console.log(`Error: ${err}`);
-        return this.props.setError(err);
+        return showError(err);
       });
   }
 
@@ -59,9 +60,9 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = {
-  getRecipes,
-  getMeals,
-  setError,
+  fetchRecipes: getRecipes,
+  fetchMeals: getMeals,
+  showError: setError,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(RecipeListing);

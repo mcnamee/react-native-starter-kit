@@ -12,11 +12,11 @@ const {
 let firebaseInitialized = false;
 
 if (
-  apiKey !== 'null' &&
-  authDomain !== 'null' &&
-  databaseURL !== 'null' &&
-  storageBucket !== 'null' &&
-  messagingSenderId !== 'null'
+  apiKey !== 'null'
+  && authDomain !== 'null'
+  && databaseURL !== 'null'
+  && storageBucket !== 'null'
+  && messagingSenderId !== 'null'
 ) {
   FirebaseModule.initializeApp({
     apiKey,

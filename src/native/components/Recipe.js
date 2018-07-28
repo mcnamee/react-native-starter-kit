@@ -1,7 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Image } from 'react-native';
-import { Container, Content, Card, CardItem, Body, H3, List, ListItem, Text } from 'native-base';
+import {
+  Container, Content, Card, CardItem, Body, H3, List, ListItem, Text,
+} from 'native-base';
 import ErrorMessages from '../../constants/errors';
 import Error from './Error';
 import Spacer from './Spacer';
@@ -26,14 +28,18 @@ const RecipeView = ({
   // Build Ingredients listing
   const ingredients = recipe.ingredients.map(item => (
     <ListItem key={item} rightIcon={{ style: { opacity: 0 } }}>
-      <Text>{item}</Text>
+      <Text>
+        {item}
+      </Text>
     </ListItem>
   ));
 
   // Build Method listing
   const method = recipe.method.map(item => (
     <ListItem key={item} rightIcon={{ style: { opacity: 0 } }}>
-      <Text>{item}</Text>
+      <Text>
+        {item}
+      </Text>
     </ListItem>
   ));
 
@@ -43,24 +49,36 @@ const RecipeView = ({
         <Image source={{ uri: recipe.image }} style={{ height: 100, width: null, flex: 1 }} />
 
         <Spacer size={25} />
-        <H3>{recipe.title}</H3>
-        <Text>by {recipe.author}</Text>
+        <H3>
+          {recipe.title}
+        </H3>
+        <Text>
+          by
+          {' '}
+          {recipe.author}
+        </Text>
         <Spacer size={15} />
 
         <Card>
           <CardItem header bordered>
-            <Text>About this recipe</Text>
+            <Text>
+              About this recipe
+            </Text>
           </CardItem>
           <CardItem>
             <Body>
-              <Text>{recipe.body}</Text>
+              <Text>
+                {recipe.body}
+              </Text>
             </Body>
           </CardItem>
         </Card>
 
         <Card>
           <CardItem header bordered>
-            <Text>Ingredients</Text>
+            <Text>
+              Ingredients
+            </Text>
           </CardItem>
           <CardItem>
             <Content>
@@ -73,7 +91,9 @@ const RecipeView = ({
 
         <Card>
           <CardItem header bordered>
-            <Text>Method</Text>
+            <Text>
+              Method
+            </Text>
           </CardItem>
           <CardItem>
             <List>

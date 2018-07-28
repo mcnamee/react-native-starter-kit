@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Container, Content, Text, Body, ListItem, Form, Item, Label, Input, CheckBox, Button, View } from 'native-base';
+import {
+  Container, Content, Text, Body, ListItem, Form, Item, Label, Input, CheckBox, Button, View,
+} from 'native-base';
 import Messages from './Messages';
 import Loading from './Loading';
 import Header from './Header';
@@ -42,19 +44,26 @@ class UpdateProfile extends React.Component {
 
   handleChange = (name, val) => {
     this.setState({
-      ...this.state,
       [name]: val,
     });
   }
 
   handleSubmit = () => {
-    this.props.onFormSubmit(this.state)
+    const { onFormSubmit } = this.props;
+    onFormSubmit(this.state)
       .then(() => console.log('Profile Updated'))
       .catch(e => console.log(`Error: ${e}`));
   }
 
   render() {
     const { loading, error, success } = this.props;
+    const {
+      firstName,
+      lastName,
+      email,
+      changeEmail,
+      changePassword,
+    } = this.state;
 
     // Loading
     if (loading) return <Loading />;
@@ -72,71 +81,91 @@ class UpdateProfile extends React.Component {
 
           <Form>
             <Item stackedLabel>
-              <Label>First Name</Label>
+              <Label>
+                First Name
+              </Label>
               <Input
-                value={this.state.firstName}
+                value={firstName}
                 onChangeText={v => this.handleChange('firstName', v)}
               />
             </Item>
 
             <Item stackedLabel>
-              <Label>Last Name</Label>
+              <Label>
+                Last Name
+              </Label>
               <Input
-                value={this.state.lastName}
+                value={lastName}
                 onChangeText={v => this.handleChange('lastName', v)}
               />
             </Item>
 
             <ListItem>
               <CheckBox
-                checked={this.state.changeEmail}
-                onPress={() => this.handleChange('changeEmail', !this.state.changeEmail)}
+                checked={changeEmail}
+                onPress={() => this.handleChange('changeEmail', !changeEmail)}
               />
               <Body>
-                <Text>Change Email</Text>
+                <Text>
+                  Change Email
+                </Text>
               </Body>
             </ListItem>
 
-            {this.state.changeEmail &&
+            {changeEmail
+              && (
               <Item stackedLabel>
-                <Label>Email</Label>
+                <Label>
+                  Email
+                </Label>
                 <Input
                   autoCapitalize="none"
-                  value={this.state.email}
+                  value={email}
                   keyboardType="email-address"
                   onChangeText={v => this.handleChange('email', v)}
                 />
               </Item>
+              )
             }
 
             <ListItem>
               <CheckBox
-                checked={this.state.changePassword}
-                onPress={() => this.handleChange('changePassword', !this.state.changePassword)}
+                checked={changePassword}
+                onPress={() => this.handleChange('changePassword', !changePassword)}
               />
               <Body>
-                <Text>Change Password</Text>
+                <Text>
+                  Change Password
+                </Text>
               </Body>
             </ListItem>
 
-            {this.state.changePassword &&
+            {changePassword
+              && (
               <View padder>
                 <Item stackedLabel>
-                  <Label>Password</Label>
+                  <Label>
+                    Password
+                  </Label>
                   <Input secureTextEntry onChangeText={v => this.handleChange('password', v)} />
                 </Item>
 
                 <Item stackedLabel last>
-                  <Label>Confirm Password</Label>
+                  <Label>
+                    Confirm Password
+                  </Label>
                   <Input secureTextEntry onChangeText={v => this.handleChange('password2', v)} />
                 </Item>
               </View>
+              )
             }
 
             <Spacer size={20} />
 
             <Button block onPress={this.handleSubmit}>
-              <Text>Update Profile</Text>
+              <Text>
+                Update Profile
+              </Text>
             </Button>
           </Form>
         </Content>

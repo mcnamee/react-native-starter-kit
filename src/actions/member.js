@@ -30,8 +30,8 @@ export function signUp(formData) {
       .createUserWithEmailAndPassword(email, password)
       .then((res) => {
         // Send user details to Firebase database
-        if (res && res.uid) {
-          FirebaseRef.child(`users/${res.uid}`).set({
+        if (res && res.user.uid) {
+          FirebaseRef.child(`users/${res.user.uid}`).set({
             firstName,
             lastName,
             signedUp: Firebase.database.ServerValue.TIMESTAMP,

@@ -11,6 +11,7 @@ class Login extends Component {
     member: PropTypes.shape({}).isRequired,
     onFormSubmit: PropTypes.func.isRequired,
     isLoading: PropTypes.bool.isRequired,
+    successMessage: PropTypes.string.isRequired,
   }
 
   static defaultProps = {
@@ -33,6 +34,7 @@ class Login extends Component {
       locale,
       Layout,
       isLoading,
+      successMessage,
     } = this.props;
 
     const { errorMessage } = this.state;
@@ -43,6 +45,7 @@ class Login extends Component {
         locale={locale}
         loading={isLoading}
         error={errorMessage}
+        success={successMessage}
         onFormSubmit={this.onFormSubmit}
       />
     );
@@ -53,6 +56,7 @@ const mapStateToProps = state => ({
   member: state.member || {},
   locale: state.locale || null,
   isLoading: state.status.loading || false,
+  successMessage: state.status.success || false,
 });
 
 const mapDispatchToProps = {

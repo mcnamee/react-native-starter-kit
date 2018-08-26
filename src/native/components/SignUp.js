@@ -65,21 +65,21 @@ class SignUp extends React.Component {
           <Form>
             <Item stackedLabel>
               <Label>
-First Name
+                First Name
               </Label>
               <Input onChangeText={v => this.handleChange('firstName', v)} />
             </Item>
 
             <Item stackedLabel>
               <Label>
-Last Name
+                Last Name
               </Label>
               <Input onChangeText={v => this.handleChange('lastName', v)} />
             </Item>
 
             <Item stackedLabel>
               <Label>
-Email
+                Email
               </Label>
               <Input
                 autoCapitalize="none"
@@ -90,14 +90,14 @@ Email
 
             <Item stackedLabel>
               <Label>
-Password
+                Password
               </Label>
               <Input secureTextEntry onChangeText={v => this.handleChange('password', v)} />
             </Item>
 
             <Item stackedLabel>
               <Label>
-Confirm Password
+                Confirm Password
               </Label>
               <Input secureTextEntry onChangeText={v => this.handleChange('password2', v)} />
             </Item>
@@ -106,7 +106,7 @@ Confirm Password
 
             <Button block onPress={this.handleSubmit}>
               <Text>
-Sign Up
+                Sign Up
               </Text>
             </Button>
           </Form>

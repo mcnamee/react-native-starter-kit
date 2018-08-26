@@ -22,6 +22,7 @@ class Login extends React.Component {
       email: PropTypes.string,
     }),
     error: PropTypes.string,
+    success: PropTypes.string,
     loading: PropTypes.bool.isRequired,
     onFormSubmit: PropTypes.func.isRequired,
     history: PropTypes.shape({
@@ -30,6 +31,7 @@ class Login extends React.Component {
   }
 
   static defaultProps = {
+    success: null,
     error: null,
     member: {},
   }
@@ -60,7 +62,7 @@ class Login extends React.Component {
   }
 
   render() {
-    const { loading, error } = this.props;
+    const { loading, success, error } = this.props;
     const { email, password } = this.state;
 
     // Loading
@@ -75,6 +77,11 @@ class Login extends React.Component {
                 Login
               </CardHeader>
               <CardBody>
+                {!!success && (
+                <Alert color="success">
+                  {success}
+                </Alert>
+                )}
                 {!!error && (
                 <Alert color="danger">
                   {error}

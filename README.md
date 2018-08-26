@@ -63,21 +63,21 @@ The project is _super_ helpful to kick-start your next project, as it provides a
 
 #### 1. Clone and Install
 
-_*It's recommended that you install [React Native Debugger](https://github.com/jhen0409/react-native-debugger/releases) and open before `npm start`._
+_*It's recommended that you install [React Native Debugger](https://github.com/jhen0409/react-native-debugger/releases) and open before `yarn start`._
 
 ```bash
 # Clone the repo
 git clone https://github.com/mcnamee/react-native-starter-kit.git
 
 # Install dependencies
-npm i
+yarn install
 ```
 
 #### 2.1. Run the _React Native_ App
 
 ```bash
 # Start the React Native packager
-npm start
+yarn start
 ```
 
 Instructions are shown in the terminal. You can select to open it in:
@@ -90,7 +90,7 @@ Instructions are shown in the terminal. You can select to open it in:
 ```bash
 # Starts are local live-reload server at:
 # http://localhost:3001
-npm run web
+yarn run web
 ```
 
 Via webpack, starts a localhost server on port 3001 [http://localhost:3001](http://localhost:3001).

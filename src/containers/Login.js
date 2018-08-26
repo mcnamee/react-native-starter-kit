@@ -1,55 +1,62 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import { login } from '../actions/member';
 
-const Login = ({
-  Layout,
-  onFormSubmit,
-  member,
-  locale,
-  isLoading,
-  infoMessage,
-  errorMessage,
-  successMessage,
-}) => (
-  <Layout
-    member={member}
-    locale={locale}
-    loading={isLoading}
-    info={infoMessage}
-    error={errorMessage}
-    success={successMessage}
-    onFormSubmit={onFormSubmit}
-  />
-);
+class Login extends Component {
+  static propTypes = {
+    Layout: PropTypes.func.isRequired,
+    locale: PropTypes.string,
+    member: PropTypes.shape({}).isRequired,
+    onFormSubmit: PropTypes.func.isRequired,
+    isLoading: PropTypes.bool.isRequired,
+    successMessage: PropTypes.string.isRequired,
+  }
 
-Login.propTypes = {
-  Layout: PropTypes.func.isRequired,
-  locale: PropTypes.string,
-  member: PropTypes.shape({}).isRequired,
-  onFormSubmit: PropTypes.func.isRequired,
-  isLoading: PropTypes.bool.isRequired,
-  infoMessage: PropTypes.string,
-  errorMessage: PropTypes.string,
-  successMessage: PropTypes.string,
-};
+  static defaultProps = {
+    locale: null,
+  }
 
-Login.defaultProps = {
-  infoMessage: null,
-  locale: null,
-  errorMessage: null,
-  successMessage: null,
-};
+  state = {
+    errorMessage: null,
+  }
+
+  onFormSubmit = (data) => {
+    const { onFormSubmit } = this.props;
+    return onFormSubmit(data)
+      .catch((err) => { this.setState({ errorMessage: err }); throw err; });
+  }
+
+  render = () => {
+    const {
+      member,
+      locale,
+      Layout,
+      isLoading,
+      successMessage,
+    } = this.props;
+
+    const { errorMessage } = this.state;
+
+    return (
+      <Layout
+        member={member}
+        locale={locale}
+        loading={isLoading}
+        error={errorMessage}
+        success={successMessage}
+        onFormSubmit={this.onFormSubmit}
+      />
+    );
+  }
+}
 
 const mapStateToProps = state => ({
   member: state.member || {},
   locale: state.locale || null,
   isLoading: state.status.loading || false,
-  infoMessage: state.status.info || null,
-  errorMessage: state.status.error || null,
-  successMessage: state.status.success || null,
+  successMessage: state.status.success || '',
 });
 
 const mapDispatchToProps = {

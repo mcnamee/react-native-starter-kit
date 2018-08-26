@@ -39,7 +39,10 @@ export function signUp(formData) {
           }).then(() => statusMessage(dispatch, 'loading', false).then(resolve));
         }
       }).catch(reject);
-  }).catch(async (err) => { await statusMessage(dispatch, 'error', err.message); throw err.message; });
+  }).catch(async (err) => {
+    await statusMessage(dispatch, 'loading', false);
+    throw err.message;
+  });
 }
 
 /**
@@ -132,7 +135,10 @@ export function login(formData) {
             data: userDetails,
           }));
         }).catch(reject));
-  }).catch(async (err) => { await statusMessage(dispatch, 'error', err.message); throw err.message; });
+  }).catch(async (err) => {
+    await statusMessage(dispatch, 'loading', false);
+    throw err.message;
+  });
 }
 
 /**
@@ -150,9 +156,12 @@ export function resetPassword(formData) {
     // Go to Firebase
     return Firebase.auth()
       .sendPasswordResetEmail(email)
-      .then(() => statusMessage(dispatch, 'loading', false).then(resolve(dispatch({ type: 'USER_RESET' }))))
+      .then(() => statusMessage(dispatch, 'success', 'We have emailed you a reset link').then(resolve(dispatch({ type: 'USER_RESET' }))))
       .catch(reject);
-  }).catch(async (err) => { await statusMessage(dispatch, 'error', err.message); throw err.message; });
+  }).catch(async (err) => {
+    await statusMessage(dispatch, 'loading', false);
+    throw err.message;
+  });
 }
 
 /**
@@ -203,10 +212,13 @@ export function updateProfile(formData) {
 
         // Update Redux
         await getUserData(dispatch);
-        await statusMessage(dispatch, 'success', 'Profile Updated');
-        resolve();
+        await statusMessage(dispatch, 'loading', false);
+        return resolve('Profile Updated');
       }).catch(reject);
-  }).catch(async (err) => { await statusMessage(dispatch, 'error', err.message); throw err.message; });
+  }).catch(async (err) => {
+    await statusMessage(dispatch, 'loading', false);
+    throw err.message;
+  });
 }
 
 /**

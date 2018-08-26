@@ -30,7 +30,7 @@ import ProfileComponent from '../components/Profile';
 import AboutComponent from '../components/About';
 
 const Index = (
-  <Stack>
+  <Stack hideNavBar>
     <Scene hideNavBar>
       <Tabs
         key="tabbar"

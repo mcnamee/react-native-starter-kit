@@ -132,7 +132,7 @@ export function login(formData) {
             data: userDetails,
           }));
         }).catch(reject));
-  }).catch(async (err) => { await statusMessage(dispatch, 'error', err.message); throw err.message; });
+  }).catch(async (err) => { await statusMessage(dispatch, 'loading', false); throw err.message; });
 }
 
 /**

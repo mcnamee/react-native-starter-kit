@@ -17,12 +17,14 @@ class Login extends React.Component {
     }),
     locale: PropTypes.string,
     error: PropTypes.string,
+    success: PropTypes.string,
     loading: PropTypes.bool.isRequired,
     onFormSubmit: PropTypes.func.isRequired,
   }
 
   static defaultProps = {
     error: null,
+    success: null,
     locale: null,
     member: {},
   }
@@ -52,7 +54,12 @@ class Login extends React.Component {
   }
 
   render() {
-    const { loading, error, locale } = this.props;
+    const {
+      loading,
+      error,
+      success,
+      locale,
+    } = this.props;
     const { email } = this.state;
 
     if (loading) return <Loading />;
@@ -66,6 +73,7 @@ class Login extends React.Component {
               content="Please use your email and password to login."
             />
 
+            {success && <Messages type="success" message={success} />}
             {error && <Messages message={error} />}
           </View>
 

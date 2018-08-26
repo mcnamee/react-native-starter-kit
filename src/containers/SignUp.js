@@ -1,50 +1,50 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import { signUp } from '../actions/member';
 
-const SignUp = ({
-  Layout,
-  onFormSubmit,
-  member,
-  isLoading,
-  infoMessage,
-  errorMessage,
-  successMessage,
-}) => (
-  <Layout
-    member={member}
-    loading={isLoading}
-    info={infoMessage}
-    error={errorMessage}
-    success={successMessage}
-    onFormSubmit={onFormSubmit}
-  />
-);
+class SignUp extends Component {
+  static propTypes = {
+    Layout: PropTypes.func.isRequired,
+    member: PropTypes.shape({}).isRequired,
+    onFormSubmit: PropTypes.func.isRequired,
+    isLoading: PropTypes.bool.isRequired,
+  }
 
-SignUp.propTypes = {
-  Layout: PropTypes.func.isRequired,
-  member: PropTypes.shape({}).isRequired,
-  onFormSubmit: PropTypes.func.isRequired,
-  isLoading: PropTypes.bool.isRequired,
-  infoMessage: PropTypes.string,
-  errorMessage: PropTypes.string,
-  successMessage: PropTypes.string,
-};
+  state = {
+    errorMessage: null,
+  }
 
-SignUp.defaultProps = {
-  infoMessage: null,
-  errorMessage: null,
-  successMessage: null,
-};
+  onFormSubmit = (data) => {
+    const { onFormSubmit } = this.props;
+    return onFormSubmit(data)
+      .catch((err) => { this.setState({ errorMessage: err }); throw err; });
+  }
+
+  render = () => {
+    const {
+      member,
+      Layout,
+      isLoading,
+    } = this.props;
+
+    const { errorMessage } = this.state;
+
+    return (
+      <Layout
+        member={member}
+        loading={isLoading}
+        error={errorMessage}
+        onFormSubmit={this.onFormSubmit}
+      />
+    );
+  }
+}
 
 const mapStateToProps = state => ({
   member: state.member || {},
   isLoading: state.status.loading || false,
-  infoMessage: state.status.info || null,
-  errorMessage: state.status.error || null,
-  successMessage: state.status.success || null,
 });
 
 const mapDispatchToProps = {

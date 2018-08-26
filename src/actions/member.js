@@ -39,7 +39,10 @@ export function signUp(formData) {
           }).then(() => statusMessage(dispatch, 'loading', false).then(resolve));
         }
       }).catch(reject);
-  }).catch(async (err) => { await statusMessage(dispatch, 'error', err.message); throw err.message; });
+  }).catch(async (err) => {
+    await statusMessage(dispatch, 'loading', false);
+    throw err.message;
+  });
 }
 
 /**

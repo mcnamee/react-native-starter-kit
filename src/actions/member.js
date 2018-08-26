@@ -209,10 +209,13 @@ export function updateProfile(formData) {
 
         // Update Redux
         await getUserData(dispatch);
-        await statusMessage(dispatch, 'success', 'Profile Updated');
-        resolve();
+        await statusMessage(dispatch, 'loading', false);
+        return resolve('Profile Updated');
       }).catch(reject);
-  }).catch(async (err) => { await statusMessage(dispatch, 'error', err.message); throw err.message; });
+  }).catch(async (err) => {
+    await statusMessage(dispatch, 'loading', false);
+    throw err.message;
+  });
 }
 
 /**

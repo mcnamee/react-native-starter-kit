@@ -1,45 +1,53 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import { updateProfile } from '../actions/member';
 
-const UpdateProfile = ({
-  Layout,
-  onFormSubmit,
-  member,
-  isLoading,
-  errorMessage,
-  successMessage,
-}) => (
-  <Layout
-    member={member}
-    loading={isLoading}
-    error={errorMessage}
-    success={successMessage}
-    onFormSubmit={onFormSubmit}
-  />
-);
+class UpdateProfile extends Component {
+  static propTypes = {
+    Layout: PropTypes.func.isRequired,
+    member: PropTypes.shape({}).isRequired,
+    onFormSubmit: PropTypes.func.isRequired,
+    isLoading: PropTypes.bool.isRequired,
+  };
 
-UpdateProfile.propTypes = {
-  Layout: PropTypes.func.isRequired,
-  member: PropTypes.shape({}).isRequired,
-  onFormSubmit: PropTypes.func.isRequired,
-  isLoading: PropTypes.bool.isRequired,
-  errorMessage: PropTypes.string,
-  successMessage: PropTypes.string,
-};
+  state = {
+    errorMessage: null,
+    successMessage: null,
+  }
 
-UpdateProfile.defaultProps = {
-  errorMessage: null,
-  successMessage: null,
-};
+  onFormSubmit = (data) => {
+    const { onFormSubmit } = this.props;
+    return onFormSubmit(data)
+      .then(mes => this.setState({ successMessage: mes, errorMessage: null }))
+      .catch((err) => { this.setState({ errorMessage: err, successMessage: null }); throw err; });
+  }
+
+  render = () => {
+    const {
+      member,
+      Layout,
+      isLoading,
+    } = this.props;
+
+    const { successMessage, errorMessage } = this.state;
+
+    return (
+      <Layout
+        member={member}
+        loading={isLoading}
+        error={errorMessage}
+        success={successMessage}
+        onFormSubmit={this.onFormSubmit}
+      />
+    );
+  }
+}
 
 const mapStateToProps = state => ({
   member: state.member || {},
   isLoading: state.status.loading || false,
-  errorMessage: state.status.error || null,
-  successMessage: state.status.success || null,
 });
 
 const mapDispatchToProps = {

@@ -72,9 +72,8 @@ class Login extends React.Component {
               title="Welcome back"
               content="Please use your email and password to login."
             />
-
-            {success && <Messages type="success" message={success} />}
-            {error && <Messages message={error} />}
+            { success ? <Messages type="success" message={success} /> : null }
+            { error ? <Messages message={error} /> : null }
           </View>
 
           <Form>

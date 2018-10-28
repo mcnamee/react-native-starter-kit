@@ -52,7 +52,7 @@ export function getMeals() {
   return dispatch => new Promise((resolve, reject) => FirebaseRef
     .child('meals').once('value')
     .then((snapshot) => {
-      const meals = snapshot.val() || {};
+      const meals = snapshot.val() || [];
 
       return resolve(dispatch({
         type: 'MEALS_REPLACE',
@@ -79,7 +79,7 @@ export function getRecipes() {
 
   return dispatch => new Promise(resolve => FirebaseRef.child('recipes')
     .on('value', (snapshot) => {
-      const recipes = snapshot.val() || {};
+      const recipes = snapshot.val() || [];
 
       return resolve(dispatch({
         type: 'RECIPES_REPLACE',

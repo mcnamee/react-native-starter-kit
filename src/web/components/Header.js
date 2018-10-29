@@ -77,15 +77,11 @@ class Header extends Component {
                   {!loggedIn
                     && (
                     <div>
-                      <DropdownItem>
-                        <Link to="/login">
+                      <DropdownItem tag={Link} to="/login">
                           Login
-                        </Link>
                       </DropdownItem>
-                      <DropdownItem>
-                        <Link to="/sign-up">
-                          Sign Up
-                        </Link>
+                      <DropdownItem tag={Link} to="/sign-up">
+                        Sign Up
                       </DropdownItem>
                     </div>
                     )
@@ -93,16 +89,12 @@ class Header extends Component {
                   {loggedIn
                     && (
                     <div>
-                      <DropdownItem>
-                        <Link to="/update-profile">
-                          Update Profile
-                        </Link>
+                      <DropdownItem tag={Link} to="/update-profile">
+                        Update Profile
                       </DropdownItem>
                       <DropdownItem divider />
-                      <DropdownItem>
-                        <a onClick={this.onLogout}>
-                          Logout
-                        </a>
+                      <DropdownItem tag="button" onClick={this.onLogout}>
+                        Logout
                       </DropdownItem>
                     </div>
                     )

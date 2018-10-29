@@ -4,7 +4,8 @@
   "parserOptions": {
     "ecmaFeatures": {
       "classes": true
-    }
+    },
+    "ecmaVersion": 6
   },
   "rules": {
     "react/jsx-filename-extension": ["error", { "extensions": [".js", ".jsx"] }],
@@ -20,6 +21,13 @@
     "react/no-multi-comp": "off",
     "react/no-unescaped-entities": "off",
     "jsx-a11y/click-events-have-key-events": "off",
-    "jsx-a11y/no-static-element-interactions": "off"
+    "jsx-a11y/no-static-element-interactions": "off",
+    "react/destructuring-assignment": ["<enabled>", "always"],
+    "no-undef": "off"
+  },
+  "env": {
+    "node": true,
+    "browser": true,
+    "es6": true
   }
 }

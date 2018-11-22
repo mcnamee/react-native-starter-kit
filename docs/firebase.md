@@ -4,9 +4,9 @@ We've created a quick little "API server" on [Google's Firebase Platform](https:
 
 1. Signup for a [Firebase account](https://firebase.google.com/)
 1. Create a new project - eg. "React Native Starter App"
-1. Turn on email/password __Authentication__
-1. Enable the __Database__ feature, and import the `firebase-sample-data.json` file found in this repo
-1. Get the Firebase project's API credentials, and add them to the respective variables in your `/src/constants/firebase.js` file. You can get your projects details from Firebase, by clicking on the cog icon, next to overview > 'Add Firebase to your web app'.
+1. Enable email/password __Authentication__ under the 'Sign-in method' tab.
+1. Create a __Realtime Database__, and import the `firebase-sample-data.json` file found in this repo using the hamburger menu on the top right.
+1. Get the Firebase project's API credentials, and add them to the respective variables in your `/src/constants/firebase.js` file. You can get your projects details from Firebase by clicking on 'Authentication' on the left, underneath 'Develop' > select 'Web setup'.
 1. Add the following __rules__ to the Database
 
 ```json

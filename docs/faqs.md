@@ -48,7 +48,7 @@ This is usually as simple as running `npm run eject` in your project, which will
 
 ## How do I customize the Native Icon?
 
-Once you have ejected the app, you might want to change the app icons for iOS and Android. You can yse the [app-icon](https://github.com/dwmkerr/app-icon) utility to generate all of the required icons for each required size.
+Once you have ejected the app, you might want to change the app icons for iOS and Android. You can use the [app-icon](https://github.com/dwmkerr/app-icon) utility to generate all of the required icons for each required size.
 
 Install the tool with `npm install -g app-icon`, or if you are using NPM 5.2.0 or later use [npx](https://medium.com/@maybekatz/introducing-npx-an-npm-package-runner-55f7d4bd282b) to run the tool without installing it:
 

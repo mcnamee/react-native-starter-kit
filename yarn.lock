@@ -27,7 +27,7 @@
     semver "^5.4.1"
     source-map "^0.5.0"
 
-"@babel/core@^7.0.0", "@babel/core@^7.1.6":
+"@babel/core@^7.0.0", "@babel/core@^7.1.0", "@babel/core@^7.1.6":
   version "7.3.3"
   resolved "https://registry.yarnpkg.com/@babel/core/-/core-7.3.3.tgz#d090d157b7c5060d05a05acaebc048bd2b037947"
   dependencies:
@@ -1597,7 +1597,7 @@ babel-code-frame@^6.22.0, babel-code-frame@^6.26.0:
     esutils "^2.0.2"
     js-tokens "^3.0.2"
 
-babel-core@7.0.0-bridge.0:
+babel-core@7.0.0-bridge.0, babel-core@^7.0.0-bridge.0:
   version "7.0.0-bridge.0"
   resolved "https://registry.yarnpkg.com/babel-core/-/babel-core-7.0.0-bridge.0.tgz#95a492ddd90f9b4e9a4a1da14eb335b87b634ece"
 
@@ -6120,6 +6120,17 @@ jest-environment-node@^23.4.0:
     jest-mock "^23.2.0"
     jest-util "^23.4.0"
 
+jest-expo@^32.0.0:
+  version "32.0.0"
+  resolved "https://registry.yarnpkg.com/jest-expo/-/jest-expo-32.0.0.tgz#813ad3bc59163f904c6f71d6aac30748ab9d7933"
+  dependencies:
+    "@babel/core" "^7.1.0"
+    babel-core "^7.0.0-bridge.0"
+    babel-jest "^23.6.0"
+    jest "^23.6.0"
+    json5 "^2.1.0"
+    react-test-renderer "^16.5.0"
+
 jest-get-type@^22.1.0:
   version "22.4.3"
   resolved "https://registry.yarnpkg.com/jest-get-type/-/jest-get-type-22.4.3.tgz#e3a8504d8479342dd4420236b322869f18900ce4"
@@ -6332,7 +6343,7 @@ jest-worker@23.2.0, jest-worker@^23.2.0:
   dependencies:
     merge-stream "^1.0.1"
 
-jest@23.6.0:
+jest@23.6.0, jest@^23.6.0:
   version "23.6.0"
   resolved "https://registry.yarnpkg.com/jest/-/jest-23.6.0.tgz#ad5835e923ebf6e19e7a1d7529a432edfee7813d"
   dependencies:
@@ -9124,7 +9135,7 @@ react-helmet@^5.2.0:
     prop-types "^15.5.4"
     react-side-effect "^1.1.0"
 
-react-is@^16.5.2, react-is@^16.6.3, react-is@^16.7.0, react-is@^16.8.1:
+react-is@^16.5.2, react-is@^16.6.3, react-is@^16.7.0, react-is@^16.8.1, react-is@^16.8.2:
   version "16.8.2"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.8.2.tgz#09891d324cad1cb0c1f2d91f70a71a4bee34df0f"
 
@@ -9465,6 +9476,15 @@ react-side-effect@^1.1.0:
   dependencies:
     exenv "^1.2.1"
     shallowequal "^1.0.1"
+
+react-test-renderer@^16.5.0:
+  version "16.8.2"
+  resolved "https://registry.yarnpkg.com/react-test-renderer/-/react-test-renderer-16.8.2.tgz#3ce0bf12aa211116612fda01a886d6163c9c459b"
+  dependencies:
+    object-assign "^4.1.1"
+    prop-types "^15.6.2"
+    react-is "^16.8.2"
+    scheduler "^0.13.2"
 
 react-timer-mixin@^0.13.2, react-timer-mixin@^0.13.4:
   version "0.13.4"

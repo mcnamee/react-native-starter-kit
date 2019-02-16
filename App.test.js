@@ -1,7 +1,8 @@
 import React from 'react';
+import renderer from 'react-test-renderer';
 import App from './App';
 
-import renderer from 'react-test-renderer';
+jest.useFakeTimers();
 
 it('renders without crashing', () => {
   const rendered = renderer.create(<App />).toJSON();

@@ -5,7 +5,10 @@
   "private": true,
   "main": "node_modules/expo/AppEntry.js",
   "jest": {
-    "preset": "jest-expo"
+    "preset": "jest-expo",
+    "transformIgnorePatterns": [
+      "node_modules/(?!((jest-)?react-native|react-clone-referenced-element|expo(nent)?|@expo(nent)?/.*|react-navigation|redux-persist|native-base(-shoutem-theme)|native-base|react-native-router-flux))"
+    ]
   },
   "browserslist": [
     ">0.2%",
@@ -18,7 +21,7 @@
     "android": "expo start --android",
     "ios": "expo start --ios",
     "eject": "expo eject",
-    "test": "node node_modules/jest/bin/jest.js --watch",
+    "test": "node_modules/.bin/jest",
     "web": "PORT=3001 react-scripts start",
     "web-bundle": "react-scripts build",
     "predeploy": "npm run web-bundle",
@@ -53,6 +56,7 @@
     "eslint-plugin-jsx-a11y": "^6.1.1",
     "eslint-plugin-react": "^7.11.0",
     "gh-pages": "^2.0.1",
+    "jest-expo": "^32.0.0",
     "node-sass": "^4.11.0",
     "react-scripts": "2.1.5"
   }

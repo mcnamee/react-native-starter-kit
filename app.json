@@ -1,9 +1,29 @@
 {
   "expo": {
-    "sdkVersion": "29.0.0",
     "name": "React Native Starter Kit",
     "slug": "react-native-starter-kit",
-    "icon": "src/images/app-icon.png",
-    "privacy": "public"
+    "privacy": "public",
+    "sdkVersion": "32.0.0",
+    "platforms": [
+      "ios",
+      "android"
+    ],
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./src/images/app-icon.png",
+    "splash": {
+      "image": "./src/images/launch.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#473be7"
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true
+    }
   }
 }

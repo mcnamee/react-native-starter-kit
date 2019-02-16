@@ -23,7 +23,7 @@ Please follow [Airbnb's Name Conventions](https://github.com/airbnb/javascript#n
 
 ## Linting
 
-Please ensure you're code is passing the built in linter.
+Please ensure your code is passing the built in linter.
 
 ## Tests
 

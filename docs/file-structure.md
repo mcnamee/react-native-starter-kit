@@ -1,9 +1,9 @@
 # Understanding the File Structure
 
-- `/build` - Web server runs from here (we commit everything for Github Pages)
 - `/docs` - Github Repo Documentation
 - `/firebase` - Firebase samples
 - `/native-base-theme` - React Native's theme (by NativeBase)
+- `/public` - Web server runs from here
 - `/src` - Contains the source code for both web & native
     - `/actions` - Redux Actions - payloads of information that send data _from_ your application _to_ your store. [Read More &rarr;](https://redux.js.org/docs/basics/Actions.html)
     - `/constants` - Shared variables (across platforms)

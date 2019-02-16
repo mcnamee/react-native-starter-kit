@@ -16,4 +16,4 @@ local.properties
 *.iml
 
 # Build
-build/bundle.js
+build/

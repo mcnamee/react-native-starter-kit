@@ -5,10 +5,16 @@
 ### Packaging for Web
 
 ```bash
-npm run web-bundle
+yarn web-bundle
 ```
 
-Creates a minified JavaScript bundle (that also houses the minified css) and places it next to the index.html in `/build` that you can serve with any static file server.
+Creates an optimized bundle that you can deploy, in `/build`. You can serve this with any static file server.
+
+```bash
+yarn deploy
+```
+
+Uses `gh-pages` to bundle the optimized version of the website and deploys directly to Github Pages (the gh-pages git branch).
 
 ---
 
@@ -18,11 +24,11 @@ Creates a minified JavaScript bundle (that also houses the minified css) and pla
 
 Expo provides free hosting for the JS-only apps created by CRNA, allowing you to share your app through the Expo client app. This requires registration for an Expo account.
 
-Install the `exp` command-line tool, and run the publish command:
+Install the `expo` command-line tool, and run the publish command:
 
 ```bash
-npm i -g exp
-exp publish
+npm install -g expo-cli
+expo publish
 ```
 
 ### Deploying to the App / Play Store https://docs.expo.io/versions/latest/introduction/already-used-react-native.html#deploying-to-the-app--play-store

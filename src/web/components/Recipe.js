@@ -10,6 +10,7 @@ import {
   ListGroup,
   ListGroupItem,
 } from 'reactstrap';
+import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
 import ErrorMessages from '../../constants/errors';
 import Loading from './Loading';
@@ -52,6 +53,10 @@ const RecipeView = ({
 
   return (
     <div>
+      <Helmet>
+        <title>{recipe.title}</title>
+      </Helmet>
+
       <Row>
         <Col sm="12">
           <h1>

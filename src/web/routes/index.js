@@ -40,7 +40,7 @@ const Index = () => (
     <Route
       path="/sign-up"
       render={props => (
-        <TemplateNothing>
+        <TemplateNothing pageTitle="Sign Up">
           <SignUpContainer {...props} Layout={SignUpComponent} />
         </TemplateNothing>
       )}
@@ -48,7 +48,7 @@ const Index = () => (
     <Route
       path="/login"
       render={props => (
-        <TemplateNothing>
+        <TemplateNothing pageTitle="Login">
           <LoginContainer {...props} Layout={LoginComponent} />
         </TemplateNothing>
       )}
@@ -56,7 +56,7 @@ const Index = () => (
     <Route
       path="/forgot-password"
       render={props => (
-        <TemplateNothing>
+        <TemplateNothing pageTitle="Forgot Password">
           <ForgotPasswordContainer {...props} Layout={ForgotPasswordComponent} />
         </TemplateNothing>
       )}
@@ -64,7 +64,7 @@ const Index = () => (
     <Route
       path="/update-profile"
       render={props => (
-        <TemplateSidebar>
+        <TemplateSidebar pageTitle="Update Profile">
           <UpdateProfileContainer {...props} Layout={UpdateProfileComponent} />
         </TemplateSidebar>
       )}
@@ -72,7 +72,7 @@ const Index = () => (
     <Route
       path="/recipes"
       render={props => (
-        <TemplateSidebar>
+        <TemplateSidebar pageTitle="Recipes">
           <RecipesContainer {...props} Layout={RecipesComponent} />
         </TemplateSidebar>
       )}
@@ -80,14 +80,14 @@ const Index = () => (
     <Route
       path="/recipe/:id"
       render={props => (
-        <TemplateSidebar>
+        <TemplateSidebar pageTitle="Recipe View">
           <RecipesContainer {...props} Layout={RecipeViewComponent} />
         </TemplateSidebar>
       )}
     />
     <Route
       render={props => (
-        <TemplateSidebar>
+        <TemplateSidebar pageTitle="404 - Page note found">
           <Error {...props} title="404" content="Sorry, the route you requested does not exist" />
         </TemplateSidebar>
       )}

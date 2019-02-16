@@ -1,5 +1,6 @@
 import React from 'react';
 import { StatusBar, Platform } from 'react-native';
+import { Font } from 'expo';
 import PropTypes from 'prop-types';
 import { Provider } from 'react-redux';
 import { Router, Stack } from 'react-native-router-flux';
@@ -15,28 +16,47 @@ import Loading from './components/Loading';
 // Hide StatusBar on Android as it overlaps tabs
 if (Platform.OS === 'android') StatusBar.setHidden(true);
 
-const App = ({ store, persistor }) => (
-  <Root>
-    <Provider store={store}>
-      <PersistGate
-        loading={<Loading />}
-        persistor={persistor}
-      >
-        <StyleProvider style={getTheme(theme)}>
-          <Router>
-            <Stack key="root">
-              {Routes}
-            </Stack>
-          </Router>
-        </StyleProvider>
-      </PersistGate>
-    </Provider>
-  </Root>
-);
+export default class App extends React.Component {
+  static propTypes = {
+    store: PropTypes.shape({}).isRequired,
+    persistor: PropTypes.shape({}).isRequired,
+  }
 
-App.propTypes = {
-  store: PropTypes.shape({}).isRequired,
-  persistor: PropTypes.shape({}).isRequired,
-};
+  state = { loading: true }
 
-export default App;
+  async componentWillMount() {
+    await Font.loadAsync({
+      Roboto: require('native-base/Fonts/Roboto.ttf'),
+      Roboto_medium: require('native-base/Fonts/Roboto_medium.ttf'),
+      Ionicons: require('@expo/vector-icons/fonts/Ionicons.ttf'),
+    });
+
+    this.setState({ loading: false });
+  }
+
+  render() {
+    const { loading } = this.state;
+    const { store, persistor } = this.props;
+
+    if (loading) return <Loading />;
+
+    return (
+      <Root>
+        <Provider store={store}>
+          <PersistGate
+            loading={<Loading />}
+            persistor={persistor}
+          >
+            <StyleProvider style={getTheme(theme)}>
+              <Router>
+                <Stack key="root">
+                  {Routes}
+                </Stack>
+              </Router>
+            </StyleProvider>
+          </PersistGate>
+        </Provider>
+      </Root>
+    );
+  }
+}

@@ -87,7 +87,7 @@ const Index = () => (
     />
     <Route
       render={props => (
-        <TemplateSidebar pageTitle="404 - Page note found">
+        <TemplateSidebar pageTitle="404 - Page not found">
           <Error {...props} title="404" content="Sorry, the route you requested does not exist" />
         </TemplateSidebar>
       )}

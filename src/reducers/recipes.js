@@ -4,12 +4,6 @@ export const initialState = Store;
 
 export default function recipeReducer(state = initialState, action) {
   switch (action.type) {
-    case 'FAVOURITES_REPLACE': {
-      return {
-        ...state,
-        favourites: action.data || [],
-      };
-    }
     case 'MEALS_REPLACE': {
       return {
         ...state,

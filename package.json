@@ -21,7 +21,7 @@
     "android": "expo start --android",
     "ios": "expo start --ios",
     "eject": "expo eject",
-    "test": "node_modules/.bin/jest",
+    "test": "node ./node_modules/jest/bin/jest.js --watchAll",
     "web": "react-scripts start",
     "web-bundle": "react-scripts build",
     "predeploy": "npm run web-bundle",
@@ -29,15 +29,15 @@
     "debug": "open 'rndebugger://set-debugger-loc?host=localhost&port=19001'"
   },
   "dependencies": {
-    "@expo/vector-icons": "^9.0.0",
+    "@expo/vector-icons": "^10.0.1",
     "babel-polyfill": "^6.26.0",
     "bootstrap": "^4.3.1",
-    "expo": "^32.0.5",
-    "firebase": "^5.8.3",
-    "native-base": "^2.11.0",
+    "expo": "^32.0.6",
+    "firebase": "^5.9.2",
+    "native-base": "^2.12.1",
     "prop-types": "^15.7.2",
     "react": "16.5.0",
-    "react-dom": "^16.3.1",
+    "react-dom": "^16.8.6",
     "react-helmet": "^5.2.0",
     "react-native": "https://github.com/expo/react-native/archive/sdk-32.0.0.tar.gz",
     "react-native-router-flux": "4.0.6",
@@ -50,14 +50,14 @@
     "redux-thunk": "^2.3.0"
   },
   "devDependencies": {
-    "babel-preset-expo": "^5.0.0",
+    "babel-preset-expo": "^5.1.1",
     "eslint-config-airbnb": "^17.1.0",
-    "eslint-plugin-import": "^2.14.0",
-    "eslint-plugin-jsx-a11y": "^6.1.1",
-    "eslint-plugin-react": "^7.11.0",
+    "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-jsx-a11y": "^6.2.1",
+    "eslint-plugin-react": "^7.12.4",
     "gh-pages": "^2.0.1",
     "jest-expo": "^32.0.0",
     "node-sass": "^4.11.0",
-    "react-scripts": "2.1.5"
+    "react-scripts": "2.1.8"
   }
 }

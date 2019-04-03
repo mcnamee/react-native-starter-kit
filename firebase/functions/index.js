@@ -11,33 +11,27 @@ const admin = require('firebase-admin');
 admin.initializeApp(functions.config().firebase);
 
 /**
-  * Listens for updates to /users/:userId and creates an
-  * full name attribute based on the first and last names
+  * Creates a full name attribute based on the first and last names
   */
-exports.cleanUserData = functions.database.ref('/users/{userId}').onWrite((event) => {
-  console.log('Making Full Name for UserID:', event.params.userId);
+exports.makeUserFullName = functions.database.ref('/users/{userId}').onWrite((change) => {
+  if (!change.after.exists()) return null; // Exit when the data is deleted.
 
-  // Get the first and last names
-  const firstName = event.data._newData.firstName || '';
-  const lastName = event.data._newData.lastName || '';
+  // The current value of what was written to the Realtime Database.
+  const original = change.after.val();
 
-  const userData = {
-    fullName: `${firstName} ${lastName}`,
-  };
-
-  // Add Role if it doesn't already exist
-  if (event && event.data && event.data._data && !event.data._newData.role) {
-    userData.role = 'user';
-  }
-
-  return event.data.ref.update(userData);
+  const fullName = `${original.firstName} ${original.lastName}`;
+  return change.after.ref.child('fullName').set(fullName);
 });
+
+/**
+  * Adds a 'user' role to all new users on create
+  */
+exports.addUserRole = functions.database.ref('/users/{userId}')
+  .onCreate(snapshot => snapshot.ref.parent.child('role').set('user'));
 
 /**
   * Listens for user deletion and
   * - deletes the user's reference in the database
   */
-exports.deleteUserData = functions.auth.user().onDelete((event) => {
-  const uid = event.data.uid;
-  return admin.database().ref(`/users/${uid}`).remove();
-});
+exports.deleteUserData = functions.auth.user()
+  .onDelete(user => admin.database().ref(`/users/${user.uid}`).remove());

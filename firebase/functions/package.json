@@ -2,16 +2,7 @@
   "name": "rnsk-firebase-cloud-functions",
   "description": "React Native Starter Kit Firebase Cloud Functions",
   "dependencies": {
-    "firebase-admin": "^4.1.1",
-    "firebase-functions": "^0.5.1"
-  },
-  "devDependencies": {
-    "chai": "^3.5.0",
-    "chai-as-promised": "^6.0.0",
-    "mocha": "^3.2.0",
-    "sinon": "^1.17.7"
-  },
-  "scripts": {
-    "test": "./node_modules/.bin/mocha --reporter spec"
+    "firebase-admin": "^7.2.0",
+    "firebase-functions": "^2.2.1"
   }
 }

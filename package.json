@@ -22,7 +22,7 @@
     "ios": "expo start --ios",
     "eject": "expo eject",
     "test": "node_modules/.bin/jest",
-    "web": "PORT=3001 react-scripts start",
+    "web": "react-scripts start",
     "web-bundle": "react-scripts build",
     "predeploy": "npm run web-bundle",
     "deploy": "gh-pages -d build",

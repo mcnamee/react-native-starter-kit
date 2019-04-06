@@ -7,15 +7,7 @@ export default function recipeReducer(state = initialState, action) {
     case 'MEALS_REPLACE': {
       return {
         ...state,
-        error: null,
-        loading: false,
         meals: action.data,
-      };
-    }
-    case 'RECIPES_ERROR': {
-      return {
-        ...state,
-        error: action.data,
       };
     }
     case 'RECIPES_REPLACE': {
@@ -37,8 +29,6 @@ export default function recipeReducer(state = initialState, action) {
 
       return {
         ...state,
-        error: null,
-        loading: false,
         recipes,
       };
     }

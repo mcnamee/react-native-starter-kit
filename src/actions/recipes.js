@@ -1,6 +1,5 @@
 import { Firebase, FirebaseRef } from '../lib/firebase';
 
-
 /**
   * Get Meals
   */

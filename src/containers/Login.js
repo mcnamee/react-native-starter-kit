@@ -9,36 +9,44 @@ class Login extends Component {
     Layout: PropTypes.func.isRequired,
     member: PropTypes.shape({}).isRequired,
     onFormSubmit: PropTypes.func.isRequired,
-    isLoading: PropTypes.bool.isRequired,
-    successMessage: PropTypes.string.isRequired,
   }
 
   state = {
-    errorMessage: null,
+    error: null,
+    success: null,
+    loading: false,
   }
 
   onFormSubmit = (data) => {
     const { onFormSubmit } = this.props;
+
+    this.setState({ loading: true });
+
     return onFormSubmit(data)
-      .catch((err) => { this.setState({ errorMessage: err }); throw err; });
+      .then(() => this.setState({
+        loading: false,
+        success: 'Success - Logged in',
+        error: null,
+      })).catch((err) => {
+        this.setState({
+          loading: false,
+          success: null,
+          error: err,
+        });
+        throw err; // To prevent transition back
+      });
   }
 
   render = () => {
-    const {
-      member,
-      Layout,
-      isLoading,
-      successMessage,
-    } = this.props;
-
-    const { errorMessage } = this.state;
+    const { member, Layout } = this.props;
+    const { error, loading, success } = this.state;
 
     return (
       <Layout
+        error={error}
         member={member}
-        loading={isLoading}
-        error={errorMessage}
-        success={successMessage}
+        loading={loading}
+        success={success}
         onFormSubmit={this.onFormSubmit}
       />
     );
@@ -47,8 +55,6 @@ class Login extends Component {
 
 const mapStateToProps = state => ({
   member: state.member || {},
-  isLoading: state.status.loading || false,
-  successMessage: state.status.success || '',
 });
 
 const mapDispatchToProps = {

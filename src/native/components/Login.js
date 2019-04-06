@@ -37,25 +37,17 @@ class Login extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleChange = (name, val) => {
-    this.setState({
-      [name]: val,
-    });
-  }
+  handleChange = (name, val) => this.setState({ [name]: val })
 
   handleSubmit = () => {
     const { onFormSubmit } = this.props;
     onFormSubmit(this.state)
-      .then(() => Actions.pop())
-      .catch(e => console.log(`Error: ${e}`));
+      .then(() => setTimeout(() => Actions.pop(), 1000))
+      .catch(() => {});
   }
 
   render() {
-    const {
-      loading,
-      error,
-      success,
-    } = this.props;
+    const { loading, error, success } = this.props;
     const { email } = this.state;
 
     if (loading) return <Loading />;
@@ -68,8 +60,8 @@ class Login extends React.Component {
               title="Welcome back"
               content="Please use your email and password to login."
             />
-            { success ? <Messages type="success" message={success} /> : null }
-            { error ? <Messages message={error} /> : null }
+            {error && <Messages message={error} />}
+            {success && <Messages type="success" message={success} />}
           </View>
 
           <Form>

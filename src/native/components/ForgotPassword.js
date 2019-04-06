@@ -15,11 +15,13 @@ class ForgotPassword extends React.Component {
       email: PropTypes.string,
     }),
     error: PropTypes.string,
+    success: PropTypes.string,
     loading: PropTypes.bool.isRequired,
     onFormSubmit: PropTypes.func.isRequired,
   }
 
   static defaultProps = {
+    success: null,
     error: null,
     member: {},
   }
@@ -34,21 +36,17 @@ class ForgotPassword extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleChange = (name, val) => {
-    this.setState({
-      [name]: val,
-    });
-  }
+  handleChange = (name, val) => this.setState({ [name]: val })
 
   handleSubmit = () => {
     const { onFormSubmit } = this.props;
-    onFormSubmit(this.state)
-      .then(() => { Actions.pop(); Actions.login(); })
-      .catch(e => console.log(`Error: ${e}`));
+    return onFormSubmit(this.state)
+      .then(() => setTimeout(() => { Actions.pop(); Actions.login(); }, 1000))
+      .catch(() => {});
   }
 
   render() {
-    const { loading, error } = this.props;
+    const { loading, error, success } = this.props;
     const { email } = this.state;
 
     // Loading
@@ -63,6 +61,7 @@ class ForgotPassword extends React.Component {
           />
 
           {error && <Messages message={error} />}
+          {success && <Messages type="success" message={success} />}
 
           <Form>
             <Item stackedLabel>

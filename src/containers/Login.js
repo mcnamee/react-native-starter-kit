@@ -7,15 +7,10 @@ import { login } from '../actions/member';
 class Login extends Component {
   static propTypes = {
     Layout: PropTypes.func.isRequired,
-    locale: PropTypes.string,
     member: PropTypes.shape({}).isRequired,
     onFormSubmit: PropTypes.func.isRequired,
     isLoading: PropTypes.bool.isRequired,
     successMessage: PropTypes.string.isRequired,
-  }
-
-  static defaultProps = {
-    locale: null,
   }
 
   state = {
@@ -31,7 +26,6 @@ class Login extends Component {
   render = () => {
     const {
       member,
-      locale,
       Layout,
       isLoading,
       successMessage,
@@ -42,7 +36,6 @@ class Login extends Component {
     return (
       <Layout
         member={member}
-        locale={locale}
         loading={isLoading}
         error={errorMessage}
         success={successMessage}
@@ -54,7 +47,6 @@ class Login extends Component {
 
 const mapStateToProps = state => ({
   member: state.member || {},
-  locale: state.locale || null,
   isLoading: state.status.loading || false,
   successMessage: state.status.success || '',
 });

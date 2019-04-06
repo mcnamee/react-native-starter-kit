@@ -85,16 +85,6 @@ const Profile = ({ member, logout }) => (
             </View>
           )
         }
-        <ListItem onPress={Actions.locale} icon>
-          <Left>
-            <Icon name="ios-flag" />
-          </Left>
-          <Body>
-            <Text>
-              Change Language
-            </Text>
-          </Body>
-        </ListItem>
       </List>
     </Content>
   </Container>

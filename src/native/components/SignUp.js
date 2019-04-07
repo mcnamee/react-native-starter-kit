@@ -4,7 +4,6 @@ import {
   Container, Content, Text, Form, Item, Label, Input, Button,
 } from 'native-base';
 import { Actions } from 'react-native-router-flux';
-import Loading from './Loading';
 import Messages from './Messages';
 import Header from './Header';
 import Spacer from './Spacer';
@@ -22,15 +21,16 @@ class SignUp extends React.Component {
     success: null,
   }
 
+  state = {
+    firstName: '',
+    lastName: '',
+    email: '',
+    password: '',
+    password2: '',
+  }
+
   constructor(props) {
     super(props);
-    this.state = {
-      firstName: '',
-      lastName: '',
-      email: '',
-      password: '',
-      password2: '',
-    };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -48,8 +48,6 @@ class SignUp extends React.Component {
   render() {
     const { loading, error, success } = this.props;
 
-    if (loading) return <Loading />;
-
     return (
       <Container>
         <Content padder>
@@ -63,24 +61,25 @@ class SignUp extends React.Component {
 
           <Form>
             <Item stackedLabel>
-              <Label>
-                First Name
-              </Label>
-              <Input onChangeText={v => this.handleChange('firstName', v)} />
-            </Item>
-
-            <Item stackedLabel>
-              <Label>
-                Last Name
-              </Label>
-              <Input onChangeText={v => this.handleChange('lastName', v)} />
-            </Item>
-
-            <Item stackedLabel>
-              <Label>
-                Email
-              </Label>
+              <Label>First Name</Label>
               <Input
+                disabled={loading}
+                onChangeText={v => this.handleChange('firstName', v)}
+              />
+            </Item>
+
+            <Item stackedLabel>
+              <Label>Last Name</Label>
+              <Input
+                disabled={loading}
+                onChangeText={v => this.handleChange('lastName', v)}
+              />
+            </Item>
+
+            <Item stackedLabel>
+              <Label>Email</Label>
+              <Input
+                disabled={loading}
                 autoCapitalize="none"
                 keyboardType="email-address"
                 onChangeText={v => this.handleChange('email', v)}
@@ -88,25 +87,27 @@ class SignUp extends React.Component {
             </Item>
 
             <Item stackedLabel>
-              <Label>
-                Password
-              </Label>
-              <Input secureTextEntry onChangeText={v => this.handleChange('password', v)} />
+              <Label>Password</Label>
+              <Input
+                disabled={loading}
+                secureTextEntry
+                onChangeText={v => this.handleChange('password', v)}
+              />
             </Item>
 
             <Item stackedLabel>
-              <Label>
-                Confirm Password
-              </Label>
-              <Input secureTextEntry onChangeText={v => this.handleChange('password2', v)} />
+              <Label>Confirm Password</Label>
+              <Input
+                disabled={loading}
+                secureTextEntry
+                onChangeText={v => this.handleChange('password2', v)}
+              />
             </Item>
 
             <Spacer size={20} />
 
-            <Button block onPress={this.handleSubmit}>
-              <Text>
-                Sign Up
-              </Text>
+            <Button block onPress={this.handleSubmit} disabled={loading}>
+              <Text>{loading ? 'Loading' : 'Sign Up'}</Text>
             </Button>
           </Form>
         </Content>

@@ -4,7 +4,6 @@ import {
   Container, Content, Text, Form, Item, Label, Input, Button,
 } from 'native-base';
 import { Actions } from 'react-native-router-flux';
-import Loading from './Loading';
 import Messages from './Messages';
 import Header from './Header';
 import Spacer from './Spacer';
@@ -40,6 +39,7 @@ class ForgotPassword extends React.Component {
 
   handleSubmit = () => {
     const { onFormSubmit } = this.props;
+
     return onFormSubmit(this.state)
       .then(() => setTimeout(() => { Actions.pop(); Actions.login(); }, 1000))
       .catch(() => {});
@@ -48,9 +48,6 @@ class ForgotPassword extends React.Component {
   render() {
     const { loading, error, success } = this.props;
     const { email } = this.state;
-
-    // Loading
-    if (loading) return <Loading />;
 
     return (
       <Container>
@@ -65,12 +62,11 @@ class ForgotPassword extends React.Component {
 
           <Form>
             <Item stackedLabel>
-              <Label>
-                Email
-              </Label>
+              <Label>Email</Label>
               <Input
                 autoCapitalize="none"
                 value={email}
+                disabled={loading}
                 keyboardType="email-address"
                 onChangeText={v => this.handleChange('email', v)}
               />
@@ -78,10 +74,8 @@ class ForgotPassword extends React.Component {
 
             <Spacer size={20} />
 
-            <Button block onPress={this.handleSubmit}>
-              <Text>
-                Reset Password
-              </Text>
+            <Button block onPress={this.handleSubmit} disabled={loading}>
+              <Text>{loading ? 'Loading' : 'Reset Password'}</Text>
             </Button>
           </Form>
         </Content>

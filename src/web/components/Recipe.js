@@ -17,10 +17,7 @@ import Loading from './Loading';
 import Error from './Error';
 
 const RecipeView = ({
-  error,
-  loading,
-  recipes,
-  recipeId,
+  error, loading, recipes, recipeId,
 }) => {
   // Loading
   if (loading) return <Loading />;
@@ -39,16 +36,12 @@ const RecipeView = ({
 
   // Build Ingredients listing
   const ingredients = recipe.ingredients.map(item => (
-    <ListGroupItem key={`${item}`}>
-      {item}
-    </ListGroupItem>
+    <ListGroupItem key={`${item}`}>{item}</ListGroupItem>
   ));
 
   // Build Method listing
   const method = recipe.method.map(item => (
-    <ListGroupItem key={`${item}`}>
-      {item}
-    </ListGroupItem>
+    <ListGroupItem key={`${item}`}>{item}</ListGroupItem>
   ));
 
   return (
@@ -59,9 +52,7 @@ const RecipeView = ({
 
       <Row>
         <Col sm="12">
-          <h1>
-            {recipe.title}
-          </h1>
+          <h1>{recipe.title}</h1>
           <p>
             by
             {' '}
@@ -72,34 +63,22 @@ const RecipeView = ({
       <Row>
         <Col lg="4" className="recipe-view-card">
           <Card>
-            <CardHeader>
-              About this recipe
-            </CardHeader>
+            <CardHeader>About this recipe</CardHeader>
             <CardBody>
-              <CardText>
-                {recipe.body}
-              </CardText>
+              <CardText>{recipe.body}</CardText>
             </CardBody>
           </Card>
         </Col>
         <Col lg="4" className="recipe-view-card">
           <Card>
-            <CardHeader>
-              Ingredients
-            </CardHeader>
-            <ListGroup className="list-group-flush">
-              {ingredients}
-            </ListGroup>
+            <CardHeader>Ingredients</CardHeader>
+            <ListGroup className="list-group-flush">{ingredients}</ListGroup>
           </Card>
         </Col>
         <Col lg="4" className="recipe-view-card">
           <Card>
-            <CardHeader>
-              Method
-            </CardHeader>
-            <ListGroup className="list-group-flush">
-              {method}
-            </ListGroup>
+            <CardHeader>Method</CardHeader>
+            <ListGroup className="list-group-flush">{method}</ListGroup>
           </Card>
         </Col>
       </Row>

@@ -14,7 +14,6 @@ import {
   CardHeader,
 } from 'reactstrap';
 import { Link, withRouter } from 'react-router-dom';
-import Loading from './Loading';
 
 class Login extends React.Component {
   static propTypes = {
@@ -31,8 +30,8 @@ class Login extends React.Component {
   }
 
   static defaultProps = {
-    success: null,
     error: null,
+    success: null,
     member: {},
   }
 
@@ -47,75 +46,58 @@ class Login extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleChange = (event) => {
-    this.setState({
-      [event.target.name]: event.target.value,
-    });
-  }
+  handleChange = e => this.setState({ [e.target.name]: e.target.value });
 
-  handleSubmit = (event) => {
-    event.preventDefault();
+  handleSubmit = (e) => {
+    e.preventDefault();
     const { onFormSubmit, history } = this.props;
-    onFormSubmit(this.state)
-      .then(() => history.push('/'))
-      .catch(e => console.log(`Error: ${e}`));
+
+    return onFormSubmit(this.state)
+      .then(() => setTimeout(() => history.push('/'), 1000))
+      .catch(() => {});
   }
 
   render() {
     const { loading, success, error } = this.props;
     const { email, password } = this.state;
 
-    // Loading
-    if (loading) return <Loading />;
-
     return (
       <div>
         <Row>
           <Col lg={{ size: 6, offset: 3 }}>
             <Card>
-              <CardHeader>
-                Login
-              </CardHeader>
+              <CardHeader>Login</CardHeader>
               <CardBody>
-                {!!success && (
-                <Alert color="success">
-                  {success}
-                </Alert>
-                )}
-                {!!error && (
-                <Alert color="danger">
-                  {error}
-                </Alert>
-                )}
+                {!!success && <Alert color="success">{success}</Alert>}
+                {!!error && <Alert color="danger">{error}</Alert>}
+
                 <Form onSubmit={this.handleSubmit}>
                   <FormGroup>
-                    <Label for="email">
-                      Email
-                    </Label>
+                    <Label for="email">Email</Label>
                     <Input
                       type="email"
                       name="email"
                       id="email"
                       placeholder="john@doe.corp"
+                      disabled={loading}
                       value={email}
                       onChange={this.handleChange}
                     />
                   </FormGroup>
                   <FormGroup>
-                    <Label for="password">
-                      Password
-                    </Label>
+                    <Label for="password">Password</Label>
                     <Input
                       type="password"
                       name="password"
                       id="password"
                       placeholder="••••••••"
+                      disabled={loading}
                       value={password}
                       onChange={this.handleChange}
                     />
                   </FormGroup>
-                  <Button color="primary">
-                    Login
+                  <Button color="primary" disabled={loading}>
+                    {loading ? 'Loading' : 'Login' }
                   </Button>
                 </Form>
 
@@ -125,14 +107,10 @@ class Login extends React.Component {
                   <Col sm="6">
                     Need an account?
                     {' '}
-                    <Link to="/sign-up">
-                      Sign Up
-                    </Link>
+                    <Link to="/sign-up">Sign Up</Link>
                   </Col>
                   <Col sm="6" className="text-right">
-                    <Link to="/forgot-password">
-                      Forgot Password?
-                    </Link>
+                    <Link to="/forgot-password">Forgot Password?</Link>
                   </Col>
                 </Row>
               </CardBody>

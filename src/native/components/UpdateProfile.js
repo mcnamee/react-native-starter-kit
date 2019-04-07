@@ -4,7 +4,6 @@ import {
   Container, Content, Text, Body, ListItem, Form, Item, Label, Input, CheckBox, Button, View,
 } from 'native-base';
 import Messages from './Messages';
-import Loading from './Loading';
 import Header from './Header';
 import Spacer from './Spacer';
 
@@ -42,31 +41,19 @@ class UpdateProfile extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleChange = (name, val) => {
-    this.setState({
-      [name]: val,
-    });
-  }
+  handleChange = (name, val) => this.setState({ [name]: val })
 
   handleSubmit = () => {
     const { onFormSubmit } = this.props;
-    onFormSubmit(this.state)
-      .then(() => console.log('Profile Updated'))
-      .catch(e => console.log(`Error: ${e}`));
+
+    return onFormSubmit(this.state).catch(() => {});
   }
 
   render() {
     const { loading, error, success } = this.props;
     const {
-      firstName,
-      lastName,
-      email,
-      changeEmail,
-      changePassword,
+      firstName, lastName, email, changeEmail, changePassword,
     } = this.state;
-
-    // Loading
-    if (loading) return <Loading />;
 
     return (
       <Container>
@@ -81,21 +68,19 @@ class UpdateProfile extends React.Component {
 
           <Form>
             <Item stackedLabel>
-              <Label>
-                First Name
-              </Label>
+              <Label>First Name</Label>
               <Input
                 value={firstName}
+                disabled={loading}
                 onChangeText={v => this.handleChange('firstName', v)}
               />
             </Item>
 
             <Item stackedLabel>
-              <Label>
-                Last Name
-              </Label>
+              <Label>Last Name</Label>
               <Input
                 value={lastName}
+                disabled={loading}
                 onChangeText={v => this.handleChange('lastName', v)}
               />
             </Item>
@@ -106,27 +91,22 @@ class UpdateProfile extends React.Component {
                 onPress={() => this.handleChange('changeEmail', !changeEmail)}
               />
               <Body>
-                <Text>
-                  Change Email
-                </Text>
+                <Text>Change Email</Text>
               </Body>
             </ListItem>
 
-            {changeEmail
-              && (
+            {changeEmail && (
               <Item stackedLabel>
-                <Label>
-                  Email
-                </Label>
+                <Label>Email</Label>
                 <Input
                   autoCapitalize="none"
                   value={email}
                   keyboardType="email-address"
+                  disabled={loading}
                   onChangeText={v => this.handleChange('email', v)}
                 />
               </Item>
-              )
-            }
+            )}
 
             <ListItem>
               <CheckBox
@@ -134,38 +114,36 @@ class UpdateProfile extends React.Component {
                 onPress={() => this.handleChange('changePassword', !changePassword)}
               />
               <Body>
-                <Text>
-                  Change Password
-                </Text>
+                <Text>Change Password</Text>
               </Body>
             </ListItem>
 
-            {changePassword
-              && (
+            {changePassword && (
               <View padder>
                 <Item stackedLabel>
-                  <Label>
-                    Password
-                  </Label>
-                  <Input secureTextEntry onChangeText={v => this.handleChange('password', v)} />
+                  <Label>Password</Label>
+                  <Input
+                    secureTextEntry
+                    onChangeText={v => this.handleChange('password', v)}
+                    disabled={loading}
+                  />
                 </Item>
 
                 <Item stackedLabel last>
-                  <Label>
-                    Confirm Password
-                  </Label>
-                  <Input secureTextEntry onChangeText={v => this.handleChange('password2', v)} />
+                  <Label>Confirm Password</Label>
+                  <Input
+                    secureTextEntry
+                    onChangeText={v => this.handleChange('password2', v)}
+                    disabled={loading}
+                  />
                 </Item>
               </View>
-              )
-            }
+            )}
 
             <Spacer size={20} />
 
-            <Button block onPress={this.handleSubmit}>
-              <Text>
-                Update Profile
-              </Text>
+            <Button block onPress={this.handleSubmit} disabled={loading}>
+              <Text>{loading ? 'Loading' : 'Update Profile'}</Text>
             </Button>
           </Form>
         </Content>

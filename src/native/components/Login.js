@@ -4,7 +4,6 @@ import {
   Container, Content, Form, Item, Label, Input, Text, Button, View,
 } from 'native-base';
 import { Actions } from 'react-native-router-flux';
-import Loading from './Loading';
 import Messages from './Messages';
 import Header from './Header';
 import Spacer from './Spacer';
@@ -41,7 +40,8 @@ class Login extends React.Component {
 
   handleSubmit = () => {
     const { onFormSubmit } = this.props;
-    onFormSubmit(this.state)
+
+    return onFormSubmit(this.state)
       .then(() => setTimeout(() => Actions.pop(), 1000))
       .catch(() => {});
   }
@@ -49,8 +49,6 @@ class Login extends React.Component {
   render() {
     const { loading, error, success } = this.props;
     const { email } = this.state;
-
-    if (loading) return <Loading />;
 
     return (
       <Container>
@@ -71,6 +69,7 @@ class Login extends React.Component {
                 autoCapitalize="none"
                 value={email}
                 keyboardType="email-address"
+                disabled={loading}
                 onChangeText={v => this.handleChange('email', v)}
               />
             </Item>
@@ -78,6 +77,7 @@ class Login extends React.Component {
               <Label>Password</Label>
               <Input
                 secureTextEntry
+                disabled={loading}
                 onChangeText={v => this.handleChange('password', v)}
               />
             </Item>
@@ -85,8 +85,8 @@ class Login extends React.Component {
             <Spacer size={20} />
 
             <View padder>
-              <Button block onPress={this.handleSubmit}>
-                <Text>Login</Text>
+              <Button block onPress={this.handleSubmit} disabled={loading}>
+                <Text>{loading ? 'Loading' : 'Login' }</Text>
               </Button>
             </View>
           </Form>

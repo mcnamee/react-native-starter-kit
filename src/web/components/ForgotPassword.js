@@ -99,7 +99,7 @@ class ForgotPassword extends React.Component {
                     <Link to="/sign-up">Sign Up</Link>
                   </Col>
                   <Col sm="6" className="text-right">
-                    <Link to="/forgot-password">Login</Link>
+                    <Link to="/login">Login</Link>
                     {' '}
                     to your account.
                   </Col>

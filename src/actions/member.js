@@ -53,10 +53,7 @@ function getUserData(dispatch) {
   return ref.on('value', (snapshot) => {
     const userData = snapshot.val() || [];
 
-    return dispatch({
-      type: 'USER_DETAILS_UPDATE',
-      data: userData,
-    });
+    return dispatch({ type: 'USER_DETAILS_UPDATE', data: userData });
   });
 }
 
@@ -87,10 +84,8 @@ export function login(formData) {
     if (!password) return reject({ message: ErrorMessages.missingPassword });
 
     // Go to Firebase
-    return Firebase.auth()
-      .setPersistence(Firebase.auth.Auth.Persistence.LOCAL)
-      .then(() => Firebase.auth()
-        .signInWithEmailAndPassword(email, password)
+    return Firebase.auth().setPersistence(Firebase.auth.Auth.Persistence.LOCAL)
+      .then(() => Firebase.auth().signInWithEmailAndPassword(email, password)
         .then(async (res) => {
           const userDetails = res && res.user ? res.user : null;
 
@@ -102,8 +97,7 @@ export function login(formData) {
 
             // Send verification Email when email hasn't been verified
             if (userDetails.emailVerified === false) {
-              Firebase.auth().currentUser
-                .sendEmailVerification()
+              Firebase.auth().currentUser.sendEmailVerification()
                 .catch(() => console.log('Verification email failed to send'));
             }
 
@@ -127,9 +121,8 @@ export function resetPassword(formData) {
     if (!email) return reject({ message: ErrorMessages.missingEmail });
 
     // Go to Firebase
-    return Firebase.auth()
-      .sendPasswordResetEmail(email)
-      .then(resolve(dispatch({ type: 'USER_RESET' })))
+    return Firebase.auth().sendPasswordResetEmail(email)
+      .then(() => resolve(dispatch({ type: 'USER_RESET' })))
       .catch(reject);
   }).catch((err) => { throw err.message; });
 }
@@ -139,13 +132,7 @@ export function resetPassword(formData) {
   */
 export function updateProfile(formData) {
   const {
-    email,
-    password,
-    password2,
-    firstName,
-    lastName,
-    changeEmail,
-    changePassword,
+    email, password, password2, firstName, lastName, changeEmail, changePassword,
   } = formData;
 
   return dispatch => new Promise(async (resolve, reject) => {

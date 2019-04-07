@@ -6,26 +6,11 @@ import { Firebase, FirebaseRef } from '../lib/firebase';
 export function getMeals() {
   if (Firebase === null) return () => new Promise(resolve => resolve());
 
-  return dispatch => new Promise((resolve, reject) => FirebaseRef
-    .child('meals').once('value')
+  return dispatch => new Promise((resolve, reject) => FirebaseRef.child('meals').once('value')
     .then((snapshot) => {
-      const meals = snapshot.val() || [];
-
-      return resolve(dispatch({
-        type: 'MEALS_REPLACE',
-        data: meals,
-      }));
-    }).catch(reject)).catch(e => console.log(e));
-}
-
-/**
-  * Set an Error Message
-  */
-export function setError(message) {
-  return dispatch => new Promise(resolve => resolve(dispatch({
-    type: 'RECIPES_ERROR',
-    data: message,
-  })));
+      const data = snapshot.val() || [];
+      return resolve(dispatch({ type: 'MEALS_REPLACE', data }));
+    }).catch(reject)).catch((err) => { throw err.message; });
 }
 
 /**
@@ -36,11 +21,7 @@ export function getRecipes() {
 
   return dispatch => new Promise(resolve => FirebaseRef.child('recipes')
     .on('value', (snapshot) => {
-      const recipes = snapshot.val() || [];
-
-      return resolve(dispatch({
-        type: 'RECIPES_REPLACE',
-        data: recipes,
-      }));
-    })).catch(e => console.log(e));
+      const data = snapshot.val() || [];
+      return resolve(dispatch({ type: 'RECIPES_REPLACE', data }));
+    })).catch((err) => { throw err.message; });
 }

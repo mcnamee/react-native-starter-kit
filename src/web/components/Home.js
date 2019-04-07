@@ -20,7 +20,7 @@ const About = () => (
         </p>
       </Jumbotron>
     </Row>
-    <Row className="pt-5">
+    <Row className="pt-md-2">
       <Col xs="12" md="4" className="pt-3 pt-md-0">
         <h3>
           <i className="icon-map" />

@@ -37,7 +37,7 @@ const RecipeListing = ({ error, loading, recipes }) => {
   // Show Listing
   return (
     <div>
-      <Row>
+      <Row className="pt-4 pt-sm-0">
         <Col sm="12">
           <h1>Recipes</h1>
           <p>The following data is read directly from Firebase.</p>

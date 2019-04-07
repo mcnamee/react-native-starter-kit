@@ -50,7 +50,7 @@ const RecipeView = ({
         <title>{recipe.title}</title>
       </Helmet>
 
-      <Row>
+      <Row className="pt-4 pt-sm-0">
         <Col sm="12">
           <h1>{recipe.title}</h1>
           <p>

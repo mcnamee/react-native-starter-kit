@@ -1,4 +1,4 @@
-import ErrorMessages from '../constants/errors';
+import { errorMessages } from '../constants/messages';
 import { Firebase, FirebaseRef } from '../lib/firebase';
 
 /**
@@ -11,12 +11,12 @@ export function signUp(formData) {
 
   return () => new Promise(async (resolve, reject) => {
     // Validation rules
-    if (!firstName) return reject({ message: ErrorMessages.missingFirstName });
-    if (!lastName) return reject({ message: ErrorMessages.missingLastName });
-    if (!email) return reject({ message: ErrorMessages.missingEmail });
-    if (!password) return reject({ message: ErrorMessages.missingPassword });
-    if (!password2) return reject({ message: ErrorMessages.missingPassword });
-    if (password !== password2) return reject({ message: ErrorMessages.passwordsDontMatch });
+    if (!firstName) return reject({ message: errorMessages.missingFirstName });
+    if (!lastName) return reject({ message: errorMessages.missingLastName });
+    if (!email) return reject({ message: errorMessages.missingEmail });
+    if (!password) return reject({ message: errorMessages.missingPassword });
+    if (!password2) return reject({ message: errorMessages.missingPassword });
+    if (password !== password2) return reject({ message: errorMessages.passwordsDontMatch });
 
     // Go to Firebase
     return Firebase.auth().createUserWithEmailAndPassword(email, password)
@@ -80,8 +80,8 @@ export function login(formData) {
 
   return dispatch => new Promise(async (resolve, reject) => {
     // Validation rules
-    if (!email) return reject({ message: ErrorMessages.missingEmail });
-    if (!password) return reject({ message: ErrorMessages.missingPassword });
+    if (!email) return reject({ message: errorMessages.missingEmail });
+    if (!password) return reject({ message: errorMessages.missingPassword });
 
     // Go to Firebase
     return Firebase.auth().setPersistence(Firebase.auth.Auth.Persistence.LOCAL)
@@ -118,7 +118,7 @@ export function resetPassword(formData) {
 
   return dispatch => new Promise(async (resolve, reject) => {
     // Validation rules
-    if (!email) return reject({ message: ErrorMessages.missingEmail });
+    if (!email) return reject({ message: errorMessages.missingEmail });
 
     // Go to Firebase
     return Firebase.auth().sendPasswordResetEmail(email)
@@ -138,18 +138,18 @@ export function updateProfile(formData) {
   return dispatch => new Promise(async (resolve, reject) => {
     // Are they a user?
     const UID = Firebase.auth().currentUser.uid;
-    if (!UID) return reject({ message: ErrorMessages.missingFirstName });
+    if (!UID) return reject({ message: errorMessages.missingFirstName });
 
     // Validation rules
-    if (!firstName) return reject({ message: ErrorMessages.missingFirstName });
-    if (!lastName) return reject({ message: ErrorMessages.missingLastName });
+    if (!firstName) return reject({ message: errorMessages.missingFirstName });
+    if (!lastName) return reject({ message: errorMessages.missingLastName });
     if (changeEmail) {
-      if (!email) return reject({ message: ErrorMessages.missingEmail });
+      if (!email) return reject({ message: errorMessages.missingEmail });
     }
     if (changePassword) {
-      if (!password) return reject({ message: ErrorMessages.missingPassword });
-      if (!password2) return reject({ message: ErrorMessages.missingPassword });
-      if (password !== password2) return reject({ message: ErrorMessages.passwordsDontMatch });
+      if (!password) return reject({ message: errorMessages.missingPassword });
+      if (!password2) return reject({ message: errorMessages.missingPassword });
+      if (password !== password2) return reject({ message: errorMessages.passwordsDontMatch });
     }
 
     // Go to Firebase

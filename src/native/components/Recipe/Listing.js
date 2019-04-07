@@ -7,10 +7,10 @@ import {
   Container, Content, Card, CardItem, Body, Text, Button,
 } from 'native-base';
 import { Actions } from 'react-native-router-flux';
-import Loading from './Loading';
-import Error from './Error';
-import Header from './Header';
-import Spacer from './Spacer';
+import Loading from '../UI/Loading';
+import Error from '../UI/Error';
+import Header from '../UI/Header';
+import Spacer from '../UI/Spacer';
 
 const RecipeListing = ({
   error,

@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 import {
   Container, Content, Text, Body, ListItem, Form, Item, Label, Input, CheckBox, Button, View,
 } from 'native-base';
-import Messages from './Messages';
-import Header from './Header';
-import Spacer from './Spacer';
+import Messages from '../UI/Messages';
+import Header from '../UI/Header';
+import Spacer from '../UI/Spacer';
 
 class UpdateProfile extends React.Component {
   static propTypes = {

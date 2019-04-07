@@ -11,7 +11,7 @@ import {
   UncontrolledDropdown,
 } from 'reactstrap';
 import { Link, withRouter } from 'react-router-dom';
-import Config from '../../constants/config';
+import Config from '../../../constants/config';
 import { SidebarNavItems } from './Sidebar';
 
 class Header extends Component {

@@ -5,7 +5,7 @@ import {
   Container, Content, List, ListItem, Body, Left, Text, Icon,
 } from 'native-base';
 import { Actions } from 'react-native-router-flux';
-import Header from './Header';
+import Header from '../UI/Header';
 
 const Profile = ({ member, logout }) => (
   <Container>

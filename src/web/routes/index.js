@@ -2,29 +2,29 @@ import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 
 // Templates
-import TemplateNothing from '../components/TemplateNothing';
-import TemplateSidebar from '../components/TemplateSidebar';
+import TemplateNothing from '../components/Templates/Nothing';
+import TemplateSidebar from '../components/Templates/Sidebar';
 
 // Routes
 import Home from '../components/Home';
 
 import RecipesContainer from '../../containers/Recipes';
-import RecipesComponent from '../components/Recipes';
-import RecipeViewComponent from '../components/Recipe';
+import RecipeListingComponent from '../components/Recipe/Listing';
+import RecipeSingleComponent from '../components/Recipe/Single';
 
 import SignUpContainer from '../../containers/SignUp';
-import SignUpComponent from '../components/SignUp';
+import SignUpComponent from '../components/User/SignUp';
 
 import LoginContainer from '../../containers/Login';
-import LoginComponent from '../components/Login';
+import LoginComponent from '../components/User/Login';
 
 import ForgotPasswordContainer from '../../containers/ForgotPassword';
-import ForgotPasswordComponent from '../components/ForgotPassword';
+import ForgotPasswordComponent from '../components/User/ForgotPassword';
 
 import UpdateProfileContainer from '../../containers/UpdateProfile';
-import UpdateProfileComponent from '../components/UpdateProfile';
+import UpdateProfileComponent from '../components/User/UpdateProfile';
 
-import Error from '../components/Error';
+import Error from '../components/UI/Error';
 
 const Index = () => (
   <Switch>
@@ -73,7 +73,7 @@ const Index = () => (
       path="/recipes"
       render={props => (
         <TemplateSidebar pageTitle="Recipes">
-          <RecipesContainer {...props} Layout={RecipesComponent} />
+          <RecipesContainer {...props} Layout={RecipeListingComponent} />
         </TemplateSidebar>
       )}
     />
@@ -81,7 +81,7 @@ const Index = () => (
       path="/recipe/:id"
       render={props => (
         <TemplateSidebar pageTitle="Recipe View">
-          <RecipesContainer {...props} Layout={RecipeViewComponent} />
+          <RecipesContainer {...props} Layout={RecipeSingleComponent} />
         </TemplateSidebar>
       )}
     />

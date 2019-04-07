@@ -10,7 +10,7 @@ import {
   CardTitle,
 } from 'reactstrap';
 import { Link } from 'react-router-dom';
-import Error from './Error';
+import Error from '../UI/Error';
 
 const RecipeListing = ({ error, loading, recipes }) => {
   // Error

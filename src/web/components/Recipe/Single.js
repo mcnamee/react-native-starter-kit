@@ -12,9 +12,9 @@ import {
 } from 'reactstrap';
 import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
-import ErrorMessages from '../../constants/errors';
-import Loading from './Loading';
-import Error from './Error';
+import { errorMessages } from '../../../constants/messages';
+import Loading from '../UI/Loading';
+import Error from '../UI/Error';
 
 const RecipeView = ({
   error, loading, recipes, recipeId,
@@ -32,7 +32,7 @@ const RecipeView = ({
   }
 
   // Recipe not found
-  if (!recipe) return <Error content={ErrorMessages.recipe404} />;
+  if (!recipe) return <Error content={errorMessages.recipe404} />;
 
   // Build Ingredients listing
   const ingredients = recipe.ingredients.map(item => (
@@ -82,7 +82,7 @@ const RecipeView = ({
           </Card>
         </Col>
       </Row>
-      <Row className="pb-3">
+      <Row className="pt-5 pb-3">
         <Col sm="12">
           <Link className="btn btn-secondary" to="/recipes">
             <i className="icon-arrow-left" />

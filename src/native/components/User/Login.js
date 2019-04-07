@@ -4,9 +4,9 @@ import {
   Container, Content, Form, Item, Label, Input, Text, Button, View,
 } from 'native-base';
 import { Actions } from 'react-native-router-flux';
-import Messages from './Messages';
-import Header from './Header';
-import Spacer from './Spacer';
+import Messages from '../UI/Messages';
+import Header from '../UI/Header';
+import Spacer from '../UI/Spacer';
 
 class Login extends React.Component {
   static propTypes = {

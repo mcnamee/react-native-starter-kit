@@ -10,7 +10,7 @@ import * as serviceWorker from './register-service-worker';
 import Routes from './routes/index';
 
 // Components
-import Loading from './components/Loading';
+import Loading from './components/UI/Loading';
 
 // Load css
 import './styles/style.scss';

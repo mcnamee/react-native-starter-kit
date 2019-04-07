@@ -6,23 +6,23 @@ import DefaultProps from '../constants/navigation';
 import AppConfig from '../../constants/config';
 
 import RecipesContainer from '../../containers/Recipes';
-import RecipesComponent from '../components/Recipes';
-import RecipeViewComponent from '../components/Recipe';
+import RecipeListingComponent from '../components/Recipe/Listing';
+import RecipeSingleComponent from '../components/Recipe/Single';
 
 import SignUpContainer from '../../containers/SignUp';
-import SignUpComponent from '../components/SignUp';
+import SignUpComponent from '../components/User/SignUp';
 
 import LoginContainer from '../../containers/Login';
-import LoginComponent from '../components/Login';
+import LoginComponent from '../components/User/Login';
 
 import ForgotPasswordContainer from '../../containers/ForgotPassword';
-import ForgotPasswordComponent from '../components/ForgotPassword';
+import ForgotPasswordComponent from '../components/User/ForgotPassword';
 
 import UpdateProfileContainer from '../../containers/UpdateProfile';
-import UpdateProfileComponent from '../components/UpdateProfile';
+import UpdateProfileComponent from '../components/User/UpdateProfile';
 
 import MemberContainer from '../../containers/Member';
-import ProfileComponent from '../components/Profile';
+import ProfileComponent from '../components/User/Profile';
 
 import AboutComponent from '../components/About';
 
@@ -51,7 +51,7 @@ const Index = (
           icon={() => <Icon name="book" {...DefaultProps.icons} />}
           {...DefaultProps.navbarProps}
         >
-          <Scene key="recipes" component={RecipesContainer} Layout={RecipesComponent} />
+          <Scene key="recipes" component={RecipesContainer} Layout={RecipeListingComponent} />
         </Stack>
 
         <Stack
@@ -104,7 +104,7 @@ const Index = (
       title="RECIPE"
       {...DefaultProps.navbarProps}
       component={RecipesContainer}
-      Layout={RecipeViewComponent}
+      Layout={RecipeSingleComponent}
     />
   </Stack>
 );

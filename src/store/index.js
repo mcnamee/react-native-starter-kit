@@ -4,19 +4,29 @@ import { persistStore, persistCombineReducers } from 'redux-persist';
 import storage from 'redux-persist/es/storage';
 import thunk from 'redux-thunk';
 import reducers from '../reducers';
+import * as models from '../models'
+import { init } from "@rematch/core";
+import createPersistPlugin, { getPersistor } from "@rematch/persist";
+import createLoadingPlugin from "@rematch/loading";
 
-const reduxPersistConfig = { key: 'root', storage, blacklist: [] };
-
-const reducer = persistCombineReducers(reduxPersistConfig, reducers);
-
-const middleware = [thunk];
+// Create plugins
+const persistPlugin = createPersistPlugin({
+  version: 2
+});
+const loadingPlugin = createLoadingPlugin({});
 
 const configureStore = () => {
-  // Allows us to use redux devtools when it exists
-  const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
-  const store = createStore(reducer, composeEnhancer(applyMiddleware(...middleware)));
-  const persistor = persistStore(store, null, () => { store.getState(); });
+  const store = init({
+    models,
+    redux: {
+      reducers,
+      middlewares: [thunk]
+    },
+    plugins: [persistPlugin, loadingPlugin]
+  });
+
+  const persistor = getPersistor();
 
   return { persistor, store };
 };

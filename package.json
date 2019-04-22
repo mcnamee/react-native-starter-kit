@@ -30,6 +30,9 @@
   },
   "dependencies": {
     "@expo/vector-icons": "^10.0.1",
+    "@rematch/core": "^1.1.0",
+    "@rematch/loading": "^1.1.3",
+    "@rematch/persist": "^1.1.6",
     "babel-polyfill": "^6.26.0",
     "bootstrap": "^4.3.1",
     "expo": "^32.0.6",

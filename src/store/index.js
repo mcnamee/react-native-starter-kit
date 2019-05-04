@@ -1,12 +1,9 @@
 /* global window */
-import { createStore, applyMiddleware, compose } from 'redux';
-import { persistStore, persistCombineReducers } from 'redux-persist';
-import storage from 'redux-persist/es/storage';
-import logger from "redux-logger";
-import * as models from '../models'
 import { init } from "@rematch/core";
 import createPersistPlugin, { getPersistor } from "@rematch/persist";
 import createLoadingPlugin from "@rematch/loading";
+import logger from "redux-logger";
+import * as models from '../models'
 
 // Create plugins
 const persistPlugin = createPersistPlugin({

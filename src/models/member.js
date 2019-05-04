@@ -109,7 +109,7 @@ export default {
 
       const { email, password } = payload;
 
-      
+
       return new Promise(async (resolve, reject) => {
         // Validation rules
         if (!email || email.length === 0) return reject({ message: errorMessages.missingEmail });
@@ -120,7 +120,6 @@ export default {
           .then(() => Firebase.auth().signInWithEmailAndPassword(email, password)
             .then(async (res) => {
               const userDetails = res && res.user ? res.user : null;
-              console.log('user detaylari:', userDetails)
               if (userDetails.uid) {
                 // Update last logged in data
                 FirebaseRef.child(`users/${userDetails.uid}`).update({
@@ -208,8 +207,8 @@ export default {
       * Logout
       */
     logout() {
-      return dispatch => new Promise((resolve, reject) => Firebase.auth().signOut()
-        .then(() => resolve(this.userReset()))
+      return new Promise((resolve, reject) => Firebase.auth().signOut()
+        .then(() => resolve(this.resetUser()))
         .catch(reject)).catch((err) => { throw err.message; });
     }
 

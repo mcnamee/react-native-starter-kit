@@ -2,8 +2,6 @@
 import { createStore, applyMiddleware, compose } from 'redux';
 import { persistStore, persistCombineReducers } from 'redux-persist';
 import storage from 'redux-persist/es/storage';
-import thunk from 'redux-thunk';
-import reducers from '../reducers';
 import logger from "redux-logger";
 import * as models from '../models'
 import { init } from "@rematch/core";
@@ -21,7 +19,7 @@ const configureStore = () => {
   const store = init({
     models,
     redux: {
-      middlewares: [thunk, logger]
+      middlewares: [logger]
     },
     plugins: [persistPlugin, loadingPlugin]
   });

@@ -107,7 +107,7 @@ const About = () => (
         </h3>
         <p>
           Most apps need user authentication. This one comes ready to go with Firebase Auth - but
-          you can easily change that within the `/actions/member.js`
+          you can easily change that within the `/models/member.js`
         </p>
         <p>
           <a target="_blank" rel="noopener noreferrer" href="https://firebase.google.com/docs/auth/" className="btn btn-primary">

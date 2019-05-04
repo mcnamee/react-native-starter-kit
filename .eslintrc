@@ -1,10 +1,16 @@
 {
   "extends": "airbnb",
   "parser": "babel-eslint",
+  "plugins": [
+    "jest"
+  ],
   "parserOptions": {
     "ecmaFeatures": {
       "classes": true
     }
+  },
+  "env": {
+    "jest/globals": true
   },
   "rules": {
     "react/jsx-filename-extension": ["error", { "extensions": [".js", ".jsx"] }],

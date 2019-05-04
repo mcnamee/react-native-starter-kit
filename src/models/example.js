@@ -1,3 +1,5 @@
+// This is an example model
+
 export default {
   namespace: 'example',
   state: {

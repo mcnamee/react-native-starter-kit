@@ -15,13 +15,13 @@ import Loading from './components/UI/Loading';
 // Load css
 import './styles/style.scss';
 
-const { persistor, store } = configureStore();
+const { persistor, store, dispatch } = configureStore();
 // persistor.purge(); // Debug to clear persist
 
 const Root = () => (
   <Provider store={store}>
     <PersistGate loading={<Loading />} persistor={persistor}>
-      <Router>
+      <Router dispatch={dispatch} store={store}>
         <Routes />
       </Router>
     </PersistGate>

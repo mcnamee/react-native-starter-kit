@@ -57,8 +57,8 @@ const mapStateToProps = state => ({
   member: state.member || {},
 });
 
-const mapDispatchToProps = {
-  onFormSubmit: login,
-};
+const mapDispatchToProps = (dispatch) => ({
+  onFormSubmit: dispatch.member.login,
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(Login);

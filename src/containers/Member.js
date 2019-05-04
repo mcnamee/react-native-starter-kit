@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-import { logout, getMemberData } from '../actions/member';
-
 class Member extends Component {
   static propTypes = {
     Layout: PropTypes.func.isRequired,
@@ -54,9 +52,9 @@ const mapStateToProps = state => ({
   member: state.member || {},
 });
 
-const mapDispatchToProps = {
-  memberLogout: logout,
-  fetchMember: getMemberData,
-};
+const mapDispatchToProps = (dispatch) => ({
+  memberLogout: dispatch.member.logout,
+  fetchMember: dispatch.member.getMemberData,
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(Member);

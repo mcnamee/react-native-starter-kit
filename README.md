@@ -29,6 +29,7 @@ The project is _super_ helpful to kick-start your next project, as it provides a
 - A shared React and React Native structure
 - __Flux architecture__
     - [Redux](https://redux.js.org/docs/introduction/)
+    - Redux Wrapper: [Rematch](https://github.com/rematch/rematch)
 - __Routing and navigation__
     - [React Native Router Flux](https://github.com/aksonov/react-native-router-flux) for native mobile
     - [React Router](https://github.com/ReactTraining/react-router) for web

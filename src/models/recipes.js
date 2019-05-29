@@ -1,8 +1,10 @@
 import { Firebase, FirebaseRef } from '../lib/firebase';
+import initState from '../store/recipes';
 
 export default {
   state: {
-    recipes: [],
+    recipes: initState.recipes,
+    meals: initState.meals,
   }, // initial state
   reducers: {
     // handle state changes with pure functions

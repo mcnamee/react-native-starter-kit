@@ -55,7 +55,7 @@ const mapStateToProps = state => ({
   member: state.member || {},
 });
 
-const mapDispatchToProps = (dispatch) => ({
+const mapDispatchToProps = dispatch => ({
   onFormSubmit: dispatch.member.signUp,
 });
 

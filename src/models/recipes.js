@@ -2,11 +2,11 @@ import { Firebase, FirebaseRef } from '../lib/firebase';
 
 export default {
   state: {
-    recipes: []
+    recipes: [],
   }, // initial state
   reducers: {
     // handle state changes with pure functions
-    replaceMeals(state, payload){
+    replaceMeals(state, payload) {
       return {
         ...state,
         meals: payload,
@@ -31,7 +31,7 @@ export default {
       return { ...state, recipes };
     },
   },
-  effects: (dispatch) => ({
+  effects: () => ({
 
     /**
       * Get Meals
@@ -57,7 +57,7 @@ export default {
           const data = snapshot.val() || [];
           return resolve(this.replaceRecipes(data));
         })).catch((err) => { throw err.message; });
-    }
+    },
 
-  })
-}
+  }),
+};

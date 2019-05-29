@@ -52,9 +52,8 @@ const mapStateToProps = state => ({
   member: state.member || {},
 });
 
-const mapDispatchToProps = (dispatch) => ({
+const mapDispatchToProps = dispatch => ({
   onFormSubmit: dispatch.member.updateProfile,
-  getUserData: dispatch.member.getUserData
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(UpdateProfile);

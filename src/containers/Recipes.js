@@ -59,7 +59,7 @@ const mapStateToProps = state => ({
   recipes: state.recipes.recipes || {},
 });
 
-const mapDispatchToProps = (dispatch) => ({
+const mapDispatchToProps = dispatch => ({
   fetchMeals: dispatch.recipes.getMeals,
   fetchRecipes: dispatch.recipes.getRecipes,
 });

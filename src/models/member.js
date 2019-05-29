@@ -9,29 +9,31 @@ export default {
       const { uid, email, emailVerified } = payload;
       return {
         ...state,
-        uid: uid,
-        email: email,
-        emailVerified: emailVerified
-      }
-    },
-
-    setUserDetails(state, payload) {
-      const { firstName, lastName, signedUp, role } = payload;
-      return {
-        ...state,
-        firstName: firstName,
-        lastName: lastName,
-        signedUp: signedUp,
-        role: role,
+        uid,
+        email,
+        emailVerified,
       };
     },
 
-    resetUser(state, payload) {
-      return {}
-    }
+    setUserDetails(state, payload) {
+      const {
+        firstName, lastName, signedUp, role,
+      } = payload;
+      return {
+        ...state,
+        firstName,
+        lastName,
+        signedUp,
+        role,
+      };
+    },
+
+    resetUser() {
+      return {};
+    },
 
   },
-  effects: (dispatch) => ({
+  effects: dispatch => ({
     // handle state changes with impure functions.
     // use async/await for async actions
     signUp(formData) {
@@ -67,7 +69,7 @@ export default {
     /**
       * Get this User's Details
       */
-    getUserData(dispatch) {
+    getUserData() {
       const UID = (
         FirebaseRef
         && Firebase
@@ -91,7 +93,7 @@ export default {
       if (Firebase === null) return () => new Promise(resolve => resolve());
 
       // Ensure token is up to date
-      return dispatch => new Promise((resolve) => {
+      return () => new Promise((resolve) => {
         Firebase.auth().onAuthStateChanged((loggedIn) => {
           if (loggedIn) {
             return resolve(this.getUserData(dispatch));
@@ -106,14 +108,15 @@ export default {
       * Login to Firebase with Email/Password
       */
     login(payload) {
-
       const { email, password } = payload;
 
 
       return new Promise(async (resolve, reject) => {
         // Validation rules
         if (!email || email.length === 0) return reject({ message: errorMessages.missingEmail });
-        if (!password || password.length === 0) return reject({ message: errorMessages.missingPassword });
+        if (!password || password.length === 0) {
+          return reject({ message: errorMessages.missingPassword });
+        }
 
         // Go to Firebase
         return Firebase.auth().setPersistence(Firebase.auth.Auth.Persistence.LOCAL)
@@ -147,7 +150,7 @@ export default {
     resetPassword(formData) {
       const { email } = formData;
 
-      return dispatch => new Promise(async (resolve, reject) => {
+      return () => new Promise(async (resolve, reject) => {
         // Validation rules
         if (!email) return reject({ message: errorMessages.missingEmail });
 
@@ -166,7 +169,7 @@ export default {
         email, password, password2, firstName, lastName, changeEmail, changePassword,
       } = formData;
 
-      console.log('form', formData)
+      console.log('form', formData);
       return new Promise(async (resolve, reject) => {
         // Are they a user?
         const UID = await Firebase.auth().currentUser.uid;
@@ -210,7 +213,7 @@ export default {
       return new Promise((resolve, reject) => Firebase.auth().signOut()
         .then(() => resolve(this.resetUser()))
         .catch(reject)).catch((err) => { throw err.message; });
-    }
+    },
 
-  })
-}
+  }),
+};

@@ -7,6 +7,7 @@ import TemplateSidebar from '../components/Templates/Sidebar';
 
 // Routes
 import Home from '../components/Home';
+import HomeScreen from '../components/HomeScreen';
 
 import RecipesContainer from '../../containers/Recipes';
 import RecipeListingComponent from '../components/Recipe/Listing';
@@ -37,6 +38,7 @@ const Index = () => (
         </TemplateSidebar>
       )}
     />
+    <Route path="/home" render={props => <HomeScreen {...props} />} />
     <Route
       path="/sign-up"
       render={props => (
@@ -57,7 +59,10 @@ const Index = () => (
       path="/forgot-password"
       render={props => (
         <TemplateNothing pageTitle="Forgot Password">
-          <ForgotPasswordContainer {...props} Layout={ForgotPasswordComponent} />
+          <ForgotPasswordContainer
+            {...props}
+            Layout={ForgotPasswordComponent}
+          />
         </TemplateNothing>
       )}
     />
@@ -88,7 +93,11 @@ const Index = () => (
     <Route
       render={props => (
         <TemplateSidebar pageTitle="404 - Page not found">
-          <Error {...props} title="404" content="Sorry, the route you requested does not exist" />
+          <Error
+            {...props}
+            title="404"
+            content="Sorry, the route you requested does not exist"
+          />
         </TemplateSidebar>
       )}
     />

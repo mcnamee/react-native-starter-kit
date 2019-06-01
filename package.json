@@ -30,6 +30,7 @@
   },
   "dependencies": {
     "@expo/vector-icons": "^10.0.1",
+    "@material-ui/core": "next",
     "babel-polyfill": "^6.26.0",
     "bootstrap": "^4.3.1",
     "expo": "^32.0.6",

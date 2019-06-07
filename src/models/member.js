@@ -8,7 +8,6 @@ export default {
    * Reducers
    */
   reducers: {
-    // handle state changes with pure functions
     setUserLogin(state, payload) {
       const { uid, email, emailVerified } = payload;
 
@@ -37,7 +36,6 @@ export default {
     resetUser() {
       return {};
     },
-
   },
 
   /**

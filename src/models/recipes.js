@@ -2,12 +2,18 @@ import { Firebase, FirebaseRef } from '../lib/firebase';
 import initState from '../store/recipes';
 
 export default {
+  /**
+   *  Initial state
+   */
   state: {
     recipes: initState.recipes,
     meals: initState.meals,
-  }, // initial state
+  },
+
+  /**
+   * Reducers
+   */
   reducers: {
-    // handle state changes with pure functions
     replaceMeals(state, payload) {
       return {
         ...state,
@@ -33,23 +39,31 @@ export default {
       return { ...state, recipes };
     },
   },
-  effects: () => ({
 
+  /**
+   * Effects/Actions
+   */
+  effects: () => ({
     /**
-      * Get Meals
-      */
+     * Get Meals
+     *
+     * @return {Promise}
+     */
     getMeals() {
       if (Firebase === null) return () => new Promise(resolve => resolve());
 
       return new Promise((resolve, reject) => FirebaseRef.child('meals').once('value')
         .then((snapshot) => {
           const data = snapshot.val() || [];
-          return resolve(this.replaceMeals(data));
+          this.replaceMeals(data);
+          return resolve();
         }).catch(reject)).catch((err) => { throw err.message; });
     },
 
     /**
       * Get Recipes
+      *
+     * @return {Promise}
       */
     getRecipes() {
       if (Firebase === null) return () => new Promise(resolve => resolve());
@@ -57,9 +71,9 @@ export default {
       return new Promise(resolve => FirebaseRef.child('recipes')
         .on('value', (snapshot) => {
           const data = snapshot.val() || [];
-          return resolve(this.replaceRecipes(data));
+          this.replaceRecipes(data);
+          return resolve();
         })).catch((err) => { throw err.message; });
     },
-
   }),
 };

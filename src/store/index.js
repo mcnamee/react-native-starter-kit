@@ -2,11 +2,14 @@
 import { init } from '@rematch/core';
 import createPersistPlugin, { getPersistor } from '@rematch/persist';
 import createLoadingPlugin from '@rematch/loading';
+import storage from 'redux-persist/es/storage';
 import * as models from '../models';
 
 // Create plugins
 const persistPlugin = createPersistPlugin({
   version: 2,
+  storage,
+  blacklist: [],
 });
 const loadingPlugin = createLoadingPlugin({});
 

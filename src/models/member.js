@@ -150,7 +150,7 @@ export default {
     resetPassword(formData) {
       const { email } = formData;
 
-      return () => new Promise(async (resolve, reject) => {
+      return new Promise(async (resolve, reject) => {
         // Validation rules
         if (!email) return reject({ message: errorMessages.missingEmail });
 
@@ -169,7 +169,7 @@ export default {
         email, password, password2, firstName, lastName, changeEmail, changePassword,
       } = formData;
 
-      console.log('form', formData);
+
       return new Promise(async (resolve, reject) => {
         // Are they a user?
         const UID = await Firebase.auth().currentUser.uid;

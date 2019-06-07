@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-import { getRecipes, getMeals } from '../actions/recipes';
-
 class RecipeListing extends Component {
   static propTypes = {
     Layout: PropTypes.func.isRequired,
@@ -61,9 +59,9 @@ const mapStateToProps = state => ({
   recipes: state.recipes.recipes || {},
 });
 
-const mapDispatchToProps = {
-  fetchMeals: getMeals,
-  fetchRecipes: getRecipes,
-};
+const mapDispatchToProps = dispatch => ({
+  fetchMeals: dispatch.recipes.getMeals,
+  fetchRecipes: dispatch.recipes.getRecipes,
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(RecipeListing);

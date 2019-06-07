@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-import { updateProfile } from '../actions/member';
-
 class UpdateProfile extends Component {
   static propTypes = {
     Layout: PropTypes.func.isRequired,
@@ -54,8 +52,8 @@ const mapStateToProps = state => ({
   member: state.member || {},
 });
 
-const mapDispatchToProps = {
-  onFormSubmit: updateProfile,
-};
+const mapDispatchToProps = dispatch => ({
+  onFormSubmit: dispatch.member.updateProfile,
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(UpdateProfile);

@@ -22,13 +22,14 @@
 
 ## 👋 Intro
 
-This boilerplate launches with a [React web app](https://reactjs.org/) and [React Native app](https://facebook.github.io/react-native/) sharing a single code base. It shares the 'business logic' (_i.e. actions, containers, reducers_) across the platforms, whilst allowing flexibility in View components to ensure your project looks and feels native in each platform.
+This boilerplate launches with a [React web app](https://reactjs.org/) and [React Native app](https://facebook.github.io/react-native/) sharing a single code base. It shares the 'business logic' (_i.e. models, containers_) across the platforms, whilst allowing flexibility in View components to ensure your project looks and feels native in each platform.
 
 The project is _super_ helpful to kick-start your next project, as it provides a lot of the common tools you may reach for, all ready to go. Specifically:
 
 - A shared React and React Native structure
 - __Flux architecture__
     - [Redux](https://redux.js.org/docs/introduction/)
+    - Redux Wrapper: [Rematch](https://github.com/rematch/rematch)
 - __Routing and navigation__
     - [React Native Router Flux](https://github.com/aksonov/react-native-router-flux) for native mobile
     - [React Router](https://github.com/ReactTraining/react-router) for web

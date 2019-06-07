@@ -26,6 +26,7 @@ Our opinion for performant and maintainable solutions, is to:
 - [What are Components?](http://www.reactnativeexpress.com/components)
 - [React State](http://www.reactnativeexpress.com/data_component_state)
 - [Redux](http://www.reactnativeexpress.com/redux)
+- [Rematch](https://rematch.gitbooks.io/rematch/)
 
 Once you've got your head around the basics, checkout the [React Native](https://facebook.github.io/react-native/) and [React](https://reactjs.org/) websites, specifically
 

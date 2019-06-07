@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-import { login } from '../actions/member';
-
 class Login extends Component {
   static propTypes = {
     Layout: PropTypes.func.isRequired,
@@ -57,8 +55,8 @@ const mapStateToProps = state => ({
   member: state.member || {},
 });
 
-const mapDispatchToProps = {
-  onFormSubmit: login,
-};
+const mapDispatchToProps = dispatch => ({
+  onFormSubmit: dispatch.member.login,
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(Login);

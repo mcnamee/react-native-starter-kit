@@ -3,10 +3,15 @@ import { Firebase, FirebaseRef } from '../lib/firebase';
 
 export default {
   state: {}, // initial state
+
+  /**
+   * Reducers
+   */
   reducers: {
     // handle state changes with pure functions
     setUserLogin(state, payload) {
       const { uid, email, emailVerified } = payload;
+
       return {
         ...state,
         uid,
@@ -19,6 +24,7 @@ export default {
       const {
         firstName, lastName, signedUp, role,
       } = payload;
+
       return {
         ...state,
         firstName,
@@ -33,9 +39,17 @@ export default {
     },
 
   },
+
+  /**
+   * Effects/Actions
+   */
   effects: dispatch => ({
-    // handle state changes with impure functions.
-    // use async/await for async actions
+    /**
+     * Sign Up
+     *
+     * @param {obj} formData - data from form
+     * @return {Promise}
+     */
     signUp(formData) {
       const {
         email, password, password2, firstName, lastName,
@@ -67,9 +81,9 @@ export default {
     },
 
     /**
-      * Get this User's Details
-      */
-    getUserData() {
+     * Listen for realtime updates on the current user
+     */
+    listenForMemberProfileUpdates() {
       const UID = (
         FirebaseRef
         && Firebase
@@ -85,31 +99,39 @@ export default {
       return ref.on('value', (snapshot) => {
         const userData = snapshot.val() || [];
 
-        this.setUserDetails(userData);
+        this.setUserDetails(userData); // Send to reducer
       });
     },
 
+    /**
+     * Get the current Member's Details
+     *
+     * @returns {Promise}
+     */
     getMemberData() {
-      if (Firebase === null) return () => new Promise(resolve => resolve());
+      if (Firebase === null) return new Promise(resolve => resolve);
 
       // Ensure token is up to date
-      return () => new Promise((resolve) => {
+      return new Promise((resolve) => {
         Firebase.auth().onAuthStateChanged((loggedIn) => {
           if (loggedIn) {
-            return resolve(this.getUserData(dispatch));
+            this.listenForMemberProfileUpdates(dispatch);
+            return resolve();
           }
 
-          return () => new Promise(() => resolve());
+          return new Promise(() => resolve);
         });
       });
     },
 
     /**
-      * Login to Firebase with Email/Password
-      */
-    login(payload) {
-      const { email, password } = payload;
-
+     * Login to Firebase with Email/Password
+     *
+     * @param {obj} formData - data from form
+     * @return {Promise}
+     */
+    login(formData) {
+      const { email, password } = formData;
 
       return new Promise(async (resolve, reject) => {
         // Validation rules
@@ -123,8 +145,12 @@ export default {
           .then(() => Firebase.auth().signInWithEmailAndPassword(email, password)
             .then(async (res) => {
               const userDetails = res && res.user ? res.user : null;
+
+              // Save the user's login data (email, UID)
+              this.setUserLogin(userDetails);
+
+              // Update last logged in data
               if (userDetails.uid) {
-                // Update last logged in data
                 FirebaseRef.child(`users/${userDetails.uid}`).update({
                   lastLoggedIn: Firebase.database.ServerValue.TIMESTAMP,
                 });
@@ -135,18 +161,21 @@ export default {
                     .catch(() => console.log('Verification email failed to send'));
                 }
 
-                // Get User Data from DB (different to auth user data)
-                this.getUserData(dispatch);
+                // Get/Save User Profile (name, signed up date etc)
+                this.listenForMemberProfileUpdates(dispatch);
               }
 
-              return resolve(this.setUserLogin(userDetails));
+              return resolve();
             }).catch(reject));
       }).catch((err) => { throw err.message; });
     },
 
     /**
-      * Reset Password
-      */
+     * Reset Password
+     *
+     * @param {obj} formData - data from form
+     * @return {Promise}
+     */
     resetPassword(formData) {
       const { email } = formData;
 
@@ -156,24 +185,28 @@ export default {
 
         // Go to Firebase
         return Firebase.auth().sendPasswordResetEmail(email)
-          .then(() => resolve(this.resetUser()))
-          .catch(reject);
+          .then(() => {
+            this.resetUser();
+            resolve();
+          }).catch(reject);
       }).catch((err) => { throw err.message; });
     },
 
     /**
-      * Update Profile
-      */
+     * Update Profile
+     *
+     * @param {obj} formData - data from form
+     * @return {Promise}
+     */
     updateProfile(formData) {
       const {
         email, password, password2, firstName, lastName, changeEmail, changePassword,
       } = formData;
 
-
       return new Promise(async (resolve, reject) => {
         // Are they a user?
         const UID = await Firebase.auth().currentUser.uid;
-        if (!UID) return reject({ message: errorMessages.missingFirstName });
+        if (!UID) return reject({ message: errorMessages.memberNotAuthd });
 
         // Validation rules
         if (!firstName) return reject({ message: errorMessages.missingFirstName });
@@ -195,24 +228,27 @@ export default {
               await Firebase.auth().currentUser.updateEmail(email).catch(reject);
             }
 
-            // Change the password
+            // Change the Password
             if (changePassword) {
               await Firebase.auth().currentUser.updatePassword(password).catch(reject);
             }
 
-            // Update Redux
-            return resolve(this.getUserData(dispatch));
+            return resolve();
           }).catch(reject);
       }).catch((err) => { throw err.message; });
     },
 
     /**
-      * Logout
-      */
+     * Logout
+     *
+     * @returns {Promise}
+     */
     logout() {
       return new Promise((resolve, reject) => Firebase.auth().signOut()
-        .then(() => resolve(this.resetUser()))
-        .catch(reject)).catch((err) => { throw err.message; });
+        .then(() => {
+          this.resetUser();
+          resolve();
+        }).catch(reject)).catch((err) => { throw err.message; });
     },
 
   }),

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { Actions } from 'react-native-router-flux';
 
 class Member extends Component {
   static propTypes = {
@@ -32,6 +33,11 @@ class Member extends Component {
       }));
   }
 
+  logoutUser = () => {
+    const { memberLogout } = this.props;
+    return memberLogout().then(() => Actions.login());
+  }
+
   render = () => {
     const { Layout, member, memberLogout } = this.props;
     const { loading, error } = this.state;
@@ -41,7 +47,7 @@ class Member extends Component {
         error={error}
         loading={loading}
         member={member}
-        logout={memberLogout}
+        logout={this.logoutUser}
         reFetch={() => this.fetchData()}
       />
     );

@@ -121,6 +121,17 @@ export default {
         });
       });
     },
+    isLoggedIn() {
+      return new Promise((resolve, reject) => {
+        Firebase.auth().onAuthStateChanged((loggedIn) => {
+          if (loggedIn) {
+            return resolve();
+          }
+
+          return reject();
+        });
+      });
+    },
 
     /**
      * Login to Firebase with Email/Password

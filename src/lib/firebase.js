@@ -7,7 +7,8 @@ const {
 
 let firebaseInitialized = false;
 
-if (apiKey && authDomain && databaseURL && storageBucket && messagingSenderId) {
+// if (apiKey && authDomain && databaseURL && storageBucket && messagingSenderId) {
+if (apiKey && authDomain && databaseURL && messagingSenderId) {
   FirebaseModule.initializeApp({
     apiKey, authDomain, databaseURL, storageBucket, messagingSenderId,
   });

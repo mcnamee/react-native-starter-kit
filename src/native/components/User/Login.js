@@ -42,7 +42,7 @@ class Login extends React.Component {
     const { onFormSubmit } = this.props;
 
     return onFormSubmit(this.state)
-      .then(() => setTimeout(() => Actions.pop(), 1000))
+      .then(() => Actions.main())
       .catch(() => {});
   }
 

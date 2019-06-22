@@ -25,10 +25,35 @@ import MemberContainer from '../../containers/Member';
 import ProfileComponent from '../components/User/Profile';
 
 import AboutComponent from '../components/About';
+import Launch from '../components/Launch';
 
 const Index = (
+  
   <Stack hideNavBar>
-    <Scene hideNavBar>
+    <Scene key="Launch" initial component={Launch} hideNavBar/>
+     <Scene
+            key="signUp"
+            title="SIGN UP"
+            {...DefaultProps.navbarProps}
+            component={SignUpContainer}
+            Layout={SignUpComponent}
+          />
+          <Scene
+            key="login"
+            title="LOGIN"
+            {...DefaultProps.navbarProps}
+            component={LoginContainer}
+            Layout={LoginComponent}
+          />
+          <Scene
+            back
+            key="forgotPassword"
+            title="FORGOT PASSWORD"
+            {...DefaultProps.navbarProps}
+            component={ForgotPasswordContainer}
+            Layout={ForgotPasswordComponent}
+          />
+    <Scene hideNavBar key="main">
       <Tabs
         key="tabbar"
         swipeEnabled
@@ -61,30 +86,7 @@ const Index = (
           {...DefaultProps.navbarProps}
         >
           <Scene key="profileHome" component={MemberContainer} Layout={ProfileComponent} />
-          <Scene
-            back
-            key="signUp"
-            title="SIGN UP"
-            {...DefaultProps.navbarProps}
-            component={SignUpContainer}
-            Layout={SignUpComponent}
-          />
-          <Scene
-            back
-            key="login"
-            title="LOGIN"
-            {...DefaultProps.navbarProps}
-            component={LoginContainer}
-            Layout={LoginComponent}
-          />
-          <Scene
-            back
-            key="forgotPassword"
-            title="FORGOT PASSWORD"
-            {...DefaultProps.navbarProps}
-            component={ForgotPasswordContainer}
-            Layout={ForgotPasswordComponent}
-          />
+          
           <Scene
             back
             key="updateProfile"
@@ -107,6 +109,8 @@ const Index = (
       Layout={RecipeSingleComponent}
     />
   </Stack>
+
+ 
 );
 
 export default Index;

@@ -66,6 +66,10 @@ export default {
         return Firebase.auth().createUserWithEmailAndPassword(email, password)
           .then((res) => {
             // Send user details to Firebase database
+            const userDetails = res && res.user ? res.user : null;
+            // Save the user's login data (email, UID)
+            this.setUserLogin(userDetails);
+            this.listenForMemberProfileUpdates(dispatch);
             if (res && res.user.uid) {
               FirebaseRef.child(`users/${res.user.uid}`).set({
                 firstName,
@@ -74,6 +78,7 @@ export default {
                 lastLoggedIn: Firebase.database.ServerValue.TIMESTAMP,
               }).then(resolve);
             }
+
           }).catch(reject);
       }).catch((err) => { throw err.message; });
     },

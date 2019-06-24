@@ -41,7 +41,7 @@ class ForgotPassword extends React.Component {
     const { onFormSubmit } = this.props;
 
     return onFormSubmit(this.state)
-      .then(() => setTimeout(() => { Actions.pop(); Actions.login(); }, 1000))
+      .then(() => setTimeout(() => { Actions.pop(); }, 1000))
       .catch(() => {});
   }
 

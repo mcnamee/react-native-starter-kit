@@ -4,7 +4,7 @@
     "description": "This is a boilerplate that launches with a React web app and React Native mobile app. It shares a single code base! The 'business logic' (i.e. actions, containers, reducers) is shared across both platforms, whilst allowing flexibility in View components to ensure your project looks and feels native in each platform. - https://github.com/mcnamee/react-native-starter-kit",
     "slug": "react-native-starter-kit",
     "privacy": "public",
-    "sdkVersion": "35.0.0",
+    "sdkVersion": "36.0.0",
     "platforms": [
       "ios",
       "android"
@@ -24,7 +24,11 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "co.mcnamee.reactnativestarterkit"
+    },
+    "android": {
+      "package": "co.mcnamee.reactnativestarterkit"
     }
   }
 }

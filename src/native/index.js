@@ -1,6 +1,6 @@
 import React from 'react';
 import { StatusBar, Platform } from 'react-native';
-import { Font } from 'expo';
+import * as Font from 'expo-font';
 import PropTypes from 'prop-types';
 import { Provider } from 'react-redux';
 import { Router, Stack } from 'react-native-router-flux';

@@ -8,8 +8,9 @@
 
 ### Looking for something else?
 
-- [React (web) Starter Kit / Boilerplate](https://github.com/mcnamee/react-starter-kit)
-- [Previous Version (React (Web + Native) Starter Kit w/ Firebase)](https://github.com/mcnamee/react-native-starter-kit/tree/archive/v3)
+- [React Native Starter Kit (Expo) / Boilerplate](https://github.com/mcnamee/react-native-expo-starter-kit)
+- [React Starter Kit (web) / Boilerplate](https://github.com/mcnamee/react-starter-kit)
+- [Previous Version (React Starter Kit (Web + Native) w/ Firebase)](https://github.com/mcnamee/react-native-starter-kit/tree/archive/v3)
 
 ---
 

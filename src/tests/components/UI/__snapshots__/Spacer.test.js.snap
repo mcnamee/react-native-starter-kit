@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Spacer /> renders with correctly with size: 10 1`] = `
+<View
+  style={
+    Array [
+      Object {},
+      Object {
+        "flex": 1,
+        "height": 10,
+      },
+    ]
+  }
+/>
+`;
+
+exports[`<Spacer /> renders with correctly with size: 15 1`] = `
+<View
+  style={
+    Array [
+      Object {},
+      Object {
+        "flex": 1,
+        "height": 15,
+      },
+    ]
+  }
+/>
+`;

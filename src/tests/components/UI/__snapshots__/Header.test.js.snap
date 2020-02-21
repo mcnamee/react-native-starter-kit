@@ -1,0 +1,64 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Header /> renders with message 1`] = `
+<View>
+  <View
+    style={
+      Array [
+        Object {},
+        Object {
+          "flex": 1,
+          "height": 25,
+        },
+      ]
+    }
+  />
+  <Text
+    style={
+      Object {
+        "color": "#000",
+        "fontSize": 27,
+        "lineHeight": 32,
+      }
+    }
+  >
+    hello boy
+  </Text>
+  <View>
+    <View
+      style={
+        Array [
+          Object {},
+          Object {
+            "flex": 1,
+            "height": 10,
+          },
+        ]
+      }
+    />
+    <Text
+      style={
+        Object {
+          "color": "#000",
+          "fontFamily": "System",
+          "fontSize": 16,
+        }
+      }
+      uppercase={false}
+    >
+      I'm here
+    </Text>
+  </View>
+  <View
+    style={
+      Array [
+        Object {},
+        Object {
+          "flex": 1,
+          "height": 25,
+        },
+      ]
+    }
+  />
+</View>
+`;

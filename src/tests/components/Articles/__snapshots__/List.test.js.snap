@@ -1,0 +1,315 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ArticlesList /> shows a list of articles correctly 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "backgroundColor": "#fff",
+        "flex": 1,
+        "height": 1334,
+      },
+      Object {
+        "padding": 10,
+      },
+    ]
+  }
+>
+  <ScrollView
+    ListFooterComponent={null}
+    data={
+      Array [
+        Object {
+          "contentRaw": "DEF",
+          "date": "22/33/44",
+          "excerpt": "DEF",
+          "id": 0,
+          "name": "ABC",
+        },
+      ]
+    }
+    disableVirtualization={false}
+    getItem={[Function]}
+    getItemCount={[Function]}
+    horizontal={false}
+    initialNumToRender={10}
+    keyExtractor={[Function]}
+    maxToRenderPerBatch={10}
+    numColumns={1}
+    onContentSizeChange={[Function]}
+    onEndReachedThreshold={2}
+    onLayout={[Function]}
+    onMomentumScrollEnd={[Function]}
+    onRefresh={[Function]}
+    onScroll={[Function]}
+    onScrollBeginDrag={[Function]}
+    onScrollEndDrag={[Function]}
+    refreshControl={
+      <RefreshControl
+        onRefresh={[Function]}
+        refreshing={false}
+      />
+    }
+    refreshing={false}
+    removeClippedSubviews={false}
+    renderItem={[Function]}
+    scrollEventThrottle={50}
+    stickyHeaderIndices={Array []}
+    updateCellsBatchingPeriod={50}
+    viewabilityConfigCallbackPairs={Array []}
+    windowSize={21}
+  >
+    <View
+      onLayout={[Function]}
+      style={null}
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "backgroundColor": "#fff",
+              "borderBottomWidth": 0.5,
+              "borderColor": "#ccc",
+              "borderLeftWidth": 0.5,
+              "borderRadius": 2,
+              "borderRightWidth": 0.5,
+              "borderTopWidth": 0.5,
+              "elevation": 3,
+              "flexWrap": "nowrap",
+              "marginBottom": 5,
+              "marginLeft": 2,
+              "marginRight": 2,
+              "marginTop": 5,
+              "shadowColor": "#000",
+              "shadowOffset": Object {
+                "height": 2,
+                "width": 0,
+              },
+              "shadowOpacity": 0.1,
+              "shadowRadius": 1.5,
+            },
+            Object {
+              "opacity": 1,
+            },
+          ]
+        }
+      >
+        <TouchableOpacity
+          activeOpacity={0.8}
+          onPress={[Function]}
+          style={
+            Object {
+              "flex": 1,
+            }
+          }
+        >
+          <View
+            cardBody={true}
+            style={
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#fff",
+                "borderRadius": 2,
+                "flexDirection": "row",
+                "paddingBottom": -5,
+                "paddingLeft": -5,
+                "paddingRight": -5,
+                "paddingTop": -5,
+              }
+            }
+          />
+          <View
+            cardBody={true}
+            style={
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#fff",
+                "borderRadius": 2,
+                "flexDirection": "row",
+                "paddingBottom": -5,
+                "paddingLeft": -5,
+                "paddingRight": -5,
+                "paddingTop": -5,
+              }
+            }
+          >
+            <View
+              style={
+                Array [
+                  Object {
+                    "alignItems": "flex-start",
+                    "alignSelf": "stretch",
+                    "flex": 1,
+                  },
+                  Object {
+                    "paddingHorizontal": 15,
+                  },
+                ]
+              }
+            >
+              <View
+                style={
+                  Array [
+                    Object {},
+                    Object {
+                      "flex": 1,
+                      "height": 10,
+                    },
+                  ]
+                }
+              />
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#000",
+                      "fontFamily": "System",
+                      "fontSize": 16,
+                    },
+                    Object {
+                      "fontWeight": "800",
+                    },
+                  ]
+                }
+                uppercase={false}
+              >
+                ABC
+              </Text>
+              <View
+                style={
+                  Array [
+                    Object {},
+                    Object {
+                      "flex": 1,
+                      "height": 15,
+                    },
+                  ]
+                }
+              />
+              <Text
+                style={
+                  Object {
+                    "color": "#000",
+                    "fontFamily": "System",
+                    "fontSize": 16,
+                  }
+                }
+                uppercase={false}
+              >
+                DEF
+              </Text>
+              <View
+                style={
+                  Array [
+                    Object {},
+                    Object {
+                      "flex": 1,
+                      "height": 5,
+                    },
+                  ]
+                }
+              />
+            </View>
+          </View>
+        </TouchableOpacity>
+      </View>
+    </View>
+  </ScrollView>
+  <View
+    style={
+      Array [
+        Object {},
+        Object {
+          "flex": 1,
+          "height": 20,
+        },
+      ]
+    }
+  />
+</View>
+`;
+
+exports[`<ArticlesList /> shows a nice error message 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "backgroundColor": "#fff",
+        "flex": 1,
+        "height": 1334,
+      },
+      Object {
+        "flex": 1,
+      },
+    ]
+  }
+>
+  <View
+    style={
+      Array [
+        Object {},
+        Object {
+          "alignSelf": "center",
+        },
+      ]
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {},
+          Object {
+            "flex": 1,
+            "height": 20,
+          },
+        ]
+      }
+    />
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#000",
+            "fontSize": 21,
+            "lineHeight": 22,
+          },
+          Object {
+            "textAlign": "center",
+          },
+        ]
+      }
+    >
+      Uh oh
+    </Text>
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#000",
+            "fontFamily": "System",
+            "fontSize": 16,
+          },
+          Object {
+            "marginBottom": 20,
+            "textAlign": "center",
+          },
+        ]
+      }
+      uppercase={false}
+    >
+      No articles found
+    </Text>
+    <View
+      style={
+        Array [
+          Object {},
+          Object {
+            "flex": 1,
+            "height": 20,
+          },
+        ]
+      }
+    />
+  </View>
+</View>
+`;

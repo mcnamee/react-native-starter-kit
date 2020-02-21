@@ -1,0 +1,218 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Error /> renders with a button 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "backgroundColor": "#fff",
+        "flex": 1,
+        "height": 1334,
+      },
+      Object {
+        "flex": 1,
+      },
+    ]
+  }
+>
+  <View
+    style={
+      Array [
+        Object {},
+        Object {
+          "alignSelf": "center",
+        },
+      ]
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {},
+          Object {
+            "flex": 1,
+            "height": 20,
+          },
+        ]
+      }
+    />
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#000",
+            "fontSize": 21,
+            "lineHeight": 22,
+          },
+          Object {
+            "textAlign": "center",
+          },
+        ]
+      }
+    >
+      hello boy
+    </Text>
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#000",
+            "fontFamily": "System",
+            "fontSize": 16,
+          },
+          Object {
+            "marginBottom": 20,
+            "textAlign": "center",
+          },
+        ]
+      }
+      uppercase={false}
+    >
+      An unexpected error came up
+    </Text>
+    <TouchableOpacity
+      activeOpacity={0.5}
+      block={true}
+      onPress={[Function]}
+      style={
+        Object {
+          "alignItems": "center",
+          "alignSelf": "stretch",
+          "backgroundColor": "#007aff",
+          "borderBottomWidth": null,
+          "borderColor": "#007aff",
+          "borderLeftWidth": null,
+          "borderRadius": 5,
+          "borderRightWidth": null,
+          "borderTopWidth": null,
+          "borderWidth": undefined,
+          "elevation": 2,
+          "flexDirection": "row",
+          "height": 45,
+          "justifyContent": "center",
+          "paddingBottom": 6,
+          "paddingTop": 6,
+          "shadowColor": undefined,
+          "shadowOffset": undefined,
+          "shadowOpacity": undefined,
+          "shadowRadius": undefined,
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "backgroundColor": "transparent",
+            "color": "#fff",
+            "fontFamily": "System",
+            "fontSize": 16.5,
+            "marginLeft": 0,
+            "marginRight": 0,
+            "paddingLeft": 16,
+            "paddingRight": 16,
+          }
+        }
+        uppercase={false}
+      >
+        Try Again
+      </Text>
+    </TouchableOpacity>
+    <View
+      style={
+        Array [
+          Object {},
+          Object {
+            "flex": 1,
+            "height": 20,
+          },
+        ]
+      }
+    />
+  </View>
+</View>
+`;
+
+exports[`<Error /> renders with message 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "backgroundColor": "#fff",
+        "flex": 1,
+        "height": 1334,
+      },
+      Object {
+        "flex": 1,
+      },
+    ]
+  }
+>
+  <View
+    style={
+      Array [
+        Object {},
+        Object {
+          "alignSelf": "center",
+        },
+      ]
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {},
+          Object {
+            "flex": 1,
+            "height": 20,
+          },
+        ]
+      }
+    />
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#000",
+            "fontSize": 21,
+            "lineHeight": 22,
+          },
+          Object {
+            "textAlign": "center",
+          },
+        ]
+      }
+    >
+      hello boy
+    </Text>
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#000",
+            "fontFamily": "System",
+            "fontSize": 16,
+          },
+          Object {
+            "marginBottom": 20,
+            "textAlign": "center",
+          },
+        ]
+      }
+      uppercase={false}
+    >
+      An unexpected error came up
+    </Text>
+    <View
+      style={
+        Array [
+          Object {},
+          Object {
+            "flex": 1,
+            "height": 20,
+          },
+        ]
+      }
+    />
+  </View>
+</View>
+`;

@@ -1,0 +1,94 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Messages /> renders with error and message 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#5cb85c",
+      "paddingHorizontal": 5,
+      "paddingVertical": 10,
+    }
+  }
+>
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#000",
+          "fontFamily": "System",
+          "fontSize": 16,
+        },
+        Object {
+          "color": "#fff",
+          "textAlign": "center",
+        },
+      ]
+    }
+    uppercase={false}
+  >
+    Success
+  </Text>
+</View>
+`;
+
+exports[`<Messages /> renders with error and message 2`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#d9534f",
+      "paddingHorizontal": 5,
+      "paddingVertical": 10,
+    }
+  }
+>
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#000",
+          "fontFamily": "System",
+          "fontSize": 16,
+        },
+        Object {
+          "color": "#fff",
+          "textAlign": "center",
+        },
+      ]
+    }
+    uppercase={false}
+  >
+    Error
+  </Text>
+</View>
+`;
+
+exports[`<Messages /> renders with info and message 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#62B1F6",
+      "paddingHorizontal": 5,
+      "paddingVertical": 10,
+    }
+  }
+>
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#000",
+          "fontFamily": "System",
+          "fontSize": 16,
+        },
+        Object {
+          "color": "#fff",
+          "textAlign": "center",
+        },
+      ]
+    }
+    uppercase={false}
+  >
+    Warning
+  </Text>
+</View>
+`;

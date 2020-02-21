@@ -1,0 +1,3 @@
+json_key_file("android/app/google-play-android-developer.json") # Path to the Android json secret file - Follow https://docs.fastlane.tools/actions/supply/#setup to get one
+package_name("com.ReactNativeStarterKit") # e.g. com.krausefx.app
+# itc_team_id "" # e.g. 1233445 - the iTunes Connect Team ID

@@ -1,0 +1,53 @@
+{
+  "name": "ReactNativeStarterKit",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "android": "react-native run-android",
+    "ios": "react-native run-ios",
+    "start": "react-native start",
+    "test": "jest",
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "@react-native-community/async-storage": "^1.8.0",
+    "@rematch/core": "^1.3.0",
+    "@rematch/loading": "^1.2.1",
+    "@rematch/persist": "^1.1.6",
+    "axios": "^0.19.2",
+    "jsonwebtoken": "^8.5.1",
+    "moment": "^2.24.0",
+    "native-base": "^2.13.8",
+    "prop-types": "^15.7.2",
+    "react": "16.9.0",
+    "react-hook-form": "^4.9.7",
+    "react-native": "0.61.5",
+    "react-native-gesture-handler": "^1.6.0",
+    "react-native-reanimated": "^1.7.0",
+    "react-native-router-flux": "^4.2.0",
+    "react-native-screens": "^2.0.0-beta.10",
+    "react-native-splash-screen": "^3.2.0",
+    "react-native-vector-icons": "^6.6.0",
+    "react-redux": "^7.2.0",
+    "redux-persist": "^6.0.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.8.4",
+    "@babel/runtime": "^7.8.4",
+    "@testing-library/react-native": "^5.0.3",
+    "babel-eslint": "^10.0.3",
+    "babel-jest": "^25.1.0",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-plugin-import": "^2.20.1",
+    "eslint-plugin-jest": "^23.7.0",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.18.3",
+    "jest": "^25.1.0",
+    "metro-react-native-babel-preset": "^0.58.0",
+    "react-test-renderer": "16.9.0"
+  },
+  "jest": {
+    "preset": "@testing-library/react-native", "transformIgnorePatterns": ["node_modules/(?!((jest-)?react-native|react-clone-referenced-element?/.*|react-navigation|redux-persist|native-base(-shoutem-theme)|native-base|react-native-router-flux|@react-native-community/async-storage))"]
+  }
+}

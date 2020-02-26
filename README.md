@@ -1,4 +1,4 @@
-<img src="/documentation/rnsk-logo.jpg" alt="React Native Starter Kit" width="400" />
+<img src="documentation/rnsk-logo.jpg" alt="React Native Starter Kit" width="400" />
 
 [![CryptoTip](https://img.shields.io/badge/Donate%20with-CryptoTip-blue.svg?style=flat&colorB=007bff)](https://cryptotip.it/p/mcnamee)  [![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=U7CE3LJYX859E)
 
@@ -32,7 +32,7 @@ The project is _super_ helpful to kick-start your next project, as it provides a
 - __Code Linting__ with
     - [Airbnb's JS Linting](https://github.com/airbnb/javascript) guidelines
 - __Deployment strategy__
-    - [Both manual and automated strategies](/documentation/deploy.md)
+    - [Both manual and automated strategies](documentation/deploy.md)
 - __Splash Screen + Assets__
     - [React Native Splash Screen](https://github.com/crazycodeboy/react-native-splash-screen)
 
@@ -69,11 +69,11 @@ npx react-native run-android
 
 ## 📖 Docs
 
-- [Contributing to this project](/documentation/contributing.md)
-- [FAQs & Opinions](/documentation/faqs.md)
-- [Tests & testing](/documentation/testing.md)
-- [Understanding the file structure](/documentation/file-structure.md)
-- [Deploy the app](/documentation/deploy.md)
+- [Contributing to this project](documentation/contributing.md)
+- [FAQs & Opinions](documentation/faqs.md)
+- [Tests & testing](documentation/testing.md)
+- [Understanding the file structure](documentation/file-structure.md)
+- [Deploy the app](documentation/deploy.md)
 
 ---
 

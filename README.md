@@ -52,9 +52,6 @@ yarn install && ( cd ios && pod install )
 #### iOS
 
 ```bash
-# Open /ios/ReactNativeStarterKit.xcworkspace in Xcode
-# Change to Use the legacy Build System: `File > Workspace Settings > Build System > Legacy Build System`
-
 # Start in the iOS Simulator
 npx react-native run-ios --simulator="iPhone 11"
 ```

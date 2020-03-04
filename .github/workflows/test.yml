@@ -23,6 +23,6 @@ jobs:
         ./node_modules/.bin/eslint "src/**/*.js"
     - name: Jest Tests
       run: |
-        ./node_modules/.bin/jest --silent
+        yarn test
       env:
         CI: true

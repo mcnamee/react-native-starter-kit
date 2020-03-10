@@ -9,15 +9,15 @@ end
 platform :ios do
   desc 'Fetch certificates and provisioning profiles'
     lane :certificates do
-      match(app_identifier: 'com.ReactNativeStarterKit', type: 'development', readonly: true)
-      match(app_identifier: 'com.ReactNativeStarterKit', type: 'appstore', readonly: true)
+      match(app_identifier: 'com.ReactNativeStarterKit.app', type: 'development', readonly: true)
+      match(app_identifier: 'com.ReactNativeStarterKit.app', type: 'appstore', readonly: true)
     end
 
   desc 'Build the iOS application.'
     private_lane :build do
       # certificates
       # increment_build_number(xcodeproj: './ios/ReactNativeStarterKit.xcodeproj')
-      gym(scheme: 'ReactNativeStarterKit', project: './ios/ReactNativeStarterKit.xcodeproj')
+      gym(scheme: 'ReactNativeStarterKit', workspace: './ios/ReactNativeStarterKit.xcworkspace')
     end
 
   desc 'Ship to Testflight.'

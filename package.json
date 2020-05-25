@@ -10,7 +10,7 @@
     "lint": "eslint ."
   },
   "dependencies": {
-    "@react-native-community/async-storage": "^1.10.3",
+    "@react-native-community/async-storage": "^1.11.0",
     "@rematch/core": "^1.4.0",
     "@rematch/loading": "^1.2.1",
     "@rematch/persist": "^1.1.6",
@@ -23,9 +23,9 @@
     "react-hook-form": "^5.7.2",
     "react-native": "0.62.2",
     "react-native-gesture-handler": "^1.6.1",
-    "react-native-reanimated": "^1.8.0",
+    "react-native-reanimated": "^1.9.0",
     "react-native-router-flux": "^4.2.0",
-    "react-native-screens": "^2.7.0",
+    "react-native-screens": "^2.8.0",
     "react-native-splash-screen": "^3.2.0",
     "react-native-vector-icons": "^6.6.0",
     "react-redux": "^7.2.0",

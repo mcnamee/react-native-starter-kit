@@ -12,8 +12,8 @@ export default {
 
   // API
   apiBaseUrl: isDevEnv
-    ? 'https://www.digitalsupply.co/wp-json/wp'
-    : 'https://www.digitalsupply.co/wp-json/wp',
+    ? 'https://digitalsupply.co/wp-json/wp'
+    : 'https://digitalsupply.co/wp-json/wp',
 
 
   // Google Analytics - uses a 'dev' account while we're testing

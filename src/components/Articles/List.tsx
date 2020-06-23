@@ -1,16 +1,27 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Actions } from 'react-native-router-flux';
-import { FlatList, TouchableOpacity, Image } from 'react-native';
+import { FlatList, TouchableOpacity, Image, StyleProp, ImageStyle } from 'react-native';
 import {
   Container, Card, CardItem, Body, Text, Button,
 } from 'native-base';
 import { Error, Spacer } from '../UI';
 import { errorMessages } from '../../constants/messages';
+import { ArticlesListProps } from '../../types/ArticlesListProps';
+
+const imageStyle: StyleProp<ImageStyle> = {
+  height: 100,
+  width: undefined,
+  flex: 1,
+  overflow: 'hidden',
+  borderRadius: 5,
+  borderBottomLeftRadius: 0,
+  borderBottomRightRadius: 0,
+};
 
 const ArticlesList = ({
   error, loading, listFlat, reFetch, meta,
-}) => {
+}: ArticlesListProps) => {
   if (error) {
     return <Error content={error} tryAgain={reFetch} />;
   }
@@ -40,15 +51,7 @@ const ArticlesList = ({
                 {!!item.image && (
                   <Image
                     source={{ uri: item.image }}
-                    style={{
-                      height: 100,
-                      width: null,
-                      flex: 1,
-                      overflow: 'hidden',
-                      borderRadius: 5,
-                      borderBottomLeftRadius: 0,
-                      borderBottomRightRadius: 0,
-                    }}
+                    style={imageStyle}
                   />
                 )}
               </CardItem>

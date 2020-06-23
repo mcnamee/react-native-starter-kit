@@ -4,6 +4,16 @@ import {
 } from 'native-base';
 import Spacer from './UI/Spacer';
 
+interface AboutText {
+  text: string;
+  date: string;
+}
+
+const aboutText1: AboutText = {
+  text: 'First about',
+  date: new Date().toISOString(),
+}
+
 const About = () => (
   <Container>
     <Content padder>
@@ -11,10 +21,7 @@ const About = () => (
       <H1>Heading 1</H1>
       <Spacer size={10} />
       <Text>
-        Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus
-        commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
-        Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-        {' '}
+        { aboutText1.text }
       </Text>
 
       <Spacer size={30} />

@@ -5,7 +5,7 @@ import {
 } from 'native-base';
 import Spacer from './Spacer';
 
-const Error = ({ title, content, tryAgain }) => (
+const Error = ({ title, content, tryAgain }: { title: string, content: string, tryAgain: any}) => (
   <Container style={{ flex: 1 }}>
     <View style={{ alignSelf: 'center' }}>
       <Spacer size={20} />

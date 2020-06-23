@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { View } from 'native-base';
 
-const Spacer = ({ size }) => <View style={{ flex: 1, height: size }} />;
+const Spacer = ({ size }: { size: number }) => <View style={{ flex: 1, height: size }} />;
 
 Spacer.propTypes = {
   size: PropTypes.number,

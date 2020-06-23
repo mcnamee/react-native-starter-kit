@@ -6,16 +6,17 @@ import {
 } from 'native-base';
 import { Loading, Error, Spacer } from '../UI';
 import { errorMessages } from '../../constants/messages';
+import { ArticlesSingleProps } from '../../types/ArticlesSingleProps';
 
 const ArticlesSingle = ({
   error, loading, article, reFetch,
-}) => {
+}: ArticlesSingleProps) => {
   if (error) {
     return <Error content={error} tryAgain={reFetch} />;
   }
 
   if (loading) {
-    return <Loading content={loading} />;
+    return <Loading />;
   }
 
   if (Object.keys(article).length < 1) {
@@ -29,7 +30,7 @@ const ArticlesSingle = ({
           <Image
             source={{ uri: article.image }}
             style={{
-              height: 200, width: null, flex: 1, resizeMode: 'contain',
+              height: 200, width: undefined, flex: 1, resizeMode: 'contain',
             }}
           />
         )}
@@ -59,7 +60,7 @@ const ArticlesSingle = ({
 ArticlesSingle.propTypes = {
   error: PropTypes.string,
   loading: PropTypes.bool,
-  article: PropTypes.shape(),
+  article: PropTypes.shape({}),
   reFetch: PropTypes.func,
 };
 

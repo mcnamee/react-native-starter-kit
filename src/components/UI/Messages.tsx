@@ -5,7 +5,7 @@ import { Text } from 'native-base';
 
 import Colors from '../../../native-base-theme/variables/commonColor';
 
-const Messages = ({ message, type }) => (
+const Messages = ({ message, type }: { message: string, type: string}) => (
   <View
     style={{
       backgroundColor:
@@ -20,7 +20,7 @@ const Messages = ({ message, type }) => (
 
 Messages.propTypes = {
   message: PropTypes.string,
-  type: PropTypes.oneOf(['error', 'success', 'info']),
+  type: PropTypes.oneOf(['error', 'success', 'info']), // can we do this in typescript
 };
 
 Messages.defaultProps = {

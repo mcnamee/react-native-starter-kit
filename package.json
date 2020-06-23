@@ -35,6 +35,10 @@
     "@babel/core": "^7.6.2",
     "@babel/runtime": "^7.6.2",
     "@testing-library/react-native": "^5.0.3",
+    "@types/jest": "^26.0.0",
+    "@types/react": "^16.9.38",
+    "@types/react-native": "^0.62.13",
+    "@types/react-test-renderer": "^16.9.2",
     "babel-eslint": "^10.1.0",
     "babel-jest": "^24.9.0",
     "eslint": "^6.5.1",
@@ -45,12 +49,7 @@
     "eslint-plugin-react": "^7.20.0",
     "jest": "^24.9.0",
     "metro-react-native-babel-preset": "^0.58.0",
-    "react-test-renderer": "16.11.0"
-  },
-  "jest": {
-    "preset": "@testing-library/react-native",
-    "transformIgnorePatterns": [
-      "node_modules/(?!((jest-)?react-native|react-clone-referenced-element?/.*|react-navigation|redux-persist|native-base(-shoutem-theme)|native-base|react-native-router-flux|@react-native-community/async-storage))"
-    ]
+    "react-test-renderer": "16.11.0",
+    "typescript": "^3.9.5"
   }
 }

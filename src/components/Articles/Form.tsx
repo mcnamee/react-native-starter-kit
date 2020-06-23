@@ -13,10 +13,11 @@ import {
 } from 'native-base';
 import { Messages, Header, Spacer } from '../UI';
 import { errorMessages } from '../../constants/messages';
+import { ArticlesFormProps } from '../../types/ArticlesFormProps';
 
 const ArticlesForm = ({
   error, loading, success, onFormSubmit, defaultValues,
-}) => {
+}: ArticlesFormProps) => {
   const {
     register, handleSubmit, errors, setValue,
   } = useForm({ defaultValues });
@@ -41,7 +42,6 @@ const ArticlesForm = ({
           <Item stackedLabel>
             <Label>Email*</Label>
             <Input
-              type="text"
               autoCapitalize="none"
               placeholder="james@doe.com"
               keyboardType="email-address"

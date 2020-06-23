@@ -11,10 +11,12 @@ export default {
   dateFormat: 'Do MMM YYYY',
 
   // API
-  apiBaseUrl: isDevEnv
-    ? 'https://digitalsupply.co/wp-json/wp'
-    : 'https://digitalsupply.co/wp-json/wp',
+  apiBaseUrl: 'https://digitalsupply.co/wp-json/wp',
 
   // Google Analytics - uses a 'dev' account while we're testing
   gaTrackingId: isDevEnv ? 'UA-84284256-2' : 'UA-84284256-1',
+
+  // Product Name
+  productName: 'Product Name',
+  productSlogan: 'Product Slogan',
 };

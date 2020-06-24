@@ -3,10 +3,26 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Layout from '../../components/Articles/Form';
 
-class ArticlesFormContainer extends Component {
-  constructor() {
-    super();
-    this.state = { error: null, success: null, loading: false };
+interface ArticlesFormProps {
+    userInput: { email: string},
+    onFormSubmit: any,
+}
+
+interface ArticlesFormState {
+    error: string | undefined;
+    loading: boolean | undefined;
+    success: string | undefined;
+}
+
+class ArticlesFormContainer extends Component<ArticlesFormProps, ArticlesFormState> {
+  propTypes = {
+    userInput: PropTypes.shape({}).isRequired,
+    onFormSubmit: PropTypes.func.isRequired,
+  };
+
+  constructor(props: ArticlesFormProps) {
+    super(props);
+    this.state = { error: undefined, success: undefined, loading: false };
   }
 
   /**
@@ -15,15 +31,15 @@ class ArticlesFormContainer extends Component {
   onFormSubmit = async (data) => {
     const { onFormSubmit } = this.props;
 
-    this.setState({ success: null, error: null, loading: true });
+    this.setState({ success: undefined, error: undefined, loading: true });
 
     try {
       const success = await onFormSubmit(data);
-      this.setState({ success, error: null, loading: false });
+      this.setState({ success, error: undefined, loading: false });
     } catch (error) {
-      this.setState({ loading: false, success: null, error: error.message });
+      this.setState({ loading: false, success: undefined, error: error.message });
     }
-  }
+  };
 
   /**
    * Render
@@ -41,13 +57,8 @@ class ArticlesFormContainer extends Component {
         onFormSubmit={this.onFormSubmit}
       />
     );
-  }
+  };
 }
-
-ArticlesFormContainer.propTypes = {
-  userInput: PropTypes.shape({}).isRequired,
-  onFormSubmit: PropTypes.func.isRequired,
-};
 
 const mapStateToProps = (state) => ({
   userInput: state.articles.userInput || {},

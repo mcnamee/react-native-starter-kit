@@ -176,18 +176,6 @@ exports[`<ArticlesList /> shows a list of articles correctly 1`] = `
               >
                 ABC
               </Text>
-              <Text
-                style={
-                  Object {
-                    "color": "#000",
-                    "fontFamily": "System",
-                    "fontSize": 16,
-                  }
-                }
-                uppercase={false}
-              >
-                 Hola 
-              </Text>
               <View
                 style={
                   Array [

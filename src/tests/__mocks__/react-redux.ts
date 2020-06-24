@@ -6,7 +6,7 @@
 // To use this, just do `jest.mock('react-redux');` in your test.js file.
 const mock = jest.fn((action) => action);
 
-module.exports = {
+export default {
   connect: (mapStateToProps, mapDispatchToProps) => (reactComponent) => ({
     mapStateToProps,
     mapDispatchToProps: (dispatch = mock, ownProps) => mapDispatchToProps(dispatch, ownProps),

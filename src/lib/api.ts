@@ -19,7 +19,7 @@ axios.interceptors.request.use(
     const config = inputConfig;
 
     // Check for and add the stored Auth Token to the header request
-    let token = '';
+    let token: string | null = '';
     try {
       token = await AsyncStorage.getItem('@Auth:token');
     } catch (error) {

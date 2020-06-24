@@ -22,7 +22,7 @@ const Index = (
         <Stack
           key="home"
           title={AppConfig.appName}
-          icon={() => <Icon name="planet" {...DefaultProps.icons} />}
+          icon={() => <Icon name="home" {...DefaultProps.icons} />}
           {...DefaultProps.navbarProps}
         >
           <Scene key="home" component={Home} />

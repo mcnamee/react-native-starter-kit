@@ -24,6 +24,6 @@ it('lib/string: truncate returns correctly', () => {
   const upWord = truncate('Hello', 3);
   expect(upWord).toEqual('Hello');
 
-  const lcWords = truncate('hello world world this is a big');
+  const lcWords = truncate('hello world world this is a big', undefined);
   expect(lcWords).toEqual('hello world world this is a big');
 });

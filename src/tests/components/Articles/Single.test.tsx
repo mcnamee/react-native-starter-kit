@@ -3,9 +3,10 @@ import renderer from 'react-test-renderer';
 import { render } from '@testing-library/react-native';
 import ArticlesSingle from '../../../components/Articles/Single';
 import { errorMessages } from '../../../constants/messages';
+import { Article } from '../../../types/Article';
 
 it('<ArticlesSingle /> shows a nice error message', () => {
-  const Component = <ArticlesSingle article={{}} />;
+  const Component = <ArticlesSingle article={undefined} />;
 
   // Matches snapshot
   expect(renderer.create(Component).toJSON()).toMatchSnapshot();
@@ -16,12 +17,10 @@ it('<ArticlesSingle /> shows a nice error message', () => {
 });
 
 it('<ArticlesSingle /> shows an article correctly', () => {
-  const article = {
-    id: 0,
+  const article: Article = {
     name: 'ABC',
-    excerpt: 'DEF',
+    image: 'DEF',
     content: 'DEF',
-    date: '22/33/44',
   };
 
   const Component = <ArticlesSingle article={article} />;

@@ -1,34 +1,64 @@
 import React from 'react';
-import { StyleSheet, Image } from 'react-native';
-import { Container, Content, Text, H1 } from 'native-base';
-import AppConfig from '../constants/config';
+import { StyleSheet } from 'react-native';
+import { Container, Content, Text, Button, View } from 'native-base';
 import Spacer from './UI/Spacer';
+import buttons from '../styles/buttons';
+import Logo from './Logo';
 
 var styles = StyleSheet.create({
-  homeContent: {
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  image: {
-    width: 125,
-    height: 125,
+  buttonContainer: {
     flex: 1,
-    marginBottom: 20,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    paddingLeft: '10%',
+    paddingRight: '10%',
   },
+  singleButtonContainer: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    paddingLeft: '10%',
+    paddingRight: '10%',
+  }
 });
 
-const Home = () => (
-  <Container>
-    <Content padder contentContainerStyle={styles.homeContent}>
-      <Spacer size={30} />
-      <Image style={styles.image} source={require('../../assets/images/logo.png')} />
+const Home = () => {
+  return (
+    <Container>
+      <Content padder>
+        <Logo displayTitle={ false }></Logo>
 
-      <H1> {AppConfig.productName} </H1>
-      <Spacer size={10} />
-      <Text> {AppConfig.productSlogan } </Text>
+        <Spacer size={15} />
 
-    </Content>
-  </Container>
-);
+        <View style={styles.buttonContainer}>
+          <Button primary={true} style={buttons.homeButton}>
+            <Text> CTA 1 </Text>
+          </Button>
+
+          <Button primary={true} style={buttons.homeButton}>
+            <Text> CTA 2 </Text>
+          </Button>
+        </View>
+
+        <View style={styles.singleButtonContainer}>
+          <Button primary={true} style={buttons.homeButton}>
+            <Text> CTA 3 </Text>
+          </Button>
+        </View>
+
+        <View style={styles.buttonContainer}>
+          <Button primary={true} style={buttons.homeButton}>
+            <Text> CTA 4 </Text>
+          </Button>
+
+          <Button primary={true} style={buttons.homeButton}>
+            <Text> CTA 5 </Text>
+          </Button>
+        </View>
+
+      </Content>
+    </Container>
+  );
+};
 
 export default Home;

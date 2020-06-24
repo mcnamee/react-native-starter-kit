@@ -1,5 +1,5 @@
 export default (lastPage, link) => {
-  const pagination = [];
+  const pagination: ({ title: number, link: string })[] = [];
   const upTo = parseInt(lastPage, 10);
 
   if (upTo > 1) {

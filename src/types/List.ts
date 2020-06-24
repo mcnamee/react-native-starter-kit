@@ -5,5 +5,5 @@ export interface List {
   date: string;
   content: string;
   excerpt: string;
-  image: string;
+  image: string | undefined;
 }

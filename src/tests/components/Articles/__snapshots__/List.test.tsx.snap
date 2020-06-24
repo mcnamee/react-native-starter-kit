@@ -20,11 +20,13 @@ exports[`<ArticlesList /> shows a list of articles correctly 1`] = `
     data={
       Array [
         Object {
-          "contentRaw": "DEF",
+          "content": "",
           "date": "22/33/44",
           "excerpt": "DEF",
           "id": 0,
+          "image": undefined,
           "name": "ABC",
+          "placeholder": true,
         },
       ]
     }
@@ -88,7 +90,7 @@ exports[`<ArticlesList /> shows a list of articles correctly 1`] = `
               "shadowRadius": 1.5,
             },
             Object {
-              "opacity": 1,
+              "opacity": 0.3,
             },
           ]
         }
@@ -173,6 +175,18 @@ exports[`<ArticlesList /> shows a list of articles correctly 1`] = `
                 uppercase={false}
               >
                 ABC
+              </Text>
+              <Text
+                style={
+                  Object {
+                    "color": "#000",
+                    "fontFamily": "System",
+                    "fontSize": 16,
+                  }
+                }
+                uppercase={false}
+              >
+                 Hola 
               </Text>
               <View
                 style={

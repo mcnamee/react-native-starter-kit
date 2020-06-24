@@ -15,7 +15,7 @@ export default (error) => {
    */
   if (error && error.errors) {
     let errors = '';
-    Object.entries(error.errors).forEach((v) => {
+    (<any>Object).entries(error.errors).forEach((v) => {
       errors += v[1].join(', ');
     });
     return Error(errors);

@@ -154,6 +154,21 @@ exports[`<ArticlesSingle /> shows an article correctly 1`] = `
       update={[Function]}
       viewIsInsideTabBar={false}
     >
+      <Image
+        source={
+          Object {
+            "uri": "DEF",
+          }
+        }
+        style={
+          Object {
+            "flex": 1,
+            "height": 200,
+            "resizeMode": "contain",
+            "width": undefined,
+          }
+        }
+      />
       <View
         style={
           Array [

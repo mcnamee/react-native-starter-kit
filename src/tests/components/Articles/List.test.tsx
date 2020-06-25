@@ -24,6 +24,9 @@ it('<ArticlesList /> shows a list of articles correctly', () => {
     placeholder: true,
     content: '',
     image: undefined,
+    contentRaw: '',
+    slug: null,
+    link: null,
     date: '22/33/44',
   };
 

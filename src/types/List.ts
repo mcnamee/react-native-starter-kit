@@ -5,5 +5,8 @@ export interface List {
   date: string;
   content: string;
   excerpt: string;
+  contentRaw: string;
+  slug: string | null;
+  link: string | null;
   image: string | undefined;
 }

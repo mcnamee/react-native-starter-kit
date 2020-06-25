@@ -15,7 +15,7 @@ interface ArticlesFormState {
 }
 
 class ArticlesFormContainer extends Component<ArticlesFormProps, ArticlesFormState> {
-  propTypes = {
+  static propTypes = {
     userInput: PropTypes.shape({}).isRequired,
     onFormSubmit: PropTypes.func.isRequired,
   };

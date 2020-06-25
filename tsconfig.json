@@ -7,7 +7,8 @@
     "noImplicitAny": false,
     "jsx": "react",
     "lib": [
-      "es6"
+      "es6",
+      "es2019",
     ],
     "moduleResolution": "node",
     "noEmit": true,

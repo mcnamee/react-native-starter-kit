@@ -7,12 +7,13 @@ import { getFeaturedImageUrl } from '../lib/images';
 import { ucfirst, stripHtml } from '../lib/string';
 import { errorMessages, successMessages } from '../constants/messages';
 import pagination from '../lib/pagination';
+import { List } from '../types/List';
 
 /**
  * Transform the endpoint data structure into our redux store format
  * @param {obj} item
  */
-const transform = (item) => ({
+const transform = (item): List => ({
   id: item.id || 0,
   name: item.title && item.title.rendered ? ucfirst(stripHtml(item.title.rendered)) : '',
   content: item.content && item.content.rendered ? stripHtml(item.content.rendered) : '',
@@ -22,6 +23,7 @@ const transform = (item) => ({
   slug: item.slug || null,
   link: item.link || null,
   image: getFeaturedImageUrl(item),
+  placeholder: false,
 });
 
 export default {
@@ -81,7 +83,7 @@ export default {
         const { data } = response;
 
         if (!data) {
-          throw new Error({ message: errorMessages.articles404 });
+          throw new Error(errorMessages.articles404);
         }
 
         return transform(data);
@@ -98,7 +100,7 @@ export default {
     async save(data) {
       try {
         if (Object.keys(data).length < 1) {
-          throw new Error({ message: errorMessages.missingData });
+          throw new Error(errorMessages.missingData);
         }
 
         dispatch.articles.replaceUserInput(data);

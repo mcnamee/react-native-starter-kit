@@ -5,7 +5,7 @@ export default {
     navigationBarStyle: { backgroundColor: 'white' },
     titleStyle: {
       color: Colors.textColor,
-      alignSelf: 'center',
+      alignSelf: 'center' as "center",
       fontSize: Colors.fontSizeBase,
     },
     backButtonTintColor: Colors.textColor,

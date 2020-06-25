@@ -4,24 +4,21 @@ import { Icon } from 'native-base';
 import DefaultProps from '../constants/navigation';
 import AppConfig from '../constants/config';
 
+import Home from '../containers/Home';
 import { ArticlesForm, ArticlesList, ArticlesSingle } from '../containers';
-
-// import AboutComponent from '../components/About';
-import Home from '../components/Home';
 
 const Index = (
   <Stack hideNavBar>
     <Scene hideNavBar>
       <Tabs
         key="tabbar"
-        swipeEnabled
         type="replace"
         showLabel={false}
         {...DefaultProps.tabProps}
       >
         <Stack
           key="home"
-          title={AppConfig.appName}
+          title={AppConfig.productName}
           icon={() => <Icon name="home" {...DefaultProps.icons} />}
           {...DefaultProps.navbarProps}
         >

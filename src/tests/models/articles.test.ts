@@ -27,6 +27,7 @@ const mockInput = {
   date: '2017-04-14T15:32:29',
   slug: 'using-open-source-software-to-build-your-instagram-followers',
   link: 'https://www.digitalsupply.co/using-open-source-software-to-build-your-instagram-followers/',
+  placeholder: false,
 };
 
 const mockOutput = {
@@ -39,6 +40,7 @@ const mockOutput = {
   date: '14th Apr 2017',
   slug: 'using-open-source-software-to-build-your-instagram-followers',
   link: 'https://www.digitalsupply.co/using-open-source-software-to-build-your-instagram-followers/',
+  placeholder: false,
 };
 
 /**

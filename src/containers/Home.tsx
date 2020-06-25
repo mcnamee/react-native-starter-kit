@@ -1,9 +1,9 @@
 import React from 'react';
 import { StyleSheet } from 'react-native';
 import { Container, Content, Text, Button, View } from 'native-base';
-import Spacer from './UI/Spacer';
+import Spacer from '../components/UI/Spacer';
 import buttons from '../styles/buttons';
-import Logo from './Logo';
+import Logo from '../components/Logo';
 
 var styles = StyleSheet.create({
   buttonContainer: {

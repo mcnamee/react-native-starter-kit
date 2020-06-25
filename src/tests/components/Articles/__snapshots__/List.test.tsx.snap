@@ -21,12 +21,15 @@ exports[`<ArticlesList /> shows a list of articles correctly 1`] = `
       Array [
         Object {
           "content": "",
+          "contentRaw": "",
           "date": "22/33/44",
           "excerpt": "DEF",
           "id": 0,
           "image": undefined,
+          "link": null,
           "name": "ABC",
           "placeholder": true,
+          "slug": null,
         },
       ]
     }

@@ -5,7 +5,7 @@
 #import <React/RCTRootView.h>
 #import "RNSplashScreen.h"
 
-#ifdef FB_SONARKIT_ENABLED
+#if DEBUG
 #import <FlipperKit/FlipperClient.h>
 #import <FlipperKitLayoutPlugin/FlipperKitLayoutPlugin.h>
 #import <FlipperKitUserDefaultsPlugin/FKUserDefaultsPlugin.h>
@@ -28,7 +28,7 @@ static void InitializeFlipper(UIApplication *application) {
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-#ifdef FB_SONARKIT_ENABLED
+#if DEBUG
   InitializeFlipper(application);
 #endif
 

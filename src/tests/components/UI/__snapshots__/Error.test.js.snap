@@ -42,7 +42,7 @@ exports[`<Error /> renders with a button 1`] = `
           Object {
             "color": "#000",
             "fontSize": 21,
-            "lineHeight": 22,
+            "lineHeight": 25,
           },
           Object {
             "textAlign": "center",
@@ -70,7 +70,7 @@ exports[`<Error /> renders with a button 1`] = `
     >
       An unexpected error came up
     </Text>
-    <TouchableOpacity
+    <
       activeOpacity={0.5}
       block={true}
       onPress={[Function]}
@@ -116,7 +116,7 @@ exports[`<Error /> renders with a button 1`] = `
       >
         Try Again
       </Text>
-    </TouchableOpacity>
+    </>
     <View
       style={
         Array [
@@ -174,7 +174,7 @@ exports[`<Error /> renders with message 1`] = `
           Object {
             "color": "#000",
             "fontSize": 21,
-            "lineHeight": 22,
+            "lineHeight": 25,
           },
           Object {
             "textAlign": "center",

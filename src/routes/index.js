@@ -40,7 +40,7 @@ const Index = (
         <Stack
           key="form"
           title="Articles Form"
-          icon={() => <Icon name="contact" {...DefaultProps.icons} />}
+          icon={() => <Icon name="add" {...DefaultProps.icons} />}
           {...DefaultProps.navbarProps}
         >
           <Scene key="form" component={ArticlesForm} />

@@ -35,6 +35,7 @@ exports[`<ArticlesList /> shows a list of articles correctly 1`] = `
     initialNumToRender={10}
     keyExtractor={[Function]}
     maxToRenderPerBatch={10}
+    numColumns={1}
     onContentSizeChange={[Function]}
     onEndReachedThreshold={2}
     onLayout={[Function]}
@@ -93,7 +94,7 @@ exports[`<ArticlesList /> shows a list of articles correctly 1`] = `
           ]
         }
       >
-        <
+        <TouchableOpacity
           activeOpacity={0.8}
           onPress={[Function]}
           style={
@@ -210,7 +211,7 @@ exports[`<ArticlesList /> shows a list of articles correctly 1`] = `
               />
             </View>
           </View>
-        </>
+        </TouchableOpacity>
       </View>
     </View>
   </ScrollView>
@@ -270,7 +271,7 @@ exports[`<ArticlesList /> shows a nice error message 1`] = `
           Object {
             "color": "#000",
             "fontSize": 21,
-            "lineHeight": 25,
+            "lineHeight": 22,
           },
           Object {
             "textAlign": "center",

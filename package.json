@@ -21,7 +21,7 @@
     "native-base": "^2.13.12",
     "prop-types": "^15.7.2",
     "react": "16.11.0",
-    "react-hook-form": "^6.0.2",
+    "react-hook-form": "^6.0.4",
     "react-native": "0.62.2",
     "react-native-gesture-handler": "^1.6.1",
     "react-native-reanimated": "^1.9.0",

@@ -18,40 +18,40 @@
     "axios": "^0.19.2",
     "jsonwebtoken": "^8.5.1",
     "moment": "^2.27.0",
-    "native-base": "^2.13.12",
+    "native-base": "^2.13.13",
     "prop-types": "^15.7.2",
-    "react": "16.11.0",
-    "react-hook-form": "^6.0.8",
-    "react-native": "0.62.2",
-    "react-native-gesture-handler": "^1.6.1",
-    "react-native-reanimated": "^1.9.0",
+    "react": "16.13.1",
+    "react-hook-form": "^6.1.2",
+    "react-native": "0.63.2",
+    "react-native-gesture-handler": "^1.7.0",
+    "react-native-reanimated": "^1.10.1",
     "react-native-router-flux": "^4.2.0",
     "react-native-screens": "^2.9.0",
     "react-native-splash-screen": "^3.2.0",
     "react-native-vector-icons": "^7.0.0",
-    "react-redux": "^7.2.0",
+    "react-redux": "^7.2.1",
     "redux-persist": "^6.0.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.6.2",
-    "@babel/runtime": "^7.6.2",
-    "@testing-library/react-native": "^5.0.3",
+    "@babel/core": "^7.8.4",
+    "@babel/runtime": "^7.8.4",
+    "@testing-library/react-native": "^6.0.0",
     "babel-eslint": "^10.1.0",
-    "babel-jest": "^24.9.0",
+    "babel-jest": "^25.1.0",
     "eslint": "^6.5.1",
     "eslint-config-airbnb": "^18.2.0",
     "eslint-plugin-import": "^2.22.0",
-    "eslint-plugin-jest": "^23.18.0",
+    "eslint-plugin-jest": "^23.19.0",
     "eslint-plugin-jsx-a11y": "^6.3.1",
-    "eslint-plugin-react": "^7.20.3",
-    "jest": "^24.9.0",
-    "metro-react-native-babel-preset": "^0.58.0",
-    "react-test-renderer": "16.11.0"
+    "eslint-plugin-react": "^7.20.5",
+    "jest": "^25.1.0",
+    "metro-react-native-babel-preset": "^0.59.0",
+    "react-test-renderer": "16.13.1"
   },
   "jest": {
     "preset": "@testing-library/react-native",
     "transformIgnorePatterns": [
-      "node_modules/(?!((jest-)?react-native|react-clone-referenced-element?/.*|react-navigation|redux-persist|native-base(-shoutem-theme)|native-base|react-native-router-flux|@react-native-community/async-storage|moment))"
+      "node_modules/(?!((jest-)?react-native|react-clone-referenced-element?/.*|react-navigation|redux-persist|native-base(-shoutem-theme)|native-base|react-native-router-flux|@react-native-community/async-storage|moment|@codler))"
     ]
   }
 }

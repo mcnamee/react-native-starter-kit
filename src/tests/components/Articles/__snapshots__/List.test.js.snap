@@ -15,7 +15,7 @@ exports[`<ArticlesList /> shows a list of articles correctly 1`] = `
     ]
   }
 >
-  <ScrollView
+  <RCTScrollView
     ListFooterComponent={null}
     data={
       Array [
@@ -44,7 +44,7 @@ exports[`<ArticlesList /> shows a list of articles correctly 1`] = `
     onScrollBeginDrag={[Function]}
     onScrollEndDrag={[Function]}
     refreshControl={
-      <RefreshControl
+      <RefreshControlMock
         onRefresh={[Function]}
         refreshing={false}
       />
@@ -58,162 +58,163 @@ exports[`<ArticlesList /> shows a list of articles correctly 1`] = `
     viewabilityConfigCallbackPairs={Array []}
     windowSize={21}
   >
-    <View
-      onLayout={[Function]}
-      style={null}
-    >
+    <RCTRefreshControl />
+    <View>
       <View
-        style={
-          Array [
-            Object {
-              "backgroundColor": "#fff",
-              "borderBottomWidth": 0.5,
-              "borderColor": "#ccc",
-              "borderLeftWidth": 0.5,
-              "borderRadius": 2,
-              "borderRightWidth": 0.5,
-              "borderTopWidth": 0.5,
-              "elevation": 3,
-              "flexWrap": "nowrap",
-              "marginBottom": 5,
-              "marginLeft": 2,
-              "marginRight": 2,
-              "marginTop": 5,
-              "shadowColor": "#000",
-              "shadowOffset": Object {
-                "height": 2,
-                "width": 0,
-              },
-              "shadowOpacity": 0.1,
-              "shadowRadius": 1.5,
-            },
-            Object {
-              "opacity": 1,
-            },
-          ]
-        }
+        onLayout={[Function]}
+        style={null}
       >
-        <
-          activeOpacity={0.8}
-          onPress={[Function]}
+        <View
           style={
-            Object {
-              "flex": 1,
-            }
+            Array [
+              Object {
+                "backgroundColor": "#fff",
+                "borderBottomWidth": 0.5,
+                "borderColor": "#ccc",
+                "borderLeftWidth": 0.5,
+                "borderRadius": 2,
+                "borderRightWidth": 0.5,
+                "borderTopWidth": 0.5,
+                "elevation": 3,
+                "flexWrap": "nowrap",
+                "marginBottom": 5,
+                "marginLeft": 2,
+                "marginRight": 2,
+                "marginTop": 5,
+                "shadowColor": "#000",
+                "shadowOffset": Object {
+                  "height": 2,
+                  "width": 0,
+                },
+                "shadowOpacity": 0.1,
+                "shadowRadius": 1.5,
+              },
+              Object {
+                "opacity": 1,
+              },
+            ]
           }
         >
-          <View
-            cardBody={true}
+          <TouchableOpacity
+            activeOpacity={0.8}
+            onPress={[Function]}
             style={
               Object {
-                "alignItems": "center",
-                "backgroundColor": "#fff",
-                "borderRadius": 2,
-                "flexDirection": "row",
-                "paddingBottom": -5,
-                "paddingLeft": -5,
-                "paddingRight": -5,
-                "paddingTop": -5,
-              }
-            }
-          />
-          <View
-            cardBody={true}
-            style={
-              Object {
-                "alignItems": "center",
-                "backgroundColor": "#fff",
-                "borderRadius": 2,
-                "flexDirection": "row",
-                "paddingBottom": -5,
-                "paddingLeft": -5,
-                "paddingRight": -5,
-                "paddingTop": -5,
+                "flex": 1,
               }
             }
           >
             <View
+              cardBody={true}
               style={
-                Array [
-                  Object {
-                    "alignItems": "flex-start",
-                    "alignSelf": "stretch",
-                    "flex": 1,
-                  },
-                  Object {
-                    "paddingHorizontal": 15,
-                  },
-                ]
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "#fff",
+                  "borderRadius": 2,
+                  "flexDirection": "row",
+                  "paddingBottom": -5,
+                  "paddingLeft": -5,
+                  "paddingRight": -5,
+                  "paddingTop": -5,
+                }
+              }
+            />
+            <View
+              cardBody={true}
+              style={
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "#fff",
+                  "borderRadius": 2,
+                  "flexDirection": "row",
+                  "paddingBottom": -5,
+                  "paddingLeft": -5,
+                  "paddingRight": -5,
+                  "paddingTop": -5,
+                }
               }
             >
               <View
                 style={
                   Array [
-                    Object {},
                     Object {
+                      "alignItems": "flex-start",
+                      "alignSelf": "stretch",
                       "flex": 1,
-                      "height": 10,
+                    },
+                    Object {
+                      "paddingHorizontal": 15,
                     },
                   ]
                 }
-              />
-              <Text
-                style={
-                  Array [
+              >
+                <View
+                  style={
+                    Array [
+                      Object {},
+                      Object {
+                        "flex": 1,
+                        "height": 10,
+                      },
+                    ]
+                  }
+                />
+                <Text
+                  style={
+                    Array [
+                      Object {
+                        "color": "#000",
+                        "fontFamily": "System",
+                        "fontSize": 16,
+                      },
+                      Object {
+                        "fontWeight": "800",
+                      },
+                    ]
+                  }
+                >
+                  ABC
+                </Text>
+                <View
+                  style={
+                    Array [
+                      Object {},
+                      Object {
+                        "flex": 1,
+                        "height": 15,
+                      },
+                    ]
+                  }
+                />
+                <Text
+                  style={
                     Object {
                       "color": "#000",
                       "fontFamily": "System",
                       "fontSize": 16,
-                    },
-                    Object {
-                      "fontWeight": "800",
-                    },
-                  ]
-                }
-                uppercase={false}
-              >
-                ABC
-              </Text>
-              <View
-                style={
-                  Array [
-                    Object {},
-                    Object {
-                      "flex": 1,
-                      "height": 15,
-                    },
-                  ]
-                }
-              />
-              <Text
-                style={
-                  Object {
-                    "color": "#000",
-                    "fontFamily": "System",
-                    "fontSize": 16,
+                    }
                   }
-                }
-                uppercase={false}
-              >
-                DEF
-              </Text>
-              <View
-                style={
-                  Array [
-                    Object {},
-                    Object {
-                      "flex": 1,
-                      "height": 5,
-                    },
-                  ]
-                }
-              />
+                >
+                  DEF
+                </Text>
+                <View
+                  style={
+                    Array [
+                      Object {},
+                      Object {
+                        "flex": 1,
+                        "height": 5,
+                      },
+                    ]
+                  }
+                />
+              </View>
             </View>
-          </View>
-        </>
+          </TouchableOpacity>
+        </View>
       </View>
     </View>
-  </ScrollView>
+  </RCTScrollView>
   <View
     style={
       Array [
@@ -294,7 +295,6 @@ exports[`<ArticlesList /> shows a nice error message 1`] = `
           },
         ]
       }
-      uppercase={false}
     >
       No articles found
     </Text>

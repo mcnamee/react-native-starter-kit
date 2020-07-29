@@ -66,7 +66,6 @@ exports[`<ArticlesSingle /> shows a nice error message 1`] = `
           },
         ]
       }
-      uppercase={false}
     >
       This article could not be found
     </Text>
@@ -103,7 +102,7 @@ exports[`<ArticlesSingle /> shows an article correctly 1`] = `
       }
     }
   >
-    <ScrollView
+    <RCTScrollView
       automaticallyAdjustContentInsets={false}
       contentContainerStyle={
         Array [
@@ -154,147 +153,147 @@ exports[`<ArticlesSingle /> shows an article correctly 1`] = `
       update={[Function]}
       viewIsInsideTabBar={false}
     >
-      <View
-        style={
-          Array [
-            Object {},
-            Object {
-              "flex": 1,
-              "height": 25,
-            },
-          ]
-        }
-      />
-      <Text
-        style={
-          Object {
-            "color": "#000",
-            "fontSize": 21,
-            "lineHeight": 25,
-          }
-        }
-      >
-        ABC
-      </Text>
-      <View
-        style={
-          Array [
-            Object {},
-            Object {
-              "flex": 1,
-              "height": 15,
-            },
-          ]
-        }
-      />
-      <View
-        style={
-          Object {
-            "backgroundColor": "#fff",
-            "borderBottomWidth": 0.5,
-            "borderColor": "#ccc",
-            "borderLeftWidth": 0.5,
-            "borderRadius": 2,
-            "borderRightWidth": 0.5,
-            "borderTopWidth": 0.5,
-            "elevation": 3,
-            "flexWrap": "nowrap",
-            "marginBottom": 5,
-            "marginLeft": 2,
-            "marginRight": 2,
-            "marginTop": 5,
-            "shadowColor": "#000",
-            "shadowOffset": Object {
-              "height": 2,
-              "width": 0,
-            },
-            "shadowOpacity": 0.1,
-            "shadowRadius": 1.5,
-          }
-        }
-      >
+      <View>
         <View
-          bordered={true}
-          header={true}
+          style={
+            Array [
+              Object {},
+              Object {
+                "flex": 1,
+                "height": 25,
+              },
+            ]
+          }
+        />
+        <Text
           style={
             Object {
-              "alignItems": "center",
-              "backgroundColor": "#fff",
-              "borderBottomWidth": 0.5,
-              "borderColor": "#ccc",
-              "borderRadius": 2,
-              "flexDirection": "row",
-              "paddingBottom": 15,
-              "paddingLeft": 15,
-              "paddingRight": 15,
-              "paddingTop": 15,
+              "color": "#000",
+              "fontSize": 21,
+              "lineHeight": 25,
             }
           }
         >
-          <Text
-            style={
+          ABC
+        </Text>
+        <View
+          style={
+            Array [
+              Object {},
               Object {
-                "color": "#007aff",
-                "fontFamily": "System",
-                "fontSize": 16,
-                "fontWeight": "600",
-              }
-            }
-            uppercase={false}
-          >
-            Content
-          </Text>
-        </View>
+                "flex": 1,
+                "height": 15,
+              },
+            ]
+          }
+        />
         <View
           style={
             Object {
-              "alignItems": "center",
               "backgroundColor": "#fff",
+              "borderBottomWidth": 0.5,
+              "borderColor": "#ccc",
+              "borderLeftWidth": 0.5,
               "borderRadius": 2,
-              "flexDirection": "row",
-              "paddingBottom": 10,
-              "paddingLeft": 15,
-              "paddingRight": 15,
-              "paddingTop": 10,
+              "borderRightWidth": 0.5,
+              "borderTopWidth": 0.5,
+              "elevation": 3,
+              "flexWrap": "nowrap",
+              "marginBottom": 5,
+              "marginLeft": 2,
+              "marginRight": 2,
+              "marginTop": 5,
+              "shadowColor": "#000",
+              "shadowOffset": Object {
+                "height": 2,
+                "width": 0,
+              },
+              "shadowOpacity": 0.1,
+              "shadowRadius": 1.5,
             }
           }
         >
           <View
+            bordered={true}
+            header={true}
             style={
               Object {
-                "alignItems": "flex-start",
-                "alignSelf": "stretch",
-                "flex": 1,
+                "alignItems": "center",
+                "backgroundColor": "#fff",
+                "borderBottomWidth": 0.5,
+                "borderColor": "#ccc",
+                "borderRadius": 2,
+                "flexDirection": "row",
+                "paddingBottom": 15,
+                "paddingLeft": 15,
+                "paddingRight": 15,
+                "paddingTop": 15,
               }
             }
           >
             <Text
               style={
                 Object {
-                  "color": "#000",
+                  "color": "#007aff",
                   "fontFamily": "System",
                   "fontSize": 16,
+                  "fontWeight": "600",
                 }
               }
-              uppercase={false}
             >
-              DEF
+              Content
             </Text>
           </View>
+          <View
+            style={
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#fff",
+                "borderRadius": 2,
+                "flexDirection": "row",
+                "paddingBottom": 10,
+                "paddingLeft": 15,
+                "paddingRight": 15,
+                "paddingTop": 10,
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "alignItems": "flex-start",
+                  "alignSelf": "stretch",
+                  "flex": 1,
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "color": "#000",
+                    "fontFamily": "System",
+                    "fontSize": 16,
+                  }
+                }
+              >
+                DEF
+              </Text>
+            </View>
+          </View>
         </View>
+        <View
+          style={
+            Array [
+              Object {},
+              Object {
+                "flex": 1,
+                "height": 20,
+              },
+            ]
+          }
+        />
       </View>
-      <View
-        style={
-          Array [
-            Object {},
-            Object {
-              "flex": 1,
-              "height": 20,
-            },
-          ]
-        }
-      />
-    </ScrollView>
+    </RCTScrollView>
   </SafeAreaView>
 </View>
 `;

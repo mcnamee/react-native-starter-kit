@@ -66,11 +66,10 @@ exports[`<Error /> renders with a button 1`] = `
           },
         ]
       }
-      uppercase={false}
     >
       An unexpected error came up
     </Text>
-    <
+    <TouchableOpacity
       activeOpacity={0.5}
       block={true}
       onPress={[Function]}
@@ -112,11 +111,10 @@ exports[`<Error /> renders with a button 1`] = `
             "paddingRight": 16,
           }
         }
-        uppercase={false}
       >
         Try Again
       </Text>
-    </>
+    </TouchableOpacity>
     <View
       style={
         Array [
@@ -198,7 +196,6 @@ exports[`<Error /> renders with message 1`] = `
           },
         ]
       }
-      uppercase={false}
     >
       An unexpected error came up
     </Text>

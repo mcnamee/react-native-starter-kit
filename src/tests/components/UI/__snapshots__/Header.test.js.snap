@@ -44,6 +44,7 @@ exports[`<Header /> renders with message 1`] = `
           "fontSize": 16,
         }
       }
+      uppercase={false}
     >
       I'm here
     </Text>

@@ -66,6 +66,7 @@ exports[`<ArticlesSingle /> shows a nice error message 1`] = `
           },
         ]
       }
+      uppercase={false}
     >
       This article could not be found
     </Text>
@@ -94,7 +95,8 @@ exports[`<ArticlesSingle /> shows an article correctly 1`] = `
     }
   }
 >
-  <SafeAreaView
+  <RCTSafeAreaView
+    emulateUnlessSupported={true}
     style={
       Object {
         "backgroundColor": "transparent",
@@ -240,6 +242,7 @@ exports[`<ArticlesSingle /> shows an article correctly 1`] = `
                   "fontWeight": "600",
                 }
               }
+              uppercase={false}
             >
               Content
             </Text>
@@ -275,6 +278,7 @@ exports[`<ArticlesSingle /> shows an article correctly 1`] = `
                     "fontSize": 16,
                   }
                 }
+                uppercase={false}
               >
                 DEF
               </Text>
@@ -294,6 +298,6 @@ exports[`<ArticlesSingle /> shows an article correctly 1`] = `
         />
       </View>
     </RCTScrollView>
-  </SafeAreaView>
+  </RCTSafeAreaView>
 </View>
 `;

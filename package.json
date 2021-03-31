@@ -1,5 +1,5 @@
 {
-  "name": "ReactNativeStarterKit",
+  "name": "reactnativestarterkit",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -10,48 +10,53 @@
     "lint": "eslint ."
   },
   "dependencies": {
-    "@react-native-community/async-storage": "^1.11.0",
+    "@react-native-community/async-storage": "^1.12.1",
+    "@react-native-community/masked-view": "^0.1.10",
     "@react-native-community/toolbar-android": "^0.1.0-rc.2",
-    "@rematch/core": "^1.4.0",
-    "@rematch/loading": "^1.2.1",
-    "@rematch/persist": "^1.1.6",
-    "axios": "^0.19.2",
+    "@rematch/core": "^2.0.1",
+    "@rematch/loading": "^2.0.1",
+    "@rematch/persist": "^2.0.1",
+    "axios": "^0.21.1",
     "jsonwebtoken": "^8.5.1",
-    "moment": "^2.27.0",
-    "native-base": "^2.13.13",
+    "moment": "^2.29.1",
+    "native-base": "^2.15.2",
     "prop-types": "^15.7.2",
-    "react": "16.13.1",
-    "react-hook-form": "^6.1.2",
-    "react-native": "0.63.2",
-    "react-native-gesture-handler": "^1.7.0",
-    "react-native-reanimated": "^1.10.1",
-    "react-native-router-flux": "^4.2.0",
-    "react-native-screens": "^2.9.0",
+    "react": "17.0.1",
+    "react-hook-form": "^6.15.5",
+    "react-native": "0.64.0",
+    "react-native-gesture-handler": "^1.10.3",
+    "react-native-reanimated": "^2.0.1",
+    "react-native-router-flux": "^4.3.1",
+    "react-native-safe-area-context": "^3.2.0",
+    "react-native-screens": "^3.0.0",
     "react-native-splash-screen": "^3.2.0",
-    "react-native-vector-icons": "^7.0.0",
-    "react-redux": "^7.2.1",
+    "react-native-vector-icons": "^8.1.0",
+    "react-redux": "^7.2.3",
     "redux-persist": "^6.0.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.8.4",
-    "@babel/runtime": "^7.8.4",
-    "@testing-library/react-native": "^6.0.0",
+    "@babel/core": "^7.12.9",
+    "@babel/runtime": "^7.12.5",
+    "@testing-library/react-native": "^7.2.0",
     "babel-eslint": "^10.1.0",
-    "babel-jest": "^25.1.0",
-    "eslint": "^6.5.1",
-    "eslint-config-airbnb": "^18.2.0",
-    "eslint-plugin-import": "^2.22.0",
-    "eslint-plugin-jest": "^23.19.0",
-    "eslint-plugin-jsx-a11y": "^6.3.1",
-    "eslint-plugin-react": "^7.20.5",
-    "jest": "^25.1.0",
-    "metro-react-native-babel-preset": "^0.59.0",
-    "react-test-renderer": "16.13.1"
+    "babel-jest": "^26.6.3",
+    "eslint": "7.14.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jest": "^24.3.2",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-react": "^7.23.1",
+    "jest": "^26.6.3",
+    "metro-react-native-babel-preset": "^0.64.0",
+    "react-test-renderer": "17.0.1"
   },
   "jest": {
-    "preset": "@testing-library/react-native",
+    "preset": "react-native",
     "transformIgnorePatterns": [
-      "node_modules/(?!((jest-)?react-native|react-clone-referenced-element?/.*|react-navigation|redux-persist|native-base(-shoutem-theme)|native-base|react-native-router-flux|@react-native-community/async-storage|moment|@codler))"
-    ]
+      "node_modules/(?!((jest-)?react-native|@react-native|react-clone-referenced-element?/.*|react-navigation|redux-persist|native-base(-shoutem-theme)|native-base|react-native-router-flux|@react-native-community/async-storage|moment|@codler))"
+    ],
+    "globals": {
+      "__DEV__": true
+    }
   }
 }

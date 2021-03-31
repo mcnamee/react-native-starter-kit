@@ -66,13 +66,21 @@ exports[`<Error /> renders with a button 1`] = `
           },
         ]
       }
+      uppercase={false}
     >
       An unexpected error came up
     </Text>
-    <TouchableOpacity
-      activeOpacity={0.5}
-      block={true}
-      onPress={[Function]}
+    <View
+      accessible={true}
+      focusable={true}
+      forwardedRef={[Function]}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
       style={
         Object {
           "alignItems": "center",
@@ -89,6 +97,7 @@ exports[`<Error /> renders with a button 1`] = `
           "flexDirection": "row",
           "height": 45,
           "justifyContent": "center",
+          "opacity": 1,
           "paddingBottom": 6,
           "paddingTop": 6,
           "shadowColor": undefined,
@@ -111,10 +120,11 @@ exports[`<Error /> renders with a button 1`] = `
             "paddingRight": 16,
           }
         }
+        uppercase={false}
       >
         Try Again
       </Text>
-    </TouchableOpacity>
+    </View>
     <View
       style={
         Array [
@@ -196,6 +206,7 @@ exports[`<Error /> renders with message 1`] = `
           },
         ]
       }
+      uppercase={false}
     >
       An unexpected error came up
     </Text>

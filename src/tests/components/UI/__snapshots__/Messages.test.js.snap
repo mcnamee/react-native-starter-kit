@@ -24,6 +24,7 @@ exports[`<Messages /> renders with error and message 1`] = `
         },
       ]
     }
+    uppercase={false}
   >
     Success
   </Text>
@@ -54,6 +55,7 @@ exports[`<Messages /> renders with error and message 2`] = `
         },
       ]
     }
+    uppercase={false}
   >
     Error
   </Text>
@@ -84,6 +86,7 @@ exports[`<Messages /> renders with info and message 1`] = `
         },
       ]
     }
+    uppercase={false}
   >
     Warning
   </Text>

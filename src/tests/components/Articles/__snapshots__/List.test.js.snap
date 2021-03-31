@@ -95,12 +95,20 @@ exports[`<ArticlesList /> shows a list of articles correctly 1`] = `
             ]
           }
         >
-          <TouchableOpacity
-            activeOpacity={0.8}
-            onPress={[Function]}
+          <View
+            accessible={true}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
             style={
               Object {
                 "flex": 1,
+                "opacity": 1,
               }
             }
           >
@@ -172,6 +180,7 @@ exports[`<ArticlesList /> shows a list of articles correctly 1`] = `
                       },
                     ]
                   }
+                  uppercase={false}
                 >
                   ABC
                 </Text>
@@ -194,6 +203,7 @@ exports[`<ArticlesList /> shows a list of articles correctly 1`] = `
                       "fontSize": 16,
                     }
                   }
+                  uppercase={false}
                 >
                   DEF
                 </Text>
@@ -210,7 +220,7 @@ exports[`<ArticlesList /> shows a list of articles correctly 1`] = `
                 />
               </View>
             </View>
-          </TouchableOpacity>
+          </View>
         </View>
       </View>
     </View>
@@ -295,6 +305,7 @@ exports[`<ArticlesList /> shows a nice error message 1`] = `
           },
         ]
       }
+      uppercase={false}
     >
       No articles found
     </Text>

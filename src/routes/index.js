@@ -34,7 +34,7 @@ const Index = (
           {...DefaultProps.navbarProps}
         >
           <Scene key="articlesList" component={ArticlesList} />
-          <Scene key="articlesSingle" component={ArticlesSingle} />
+          <Scene key="articlesSingle" component={ArticlesSingle} back />
         </Stack>
 
         <Stack

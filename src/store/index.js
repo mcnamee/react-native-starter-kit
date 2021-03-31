@@ -7,7 +7,7 @@ import * as models from '../models';
 
 // Create plugins
 const persistPlugin = createPersistPlugin({
-  version: 2,
+  key: 'root',
   storage: AsyncStorage,
   blacklist: [],
 });

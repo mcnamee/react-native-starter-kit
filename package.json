@@ -22,7 +22,7 @@
     "native-base": "^2.15.2",
     "prop-types": "^15.7.2",
     "react": "17.0.1",
-    "react-hook-form": "^7.1.1",
+    "react-hook-form": "^7.3.3",
     "react-native": "0.64.0",
     "react-native-gesture-handler": "^1.10.3",
     "react-native-reanimated": "^2.1.0",
@@ -31,7 +31,7 @@
     "react-native-screens": "^3.1.1",
     "react-native-splash-screen": "^3.2.0",
     "react-native-vector-icons": "^8.1.0",
-    "react-redux": "^7.2.3",
+    "react-redux": "^7.2.4",
     "redux-persist": "^6.0.0"
   },
   "devDependencies": {
@@ -43,7 +43,7 @@
     "eslint": "7.14.0",
     "eslint-config-airbnb": "^18.2.1",
     "eslint-plugin-import": "^2.22.1",
-    "eslint-plugin-jest": "^24.3.5",
+    "eslint-plugin-jest": "^24.3.6",
     "eslint-plugin-jsx-a11y": "^6.4.1",
     "eslint-plugin-react": "^7.23.2",
     "jest": "^26.6.3",

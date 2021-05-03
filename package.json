@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "@react-native-community/async-storage": "^1.12.1",
-    "@react-native-community/masked-view": "^0.1.10",
+    "@react-native-community/masked-view": "^0.1.11",
     "@react-native-community/toolbar-android": "^0.1.0-rc.2",
     "@rematch/core": "^2.0.1",
     "@rematch/loading": "^2.0.1",
@@ -22,7 +22,7 @@
     "native-base": "^2.15.2",
     "prop-types": "^15.7.2",
     "react": "17.0.1",
-    "react-hook-form": "^7.3.3",
+    "react-hook-form": "^7.3.6",
     "react-native": "0.64.0",
     "react-native-gesture-handler": "^1.10.3",
     "react-native-reanimated": "^2.1.0",

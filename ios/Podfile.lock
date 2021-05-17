@@ -355,7 +355,7 @@ PODS:
     - React-RCTVibration
     - ReactCommon/turbomodule/core
     - Yoga
-  - RNScreens (3.1.1):
+  - RNScreens (3.2.0):
     - React-Core
   - RNVectorIcons (8.1.0):
     - React-Core
@@ -561,7 +561,7 @@ SPEC CHECKSUMS:
   RNCMaskedView: 0e1bc4bfa8365eba5fbbb71e07fbdc0555249489
   RNGestureHandler: a479ebd5ed4221a810967000735517df0d2db211
   RNReanimated: b8c8004b43446e3c2709fe64b2b41072f87428ad
-  RNScreens: bd1523c3bde7069b8e958e5a16e1fc7722ad0bdd
+  RNScreens: c277bfc4b5bb7c2fe977d19635df6f974f95dfd6
   RNVectorIcons: 31cebfcf94e8cf8686eb5303ae0357da64d7a5a4
   toolbar-android: 85f3ef4d691469f2d304e7dee4bca013aa1ba1ff
   Yoga: a7de31c64fe738607e7a3803e3f591a4b1df7393

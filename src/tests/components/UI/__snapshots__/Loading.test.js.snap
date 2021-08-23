@@ -11,9 +11,7 @@ exports[`<Loading /> renders correctly 1`] = `
   }
 >
   <ActivityIndicator
-    animating={true}
     color="#007aff"
-    hidesWhenStopped={true}
     size="large"
   />
 </View>

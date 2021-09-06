@@ -269,7 +269,7 @@ PODS:
     - React-jsi (= 0.65.1)
     - React-perflogger (= 0.65.1)
   - React-jsinspector (0.65.1)
-  - react-native-safe-area-context (3.3.0):
+  - react-native-safe-area-context (3.3.2):
     - React-Core
   - react-native-splash-screen (3.2.0):
     - React
@@ -377,7 +377,7 @@ PODS:
     - React-RCTImage
   - RNVectorIcons (8.1.0):
     - React-Core
-  - toolbar-android (0.1.0-rc.2):
+  - toolbar-android (0.2.1):
     - React
   - Yoga (1.14.0)
   - YogaKit (1.18.1):
@@ -569,7 +569,7 @@ SPEC CHECKSUMS:
   React-jsi: 12913c841713a15f64eabf5c9ad98592c0ec5940
   React-jsiexecutor: 43f2542aed3c26e42175b339f8d37fe3dd683765
   React-jsinspector: 41e58e5b8e3e0bf061fdf725b03f2144014a8fb0
-  react-native-safe-area-context: 61c8c484a3a9e7d1fda19f7b1794b35bbfd2262a
+  react-native-safe-area-context: 584dc04881deb49474363f3be89e4ca0e854c057
   react-native-splash-screen: 200d11d188e2e78cea3ad319964f6142b6384865
   React-perflogger: fd28ee1f2b5b150b00043f0301d96bd417fdc339
   React-RCTActionSheet: 7f3fa0855c346aa5d7c60f9ced16e067db6d29fa
@@ -589,7 +589,7 @@ SPEC CHECKSUMS:
   RNReanimated: 7245c2ff6dca3b42b6f77e800adf85ce68532759
   RNScreens: eb0dfb2d6b21d2d7f980ad46b14eb306d2f1062e
   RNVectorIcons: 31cebfcf94e8cf8686eb5303ae0357da64d7a5a4
-  toolbar-android: 85f3ef4d691469f2d304e7dee4bca013aa1ba1ff
+  toolbar-android: 2a73856e98b750d7e71ce4644d3f41cc98211719
   Yoga: aa0cb45287ebe1004c02a13f279c55a95f1572f4
   YogaKit: f782866e155069a2cca2517aafea43200b01fd5a
 

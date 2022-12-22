@@ -17,7 +17,7 @@
     "@rematch/loading": "^2.1.0",
     "@rematch/persist": "^2.1.0",
     "axios": "^0.21.3",
-    "jsonwebtoken": "^8.5.1",
+    "jsonwebtoken": "^9.0.0",
     "moment": "^2.29.1",
     "native-base": "2",
     "prop-types": "^15.7.2",
